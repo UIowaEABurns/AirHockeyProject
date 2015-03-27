@@ -17,11 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         DatabaseManager.setupDatabaseIfNotExists()
         var u : User = User()
-        u.setUsername("testusermore")
-        u.setFirstName("Eric")
-        u.setLastName("Burns")
+        println("doing things")
+        u.setUsername("two")
+        u.setFirstName("Ark")
+        u.setLastName("Toors")
         Users.createUser(u)
-        Users.getUserByUsername("testuser")
+        Users.getUserByUsername("two")
         return true
     }
 

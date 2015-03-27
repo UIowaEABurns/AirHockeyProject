@@ -9,7 +9,7 @@
 import Foundation
 
 public class SettingsProfile {
-    private var id : Int?
+    private var id : Int64?
     private var friction : Double?
     private var playerOnePaddleRadius : Double?
     private var playerTwoPaddleRadius : Double?
@@ -22,10 +22,10 @@ public class SettingsProfile {
         
     }
     
-    public func getId() -> Int? {
+    public func getId() -> Int64? {
         return id;
     }
-    public func setId(id : Int?) {
+    public func setId(id : Int64?) {
         self.id=id
     }
     public func getFriction() -> Double? {

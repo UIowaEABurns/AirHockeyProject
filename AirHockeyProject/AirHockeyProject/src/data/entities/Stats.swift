@@ -9,7 +9,7 @@
 import Foundation
 
 public class Stats {
-    private var id : Int?
+    private var id : Int64?
     private var gamesComplete: Int?
     private var gamesExited : Int?
     private var gamesWon : Int?
@@ -22,7 +22,7 @@ public class Stats {
         
     }
     
-    public func getId() -> Int? {
+    public func getId() -> Int64? {
         return id
     }
     public func getGamesComplete() -> Int? {
@@ -53,7 +53,7 @@ public class Stats {
     
     
     
-    public func setId(i : Int?) {
+    public func setId(i : Int64?) {
         self.id=i
     }
     public func setGamesComplete(i : Int?) {

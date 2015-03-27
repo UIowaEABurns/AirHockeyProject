@@ -27,6 +27,9 @@
 		7107A2E81AC39B8300706EC8 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7107A2DC1AC39A5A00706EC8 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7107A2EA1AC39F2E00706EC8 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A2E91AC39F2E00706EC8 /* Users.swift */; };
 		7107A2ED1AC3A12A00706EC8 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A2EC1AC3A12A00706EC8 /* Util.swift */; };
+		71BB497F1AC4CE1C00898049 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB497E1AC4CE1C00898049 /* Settings.swift */; };
+		71BB49821AC4D24F00898049 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB49811AC4D24F00898049 /* Constants.swift */; };
+		71BB49841AC4D70200898049 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB49831AC4D70200898049 /* Statistics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +114,9 @@
 		7107A2D31AC39A5900706EC8 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		7107A2E91AC39F2E00706EC8 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		7107A2EC1AC3A12A00706EC8 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		71BB497E1AC4CE1C00898049 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		71BB49811AC4D24F00898049 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		71BB49831AC4D70200898049 /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +206,7 @@
 		7107A2BE1AC398D600706EC8 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				71BB49801AC4D23C00898049 /* config */,
 				7107A2EB1AC3A11E00706EC8 /* util */,
 				7107A2BF1AC398D600706EC8 /* data */,
 			);
@@ -220,6 +227,8 @@
 			children = (
 				7107A2C11AC398D600706EC8 /* DatabaseManager.swift */,
 				7107A2E91AC39F2E00706EC8 /* Users.swift */,
+				71BB497E1AC4CE1C00898049 /* Settings.swift */,
+				71BB49831AC4D70200898049 /* Statistics.swift */,
 			);
 			path = database;
 			sourceTree = "<group>";
@@ -261,6 +270,15 @@
 			);
 			path = util;
 			sourceTree = "<group>";
+		};
+		71BB49801AC4D23C00898049 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				71BB49811AC4D24F00898049 /* Constants.swift */,
+			);
+			name = config;
+			path = AirHockeyProject/src/config;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -405,13 +423,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				7107A2EA1AC39F2E00706EC8 /* Users.swift in Sources */,
+				71BB49821AC4D24F00898049 /* Constants.swift in Sources */,
 				7107A2ED1AC3A12A00706EC8 /* Util.swift in Sources */,
 				7107A2C61AC398D600706EC8 /* DatabaseManager.swift in Sources */,
 				7107A2C81AC398D600706EC8 /* Stats.swift in Sources */,
+				71BB497F1AC4CE1C00898049 /* Settings.swift in Sources */,
 				7107A29F1AC398B600706EC8 /* GameScene.swift in Sources */,
 				7107A2A11AC398B600706EC8 /* GameViewController.swift in Sources */,
 				7107A29B1AC398B600706EC8 /* AppDelegate.swift in Sources */,
 				7107A2C71AC398D600706EC8 /* SettingsProfile.swift in Sources */,
+				71BB49841AC4D70200898049 /* Statistics.swift in Sources */,
 				7107A2C91AC398D600706EC8 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,6 +632,7 @@
 				7107A2BA1AC398B600706EC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7107A2BB1AC398B600706EC8 /* Build configuration list for PBXNativeTarget "AirHockeyProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -619,6 +641,7 @@
 				7107A2BD1AC398B600706EC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

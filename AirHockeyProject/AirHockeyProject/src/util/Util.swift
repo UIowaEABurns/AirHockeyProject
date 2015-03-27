@@ -16,7 +16,9 @@ class Util {
     }
     
     class func stringToLongInt(s : String) -> Int64 {
+        println("here")
         let nsString = s as NSString
+        println(nsString)
         
         
         return nsString.longLongValue

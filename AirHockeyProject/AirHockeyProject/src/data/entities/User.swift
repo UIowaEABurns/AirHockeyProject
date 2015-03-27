@@ -16,6 +16,7 @@ public class User {
     private var username : String?
     private var lastLogin : Int64? // this is a timestamp in Unix time (milliseconds since the epoch)
     private var settings : SettingsProfile?
+    private var stats : Stats?
     init() {
         
     }
@@ -51,6 +52,14 @@ public class User {
     }
     public func setSettingsProfile(s: SettingsProfile?) {
         settings=s
+    }
+    
+    public func getStats() -> Stats? {
+        return stats
+    }
+    
+    public func setStats(s : Stats?) {
+        self.stats=s
     }
     
     
