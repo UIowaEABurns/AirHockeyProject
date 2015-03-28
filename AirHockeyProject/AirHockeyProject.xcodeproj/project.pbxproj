@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		710435B11AC7103B003E9458 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710435B01AC7103B003E9458 /* Table.swift */; };
+		710435B61AC74BB9003E9458 /* InputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710435B51AC74BB9003E9458 /* InputManager.swift */; };
 		7107A29B1AC398B600706EC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A29A1AC398B600706EC8 /* AppDelegate.swift */; };
-		7107A29D1AC398B600706EC8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7107A29C1AC398B600706EC8 /* GameScene.sks */; };
 		7107A29F1AC398B600706EC8 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A29E1AC398B600706EC8 /* GameScene.swift */; };
 		7107A2A11AC398B600706EC8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A2A01AC398B600706EC8 /* GameViewController.swift */; };
 		7107A2A41AC398B600706EC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7107A2A21AC398B600706EC8 /* Main.storyboard */; };
@@ -27,6 +28,10 @@
 		7107A2E81AC39B8300706EC8 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7107A2DC1AC39A5A00706EC8 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7107A2EA1AC39F2E00706EC8 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A2E91AC39F2E00706EC8 /* Users.swift */; };
 		7107A2ED1AC3A12A00706EC8 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A2EC1AC3A12A00706EC8 /* Util.swift */; };
+		71A8756D1AC5C71F008EDBA9 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A8756C1AC5C71F008EDBA9 /* Timer.swift */; };
+		71A875761AC5D115008EDBA9 /* Puck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A875751AC5D115008EDBA9 /* Puck.swift */; };
+		71A875781AC5D4AE008EDBA9 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A875771AC5D4AE008EDBA9 /* Paddle.swift */; };
+		71A8757A1AC5D5D3008EDBA9 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A875791AC5D5D3008EDBA9 /* Geometry.swift */; };
 		71BB497F1AC4CE1C00898049 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB497E1AC4CE1C00898049 /* Settings.swift */; };
 		71BB49821AC4D24F00898049 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB49811AC4D24F00898049 /* Constants.swift */; };
 		71BB49841AC4D70200898049 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB49831AC4D70200898049 /* Statistics.swift */; };
@@ -91,10 +96,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		710435B01AC7103B003E9458 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
+		710435B51AC74BB9003E9458 /* InputManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputManager.swift; sourceTree = "<group>"; };
 		7107A2951AC398B600706EC8 /* AirHockeyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirHockeyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7107A2991AC398B600706EC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7107A29A1AC398B600706EC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7107A29C1AC398B600706EC8 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		7107A29E1AC398B600706EC8 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		7107A2A01AC398B600706EC8 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7107A2A31AC398B600706EC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,6 +120,10 @@
 		7107A2D31AC39A5900706EC8 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		7107A2E91AC39F2E00706EC8 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		7107A2EC1AC3A12A00706EC8 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		71A8756C1AC5C71F008EDBA9 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		71A875751AC5D115008EDBA9 /* Puck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Puck.swift; sourceTree = "<group>"; };
+		71A875771AC5D4AE008EDBA9 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
+		71A875791AC5D5D3008EDBA9 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		71BB497E1AC4CE1C00898049 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		71BB49811AC4D24F00898049 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		71BB49831AC4D70200898049 /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
@@ -164,10 +174,10 @@
 		7107A2971AC398B600706EC8 /* AirHockeyProject */ = {
 			isa = PBXGroup;
 			children = (
+				71A875721AC5D103008EDBA9 /* Resources */,
 				7107A2CA1AC398E300706EC8 /* sql */,
 				7107A2BE1AC398D600706EC8 /* src */,
 				7107A29A1AC398B600706EC8 /* AppDelegate.swift */,
-				7107A29C1AC398B600706EC8 /* GameScene.sks */,
 				7107A29E1AC398B600706EC8 /* GameScene.swift */,
 				7107A2A01AC398B600706EC8 /* GameViewController.swift */,
 				7107A2A21AC398B600706EC8 /* Main.storyboard */,
@@ -206,6 +216,7 @@
 		7107A2BE1AC398D600706EC8 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				71A875711AC5D0F5008EDBA9 /* game */,
 				71BB49801AC4D23C00898049 /* config */,
 				7107A2EB1AC3A11E00706EC8 /* util */,
 				7107A2BF1AC398D600706EC8 /* data */,
@@ -267,8 +278,45 @@
 			isa = PBXGroup;
 			children = (
 				7107A2EC1AC3A12A00706EC8 /* Util.swift */,
+				71A8756C1AC5C71F008EDBA9 /* Timer.swift */,
 			);
 			path = util;
+			sourceTree = "<group>";
+		};
+		71A875711AC5D0F5008EDBA9 /* game */ = {
+			isa = PBXGroup;
+			children = (
+				71A875751AC5D115008EDBA9 /* Puck.swift */,
+				71A875771AC5D4AE008EDBA9 /* Paddle.swift */,
+				71A875791AC5D5D3008EDBA9 /* Geometry.swift */,
+				710435B01AC7103B003E9458 /* Table.swift */,
+				710435B51AC74BB9003E9458 /* InputManager.swift */,
+			);
+			name = game;
+			path = AirHockeyProject/src/game;
+			sourceTree = SOURCE_ROOT;
+		};
+		71A875721AC5D103008EDBA9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				71A875731AC5D103008EDBA9 /* Images */,
+				71A875741AC5D103008EDBA9 /* Sounds */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		71A875731AC5D103008EDBA9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		71A875741AC5D103008EDBA9 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		71BB49801AC4D23C00898049 /* config */ = {
@@ -402,7 +450,6 @@
 				7107A2A91AC398B600706EC8 /* LaunchScreen.xib in Resources */,
 				7107A2CE1AC398E300706EC8 /* airhockeySchema.sql in Resources */,
 				7107A2A61AC398B600706EC8 /* Images.xcassets in Resources */,
-				7107A29D1AC398B600706EC8 /* GameScene.sks in Resources */,
 				7107A2A41AC398B600706EC8 /* Main.storyboard in Resources */,
 				7107A2CD1AC398E300706EC8 /* airhockey.sqlite3 in Resources */,
 			);
@@ -426,12 +473,18 @@
 				71BB49821AC4D24F00898049 /* Constants.swift in Sources */,
 				7107A2ED1AC3A12A00706EC8 /* Util.swift in Sources */,
 				7107A2C61AC398D600706EC8 /* DatabaseManager.swift in Sources */,
+				71A8756D1AC5C71F008EDBA9 /* Timer.swift in Sources */,
+				71A8757A1AC5D5D3008EDBA9 /* Geometry.swift in Sources */,
+				710435B61AC74BB9003E9458 /* InputManager.swift in Sources */,
 				7107A2C81AC398D600706EC8 /* Stats.swift in Sources */,
+				71A875761AC5D115008EDBA9 /* Puck.swift in Sources */,
 				71BB497F1AC4CE1C00898049 /* Settings.swift in Sources */,
 				7107A29F1AC398B600706EC8 /* GameScene.swift in Sources */,
 				7107A2A11AC398B600706EC8 /* GameViewController.swift in Sources */,
 				7107A29B1AC398B600706EC8 /* AppDelegate.swift in Sources */,
+				710435B11AC7103B003E9458 /* Table.swift in Sources */,
 				7107A2C71AC398D600706EC8 /* SettingsProfile.swift in Sources */,
+				71A875781AC5D4AE008EDBA9 /* Paddle.swift in Sources */,
 				71BB49841AC4D70200898049 /* Statistics.swift in Sources */,
 				7107A2C91AC398D600706EC8 /* User.swift in Sources */,
 			);
