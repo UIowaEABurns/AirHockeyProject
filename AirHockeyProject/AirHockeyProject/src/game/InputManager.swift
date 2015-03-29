@@ -46,13 +46,24 @@ public class InputManager {
             if (p1Half.contains(location)) {
                 if (p1TouchLocation==nil) {
                     p1TouchLocation=location
-
+                } else {
+                    if !(prevP1==nil) {
+                        if (Geometry.distance(location,b: prevP1!)<Geometry.distance(p1TouchLocation!,b: prevP1!)) {
+                            p1TouchLocation=location
+                        }
+                    }
                 }
 
             } else if (p2Half.contains(location)) {
                 if (p2TouchLocation==nil) {
                     p2TouchLocation=location
 
+                } else {
+                    if !(prevP2==nil) {
+                        if (Geometry.distance(location,b: prevP2!)<Geometry.distance(p1TouchLocation!,b: prevP2!)) {
+                            p2TouchLocation=location
+                        }
+                    }
                 }
             }
 

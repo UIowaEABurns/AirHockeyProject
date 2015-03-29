@@ -78,12 +78,10 @@ public class Player {
     // given a point to move the paddle to, gets the vector that works best for moving the paddle to the point
     public func getPaddleVectorToPoint(point : CGPoint) -> CGVector {
         var vector = Geometry.normalVector(self.getPaddle()!.position, b: point)
-        // println("moving the puck")
         let speed : CGFloat = maxAcceleration
         vector.dx = vector.dx * speed
         vector.dy = vector.dy * speed
         
-            // println("we are close to the touch!")
         let distance = Geometry.distance(point,b: paddle!.position)
         
             

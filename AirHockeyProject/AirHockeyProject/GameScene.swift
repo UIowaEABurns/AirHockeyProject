@@ -8,6 +8,12 @@
 
 import SpriteKit
 
+// collision detection categories
+let puckCategory :  UInt32 =  0x1 << 0;
+let paddleCategory :  UInt32 =  0x1 << 1;
+let edgeCategory : UInt32 = 0x1 << 2
+let barrierCategory : UInt32 = 0x1 << 3
+
 public class GameScene: SKScene {
     
     //TODO: need to pass the user setting profile to this variable
@@ -42,24 +48,31 @@ public class GameScene: SKScene {
         self.physicsWorld.gravity=CGVectorMake(0,0) // no gravity in this game
         inputManager = InputManager()
         inputManager.setGame(self)
+        println("total width")
+        println(self.frame.width)
         let fractionOfWidth : CGFloat = 0.8 // how much of the screen should this take up?
-        let fractionOfHeight : CGFloat = 1
+        let fractionOfHeight : CGFloat = 0.9
         let width = self.frame.width * fractionOfWidth
         let height = self.frame.height * fractionOfHeight
+        println("calculated width")
+        println(width)
         let size = CGSize(width: width,height: height)
         
-        playingTable = makeTable(CGRect(origin: CGPoint(x: self.frame.width*((1-fractionOfWidth)/2), y: self.frame.height*((1-fractionOfHeight)/2)), size: size))
+        playingTable = makeTable(CGRect(origin: CGPoint(x: 0,y: 0), size: size))
         
+        playingTable.position = CGPoint(x: self.frame.width*((1-fractionOfWidth)/2), y: self.frame.height*((1-fractionOfHeight)/2))
         self.addChild(playingTable)
         
-       
+        println("width from scene")
+        println(playingTable.frame.width)
+    
         
         var puck = getPuckSprite(2.0)
         playingTable.setPuck(puck)
         
         
-        playerOne=HumanPlayer(speed: 400.0, accel: 100.0, s: self, i: 1)
-        playerTwo=HumanPlayer(speed: 400.0, accel: 100.0, s: self, i: 2)
+        playerOne=HumanPlayer(speed: maxHumanPaddleSpeed, accel: maxHumanPaddleAcceleration, s: self, i: 1)
+        playerTwo=HumanPlayer(speed: maxHumanPaddleSpeed, accel: maxHumanPaddleAcceleration, s: self, i: 2)
         
         var paddle = getPaddleSprite(CGFloat(settingsProfile.getPlayerOnePaddleRadius()!))
         var tableHalf = playingTable.getPlayerOneHalf()
@@ -89,9 +102,7 @@ public class GameScene: SKScene {
     }
     
     override public func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        /* Called when a touch begins */
         inputManager.updateTouches(touches)
-        
     }
     
    override public func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
@@ -99,7 +110,9 @@ public class GameScene: SKScene {
     }
     
     override public func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        
+        inputManager.updateTouches(touches)
+    }
+    override public func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
         inputManager.updateTouches(touches)
     }
     
@@ -128,16 +141,9 @@ public class GameScene: SKScene {
         for player in [playerOne, playerTwo] {
             let paddle=player.getPaddle()!
             var paddleSpeed = Geometry.magnitude(player.getPaddle()!.physicsBody!.velocity)
-            println(paddleSpeed)
             if (paddleSpeed>player.getMaxSpeed()) {
                 paddle.physicsBody!.velocity = Geometry.getVectorOfMagnitude(paddle.physicsBody!.velocity, b: player.getMaxSpeed())
             }
-        }
-        if (playerOne.getPaddle()!.position.y>playingTable.frame.midY) {
-            playerOne.getPaddle()!.position.y=playingTable.frame.midY
-        }
-        if (playerTwo.getPaddle()!.position.y<playingTable.frame.midY) {
-            playerTwo.getPaddle()!.position.y=playingTable.frame.midY
         }
         
     }

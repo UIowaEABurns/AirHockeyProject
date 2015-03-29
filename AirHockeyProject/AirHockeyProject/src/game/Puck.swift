@@ -22,7 +22,8 @@ public class Puck: SKShapeNode {
         self.physicsBody?.friction=CGFloat(settingsProfile.getFriction()!)
         self.physicsBody?.linearDamping=CGFloat(settingsProfile.getFriction()!)
         self.physicsBody?.angularDamping=CGFloat(settingsProfile.getFriction()!)
-
+        self.physicsBody?.categoryBitMask = puckCategory
+        self.physicsBody?.collisionBitMask = paddleCategory|edgeCategory|puckCategory
     }
    
     

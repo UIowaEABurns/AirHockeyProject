@@ -7,9 +7,15 @@
 //
 
 import Foundation
+import SpriteKit
 
+public var maxHumanPaddleSpeed : CGFloat=400.0
+public var maxHumanPaddleAcceleration : CGFloat = 100.0
 
 public class AirHockeyConstants {
+    
+   
+    
     
     //TODO: Localizing all default settings for the game in this function! Do needed tweaking in here!
     public class func getDefaultSettings() -> SettingsProfile {

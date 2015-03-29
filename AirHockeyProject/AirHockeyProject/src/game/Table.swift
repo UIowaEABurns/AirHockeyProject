@@ -18,10 +18,30 @@ public class Table : SKShapeNode {
     
     init(rect : CGRect) {
         super.init()
+        
         self.path = CGPathCreateWithRect(rect, nil)
 
         self.fillColor = SKColor.grayColor()
         self.physicsBody=SKPhysicsBody(edgeLoopFromRect: rect)
+        self.physicsBody?.categoryBitMask = edgeCategory
+        //creates a center line that paddles cannot cross
+        
+        let centerHeight : CGFloat = 10
+        let point=CGPoint(x: 0, y: self.frame.midY-(centerHeight/2))
+        let size : CGSize = CGSize(width: self.frame.width, height: centerHeight)
+        println("midline width")
+        println(size.width)
+        let centerRect = CGRect(origin: point, size: size)
+        
+        var midline = SKShapeNode(rect: centerRect)
+        
+        midline.fillColor=SKColor.brownColor()
+        
+        midline.physicsBody=SKPhysicsBody(edgeLoopFromRect: centerRect)
+        midline.physicsBody!.categoryBitMask = barrierCategory
+        midline.physicsBody!.collisionBitMask = paddleCategory // the midline only blocks paddles
+        self.addChild(midline)
+        
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -48,7 +68,7 @@ public class Table : SKShapeNode {
     public func setPuck(p : Puck) {
         puck = p
         puck.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        
+       
         self.addChild(puck)
     }
     public func getPuck() -> Puck {
