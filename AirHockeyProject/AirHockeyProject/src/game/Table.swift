@@ -12,8 +12,7 @@ import SpriteKit
 public class Table : SKShapeNode {
     
     private var puck : Puck!
-    private var playerOnePaddle : Paddle!
-    private var playerTwoPaddle : Paddle!
+
     private var otherObjects  : [SKNode]! = []
     
     
@@ -43,27 +42,16 @@ public class Table : SKShapeNode {
     func getPlayerOneHalf() -> CGRect {
         return CGRect(origin: self.frame.origin, size: CGSize(width: self.frame.width, height: self.frame.height/2))
     }
+   
     
+    //adds the puck to this table, including positioning the puck and adding it to the scene
     public func setPuck(p : Puck) {
         puck = p
+        puck.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        
+        self.addChild(puck)
     }
     public func getPuck() -> Puck {
         return puck
     }
-    public func setPlayerOnePaddle(p : Paddle) {
-        playerOnePaddle=p
-        
-    }
-    public func setPlayerTwoPaddle(p : Paddle) {
-        playerTwoPaddle=p
-        
-    }
-    public func getPlayerOnePaddle() -> Paddle {
-        return playerOnePaddle
-    }
-    
-    public func getPlayerTwoPaddle() -> Paddle {
-        return playerTwoPaddle
-    }
-    
 }

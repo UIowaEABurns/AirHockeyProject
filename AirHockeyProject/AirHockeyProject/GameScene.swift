@@ -12,20 +12,22 @@ public class GameScene: SKScene {
     
     //TODO: need to pass the user setting profile to this variable
     private var settingsProfile = AirHockeyConstants.getDefaultSettings()
-    
-    
-    
+
     private var inputManager : InputManager!
     
     private var playingTable : Table!
+    
+    
+    private var playerOne : Player!
+    private var playerTwo : Player!
     
     public func getPlayingTable() -> Table {
         return playingTable
     }
     
-    private var puck : Puck!
     
-    private var maxPaddleSpeed : CGFloat=200
+    
+    
     
     override init(size: CGSize) {
         super.init(size: size)
@@ -41,7 +43,7 @@ public class GameScene: SKScene {
         inputManager = InputManager()
         inputManager.setGame(self)
         let fractionOfWidth : CGFloat = 0.8 // how much of the screen should this take up?
-        let fractionOfHeight : CGFloat = 0.9
+        let fractionOfHeight : CGFloat = 1
         let width = self.frame.width * fractionOfWidth
         let height = self.frame.height * fractionOfHeight
         let size = CGSize(width: width,height: height)
@@ -52,10 +54,28 @@ public class GameScene: SKScene {
         
        
         
-        puck = getPuckSprite(10.0,density: 2.0)
-        puck.position = CGPoint(x:CGRectGetMidX(playingTable.frame), y:CGRectGetMidY(playingTable.frame));
+        var puck = getPuckSprite(2.0)
         playingTable.setPuck(puck)
-        playingTable.addChild(puck)
+        
+        
+        playerOne=HumanPlayer(speed: 400.0, accel: 100.0, s: self, i: 1)
+        playerTwo=HumanPlayer(speed: 400.0, accel: 100.0, s: self, i: 2)
+        
+        var paddle = getPaddleSprite(CGFloat(settingsProfile.getPlayerOnePaddleRadius()!))
+        var tableHalf = playingTable.getPlayerOneHalf()
+
+        paddle.position = CGPoint(x:CGRectGetMidX(tableHalf),y:CGRectGetMidY(tableHalf))
+        playingTable.addChild(paddle)
+        playerOne.setPaddle(paddle)
+        
+        
+        paddle = getPaddleSprite(CGFloat(settingsProfile.getPlayerTwoPaddleRadius()!))
+        tableHalf = playingTable.getPlayerTwoHalf()
+        
+        paddle.position = CGPoint(x:CGRectGetMidX(tableHalf),y:CGRectGetMidY(tableHalf))
+        playingTable.addChild(paddle)
+        playerTwo.setPaddle(paddle)
+        
         
     }
     
@@ -86,47 +106,61 @@ public class GameScene: SKScene {
     
     
     //TODO: we actually want a textured node here, but this is just for testing
-    func getPuckSprite(radius : CGFloat, density : CGFloat) -> Puck {
-        var puck = Puck(circleOfRadius : radius)
-        puck.configurePuck(radius, density: density, settingsProfile: settingsProfile)
+    func getPuckSprite(density : CGFloat) -> Puck {
+        var puck = Puck(circleOfRadius : CGFloat(settingsProfile.getPuckRadius()!))
+        
+        puck.configurePuck(density, settingsProfile: settingsProfile)
         return puck
     }
     
     
-   
-    override public func update(currentTime: CFTimeInterval) {
-        // move the puck to the mouse
-        if (!(inputManager.getPlayerOneInput()==nil)) {
-           // println("moving the puck")
-            var normalVector : CGVector = Geometry.normalVector(puck.position, b: inputManager.getPlayerOneInput()!)
-            let speed : CGFloat = 30 //TODO: Acceleration needs to be based on the distance from the paddle to the touch
-            normalVector.dx = normalVector.dx * speed
-            normalVector.dy = normalVector.dy * speed
-            puck.physicsBody?.applyForce(normalVector)
-            
-        }
+    //returns a paddle TODO get a textured node
+    func getPaddleSprite(r : CGFloat)-> Paddle{
+        var paddle = Paddle(circleOfRadius : r)
+        
+        paddle.configurePaddle(r, settingsProfile: settingsProfile)
+        return paddle
     }
     
-   override public func didSimulatePhysics() {
-        // called after physics have been simulated
-        // slow down the puck if it is close to the touch
-    var puckSpeed  = Geometry.magnitude(puck.physicsBody!.velocity)
-    if (puckSpeed>maxPaddleSpeed) {
-        puck.physicsBody!.velocity = Geometry.getVectorOfMagnitude(puck.physicsBody!.velocity, b: maxPaddleSpeed)
-        puckSpeed=maxPaddleSpeed
-    }
-    if (!(inputManager.getPlayerOneInput()==nil)) {
-       // println("we are close to the touch!")
-        let distance = Geometry.distance(inputManager.getPlayerOneInput()!,b: puck.position)
-        if (distance<=5) {
-            puck.physicsBody!.velocity = CGVector(dx: 0,dy: 0)
-
-        } else if (distance<=puckSpeed) {
-            puck.physicsBody!.velocity = Geometry.getVectorOfMagnitude(puck.physicsBody!.velocity, b: distance)
+    
+    override public func didEvaluateActions() {
+        // ensure player paddles are not going faster than the maximum
+        for player in [playerOne, playerTwo] {
+            let paddle=player.getPaddle()!
+            var paddleSpeed = Geometry.magnitude(player.getPaddle()!.physicsBody!.velocity)
+            println(paddleSpeed)
+            if (paddleSpeed>player.getMaxSpeed()) {
+                paddle.physicsBody!.velocity = Geometry.getVectorOfMagnitude(paddle.physicsBody!.velocity, b: player.getMaxSpeed())
+            }
+        }
+        if (playerOne.getPaddle()!.position.y>playingTable.frame.midY) {
+            playerOne.getPaddle()!.position.y=playingTable.frame.midY
+        }
+        if (playerTwo.getPaddle()!.position.y<playingTable.frame.midY) {
+            playerTwo.getPaddle()!.position.y=playingTable.frame.midY
         }
         
-        
     }
-        puck.physicsBody?.velocity
+    
+   
+    override public func update(currentTime: CFTimeInterval) {
+        playerOne.movePaddle()
+        playerTwo.movePaddle()
+    }
+//TODO: All of this logic is not good-- we should just get it right in update and not do this ugly post processing in didSimulatePhysics
+   override public func didSimulatePhysics() {
+    
+    }
+    
+    public func getInputManager() -> InputManager {
+        return inputManager
+    }
+    
+    public func getPlayerOnePaddle() -> Paddle {
+        return playerOne.getPaddle()!
+    }
+    
+    public func getPlayerTwoPaddle() -> Paddle {
+        return playerTwo.getPaddle()!
     }
 }

@@ -15,9 +15,9 @@ public class AirHockeyConstants {
     public class func getDefaultSettings() -> SettingsProfile {
        var s: SettingsProfile = SettingsProfile()
         s.setFriction(0.05)
-        s.setPlayerOnePaddleRadius(5.0)
-        s.setPlayerTwoPaddleRadius(5.0)
-        s.setPuckRadius(4.0)
+        s.setPlayerOnePaddleRadius(13.0)
+        s.setPlayerTwoPaddleRadius(13.0)
+        s.setPuckRadius(10.0)
         s.setAIDifficulty(2)
         s.setTimeLimit(420) // seven minutes
         s.setGoalLimit(7)

@@ -44,14 +44,12 @@ public class InputManager {
             let p2Half=game.getPlayingTable().getPlayerTwoHalf()
             
             if (p1Half.contains(location)) {
-                println("player one touch detected")
                 if (p1TouchLocation==nil) {
                     p1TouchLocation=location
 
                 }
 
             } else if (p2Half.contains(location)) {
-                println("player two touch detected")
                 if (p2TouchLocation==nil) {
                     p2TouchLocation=location
 
@@ -59,6 +57,16 @@ public class InputManager {
             }
 
         }
+    }
+    // given a player number, returns the input for that player
+    public func getInputForPlayer(number : Int) -> CGPoint? {
+        if (number==1) {
+            return getPlayerOneInput()
+            
+        } else if (number==2) {
+            return getPlayerTwoInput()
+        }
+        return nil
     }
     
     public func getPlayerOneInput() -> CGPoint?{
