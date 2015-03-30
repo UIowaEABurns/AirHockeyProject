@@ -31,11 +31,11 @@ public class Player {
     public final func movePaddle() {
         var vector = getMovementVector()
         if (vector==nil) {
-            paddle?.physicsBody!.collisionBitMask = barrierCategory | paddleCategory | edgeCategory
+            //paddle?.physicsBody!.collisionBitMask = barrierCategory | paddleCategory | edgeCategory
 
             return
         }
-        paddle?.physicsBody!.collisionBitMask = barrierCategory | paddleCategory | edgeCategory | puckCategory
+        //paddle?.physicsBody!.collisionBitMask = barrierCategory | paddleCategory | edgeCategory | puckCategory
         let acceleration = Geometry.magnitude(vector!)
         if (acceleration>maxAcceleration) {
             vector = Geometry.getVectorOfMagnitude(vector!, b: maxAcceleration)
@@ -70,25 +70,34 @@ public class Player {
         return maxSpeed
     }
    
-    
+    private func getDesiredSpeed(distance : CGFloat)-> CGFloat {
+        if (distance==0) {
+            return 0
+        }
+        if (distance<10) {
+            return CGFloat(log(distance)*30)
+
+        }
+        return CGFloat(log(distance)*150)
+    }
     
     // given a point to move the paddle to, gets the vector that works best for moving the paddle to the point
     public func getPaddleVectorToPoint(point : CGPoint) -> CGVector {
         
+        let distance = Geometry.distance(point,b: paddle!.position)
         
         //first, we get the desired vector
         var desiredVector = Geometry.normalVector(self.getPaddle()!.position, b: point)
-        let speed : CGFloat = maxAcceleration
+        
         //todo: speed here should be the desired speed
-        desiredVector.dx = desiredVector.dx * 1000
-        desiredVector.dy = desiredVector.dy * 1000
+        desiredVector.dx = desiredVector.dx * getDesiredSpeed(distance)
+        desiredVector.dy = desiredVector.dy * getDesiredSpeed(distance)
         
         //next, this is our current vector
         let currentVector=self.paddle!.physicsBody!.velocity
         
         
         
-        let distance = Geometry.distance(point,b: paddle!.position)
         
         let finalVector = Geometry.getTransitionVector(currentVector, to: desiredVector)
         

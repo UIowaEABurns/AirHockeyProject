@@ -21,13 +21,18 @@ public class HumanPlayer : Player {
         let paddle = self.getPaddle()!
         if (!(input==nil)) {
             
-            if (Geometry.distance(paddle.position, b: input!)<=snapDistance) {
-                paddle.position=input!
-                paddle.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
+            /*if (Geometry.distance(paddle.position, b: input!)<=snapDistance) {
+                //todo: only snap to valid positions (no physics bodies, on correct side of table_
+                if !(self.getScene().getPlayingTable().getPuck().containsPoint(input!)) {
+                    //paddle.position=input!
+                    paddle.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
+                    var desiredVector = Geometry.normalVector(self.getPaddle()!.position, b: input!)
+                    desiredVector = Geometry.getVectorOfMagnitude(desiredVector, b: Geometry.distance(paddle.position, b: input!))
+                    
+                    return desiredVector
+                }
                 
-                
-                return nil
-            }
+            }*/
             
             return self.getPaddleVectorToPoint(input!)
             
