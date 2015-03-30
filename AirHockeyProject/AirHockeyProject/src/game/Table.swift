@@ -50,64 +50,38 @@ public class Table : SKShapeNode {
         
     }
     
-    
+    //TODO: Refactor this-- it should take only a few lines to do this with some more clever lopos
     private func attachEdges() {
         var nodes : [SKNode] = []
         
         let goalWidth = goalWidthRatio * self.frame.width
         let wallWidth = (self.frame.width - goalWidth) / 2
+        var originPoints = [CGPoint(x: 0, y: 0), CGPoint(x: self.frame.width,y: 0)]
+        for originPoint in originPoints {
+            var vertEdge = SKShapeNode(rect: CGRect(origin: originPoint, size: CGSize(width: 0.5, height: self.frame.height)))
+            nodes.append(vertEdge)
+            vertEdge.physicsBody=SKPhysicsBody(edgeFromPoint: originPoint, toPoint: CGPoint(x: originPoint.x, y: self.frame.height))
+        }
         
-        //first, attach solid edges to the side
-        var vertEdge = SKShapeNode(rect: CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: 0.5, height: self.frame.height)))
-        nodes.append(vertEdge)
-        vertEdge.physicsBody=SKPhysicsBody(edgeFromPoint: CGPoint(x: 0, y: 0), toPoint: CGPoint(x: 0, y: self.frame.height))
+        //this part creates the 4 walls flankings the goals
         
-        
-        
-        
-        vertEdge = SKShapeNode(rect: CGRect(origin: CGPoint(x: self.frame.width,y: 0), size: CGSize(width: 0.5, height: self.frame.height)))
-        nodes.append(vertEdge)
-        vertEdge.physicsBody=SKPhysicsBody(edgeFromPoint: CGPoint(x: self.frame.width, y: 0), toPoint: CGPoint(x: self.frame.width, y: self.frame.height))
+         originPoints = [CGPoint(x: 0, y: 0), CGPoint(x: goalWidth+wallWidth, y: 0), CGPoint(x: 0, y: self.frame.height), CGPoint(x: goalWidth+wallWidth, y: self.frame.height)]
+        for originPoint in originPoints {
+            var edge=SKShapeNode(rect: CGRect(origin: originPoint, size: CGSize(width: wallWidth, height: 0.5)))
+            nodes.append(edge)
+            edge.physicsBody=SKPhysicsBody(edgeFromPoint: originPoint, toPoint: CGPoint(x: originPoint.x+wallWidth, y: originPoint.y))
+            
+        }
 
-        var originPoint = CGPoint(x: 0, y: 0)
-        var leftBottomEdge=SKShapeNode(rect: CGRect(origin: originPoint, size: CGSize(width: wallWidth, height: 0.5)))
-        nodes.append(leftBottomEdge)
-        leftBottomEdge.physicsBody=SKPhysicsBody(edgeFromPoint: originPoint, toPoint: CGPoint(x: originPoint.x+wallWidth, y: originPoint.y))
-        
-        
-        originPoint.x = goalWidth+wallWidth
-        var rightBottomEdge = SKShapeNode(rect: CGRect(origin: originPoint, size: CGSize(width: wallWidth, height: 0.5)))
-        nodes.append(rightBottomEdge)
-        rightBottomEdge.physicsBody = SKPhysicsBody(edgeFromPoint: originPoint, toPoint: CGPoint(x: originPoint.x+wallWidth, y: originPoint.y))
-        
-        
-        
-        originPoint.x = 0
-        originPoint.y = self.frame.height
-        var leftTopEdge=SKShapeNode(rect: CGRect(origin: originPoint, size: CGSize(width: wallWidth, height: 0.5)))
-        nodes.append(leftTopEdge)
-        leftTopEdge.physicsBody=SKPhysicsBody(edgeFromPoint: originPoint, toPoint: CGPoint(x: originPoint.x+wallWidth, y: originPoint.y))
-        
-        originPoint.x = goalWidth+wallWidth
-        var rightTopEdge = SKShapeNode(rect: CGRect(origin: originPoint, size: CGSize(width: wallWidth, height: 0.5)))
-        nodes.append(rightTopEdge)
-        rightTopEdge.physicsBody = SKPhysicsBody(edgeFromPoint: originPoint, toPoint: CGPoint(x: originPoint.x+wallWidth, y: originPoint.y))
     
-        
-        originPoint.x = wallWidth
-        originPoint.y = 0
-        var bottomGoalBarrier=SKShapeNode(rect: CGRect(origin: originPoint, size: CGSize(width: wallWidth, height: 0.5)))
-        bottomGoalBarrier.physicsBody=SKPhysicsBody(edgeFromPoint: originPoint, toPoint: CGPoint(x: originPoint.x+wallWidth, y: originPoint.y))
-        bottomGoalBarrier.physicsBody!.categoryBitMask = barrierCategory
-        bottomGoalBarrier.strokeColor = SKColor.clearColor()
-        self.addChild(bottomGoalBarrier)
-        
-        originPoint.y = self.frame.height
-        var topGoalBarrier=SKShapeNode(rect: CGRect(origin: originPoint, size: CGSize(width: wallWidth, height: 0.5)))
-        topGoalBarrier.physicsBody=SKPhysicsBody(edgeFromPoint: originPoint, toPoint: CGPoint(x: originPoint.x+wallWidth, y: originPoint.y))
-        topGoalBarrier.physicsBody!.categoryBitMask = barrierCategory
-        topGoalBarrier.strokeColor = SKColor.clearColor()
-        self.addChild(topGoalBarrier)
+        originPoints = [CGPoint(x: wallWidth, y: 0), CGPoint(x: wallWidth, y: self.frame.height) ]
+        for originPoint in originPoints {
+            var goalBarrier=SKShapeNode(rect: CGRect(origin: originPoint, size: CGSize(width: wallWidth, height: 0.5)))
+            goalBarrier.physicsBody=SKPhysicsBody(edgeFromPoint: originPoint, toPoint: CGPoint(x: originPoint.x+wallWidth, y: originPoint.y))
+            goalBarrier.physicsBody!.categoryBitMask = barrierCategory
+            goalBarrier.strokeColor = SKColor.clearColor()
+            self.addChild(goalBarrier)
+        }
         
         for node in nodes {
             node.physicsBody!.categoryBitMask = edgeCategory
