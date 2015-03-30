@@ -38,4 +38,8 @@ public class Geometry {
         
         return CGVector(dx: x,dy: y)
     }
+    
+    class func getTransitionVector(from : CGVector, to: CGVector) -> CGVector {
+        return CGVector(dx: to.dx-from.dx, dy: to.dy-from.dy)
+    }
 }

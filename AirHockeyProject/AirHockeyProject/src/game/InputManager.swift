@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 // this class takes in all the touches that the game has seen and parses them into inputs for player one and player two
 public class InputManager {
-
+    // these points are with relation to the playing surface
     private var p1TouchLocation : CGPoint?
     private var p2TouchLocation : CGPoint?
     
@@ -38,7 +38,7 @@ public class InputManager {
             if (touch.phase!==UITouchPhase.Ended ||  touch.phase==UITouchPhase.Cancelled) {
                 continue //ignore this touch, it is ending or cancelled
             }
-            let location = touch.locationInNode(game)
+            let location = touch.locationInNode(game.getPlayingTable())
             
             let p1Half=game.getPlayingTable().getPlayerOneHalf()
             let p2Half=game.getPlayingTable().getPlayerTwoHalf()

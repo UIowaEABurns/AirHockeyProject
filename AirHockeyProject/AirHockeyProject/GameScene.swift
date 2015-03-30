@@ -27,14 +27,16 @@ public class GameScene: SKScene {
     private var playerOne : Player!
     private var playerTwo : Player!
     
+    private var timer : GameTimer!
+    
+    
+    private var contentCreated : Bool = false
+    
+    
     public func getPlayingTable() -> Table {
         return playingTable
     }
-    
-    
-    
-    
-    
+
     override init(size: CGSize) {
         super.init(size: size)
     }
@@ -45,49 +47,60 @@ public class GameScene: SKScene {
     
     override public func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        self.physicsWorld.gravity=CGVectorMake(0,0) // no gravity in this game
-        inputManager = InputManager()
-        inputManager.setGame(self)
-        println("total width")
-        println(self.frame.width)
-        let fractionOfWidth : CGFloat = 0.8 // how much of the screen should this take up?
-        let fractionOfHeight : CGFloat = 0.9
-        let width = self.frame.width * fractionOfWidth
-        let height = self.frame.height * fractionOfHeight
-        println("calculated width")
-        println(width)
-        let size = CGSize(width: width,height: height)
+        if (!contentCreated) {
+            self.physicsWorld.gravity=CGVectorMake(0,0) // no gravity in this game
+            inputManager = InputManager()
+            inputManager.setGame(self)
+            println("total width")
+            println(self.frame.width)
+            let fractionOfWidth : CGFloat = 0.8 // how much of the screen should this take up?
+            let fractionOfHeight : CGFloat = 0.9
+            let width = self.frame.width * fractionOfWidth
+            let height = self.frame.height * fractionOfHeight
+            println("calculated width")
+            println(width)
+            let size = CGSize(width: width,height: height)
+            
+            playingTable = makeTable(CGRect(origin: CGPoint(x: 0,y: 0), size: size))
+            
+            playingTable.position = CGPoint(x: self.frame.width*((1-fractionOfWidth)/2), y: self.frame.height*((1-fractionOfHeight)/2))
+            self.addChild(playingTable)
+            
+            println("width from scene")
+            println(playingTable.frame.width)
+            
+            
+            var puck = getPuckSprite(2.0)
+            playingTable.setPuck(puck)
+            
+            
+            playerOne=HumanPlayer(speed: maxHumanPaddleSpeed, accel: maxHumanPaddleAcceleration, s: self, i: 1)
+            playerTwo=HumanPlayer(speed: maxHumanPaddleSpeed, accel: maxHumanPaddleAcceleration, s: self, i: 2)
+            
+            var paddle = getPaddleSprite(CGFloat(settingsProfile.getPlayerOnePaddleRadius()!))
+            var tableHalf = playingTable.getPlayerOneHalf()
+            
+            paddle.position = CGPoint(x:CGRectGetMidX(tableHalf),y:CGRectGetMidY(tableHalf))
+            playingTable.addChild(paddle)
+            playerOne.setPaddle(paddle)
+            
+            
+            paddle = getPaddleSprite(CGFloat(settingsProfile.getPlayerTwoPaddleRadius()!))
+            tableHalf = playingTable.getPlayerTwoHalf()
+            
+            paddle.position = CGPoint(x:CGRectGetMidX(tableHalf),y:CGRectGetMidY(tableHalf))
+            playingTable.addChild(paddle)
+            playerTwo.setPaddle(paddle)
         
-        playingTable = makeTable(CGRect(origin: CGPoint(x: 0,y: 0), size: size))
+            timer = GameTimer(seconds: Int64(settingsProfile.getTimeLimit()!),font : gameFont)
+            
+            
+            timer.position = CGPointMake(CGRectGetMaxX(self.frame)-timer.frame.width-5,CGRectGetMidY(self.frame))
+            
+            self.addChild(timer)
+            timer.timer.start()
+        }
         
-        playingTable.position = CGPoint(x: self.frame.width*((1-fractionOfWidth)/2), y: self.frame.height*((1-fractionOfHeight)/2))
-        self.addChild(playingTable)
-        
-        println("width from scene")
-        println(playingTable.frame.width)
-    
-        
-        var puck = getPuckSprite(2.0)
-        playingTable.setPuck(puck)
-        
-        
-        playerOne=HumanPlayer(speed: maxHumanPaddleSpeed, accel: maxHumanPaddleAcceleration, s: self, i: 1)
-        playerTwo=HumanPlayer(speed: maxHumanPaddleSpeed, accel: maxHumanPaddleAcceleration, s: self, i: 2)
-        
-        var paddle = getPaddleSprite(CGFloat(settingsProfile.getPlayerOnePaddleRadius()!))
-        var tableHalf = playingTable.getPlayerOneHalf()
-
-        paddle.position = CGPoint(x:CGRectGetMidX(tableHalf),y:CGRectGetMidY(tableHalf))
-        playingTable.addChild(paddle)
-        playerOne.setPaddle(paddle)
-        
-        
-        paddle = getPaddleSprite(CGFloat(settingsProfile.getPlayerTwoPaddleRadius()!))
-        tableHalf = playingTable.getPlayerTwoHalf()
-        
-        paddle.position = CGPoint(x:CGRectGetMidX(tableHalf),y:CGRectGetMidY(tableHalf))
-        playingTable.addChild(paddle)
-        playerTwo.setPaddle(paddle)
         
         
     }

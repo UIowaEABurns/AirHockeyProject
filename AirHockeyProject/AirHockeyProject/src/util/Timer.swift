@@ -134,7 +134,8 @@ public class Timer {
     // time left
     func getRemainingTimeString() -> String? {
         if (!isStarted()) {
-            return nil
+            
+            return timeToString(timeLimit)
         }
         
         var seconds = getTimedMillis()!/1000

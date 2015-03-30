@@ -30,6 +30,7 @@
 		7107A2E81AC39B8300706EC8 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7107A2DC1AC39A5A00706EC8 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7107A2EA1AC39F2E00706EC8 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A2E91AC39F2E00706EC8 /* Users.swift */; };
 		7107A2ED1AC3A12A00706EC8 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A2EC1AC3A12A00706EC8 /* Util.swift */; };
+		715344BF1AC8DB680065949F /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715344BE1AC8DB680065949F /* GameTimer.swift */; };
 		71A8756D1AC5C71F008EDBA9 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A8756C1AC5C71F008EDBA9 /* Timer.swift */; };
 		71A875761AC5D115008EDBA9 /* Puck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A875751AC5D115008EDBA9 /* Puck.swift */; };
 		71A875781AC5D4AE008EDBA9 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A875771AC5D4AE008EDBA9 /* Paddle.swift */; };
@@ -124,6 +125,7 @@
 		7107A2D31AC39A5900706EC8 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		7107A2E91AC39F2E00706EC8 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		7107A2EC1AC3A12A00706EC8 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		715344BE1AC8DB680065949F /* GameTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
 		71A8756C1AC5C71F008EDBA9 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		71A875751AC5D115008EDBA9 /* Puck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Puck.swift; sourceTree = "<group>"; };
 		71A875771AC5D4AE008EDBA9 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				710435B51AC74BB9003E9458 /* InputManager.swift */,
 				710435B71AC85E47003E9458 /* Player.swift */,
 				710435B91AC86445003E9458 /* HumanPlayer.swift */,
+				715344BE1AC8DB680065949F /* GameTimer.swift */,
 			);
 			name = game;
 			path = AirHockeyProject/src/game;
@@ -492,6 +495,7 @@
 				7107A2C71AC398D600706EC8 /* SettingsProfile.swift in Sources */,
 				71A875781AC5D4AE008EDBA9 /* Paddle.swift in Sources */,
 				710435B81AC85E47003E9458 /* Player.swift in Sources */,
+				715344BF1AC8DB680065949F /* GameTimer.swift in Sources */,
 				71BB49841AC4D70200898049 /* Statistics.swift in Sources */,
 				710435BA1AC86445003E9458 /* HumanPlayer.swift in Sources */,
 				7107A2C91AC398D600706EC8 /* User.swift in Sources */,
