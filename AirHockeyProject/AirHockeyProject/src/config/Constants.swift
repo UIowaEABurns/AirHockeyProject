@@ -9,8 +9,11 @@
 import Foundation
 import SpriteKit
 
-public var maxHumanPaddleSpeed : CGFloat=600.0
-public var maxHumanPaddleAcceleration : CGFloat = 600.0
+public var maxHumanPaddleSpeed : CGFloat=1100.0
+public var maxHumanPaddleAcceleration : CGFloat = 1100.0
+public var paddlePuckMassRatio : CGFloat = 3 // how much more should the paddles weigh as compared to the puck
+
+
 public var gameFont : String = "Chalkduster"
 
 
@@ -23,9 +26,12 @@ public class AirHockeyConstants {
     public class func getDefaultSettings() -> SettingsProfile {
        var s: SettingsProfile = SettingsProfile()
         s.setFriction(0.05)
-        s.setPlayerOnePaddleRadius(13.0)
-        s.setPlayerTwoPaddleRadius(13.0)
-        s.setPuckRadius(10.0)
+        
+        
+        //These are ratios of board width to paddle radius
+        s.setPlayerOnePaddleRadius(0.04)
+        s.setPlayerTwoPaddleRadius(0.04)
+        s.setPuckRadius(0.03)
         s.setAIDifficulty(2)
         s.setTimeLimit(420) // seven minutes
         s.setGoalLimit(7)

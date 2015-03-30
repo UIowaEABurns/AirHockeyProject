@@ -31,11 +31,9 @@ public class Player {
     public final func movePaddle() {
         var vector = getMovementVector()
         if (vector==nil) {
-            //paddle?.physicsBody!.collisionBitMask = barrierCategory | paddleCategory | edgeCategory
 
             return
         }
-        //paddle?.physicsBody!.collisionBitMask = barrierCategory | paddleCategory | edgeCategory | puckCategory
         let acceleration = Geometry.magnitude(vector!)
         if (acceleration>maxAcceleration) {
             vector = Geometry.getVectorOfMagnitude(vector!, b: maxAcceleration)
@@ -74,11 +72,16 @@ public class Player {
         if (distance==0) {
             return 0
         }
+        
         if (distance<10) {
             return CGFloat(log(distance)*30)
-
         }
-        return CGFloat(log(distance)*150)
+        
+        if (distance<20) {
+            return CGFloat(log(distance)*80)
+        }
+        
+        return CGFloat(log(distance)*180)
     }
     
     // given a point to move the paddle to, gets the vector that works best for moving the paddle to the point

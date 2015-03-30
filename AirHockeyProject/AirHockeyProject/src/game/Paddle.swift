@@ -22,9 +22,10 @@ public class Paddle : SKShapeNode {
         return playerNumber
     }
     
-    public func configurePaddle(radius : CGFloat, settingsProfile : SettingsProfile) {
+    public func configurePaddle(radius : CGFloat, settingsProfile : SettingsProfile, mass : CGFloat) {
         self.physicsBody=SKPhysicsBody(circleOfRadius: radius)
-        self.physicsBody?.restitution=0.95
+        self.physicsBody?.restitution=0.2
+        self.physicsBody?.mass=mass
         self.physicsBody?.allowsRotation=true
         self.fillColor=SKColor.blueColor()
         self.physicsBody?.usesPreciseCollisionDetection=true

@@ -29,6 +29,15 @@ public class InputManager {
     
     
     
+    private func sameTouch(a : CGPoint?, b : CGPoint?)-> Bool {
+        if (a==nil || b==nil) {
+            return false
+        }
+        
+        return (a!.x==b!.x && a!.y==b!.y)
+    }
+    
+    
     public func updateTouches(touches: NSSet){
         let prevP1 = p1TouchLocation
         let prevP2=p2TouchLocation
@@ -39,6 +48,20 @@ public class InputManager {
                 continue //ignore this touch, it is ending or cancelled
             }
             let location = touch.locationInNode(game.getPlayingTable())
+            if (touch.phase!==UITouchPhase.Moved) {
+                let prevLocation = touch.previousLocationInNode(game.getPlayingTable())
+
+                if (sameTouch(prevP1,b: prevLocation)) {
+                    p1TouchLocation = location
+                    continue
+                } else if (sameTouch(prevP2, b: prevLocation)) {
+                    p2TouchLocation = location
+                    continue
+                }
+            }
+            
+            
+            
             
             let p1Half=game.getPlayingTable().getPlayerOneHalf()
             let p2Half=game.getPlayingTable().getPlayerTwoHalf()
@@ -48,9 +71,9 @@ public class InputManager {
                     p1TouchLocation=location
                 } else {
                     if !(prevP1==nil) {
-                        if (Geometry.distance(location,b: prevP1!)<Geometry.distance(p1TouchLocation!,b: prevP1!)) {
-                            p1TouchLocation=location
-                        }
+                        //if (Geometry.distance(location,b: prevP1!)<Geometry.distance(p1TouchLocation!,b: prevP1!)) {
+                        //    p1TouchLocation=location
+                        //}
                     }
                 }
 
@@ -60,9 +83,9 @@ public class InputManager {
 
                 } else {
                     if !(prevP2==nil) {
-                        if (Geometry.distance(location,b: prevP2!)<Geometry.distance(p1TouchLocation!,b: prevP2!)) {
-                            p2TouchLocation=location
-                        }
+                        //if (Geometry.distance(location,b: prevP2!)<Geometry.distance(p1TouchLocation!,b: prevP2!)) {
+                        //    p2TouchLocation=location
+                        //}
                     }
                 }
             }

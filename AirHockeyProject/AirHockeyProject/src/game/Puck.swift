@@ -13,7 +13,7 @@ import SpriteKit
 public class Puck: SKShapeNode {
     
     public func configurePuck(density : CGFloat, settingsProfile : SettingsProfile) {
-        self.physicsBody=SKPhysicsBody(circleOfRadius: CGFloat(settingsProfile.getPuckRadius()!))
+        self.physicsBody=SKPhysicsBody(circleOfRadius: self.frame.width/2)
         self.physicsBody?.restitution=0.95
         self.physicsBody?.allowsRotation=true
         self.fillColor=SKColor.blackColor()

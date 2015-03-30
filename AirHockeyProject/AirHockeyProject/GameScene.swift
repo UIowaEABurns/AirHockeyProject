@@ -66,18 +66,20 @@ public class GameScene: SKScene {
             playingTable.position = CGPoint(x: self.frame.width*((1-fractionOfWidth)/2), y: self.frame.height*((1-fractionOfHeight)/2))
             self.addChild(playingTable)
             
-            println("width from scene")
-            println(playingTable.frame.width)
+            let boardWidth : CGFloat = playingTable.frame.width
+
             
             
-            var puck = getPuckSprite(2.0)
+            var puck = getPuckSprite(2.0, radius: boardWidth*CGFloat(settingsProfile.getPuckRadius()!))
             playingTable.setPuck(puck)
             
             
             playerOne=HumanPlayer(speed: maxHumanPaddleSpeed, accel: maxHumanPaddleAcceleration, s: self, i: 1)
             playerTwo=HumanPlayer(speed: maxHumanPaddleSpeed, accel: maxHumanPaddleAcceleration, s: self, i: 2)
             
-            var paddle = getPaddleSprite(CGFloat(settingsProfile.getPlayerOnePaddleRadius()!))
+            
+            
+            var paddle = getPaddleSprite(boardWidth*CGFloat(settingsProfile.getPlayerOnePaddleRadius()!), mass : puck.physicsBody!.mass * paddlePuckMassRatio)
             var tableHalf = playingTable.getPlayerOneHalf()
             
             paddle.position = CGPoint(x:CGRectGetMidX(tableHalf),y:CGRectGetMidY(tableHalf))
@@ -85,7 +87,7 @@ public class GameScene: SKScene {
             playerOne.setPaddle(paddle)
             
             
-            paddle = getPaddleSprite(CGFloat(settingsProfile.getPlayerTwoPaddleRadius()!))
+            paddle = getPaddleSprite(boardWidth*CGFloat(settingsProfile.getPlayerTwoPaddleRadius()!),mass : puck.physicsBody!.mass * paddlePuckMassRatio)
             tableHalf = playingTable.getPlayerTwoHalf()
             
             paddle.position = CGPoint(x:CGRectGetMidX(tableHalf),y:CGRectGetMidY(tableHalf))
@@ -132,8 +134,8 @@ public class GameScene: SKScene {
     
     
     //TODO: we actually want a textured node here, but this is just for testing
-    func getPuckSprite(density : CGFloat) -> Puck {
-        var puck = Puck(circleOfRadius : CGFloat(settingsProfile.getPuckRadius()!))
+    func getPuckSprite(density : CGFloat, radius : CGFloat) -> Puck {
+        var puck = Puck(circleOfRadius : radius)
         
         puck.configurePuck(density, settingsProfile: settingsProfile)
         return puck
@@ -141,10 +143,10 @@ public class GameScene: SKScene {
     
     
     //returns a paddle TODO get a textured node
-    func getPaddleSprite(r : CGFloat)-> Paddle{
+    func getPaddleSprite(r : CGFloat, mass : CGFloat)-> Paddle{
         var paddle = Paddle(circleOfRadius : r)
         
-        paddle.configurePaddle(r, settingsProfile: settingsProfile)
+        paddle.configurePaddle(r, settingsProfile: settingsProfile, mass : mass)
         return paddle
     }
     
