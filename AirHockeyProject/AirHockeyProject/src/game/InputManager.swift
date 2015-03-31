@@ -48,10 +48,7 @@ public class InputManager {
                 continue //ignore this touch, it is ending or cancelled
             }
             let location = touch.locationInNode(game.getPlayingTable())
-            println("touch")
-            println(location)
-            println(touch.locationInNode(game.getPlayerOnePaddle()))
-            println(touch.locationInNode(game))
+          
             if (touch.phase!==UITouchPhase.Moved) {
                 let prevLocation = touch.previousLocationInNode(game.getPlayingTable())
 

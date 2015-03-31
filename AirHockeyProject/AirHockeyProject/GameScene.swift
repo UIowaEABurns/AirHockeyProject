@@ -22,14 +22,11 @@ public class GameScene: SKScene {
     private var inputManager : InputManager!
     
     private var playingTable : Table!
-    
-    
     private var playerOne : Player!
     private var playerTwo : Player!
-    
     private var timer : GameTimer!
-    
-    
+    private var gameplayNode : SKNode!
+    private var defaultPhysicsSpeed : CGFloat!
     private var contentCreated : Bool = false
     
     
@@ -49,9 +46,11 @@ public class GameScene: SKScene {
         /* Setup your scene here */
         if (!contentCreated) {
             self.physicsWorld.gravity=CGVectorMake(0,0) // no gravity in this game
+            defaultPhysicsSpeed = self.physicsWorld.speed
             inputManager = InputManager()
             inputManager.setGame(self)
-            
+            gameplayNode = SKNode()
+            self.addChild(gameplayNode)
             let fractionOfWidth : CGFloat = 0.8 // how much of the screen should this take up?
             let fractionOfHeight : CGFloat = 0.9
             let width = self.frame.width * fractionOfWidth
@@ -62,7 +61,7 @@ public class GameScene: SKScene {
             playingTable = makeTable(CGRect(origin: CGPoint(x: 0,y: 0), size: size))
             
             playingTable.position = CGPoint(x: self.frame.width*((1-fractionOfWidth)/2), y: self.frame.height*((1-fractionOfHeight)/2))
-            self.addChild(playingTable)
+            gameplayNode.addChild(playingTable)
             
             let boardWidth : CGFloat = playingTable.frame.width
 
@@ -97,7 +96,7 @@ public class GameScene: SKScene {
             
             timer.position = CGPointMake(CGRectGetMaxX(self.frame)-timer.frame.width-5,CGRectGetMidY(self.frame))
             
-            self.addChild(timer)
+            gameplayNode.addChild(timer)
             timer.timer.start()
             println("anchor point")
             println(self.anchorPoint)
@@ -109,6 +108,19 @@ public class GameScene: SKScene {
         
     }
     
+    public func pauseGame() {
+        gameplayNode.paused=true
+        self.getTimer()!.timer.pause()
+        self.physicsWorld.speed=0.0
+        //self.paused=true
+        println("trying to pause everything")
+    }
+    
+    public func resumeGame() {
+        gameplayNode.paused = false
+        self.getTimer()!.timer.unpause()
+        self.physicsWorld.speed = defaultPhysicsSpeed
+    }
     
     private func makeTable(rect: CGRect) -> Table {
         var table = Table(rect: rect)
@@ -154,23 +166,28 @@ public class GameScene: SKScene {
     
     
     override public func didEvaluateActions() {
-        // ensure player paddles are not going faster than the maximum
-        for player in [playerOne, playerTwo] {
-            let paddle=player.getPaddle()!
-            var paddleSpeed = Geometry.magnitude(player.getPaddle()!.physicsBody!.velocity)
-            if (paddleSpeed>player.getMaxSpeed()) {
-                paddle.physicsBody!.velocity = Geometry.getVectorOfMagnitude(paddle.physicsBody!.velocity, b: player.getMaxSpeed())
+        if (!gameplayNode.paused) {
+            // ensure player paddles are not going faster than the maximum
+            for player in [playerOne, playerTwo] {
+                let paddle=player.getPaddle()!
+                var paddleSpeed = Geometry.magnitude(player.getPaddle()!.physicsBody!.velocity)
+                if (paddleSpeed>player.getMaxSpeed()) {
+                    paddle.physicsBody!.velocity = Geometry.getVectorOfMagnitude(paddle.physicsBody!.velocity, b: player.getMaxSpeed())
+                }
             }
         }
+       
         
     }
     
    
     override public func update(currentTime: CFTimeInterval) {
-        playerOne.movePaddle()
-        playerTwo.movePaddle()
+        if (!gameplayNode.paused) {
+            playerOne.movePaddle()
+            playerTwo.movePaddle()
+        }
+        
     }
-//TODO: All of this logic is not good-- we should just get it right in update and not do this ugly post processing in didSimulatePhysics
    override public func didSimulatePhysics() {
     
     }
@@ -185,5 +202,12 @@ public class GameScene: SKScene {
     
     public func getPlayerTwoPaddle() -> Paddle {
         return playerTwo.getPaddle()!
+    }
+    
+    public func getTimer() -> GameTimer? {
+        return timer
+    }
+    public func isGamePaused() -> Bool {
+        return gameplayNode.paused
     }
 }

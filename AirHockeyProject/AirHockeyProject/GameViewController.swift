@@ -26,11 +26,11 @@ extension SKNode {
 }
 
 class GameViewController: UIViewController {
-
+    private var scene : GameScene!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scene = GameScene(size: self.view.frame.size)
+        scene = GameScene(size: self.view.frame.size)
         // Configure the view.
         let skView = self.view as SKView
         skView.showsFPS = true
@@ -47,6 +47,14 @@ class GameViewController: UIViewController {
         
     }
 
+    @IBAction func PauseClicked(sender: AnyObject) {
+        println("here")
+        if (scene.isGamePaused()) {
+            scene.resumeGame()
+        } else {
+            scene.pauseGame()
+        }
+    }
     override func shouldAutorotate() -> Bool {
         return true
     }
