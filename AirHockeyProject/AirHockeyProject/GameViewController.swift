@@ -48,7 +48,6 @@ class GameViewController: UIViewController {
     }
 
     @IBAction func PauseClicked(sender: AnyObject) {
-        println("here")
         if (scene.isGamePaused()) {
             scene.resumeGame()
         } else {

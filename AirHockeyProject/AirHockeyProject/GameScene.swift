@@ -28,8 +28,8 @@ public class GameScene: SKScene {
     private var gameplayNode : SKNode!
     private var defaultPhysicsSpeed : CGFloat!
     private var contentCreated : Bool = false
-    
-    
+    private var gamePaused = false
+    private var shouldRestoreToUnpaused = false
     public func getPlayingTable() -> Table {
         return playingTable
     }
@@ -42,10 +42,34 @@ public class GameScene: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    // TODO : should save data here
+    public func appEnteringBackground() {
+        if (!self.isGamePaused()) {
+            shouldRestoreToUnpaused = true
+            self.pauseGame()
+            
+        } else {
+            shouldRestoreToUnpaused = false
+
+        }
+    }
+    
+    public func appEnteringForeground() {
+        
+        if (shouldRestoreToUnpaused) {
+            self.resumeGame()
+        }
+        shouldRestoreToUnpaused=false
+    }
+    
     override public func didMoveToView(view: SKView) {
         /* Setup your scene here */
         if (!contentCreated) {
             self.physicsWorld.gravity=CGVectorMake(0,0) // no gravity in this game
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "appEnteringBackground", name: UIApplicationDidEnterBackgroundNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "appEnteringForeground", name: UIApplicationWillEnterForegroundNotification, object: nil)
+
             defaultPhysicsSpeed = self.physicsWorld.speed
             inputManager = InputManager()
             inputManager.setGame(self)
@@ -112,14 +136,14 @@ public class GameScene: SKScene {
         gameplayNode.paused=true
         self.getTimer()!.timer.pause()
         self.physicsWorld.speed=0.0
-        //self.paused=true
-        println("trying to pause everything")
+        self.gamePaused=true
     }
     
     public func resumeGame() {
         gameplayNode.paused = false
         self.getTimer()!.timer.unpause()
         self.physicsWorld.speed = defaultPhysicsSpeed
+        self.gamePaused=false
     }
     
     private func makeTable(rect: CGRect) -> Table {
@@ -208,6 +232,6 @@ public class GameScene: SKScene {
         return timer
     }
     public func isGamePaused() -> Bool {
-        return gameplayNode.paused
+        return gamePaused
     }
 }
