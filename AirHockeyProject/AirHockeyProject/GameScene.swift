@@ -51,14 +51,12 @@ public class GameScene: SKScene {
             self.physicsWorld.gravity=CGVectorMake(0,0) // no gravity in this game
             inputManager = InputManager()
             inputManager.setGame(self)
-            println("total width")
-            println(self.frame.width)
+            
             let fractionOfWidth : CGFloat = 0.8 // how much of the screen should this take up?
             let fractionOfHeight : CGFloat = 0.9
             let width = self.frame.width * fractionOfWidth
             let height = self.frame.height * fractionOfHeight
-            println("calculated width")
-            println(width)
+            
             let size = CGSize(width: width,height: height)
             
             playingTable = makeTable(CGRect(origin: CGPoint(x: 0,y: 0), size: size))
@@ -101,6 +99,10 @@ public class GameScene: SKScene {
             
             self.addChild(timer)
             timer.timer.start()
+            println("anchor point")
+            println(self.anchorPoint)
+            
+            
         }
         
         

@@ -15,8 +15,7 @@ public class Table : SKShapeNode {
 
     private var otherObjects  : [SKNode]! = []
     
-    private var goalWidthRatio : CGFloat = 0.25 // how wide is the goal compared to width of board TODO: allow configuration
-    
+    private var goalWidthRatio : CGFloat = 0.30 // how wide is the goal compared to width of board TODO: allow configuration
     init(rect : CGRect) {
         super.init()
         
@@ -27,6 +26,7 @@ public class Table : SKShapeNode {
         //self.physicsBody=SKPhysicsBody(edgeLoopFromRect: rect)
         //self.physicsBody?.categoryBitMask = edgeCategory
         //creates a center line that paddles cannot cross
+        
         attachEdges()
         let centerHeight : CGFloat = 1
         let size : CGSize = CGSize(width: self.frame.width, height: centerHeight)
@@ -50,44 +50,53 @@ public class Table : SKShapeNode {
         
     }
     
-    //TODO: Refactor this-- it should take only a few lines to do this with some more clever lopos
+    //TODO: Refactor this-- it should take only a few lines to do this with some more clever loops
     private func attachEdges() {
         var nodes : [SKNode] = []
         
         let goalWidth = goalWidthRatio * self.frame.width
         let wallWidth = (self.frame.width - goalWidth) / 2
-        var originPoints = [CGPoint(x: 0, y: 0), CGPoint(x: self.frame.width,y: 0)]
+        //
+        var originPoints = [CGPoint(x: self.frame.width,y: 0), CGPoint(x: 0,y: 0)]
         for originPoint in originPoints {
-            var vertEdge = SKShapeNode(rect: CGRect(origin: originPoint, size: CGSize(width: 0.5, height: self.frame.height)))
+            var vertEdge = SKShapeNode(rect: CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: 0.5, height: self.frame.height)))
+            vertEdge.position=originPoint
+
             nodes.append(vertEdge)
-            vertEdge.physicsBody=SKPhysicsBody(edgeFromPoint: originPoint, toPoint: CGPoint(x: originPoint.x, y: self.frame.height))
+
+            
+
         }
         
         //this part creates the 4 walls flankings the goals
         
          originPoints = [CGPoint(x: 0, y: 0), CGPoint(x: goalWidth+wallWidth, y: 0), CGPoint(x: 0, y: self.frame.height), CGPoint(x: goalWidth+wallWidth, y: self.frame.height)]
         for originPoint in originPoints {
-            var edge=SKShapeNode(rect: CGRect(origin: originPoint, size: CGSize(width: wallWidth, height: 0.5)))
+            var edge=SKShapeNode(rect: CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: wallWidth, height: 0.5)))
+            edge.position = originPoint
             nodes.append(edge)
-            edge.physicsBody=SKPhysicsBody(edgeFromPoint: originPoint, toPoint: CGPoint(x: originPoint.x+wallWidth, y: originPoint.y))
             
         }
 
-    
+        
         originPoints = [CGPoint(x: wallWidth, y: 0), CGPoint(x: wallWidth, y: self.frame.height) ]
         for originPoint in originPoints {
-            var goalBarrier=SKShapeNode(rect: CGRect(origin: originPoint, size: CGSize(width: wallWidth, height: 0.5)))
-            goalBarrier.physicsBody=SKPhysicsBody(edgeFromPoint: originPoint, toPoint: CGPoint(x: originPoint.x+wallWidth, y: originPoint.y))
+            var goalBarrier=SKShapeNode(rect: CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: wallWidth, height: 0.5)))
+            goalBarrier.position=originPoint
+            goalBarrier.physicsBody=SKPhysicsBody(edgeFromPoint: CGPoint(x: 0,y: 0), toPoint: CGPoint(x: goalBarrier.frame.width, y: goalBarrier.frame.height))
             goalBarrier.physicsBody!.categoryBitMask = barrierCategory
             goalBarrier.strokeColor = SKColor.clearColor()
             self.addChild(goalBarrier)
         }
         
         for node in nodes {
-            node.physicsBody!.categoryBitMask = edgeCategory
 
             self.addChild(node)
-            println(node.frame.origin)
+            println("making the dumb vert edge")
+            println(node.position.x)
+            node.physicsBody=SKPhysicsBody(edgeFromPoint: CGPoint(x: 0,y: 0), toPoint: CGPoint(x: node.frame.width, y: node.frame.height))
+            node.physicsBody!.categoryBitMask = edgeCategory
+
 
         }
         

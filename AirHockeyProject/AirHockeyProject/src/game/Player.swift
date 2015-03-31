@@ -81,7 +81,7 @@ public class Player {
             return CGFloat(log(distance)*80)
         }
         
-        return CGFloat(log(distance)*180)
+        return CGFloat(log(distance)*250)
     }
     
     // given a point to move the paddle to, gets the vector that works best for moving the paddle to the point
