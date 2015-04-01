@@ -15,17 +15,15 @@ public class InputManager {
     private var p2TouchLocation : CGPoint?
     
     
-    private var game : GameScene!
+    private var playingTable : Table
 
     
     
-    init() {
-        
+    init(t : Table) {
+        playingTable = t
     }
     
-    public func setGame(g : GameScene) {
-        game=g
-    }
+    
     
     
     
@@ -38,19 +36,21 @@ public class InputManager {
     }
     
     
+    
     public func updateTouches(touches: NSSet){
         let prevP1 = p1TouchLocation
         let prevP2=p2TouchLocation
         p1TouchLocation = nil
         p2TouchLocation = nil
         for touch: AnyObject in touches {
+            
             if (touch.phase!==UITouchPhase.Ended ||  touch.phase==UITouchPhase.Cancelled) {
                 continue //ignore this touch, it is ending or cancelled
             }
-            let location = touch.locationInNode(game.getPlayingTable())
+            let location = touch.locationInNode(playingTable)
           
             if (touch.phase!==UITouchPhase.Moved) {
-                let prevLocation = touch.previousLocationInNode(game.getPlayingTable())
+                let prevLocation = touch.previousLocationInNode(playingTable)
 
                 if (sameTouch(prevP1,b: prevLocation)) {
                     p1TouchLocation = location
@@ -64,8 +64,8 @@ public class InputManager {
             
             
             
-            let p1Half=game.getPlayingTable().getPlayerOneHalf()
-            let p2Half=game.getPlayingTable().getPlayerTwoHalf()
+            let p1Half=playingTable.getPlayerOneHalf()
+            let p2Half=playingTable.getPlayerTwoHalf()
             
             if (p1Half.contains(location)) {
                 if (p1TouchLocation==nil) {

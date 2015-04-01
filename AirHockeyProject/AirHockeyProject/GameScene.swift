@@ -35,6 +35,14 @@ public class GameScene: SKScene {
     
     private var overlayNode : SKShapeNode! // just a transparent gray overlay that we can put over the game
     
+    private var activeNode : SKNode!
+    
+    
+    private var pauseButton : Button!
+    private var resumeButton : Button!
+    
+    private var touchHandlers : [TouchHandlerDelegate] = []
+    
     public func getPlayingTable() -> Table {
         return playingTable
     }
@@ -68,6 +76,30 @@ public class GameScene: SKScene {
         shouldRestoreToUnpaused=false
     }
     
+    private func addPauseButtons() {
+        pauseButton  = Button(fontNamed: gameFont, block: {self.pauseGame()})
+        pauseButton.setText("Pause")
+        pauseButton.name = "pause"
+    
+        pauseButton.label.fontColor = SKColor.whiteColor()
+        pauseButton.position = CGPoint(x: self.frame.minX+5, y: self.frame.minY+5)
+        touchHandlers.append(pauseButton)
+        
+        
+        gameplayNode.addChild(pauseButton)
+        
+        
+        resumeButton = Button(fontNamed: gameFont, block: {self.resumeGame()})
+        resumeButton.inactivate()
+        resumeButton.setText("Resume")
+        resumeButton.name="resume"
+        resumeButton.label.fontColor = SKColor.whiteColor()
+        resumeButton.position = CGPoint(x: overlayNode.frame.midX-(resumeButton.frame.width/2), y: overlayNode.frame.midY)
+        touchHandlers.append(resumeButton)
+        overlayNode.addChild(resumeButton)
+        
+    }
+    
     
     
     override public func didMoveToView(view: SKView) {
@@ -79,9 +111,9 @@ public class GameScene: SKScene {
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "appEnteringForeground", name: UIApplicationWillEnterForegroundNotification, object: nil)
             
             defaultPhysicsSpeed = self.physicsWorld.speed
-            inputManager = InputManager()
-            inputManager.setGame(self)
+            
             gameplayNode = SKNode()
+            activeNode = gameplayNode
             self.addChild(gameplayNode)
             let fractionOfWidth : CGFloat = 0.8 // how much of the screen should this take up?
             let fractionOfHeight : CGFloat = 0.9
@@ -153,6 +185,8 @@ public class GameScene: SKScene {
             overlayNode.fillColor = SKColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.6)
             overlayNode.hidden = true
             self.addChild(overlayNode)
+            self.addPauseButtons()
+            inputManager = InputManager(t: playingTable)
             
         }
         
@@ -166,14 +200,25 @@ public class GameScene: SKScene {
         self.getTimer()!.timer.pause()
         self.physicsWorld.speed=0.0
         self.gamePaused=true
+        activeNode = overlayNode
+        pauseButton.inactivate()
+        resumeButton.activate()
     }
     
     public func resumeGame() {
+        println("calling resume")
         gameplayNode.paused = false
         overlayNode.hidden = true
         self.getTimer()!.timer.unpause()
         self.physicsWorld.speed = defaultPhysicsSpeed
         self.gamePaused=false
+        activeNode = gameplayNode
+        pauseButton.activate()
+        resumeButton.inactivate()
+    }
+    
+    public func exitGame() {
+        //TODO: this needs to roll back to the previous screen
     }
     
     private func makeTable(rect: CGRect) -> Table {
@@ -184,19 +229,32 @@ public class GameScene: SKScene {
         return table
     }
     
-    override public func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    private func handleTouches(touches: NSSet) {
         inputManager.updateTouches(touches)
+        for item in touchHandlers {
+            if (item.isActive()) {
+                item.handleTouches(touches)
+            }
+        }
+
+    }
+    
+    override public func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        handleTouches(touches)
     }
     
    override public func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
-        inputManager.updateTouches(touches)
+    handleTouches(touches)
+
     }
     
     override public func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        inputManager.updateTouches(touches)
+        handleTouches(touches)
+
     }
     override public func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
-        inputManager.updateTouches(touches)
+        handleTouches(touches)
+
     }
     
     

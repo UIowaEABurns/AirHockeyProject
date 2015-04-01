@@ -33,5 +33,6 @@ public class Paddle : SKShapeNode {
         self.physicsBody?.linearDamping=CGFloat(settingsProfile.getFriction()!)
         self.physicsBody?.angularDamping=CGFloat(settingsProfile.getFriction()!)
         self.physicsBody?.categoryBitMask = paddleCategory
+        self.physicsBody?.usesPreciseCollisionDetection = true
     }
 }

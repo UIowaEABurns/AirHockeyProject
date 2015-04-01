@@ -35,6 +35,8 @@
 		7115A5741ACB81F10057A8B8 /* GameUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115A5731ACB81F10057A8B8 /* GameUtil.swift */; };
 		7115A5761ACB88650057A8B8 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115A5751ACB88650057A8B8 /* Goal.swift */; };
 		716373B01ACB9E1200B1FF7D /* zPositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716373AF1ACB9E1200B1FF7D /* zPositions.swift */; };
+		717B00D91ACC486B0049F3EC /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B00D81ACC486B0049F3EC /* Button.swift */; };
+		717B00DE1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B00DD1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift */; };
 		71A8756D1AC5C71F008EDBA9 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A8756C1AC5C71F008EDBA9 /* Timer.swift */; };
 		71A875761AC5D115008EDBA9 /* Puck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A875751AC5D115008EDBA9 /* Puck.swift */; };
 		71A875781AC5D4AE008EDBA9 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A875771AC5D4AE008EDBA9 /* Paddle.swift */; };
@@ -133,6 +135,8 @@
 		7115A5731ACB81F10057A8B8 /* GameUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameUtil.swift; sourceTree = "<group>"; };
 		7115A5751ACB88650057A8B8 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		716373AF1ACB9E1200B1FF7D /* zPositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = zPositions.swift; sourceTree = "<group>"; };
+		717B00D81ACC486B0049F3EC /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		717B00DD1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchHandlerDelegate.swift; sourceTree = "<group>"; };
 		71A8756C1AC5C71F008EDBA9 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		71A875751AC5D115008EDBA9 /* Puck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Puck.swift; sourceTree = "<group>"; };
 		71A875771AC5D4AE008EDBA9 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
@@ -302,6 +306,7 @@
 				7115A5701ACB81DD0057A8B8 /* Geometry.swift */,
 				7115A5731ACB81F10057A8B8 /* GameUtil.swift */,
 				716373AF1ACB9E1200B1FF7D /* zPositions.swift */,
+				717B00DD1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 				710435B71AC85E47003E9458 /* Player.swift */,
 				710435B91AC86445003E9458 /* HumanPlayer.swift */,
 				7115A5751ACB88650057A8B8 /* Goal.swift */,
+				717B00D81ACC486B0049F3EC /* Button.swift */,
 			);
 			name = game;
 			path = AirHockeyProject/src/game;
@@ -510,6 +516,7 @@
 				7107A2A11AC398B600706EC8 /* GameViewController.swift in Sources */,
 				7107A29B1AC398B600706EC8 /* AppDelegate.swift in Sources */,
 				710435B11AC7103B003E9458 /* Table.swift in Sources */,
+				717B00D91ACC486B0049F3EC /* Button.swift in Sources */,
 				7107A2C71AC398D600706EC8 /* SettingsProfile.swift in Sources */,
 				71A875781AC5D4AE008EDBA9 /* Paddle.swift in Sources */,
 				710435B81AC85E47003E9458 /* Player.swift in Sources */,
@@ -517,6 +524,7 @@
 				7115A5711ACB81DD0057A8B8 /* GameTimer.swift in Sources */,
 				7115A5741ACB81F10057A8B8 /* GameUtil.swift in Sources */,
 				7115A5761ACB88650057A8B8 /* Goal.swift in Sources */,
+				717B00DE1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift in Sources */,
 				710435BA1AC86445003E9458 /* HumanPlayer.swift in Sources */,
 				7107A2C91AC398D600706EC8 /* User.swift in Sources */,
 			);

@@ -11,6 +11,7 @@ import Foundation
 import SpriteKit
 public class Table : SKShapeNode {
     
+    
     private var puck : Puck!
 
     private var otherObjects  : [SKNode]! = []
@@ -18,7 +19,6 @@ public class Table : SKShapeNode {
     private var goalWidthRatio : CGFloat = 0.30 // how wide is the goal compared to width of board TODO: allow configuration
     init(rect : CGRect) {
         super.init()
-        
         self.path = CGPathCreateWithRect(rect, nil)
 
         self.fillColor = SKColor.grayColor()
@@ -88,12 +88,12 @@ public class Table : SKShapeNode {
             node.physicsBody=SKPhysicsBody(edgeFromPoint: CGPoint(x: 0,y: 0), toPoint: CGPoint(x: node.frame.width, y: node.frame.height))
             node.physicsBody!.categoryBitMask = edgeCategory
 
-
+            
         }
         
     }
     
-
+    
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -47,13 +47,6 @@ class GameViewController: UIViewController {
         
     }
 
-    @IBAction func PauseClicked(sender: AnyObject) {
-        if (scene.isGamePaused()) {
-            scene.resumeGame()
-        } else {
-            scene.pauseGame()
-        }
-    }
     override func shouldAutorotate() -> Bool {
         return true
     }
