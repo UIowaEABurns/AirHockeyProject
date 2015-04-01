@@ -17,13 +17,14 @@ public class Puck: SKShapeNode {
         self.physicsBody?.restitution=0.95
         self.physicsBody?.allowsRotation=true
         self.fillColor=SKColor.blackColor()
-        self.physicsBody?.density=CGFloat(density)
-        self.physicsBody?.usesPreciseCollisionDetection=true
-        self.physicsBody?.friction=CGFloat(settingsProfile.getFriction()!)
-        self.physicsBody?.linearDamping=CGFloat(settingsProfile.getFriction()!)
-        self.physicsBody?.angularDamping=CGFloat(settingsProfile.getFriction()!)
-        self.physicsBody?.categoryBitMask = puckCategory
-        self.physicsBody?.collisionBitMask = paddleCategory|edgeCategory|puckCategory
+        self.physicsBody!.density=CGFloat(density)
+        self.physicsBody!.usesPreciseCollisionDetection=true
+        self.physicsBody!.friction=CGFloat(settingsProfile.getFriction()!)
+        self.physicsBody!.linearDamping=CGFloat(settingsProfile.getFriction()!)
+        self.physicsBody!.angularDamping=CGFloat(settingsProfile.getFriction()!)
+        self.physicsBody!.categoryBitMask = puckCategory
+        self.physicsBody!.collisionBitMask = self.physicsBody!.collisionBitMask ^ barrierCategory
+        self.zPosition = zPositionPuck
     }
    
     

@@ -42,4 +42,14 @@ public class Geometry {
     class func getTransitionVector(from : CGVector, to: CGVector) -> CGVector {
         return CGVector(dx: to.dx-from.dx, dy: to.dy-from.dy)
     }
+    
+    class func nodeContainsNode(outerNode : SKNode, innerNode : SKNode) -> Bool {
+        return outerNode.containsPoint(CGPoint(x: innerNode.frame.minX, y: innerNode.frame.minY)) && outerNode.containsPoint(CGPoint(x: innerNode.frame.minX, y: innerNode.frame.maxY)) && outerNode.containsPoint(CGPoint(x: innerNode.frame.maxX, y: innerNode.frame.minY)) && outerNode.containsPoint(CGPoint(x: innerNode.frame.maxX, y: innerNode.frame.maxY))
+        
+        
+        
+        
+        
+    }
+    
 }

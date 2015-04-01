@@ -30,11 +30,14 @@
 		7107A2E81AC39B8300706EC8 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7107A2DC1AC39A5A00706EC8 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7107A2EA1AC39F2E00706EC8 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A2E91AC39F2E00706EC8 /* Users.swift */; };
 		7107A2ED1AC3A12A00706EC8 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A2EC1AC3A12A00706EC8 /* Util.swift */; };
-		715344BF1AC8DB680065949F /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715344BE1AC8DB680065949F /* GameTimer.swift */; };
+		7115A5711ACB81DD0057A8B8 /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115A56F1ACB81DD0057A8B8 /* GameTimer.swift */; };
+		7115A5721ACB81DD0057A8B8 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115A5701ACB81DD0057A8B8 /* Geometry.swift */; };
+		7115A5741ACB81F10057A8B8 /* GameUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115A5731ACB81F10057A8B8 /* GameUtil.swift */; };
+		7115A5761ACB88650057A8B8 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115A5751ACB88650057A8B8 /* Goal.swift */; };
+		716373B01ACB9E1200B1FF7D /* zPositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716373AF1ACB9E1200B1FF7D /* zPositions.swift */; };
 		71A8756D1AC5C71F008EDBA9 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A8756C1AC5C71F008EDBA9 /* Timer.swift */; };
 		71A875761AC5D115008EDBA9 /* Puck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A875751AC5D115008EDBA9 /* Puck.swift */; };
 		71A875781AC5D4AE008EDBA9 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A875771AC5D4AE008EDBA9 /* Paddle.swift */; };
-		71A8757A1AC5D5D3008EDBA9 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A875791AC5D5D3008EDBA9 /* Geometry.swift */; };
 		71BB497F1AC4CE1C00898049 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB497E1AC4CE1C00898049 /* Settings.swift */; };
 		71BB49821AC4D24F00898049 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB49811AC4D24F00898049 /* Constants.swift */; };
 		71BB49841AC4D70200898049 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB49831AC4D70200898049 /* Statistics.swift */; };
@@ -125,11 +128,14 @@
 		7107A2D31AC39A5900706EC8 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		7107A2E91AC39F2E00706EC8 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		7107A2EC1AC3A12A00706EC8 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		715344BE1AC8DB680065949F /* GameTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
+		7115A56F1ACB81DD0057A8B8 /* GameTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
+		7115A5701ACB81DD0057A8B8 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		7115A5731ACB81F10057A8B8 /* GameUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameUtil.swift; sourceTree = "<group>"; };
+		7115A5751ACB88650057A8B8 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		716373AF1ACB9E1200B1FF7D /* zPositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = zPositions.swift; sourceTree = "<group>"; };
 		71A8756C1AC5C71F008EDBA9 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		71A875751AC5D115008EDBA9 /* Puck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Puck.swift; sourceTree = "<group>"; };
 		71A875771AC5D4AE008EDBA9 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
-		71A875791AC5D5D3008EDBA9 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		71BB497E1AC4CE1C00898049 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		71BB49811AC4D24F00898049 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		71BB49831AC4D70200898049 /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
@@ -289,17 +295,28 @@
 			path = util;
 			sourceTree = "<group>";
 		};
+		7115A56E1ACB81DD0057A8B8 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				7115A56F1ACB81DD0057A8B8 /* GameTimer.swift */,
+				7115A5701ACB81DD0057A8B8 /* Geometry.swift */,
+				7115A5731ACB81F10057A8B8 /* GameUtil.swift */,
+				716373AF1ACB9E1200B1FF7D /* zPositions.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 		71A875711AC5D0F5008EDBA9 /* game */ = {
 			isa = PBXGroup;
 			children = (
+				7115A56E1ACB81DD0057A8B8 /* util */,
 				71A875751AC5D115008EDBA9 /* Puck.swift */,
 				71A875771AC5D4AE008EDBA9 /* Paddle.swift */,
-				71A875791AC5D5D3008EDBA9 /* Geometry.swift */,
 				710435B01AC7103B003E9458 /* Table.swift */,
 				710435B51AC74BB9003E9458 /* InputManager.swift */,
 				710435B71AC85E47003E9458 /* Player.swift */,
 				710435B91AC86445003E9458 /* HumanPlayer.swift */,
-				715344BE1AC8DB680065949F /* GameTimer.swift */,
+				7115A5751ACB88650057A8B8 /* Goal.swift */,
 			);
 			name = game;
 			path = AirHockeyProject/src/game;
@@ -479,11 +496,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7107A2EA1AC39F2E00706EC8 /* Users.swift in Sources */,
+				7115A5721ACB81DD0057A8B8 /* Geometry.swift in Sources */,
 				71BB49821AC4D24F00898049 /* Constants.swift in Sources */,
 				7107A2ED1AC3A12A00706EC8 /* Util.swift in Sources */,
 				7107A2C61AC398D600706EC8 /* DatabaseManager.swift in Sources */,
+				716373B01ACB9E1200B1FF7D /* zPositions.swift in Sources */,
 				71A8756D1AC5C71F008EDBA9 /* Timer.swift in Sources */,
-				71A8757A1AC5D5D3008EDBA9 /* Geometry.swift in Sources */,
 				710435B61AC74BB9003E9458 /* InputManager.swift in Sources */,
 				7107A2C81AC398D600706EC8 /* Stats.swift in Sources */,
 				71A875761AC5D115008EDBA9 /* Puck.swift in Sources */,
@@ -495,8 +513,10 @@
 				7107A2C71AC398D600706EC8 /* SettingsProfile.swift in Sources */,
 				71A875781AC5D4AE008EDBA9 /* Paddle.swift in Sources */,
 				710435B81AC85E47003E9458 /* Player.swift in Sources */,
-				715344BF1AC8DB680065949F /* GameTimer.swift in Sources */,
 				71BB49841AC4D70200898049 /* Statistics.swift in Sources */,
+				7115A5711ACB81DD0057A8B8 /* GameTimer.swift in Sources */,
+				7115A5741ACB81F10057A8B8 /* GameUtil.swift in Sources */,
+				7115A5761ACB88650057A8B8 /* Goal.swift in Sources */,
 				710435BA1AC86445003E9458 /* HumanPlayer.swift in Sources */,
 				7107A2C91AC398D600706EC8 /* User.swift in Sources */,
 			);

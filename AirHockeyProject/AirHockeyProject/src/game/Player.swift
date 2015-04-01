@@ -17,13 +17,14 @@ public class Player {
     private var scene : GameScene
     private var playerNumber : Int
     private var paddle : Paddle? // the paddle for this player
-    
+    public var score : Int
 
     init (speed : CGFloat, accel : CGFloat, s : GameScene, i : Int) {
         maxSpeed=speed
         maxAcceleration = accel
         scene=s
-        playerNumber = i 
+        playerNumber = i
+        score = 0 
     }
     
     //this is the function called by the game to allow the player to move. In other words, this is the entry point

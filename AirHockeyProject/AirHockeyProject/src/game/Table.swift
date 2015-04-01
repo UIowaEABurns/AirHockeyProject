@@ -27,7 +27,7 @@ public class Table : SKShapeNode {
         //self.physicsBody?.categoryBitMask = edgeCategory
         //creates a center line that paddles cannot cross
         
-        attachEdges()
+        attachEdgesAndGoals()
         let centerHeight : CGFloat = 1
         let size : CGSize = CGSize(width: self.frame.width, height: centerHeight)
         
@@ -50,50 +50,41 @@ public class Table : SKShapeNode {
         
     }
     
-    //TODO: Refactor this-- it should take only a few lines to do this with some more clever loops
-    private func attachEdges() {
+   
+    private func attachEdgesAndGoals() {
         var nodes : [SKNode] = []
         
         let goalWidth = goalWidthRatio * self.frame.width
         let wallWidth = (self.frame.width - goalWidth) / 2
-        //
-        var originPoints = [CGPoint(x: self.frame.width,y: 0), CGPoint(x: 0,y: 0)]
-        for originPoint in originPoints {
-            var vertEdge = SKShapeNode(rect: CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: 0.5, height: self.frame.height)))
-            vertEdge.position=originPoint
-
-            nodes.append(vertEdge)
-
-            
-
-        }
+       
+        GameUtil.attachVerticalEdges(self, category: edgeCategory)
         
         //this part creates the 4 walls flankings the goals
         
-         originPoints = [CGPoint(x: 0, y: 0), CGPoint(x: goalWidth+wallWidth, y: 0), CGPoint(x: 0, y: self.frame.height), CGPoint(x: goalWidth+wallWidth, y: self.frame.height)]
+        var originPoints = [CGPoint(x: 0, y: 0), CGPoint(x: goalWidth+wallWidth, y: 0), CGPoint(x: 0, y: self.frame.height), CGPoint(x: goalWidth+wallWidth, y: self.frame.height)]
         for originPoint in originPoints {
             var edge=SKShapeNode(rect: CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: wallWidth, height: 0.5)))
             edge.position = originPoint
             nodes.append(edge)
             
         }
-
+        //TODO: height?
+        let goalSize = CGSize(width: goalWidth, height: 200)
+        let bottomGoal = Goal(size: goalSize, playerNum : 1)
+        bottomGoal.position = CGPoint(x: wallWidth, y: -bottomGoal.frame.height)
+        self.addChild(bottomGoal)
         
-        originPoints = [CGPoint(x: wallWidth, y: 0), CGPoint(x: wallWidth, y: self.frame.height) ]
-        for originPoint in originPoints {
-            var goalBarrier=SKShapeNode(rect: CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: wallWidth, height: 0.5)))
-            goalBarrier.position=originPoint
-            goalBarrier.physicsBody=SKPhysicsBody(edgeFromPoint: CGPoint(x: 0,y: 0), toPoint: CGPoint(x: goalBarrier.frame.width, y: goalBarrier.frame.height))
-            goalBarrier.physicsBody!.categoryBitMask = barrierCategory
-            goalBarrier.strokeColor = SKColor.clearColor()
-            self.addChild(goalBarrier)
-        }
+        let topGoal = Goal(size: goalSize, playerNum : 2)
+        //topGoal.zRotation = CGFloat(M_PI) * 2
+        topGoal.position = CGPoint(x: wallWidth, y: self.frame.maxY)
+        self.addChild(topGoal)
+        
+       
         
         for node in nodes {
 
             self.addChild(node)
-            println("making the dumb vert edge")
-            println(node.position.x)
+            
             node.physicsBody=SKPhysicsBody(edgeFromPoint: CGPoint(x: 0,y: 0), toPoint: CGPoint(x: node.frame.width, y: node.frame.height))
             node.physicsBody!.categoryBitMask = edgeCategory
 
@@ -124,6 +115,18 @@ public class Table : SKShapeNode {
     func getPlayerOneHalf() -> CGRect {
         var originPoint=CGPoint(x: 0,y: 0)
         return CGRect(origin: originPoint, size: CGSize(width: self.frame.width, height: self.frame.height/2))
+    }
+    
+    // resets the puck by giving it to the given player. Player one is on the bottom, player two is on the top
+    //TODO: this needs to be a bit more involved to work correctly. Specifically, there needs to be some time delay,
+    // some effects, and so on.  This is basically just some test code
+    public func resetPuckToPlayer(playerNumber : Int) {
+        if (playerNumber==1) {
+            puck.position = CGPoint(x: self.frame.midX, y: self.frame.midY - self.frame.height / 4)
+        } else {
+            puck.position = CGPoint(x: self.frame.midX, y: self.frame.midY + self.frame.height / 4)
+        }
+        puck.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
     }
    
     

@@ -13,7 +13,6 @@ let puckCategory :  UInt32 =  0x1 << 0;
 let paddleCategory :  UInt32 =  0x1 << 1;
 let edgeCategory : UInt32 = 0x1 << 2
 let barrierCategory : UInt32 = 0x1 << 3
-
 public class GameScene: SKScene {
     
     //TODO: need to pass the user setting profile to this variable
@@ -30,6 +29,12 @@ public class GameScene: SKScene {
     private var contentCreated : Bool = false
     private var gamePaused = false
     private var shouldRestoreToUnpaused = false
+    
+    private var playerOneScore : SKLabelNode!
+    private var playerTwoScore : SKLabelNode!
+    
+    private var overlayNode : SKShapeNode! // just a transparent gray overlay that we can put over the game
+    
     public func getPlayingTable() -> Table {
         return playingTable
     }
@@ -63,13 +68,16 @@ public class GameScene: SKScene {
         shouldRestoreToUnpaused=false
     }
     
+    
+    
     override public func didMoveToView(view: SKView) {
         /* Setup your scene here */
         if (!contentCreated) {
+            println("console")
             self.physicsWorld.gravity=CGVectorMake(0,0) // no gravity in this game
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "appEnteringBackground", name: UIApplicationDidEnterBackgroundNotification, object: nil)
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "appEnteringForeground", name: UIApplicationWillEnterForegroundNotification, object: nil)
-
+            
             defaultPhysicsSpeed = self.physicsWorld.speed
             inputManager = InputManager()
             inputManager.setGame(self)
@@ -115,6 +123,9 @@ public class GameScene: SKScene {
             playingTable.addChild(paddle)
             playerTwo.setPaddle(paddle)
         
+            
+            
+            
             timer = GameTimer(seconds: Int64(settingsProfile.getTimeLimit()!),font : gameFont)
             
             
@@ -122,9 +133,26 @@ public class GameScene: SKScene {
             
             gameplayNode.addChild(timer)
             timer.timer.start()
-            println("anchor point")
-            println(self.anchorPoint)
+        
+            playerOneScore = SKLabelNode(fontNamed: gameFont)
+            playerOneScore.zRotation = CGFloat((M_PI*3.0)/2.0)
+            playerOneScore.text = "0"
+            playerOneScore.position = CGPoint(x: timer.position.x , y: timer.position.y - playerOneScore.frame.height - 100)
+            playerTwoScore = SKLabelNode(fontNamed: gameFont)
+            playerTwoScore.zRotation = CGFloat((M_PI*3.0)/2.0)
+            playerTwoScore.text = "0"
+            playerTwoScore.position = CGPoint(x: timer.position.x , y: timer.position.y + playerOneScore.frame.height + 100)
+            gameplayNode.addChild(playerOneScore)
+            gameplayNode.addChild(playerTwoScore)
             
+            
+            overlayNode = SKShapeNode(rect: CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: self.frame.width, height: self.frame.height)))
+            
+            overlayNode.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
+            overlayNode.zPosition = zPositionOverlay
+            overlayNode.fillColor = SKColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.6)
+            overlayNode.hidden = true
+            self.addChild(overlayNode)
             
         }
         
@@ -134,6 +162,7 @@ public class GameScene: SKScene {
     
     public func pauseGame() {
         gameplayNode.paused=true
+        overlayNode.hidden = false
         self.getTimer()!.timer.pause()
         self.physicsWorld.speed=0.0
         self.gamePaused=true
@@ -141,6 +170,7 @@ public class GameScene: SKScene {
     
     public func resumeGame() {
         gameplayNode.paused = false
+        overlayNode.hidden = true
         self.getTimer()!.timer.unpause()
         self.physicsWorld.speed = defaultPhysicsSpeed
         self.gamePaused=false
@@ -200,8 +230,16 @@ public class GameScene: SKScene {
                 }
             }
         }
-       
-        
+    }
+    
+    private func handleGoalScored(playerScoredOn : Int) {
+        if (playerScoredOn==1) {
+            playerTwo.score=playerTwo.score+1
+            
+        } else {
+            playerOne.score=playerOne.score+1
+        }
+        playingTable.resetPuckToPlayer(playerScoredOn)
     }
     
    
@@ -209,6 +247,21 @@ public class GameScene: SKScene {
         if (!gameplayNode.paused) {
             playerOne.movePaddle()
             playerTwo.movePaddle()
+            playerOneScore.text = String(playerOne.score)
+            playerTwoScore.text = String(playerTwo.score)
+            playingTable.enumerateChildNodesWithName("goal", usingBlock: {
+                (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
+                let goal = node as Goal
+                if (Geometry.nodeContainsNode(goal, innerNode: self.playingTable.getPuck())) {
+                    
+                    self.handleGoalScored(goal.getPlayerNumber())
+                }
+            
+            
+            })
+            
+            
+            
         }
         
     }
