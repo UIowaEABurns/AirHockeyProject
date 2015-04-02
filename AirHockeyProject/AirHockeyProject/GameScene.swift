@@ -115,8 +115,8 @@ public class GameScene: SKScene {
             gameplayNode = SKNode()
             activeNode = gameplayNode
             self.addChild(gameplayNode)
-            let fractionOfWidth : CGFloat = 0.8 // how much of the screen should this take up?
-            let fractionOfHeight : CGFloat = 0.9
+            let fractionOfWidth : CGFloat = TABLE_WIDTH_FRACTION
+            let fractionOfHeight : CGFloat = TABLE_HEIGHT_FRACTION
             let width = self.frame.width * fractionOfWidth
             let height = self.frame.height * fractionOfHeight
             
@@ -135,10 +135,11 @@ public class GameScene: SKScene {
             playingTable.setPuck(puck)
             
             
-            playerOne=HumanPlayer(speed: maxHumanPaddleSpeed, accel: maxHumanPaddleAcceleration, s: self, i: 1)
-            playerTwo=HumanPlayer(speed: maxHumanPaddleSpeed, accel: maxHumanPaddleAcceleration, s: self, i: 2)
             
             
+            inputManager = InputManager(t: playingTable)
+            playerOne=AIPlayer(speed: maxHumanPaddleSpeed, accel: maxHumanPaddleAcceleration, i: 1,input: inputManager,p: playingTable)
+            playerTwo=AIPlayer(speed: maxHumanPaddleSpeed, accel: maxHumanPaddleAcceleration, i: 2, input: inputManager,p: playingTable)
             
             var paddle = getPaddleSprite(boardWidth*CGFloat(settingsProfile.getPlayerOnePaddleRadius()!), mass : puck.physicsBody!.mass * paddlePuckMassRatio)
             var tableHalf = playingTable.getPlayerOneHalf()
@@ -169,11 +170,11 @@ public class GameScene: SKScene {
             playerOneScore = SKLabelNode(fontNamed: gameFont)
             playerOneScore.zRotation = CGFloat((M_PI*3.0)/2.0)
             playerOneScore.text = "0"
-            playerOneScore.position = CGPoint(x: timer.position.x , y: timer.position.y - playerOneScore.frame.height - 100)
+            playerOneScore.position = CGPoint(x: timer.position.x , y: timer.position.y - playerOneScore.frame.height - SCORE_DISPLAY_PADDING)
             playerTwoScore = SKLabelNode(fontNamed: gameFont)
             playerTwoScore.zRotation = CGFloat((M_PI*3.0)/2.0)
             playerTwoScore.text = "0"
-            playerTwoScore.position = CGPoint(x: timer.position.x , y: timer.position.y + playerOneScore.frame.height + 100)
+            playerTwoScore.position = CGPoint(x: timer.position.x , y: timer.position.y + playerOneScore.frame.height + SCORE_DISPLAY_PADDING)
             gameplayNode.addChild(playerOneScore)
             gameplayNode.addChild(playerTwoScore)
             
@@ -182,11 +183,11 @@ public class GameScene: SKScene {
             
             overlayNode.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
             overlayNode.zPosition = zPositionOverlay
-            overlayNode.fillColor = SKColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.6)
+            overlayNode.fillColor = OVERLAY_COLOR
             overlayNode.hidden = true
             self.addChild(overlayNode)
             self.addPauseButtons()
-            inputManager = InputManager(t: playingTable)
+            
             
         }
         
@@ -222,7 +223,8 @@ public class GameScene: SKScene {
     }
     
     private func makeTable(rect: CGRect) -> Table {
-        var table = Table(rect: rect)
+        // TODO: goal width should be configurable
+        var table = Table(rect: rect, goalWidthRatio: 0.30)
         
         
         
@@ -290,6 +292,8 @@ public class GameScene: SKScene {
         }
     }
     
+    
+    //handles a goal being scored by the given player
     private func handleGoalScored(playerScoredOn : Int) {
         if (playerScoredOn==1) {
             playerTwo.score=playerTwo.score+1
@@ -298,21 +302,25 @@ public class GameScene: SKScene {
             playerOne.score=playerOne.score+1
         }
         playingTable.resetPuckToPlayer(playerScoredOn)
+        playerOneScore.text = String(playerOne.score)
+        playerTwoScore.text = String(playerTwo.score)
     }
     
    
+    
+    //TODO: Refactor these tasks to somewhere else?
     override public func update(currentTime: CFTimeInterval) {
         if (!gameplayNode.paused) {
             playerOne.movePaddle()
             playerTwo.movePaddle()
-            playerOneScore.text = String(playerOne.score)
-            playerTwoScore.text = String(playerTwo.score)
-            playingTable.enumerateChildNodesWithName("goal", usingBlock: {
+            
+            playingTable.enumerateChildNodesWithName(GOAL_NAME, usingBlock: {
                 (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
                 let goal = node as Goal
                 if (Geometry.nodeContainsNode(goal, innerNode: self.playingTable.getPuck())) {
                     
                     self.handleGoalScored(goal.getPlayerNumber())
+                    
                 }
             
             

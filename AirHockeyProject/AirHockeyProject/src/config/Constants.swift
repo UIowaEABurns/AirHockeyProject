@@ -9,12 +9,28 @@
 import Foundation
 import SpriteKit
 
+//size constants for the game
+public var TABLE_WIDTH_FRACTION : CGFloat = 0.8 // how tall / wide should the table be compared to the screen
+public var TABLE_HEIGHT_FRACTION : CGFloat = 0.9
+public var SCORE_DISPLAY_PADDING : CGFloat = 100 // how many points away from the timer should we place the scores?
+
+//display constants for the game
+public var OVERLAY_COLOR : SKColor = SKColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.6)
+
+//physical constants for the game
 public var maxHumanPaddleSpeed : CGFloat=1100.0
 public var maxHumanPaddleAcceleration : CGFloat = 1100.0
 public var paddlePuckMassRatio : CGFloat = 3 // how much more should the paddles weigh as compared to the puck
+public var TABLE_BARRIER_RESTITUTION : CGFloat = 0.01 // affects how "bouncy" the invisible barrier in the middle of the table is
+
+//node name constants
+public var GOAL_NAME = "goal"
 
 
 public var gameFont : String = "Chalkduster"
+
+
+
 
 
 public class AirHockeyConstants {
@@ -38,6 +54,9 @@ public class AirHockeyConstants {
         
         return s
     }
+    
+    
+
     
     
 }

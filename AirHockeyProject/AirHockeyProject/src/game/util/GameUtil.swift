@@ -57,6 +57,15 @@ public class GameUtil {
             
         }
     }
+    //returns a random CGFloat between 0 and 1
+    class func getRandomFloat() -> CGFloat  {
+        return CGFloat(Float(arc4random()) / Float(UINT32_MAX))
+    }
+    
+    //gets a random float in the range of the two given floats
+    class func getRandomFloatInRange(min: CGFloat, max: CGFloat) -> CGFloat {
+        return (getRandomFloat() * (max-min) + min)
+    }
     
     
 }

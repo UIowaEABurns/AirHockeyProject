@@ -14,17 +14,21 @@ public class Player {
     
     private var maxSpeed : CGFloat // this is the maximum speed that this player's  paddle is allowed to go
     private var maxAcceleration : CGFloat // this is the
-    private var scene : GameScene
     private var playerNumber : Int
     private var paddle : Paddle? // the paddle for this player
+    
+    private var inputManager : InputManager
+    private var playingTable : Table
+    
     public var score : Int
 
-    init (speed : CGFloat, accel : CGFloat, s : GameScene, i : Int) {
+    init (speed : CGFloat, accel : CGFloat,i : Int, input : InputManager, p : Table) {
         maxSpeed=speed
         maxAcceleration = accel
-        scene=s
         playerNumber = i
-        score = 0 
+        score = 0
+        playingTable = p
+        inputManager = input
     }
     
     //this is the function called by the game to allow the player to move. In other words, this is the entry point
@@ -59,9 +63,7 @@ public class Player {
     public func setPaddle(p : Paddle) {
         paddle=p
     }
-    public func getScene() -> GameScene {
-        return scene
-    }
+   
     public func getPlayerNumber() -> Int {
         return playerNumber
     }
@@ -107,6 +109,13 @@ public class Player {
         
         return finalVector
         
+    }
+    
+    public func getInputManager()-> InputManager {
+        return inputManager
+    }
+    public func getPlayingTable() -> Table {
+        return playingTable
     }
     
 }

@@ -9,15 +9,19 @@
 
 import Foundation
 import SpriteKit
+
+
 public class Table : SKShapeNode {
     
     
     private var puck : Puck!
 
-    private var otherObjects  : [SKNode]! = []
-    
-    private var goalWidthRatio : CGFloat = 0.30 // how wide is the goal compared to width of board TODO: allow configuration
-    init(rect : CGRect) {
+    //TODO: Will be necessary to represent other objects on the board
+    private var physicsObjects  : [SKNode] = []
+    private var goalWidthRatio : CGFloat
+    //goal width is a number between
+    init(rect : CGRect, goalWidthRatio : CGFloat) {
+        self.goalWidthRatio = goalWidthRatio
         super.init()
         self.path = CGPathCreateWithRect(rect, nil)
 
@@ -43,7 +47,7 @@ public class Table : SKShapeNode {
         midline.physicsBody=SKPhysicsBody(edgeLoopFromRect: centerRect)
         midline.physicsBody!.categoryBitMask = barrierCategory
         midline.physicsBody!.collisionBitMask = paddleCategory // the midline only blocks paddles
-        midline.physicsBody!.restitution=0.01
+        midline.physicsBody!.restitution=TABLE_BARRIER_RESTITUTION
         midline.position = CGPoint(x: 0, y: self.frame.height/2)
         
         self.addChild(midline)
@@ -75,10 +79,10 @@ public class Table : SKShapeNode {
         self.addChild(bottomGoal)
         
         let topGoal = Goal(size: goalSize, playerNum : 2)
-        //topGoal.zRotation = CGFloat(M_PI) * 2
-        topGoal.position = CGPoint(x: wallWidth, y: self.frame.maxY)
+        topGoal.zRotation = CGFloat(M_PI)
+
+        topGoal.position = CGPoint(x: wallWidth+topGoal.frame.width, y: self.frame.maxY+topGoal.frame.height)
         self.addChild(topGoal)
-        
        
         
         for node in nodes {
@@ -139,5 +143,19 @@ public class Table : SKShapeNode {
     }
     public func getPuck() -> Puck {
         return puck
+    }
+    
+    //returns the goal that the given player is defending
+    public func getDefendingGoal(playerNumber: Int)-> Goal! {
+        for node in children {
+            let sknode = node as SKNode
+            if sknode.name==GOAL_NAME {
+                let goal = sknode as Goal
+                if goal.getPlayerNumber()==playerNumber {
+                    return goal
+                }
+            }
+        }
+        return nil
     }
 }

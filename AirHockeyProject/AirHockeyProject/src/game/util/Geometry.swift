@@ -45,11 +45,35 @@ public class Geometry {
     
     class func nodeContainsNode(outerNode : SKNode, innerNode : SKNode) -> Bool {
         return outerNode.containsPoint(CGPoint(x: innerNode.frame.minX, y: innerNode.frame.minY)) && outerNode.containsPoint(CGPoint(x: innerNode.frame.minX, y: innerNode.frame.maxY)) && outerNode.containsPoint(CGPoint(x: innerNode.frame.maxX, y: innerNode.frame.minY)) && outerNode.containsPoint(CGPoint(x: innerNode.frame.maxX, y: innerNode.frame.maxY))
-        
-        
-        
-        
-        
+ 
     }
+    
+    //returns the slope of the two points as if they were a line segment. If they slope is infinite, just returns 10000000 as an estimate
+    class func getSlope(p1 : CGPoint, p2 : CGPoint) -> CGFloat {
+        if (p2.x==p1.x) {
+            return 10000000
+        }
+        return (p2.y - p1.y) / (p2.x - p1.x)
+    }
+    
+    //returns the slope of the line perpendicular to the given line. If there is no such slope, just returns 10000000 as an estimate
+    class func getPerpendicularSlope(p1 : CGPoint, p2 : CGPoint) -> CGFloat {
+        let slope = getSlope(p1,p2: p2)
+        if (slope==0) {
+            return 10000000
+        }
+        return -(1.0/slope)
+    }
+    
+    class func getPointAtDistanceWithSlope(origin : CGPoint, slope : CGFloat, distance : CGFloat) -> CGPoint {
+        let b = origin.y - slope * origin.x
+        let temp : CGFloat = CGFloat(distance/CGFloat(sqrt(1 + (slope * slope))))
+        let x = origin.x + temp
+        let y = slope * x + b
+        return CGPoint(x: x, y: y)
+    }
+    
+   
+    
     
 }
