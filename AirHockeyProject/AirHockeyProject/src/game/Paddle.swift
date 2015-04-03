@@ -13,7 +13,7 @@ import SpriteKit
 public class Paddle : SKShapeNode {
     
     private var playerNumber : Int?
-    
+    var lastPosition : CGPoint?
     public func setPlayerNumber(i : Int) {
         playerNumber=i
     }

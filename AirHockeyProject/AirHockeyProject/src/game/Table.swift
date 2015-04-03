@@ -44,7 +44,7 @@ public class Table : SKShapeNode {
         
         midline.fillColor=SKColor.whiteColor()
         
-        midline.physicsBody=SKPhysicsBody(edgeLoopFromRect: centerRect)
+        midline.physicsBody=SKPhysicsBody(edgeFromPoint: CGPoint(x: 0,y: 0), toPoint: CGPoint(x: midline.frame.width,y: midline.frame.height))
         midline.physicsBody!.categoryBitMask = barrierCategory
         midline.physicsBody!.collisionBitMask = paddleCategory // the midline only blocks paddles
         midline.physicsBody!.restitution=TABLE_BARRIER_RESTITUTION
@@ -65,15 +65,15 @@ public class Table : SKShapeNode {
         
         //this part creates the 4 walls flankings the goals
         
-        var originPoints = [CGPoint(x: 0, y: 0), CGPoint(x: goalWidth+wallWidth, y: 0), CGPoint(x: 0, y: self.frame.height), CGPoint(x: goalWidth+wallWidth, y: self.frame.height)]
+        var originPoints = [CGPoint(x: -1, y: 0), CGPoint(x: goalWidth+wallWidth-1, y: 0), CGPoint(x: -1, y: self.frame.height), CGPoint(x: goalWidth+wallWidth-1, y: self.frame.height)]
         for originPoint in originPoints {
-            var edge=SKShapeNode(rect: CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: wallWidth, height: 0.5)))
+            var edge=SKShapeNode(rect: CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: wallWidth+2, height: 0.5)))
             edge.position = originPoint
             nodes.append(edge)
             
         }
         //TODO: height?
-        let goalSize = CGSize(width: goalWidth, height: 200)
+        let goalSize = CGSize(width: goalWidth, height: 10000)
         let bottomGoal = Goal(size: goalSize, playerNum : 1)
         bottomGoal.position = CGPoint(x: wallWidth, y: -bottomGoal.frame.height)
         self.addChild(bottomGoal)
@@ -101,6 +101,14 @@ public class Table : SKShapeNode {
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func getHalfForPlayer(playerNumber : Int) -> CGRect {
+        if (playerNumber==1) {
+            return getPlayerOneHalf()
+        } else {
+            return getPlayerTwoHalf()
+        }
     }
     
     // returns a CGRect representing the bounds of the bottom half of the table,
@@ -137,9 +145,18 @@ public class Table : SKShapeNode {
     //adds the puck to this table, including positioning the puck and adding it to the scene
     public func setPuck(p : Puck) {
         puck = p
-        puck.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-       
+        centerPuck()
+
+        
         self.addChild(puck)
+    }
+    
+    public func centerPuck() {
+        puck.physicsBody!.velocity.dx = 0
+        puck.physicsBody!.velocity.dy = 0
+        puck.position = self.convertPoint(CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame)), fromNode: self.parent!)
+
+
     }
     public func getPuck() -> Puck {
         return puck

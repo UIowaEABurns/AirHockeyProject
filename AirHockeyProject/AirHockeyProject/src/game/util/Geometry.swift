@@ -42,6 +42,11 @@ public class Geometry {
     class func getTransitionVector(from : CGVector, to: CGVector) -> CGVector {
         return CGVector(dx: to.dx-from.dx, dy: to.dy-from.dy)
     }
+    //assumes the outer node assumes outerNode has an anchor point of (0,0). point is in the coordinate system of outerNode
+    private func pointInNode(outerNode : SKNode, point :CGPoint) -> Bool {
+        return point.x>=outerNode.frame.minX && point.y>=outerNode.frame.minY && point.x <= outerNode.frame.maxX && point.y<=outerNode.frame.maxX
+    }
+    
     
     class func nodeContainsNode(outerNode : SKNode, innerNode : SKNode) -> Bool {
         return outerNode.containsPoint(CGPoint(x: innerNode.frame.minX, y: innerNode.frame.minY)) && outerNode.containsPoint(CGPoint(x: innerNode.frame.minX, y: innerNode.frame.maxY)) && outerNode.containsPoint(CGPoint(x: innerNode.frame.maxX, y: innerNode.frame.minY)) && outerNode.containsPoint(CGPoint(x: innerNode.frame.maxX, y: innerNode.frame.maxY))

@@ -13,7 +13,7 @@ let puckCategory :  UInt32 =  0x1 << 0;
 let paddleCategory :  UInt32 =  0x1 << 1;
 let edgeCategory : UInt32 = 0x1 << 2
 let barrierCategory : UInt32 = 0x1 << 3
-public class GameScene: SKScene {
+public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //TODO: need to pass the user setting profile to this variable
     private var settingsProfile = AirHockeyConstants.getDefaultSettings()
@@ -107,6 +107,7 @@ public class GameScene: SKScene {
         if (!contentCreated) {
             println("console")
             self.physicsWorld.gravity=CGVectorMake(0,0) // no gravity in this game
+            self.physicsWorld.contactDelegate = self
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "appEnteringBackground", name: UIApplicationDidEnterBackgroundNotification, object: nil)
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "appEnteringForeground", name: UIApplicationWillEnterForegroundNotification, object: nil)
             
@@ -138,8 +139,8 @@ public class GameScene: SKScene {
             
             
             inputManager = InputManager(t: playingTable)
-            playerOne=AIPlayer(speed: maxHumanPaddleSpeed, accel: maxHumanPaddleAcceleration, i: 1,input: inputManager,p: playingTable)
-            playerTwo=AIPlayer(speed: maxHumanPaddleSpeed, accel: maxHumanPaddleAcceleration, i: 2, input: inputManager,p: playingTable)
+            playerOne=HumanPlayer(speed: MAX_HUMAN_PADDLE_SPEED, accel: MAX_HUMAN_PADDLE_ACCEL, i: 1,input: inputManager,p: playingTable)
+            playerTwo=HumanPlayer(speed: MAX_MEDIUM_AI_PADDLE_SPEED, accel: MAX_MEDIUM_AI_PADDLE_ACCEL, i: 2, input: inputManager,p: playingTable)
             
             var paddle = getPaddleSprite(boardWidth*CGFloat(settingsProfile.getPlayerOnePaddleRadius()!), mass : puck.physicsBody!.mass * paddlePuckMassRatio)
             var tableHalf = playingTable.getPlayerOneHalf()
@@ -188,12 +189,17 @@ public class GameScene: SKScene {
             self.addChild(overlayNode)
             self.addPauseButtons()
             
-            
+            GameUtil.attachInfiniteVerticalEdges(self, category: edgeCategory)
+            self.childNodeWithName("leftEdge")!.physicsBody!.contactTestBitMask = puckCategory
+            self.childNodeWithName("rightEdge")!.physicsBody!.contactTestBitMask = puckCategory
+
         }
         
         
         
     }
+    
+    
     
     public func pauseGame() {
         gameplayNode.paused=true
@@ -246,7 +252,7 @@ public class GameScene: SKScene {
     }
     
    override public func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
-    handleTouches(touches)
+        handleTouches(touches)
 
     }
     
@@ -292,8 +298,12 @@ public class GameScene: SKScene {
         }
     }
     
+    public func didBeginContact(contact: SKPhysicsContact) {
+        println("puck escape!")
+        playingTable.centerPuck()
+    }
     
-    //handles a goal being scored by the given player
+    //handles a goal being scored on the given player
     private func handleGoalScored(playerScoredOn : Int) {
         if (playerScoredOn==1) {
             playerTwo.score=playerTwo.score+1
@@ -311,8 +321,12 @@ public class GameScene: SKScene {
     //TODO: Refactor these tasks to somewhere else?
     override public func update(currentTime: CFTimeInterval) {
         if (!gameplayNode.paused) {
+            playerOne.getPaddle()!.lastPosition = playerOne.getPaddle()!.position
+            playerTwo.getPaddle()!.lastPosition = playerTwo.getPaddle()!.position
             playerOne.movePaddle()
             playerTwo.movePaddle()
+            let puck = self.playingTable.getPuck()
+            var goalScored = false
             
             playingTable.enumerateChildNodesWithName(GOAL_NAME, usingBlock: {
                 (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
@@ -328,11 +342,25 @@ public class GameScene: SKScene {
             
             
             
+            
+            
         }
         
     }
    override public func didSimulatePhysics() {
-    
+        playerOne.processPaddlePosition()
+        playerTwo.processPaddlePosition()
+        if (Geometry.magnitude(playingTable.getPuck().physicsBody!.velocity) > MAX_PUCK_SPEED) {
+            playingTable.getPuck().physicsBody!.velocity = Geometry.getVectorOfMagnitude(playingTable.getPuck().physicsBody!.velocity, b: MAX_PUCK_SPEED)
+        
+        }
+    for paddle in [playerOne.getPaddle()!, playerTwo.getPaddle()!] {
+        if !playingTable.containsPoint(self.convertPoint(paddle.position, fromNode: playingTable)) {
+                println(playingTable.frame)
+                println("paddle escape!")
+                paddle.position = paddle.lastPosition!
+            }
+        }
     }
     
     public func getInputManager() -> InputManager {
