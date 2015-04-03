@@ -21,10 +21,10 @@ public var OVERLAY_COLOR : SKColor = SKColor(red: 0.5, green: 0.5, blue: 0.5, al
 public var MAX_HUMAN_PADDLE_SPEED : CGFloat=1000.0
 public var MAX_HUMAN_PADDLE_ACCEL : CGFloat = 1000.0
 
-public var MAX_MEDIUM_AI_PADDLE_SPEED : CGFloat = 1000.0
-public var MAX_MEDIUM_AI_PADDLE_ACCEL : CGFloat = 1000.0
+public var MAX_MEDIUM_AI_PADDLE_SPEED : CGFloat = 4000.0
+public var MAX_MEDIUM_AI_PADDLE_ACCEL : CGFloat = 4000.0
 
-public var MAX_PUCK_SPEED : CGFloat = 2000.0
+public var MAX_PUCK_SPEED : CGFloat = 10000.0
 
 public var paddlePuckMassRatio : CGFloat = 3 // how much more should the paddles weigh as compared to the puck
 public var TABLE_BARRIER_RESTITUTION : CGFloat = 0.01 // affects how "bouncy" the invisible barrier in the middle of the table is

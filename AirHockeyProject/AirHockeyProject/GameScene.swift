@@ -139,8 +139,8 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
             inputManager = InputManager(t: playingTable)
-            playerOne=HumanPlayer(speed: MAX_HUMAN_PADDLE_SPEED, accel: MAX_HUMAN_PADDLE_ACCEL, i: 1,input: inputManager,p: playingTable)
-            playerTwo=HumanPlayer(speed: MAX_MEDIUM_AI_PADDLE_SPEED, accel: MAX_MEDIUM_AI_PADDLE_ACCEL, i: 2, input: inputManager,p: playingTable)
+            playerOne=AIPlayer(speed: MAX_MEDIUM_AI_PADDLE_SPEED, accel: MAX_MEDIUM_AI_PADDLE_ACCEL, i: 1,input: inputManager,p: playingTable)
+            playerTwo=AIPlayer(speed: MAX_MEDIUM_AI_PADDLE_SPEED, accel: MAX_MEDIUM_AI_PADDLE_ACCEL, i: 2, input: inputManager,p: playingTable)
             
             var paddle = getPaddleSprite(boardWidth*CGFloat(settingsProfile.getPlayerOnePaddleRadius()!), mass : puck.physicsBody!.mass * paddlePuckMassRatio)
             var tableHalf = playingTable.getPlayerOneHalf()
@@ -189,9 +189,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(overlayNode)
             self.addPauseButtons()
             
-            GameUtil.attachInfiniteVerticalEdges(self, category: edgeCategory)
-            self.childNodeWithName("leftEdge")!.physicsBody!.contactTestBitMask = puckCategory
-            self.childNodeWithName("rightEdge")!.physicsBody!.contactTestBitMask = puckCategory
+            
 
         }
         
@@ -298,10 +296,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    public func didBeginContact(contact: SKPhysicsContact) {
-        println("puck escape!")
-        playingTable.centerPuck()
-    }
+    
     
     //handles a goal being scored on the given player
     private func handleGoalScored(playerScoredOn : Int) {
@@ -354,12 +349,18 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             playingTable.getPuck().physicsBody!.velocity = Geometry.getVectorOfMagnitude(playingTable.getPuck().physicsBody!.velocity, b: MAX_PUCK_SPEED)
         
         }
-    for paddle in [playerOne.getPaddle()!, playerTwo.getPaddle()!] {
-        if !playingTable.containsPoint(self.convertPoint(paddle.position, fromNode: playingTable)) {
+        for paddle in [playerOne.getPaddle()!, playerTwo.getPaddle()!] {
+            if !playingTable.containsPoint(self.convertPoint(paddle.position, fromNode: playingTable)) {
                 println(playingTable.frame)
                 println("paddle escape!")
                 paddle.position = paddle.lastPosition!
             }
+        }
+        let framePosition = self.convertPoint(playingTable.getPuck().position, fromNode: playingTable)
+        if framePosition.x<self.frame.minX - 100 || framePosition.x>self.frame.maxX + 100 {
+            println("puck escape!")
+            playingTable.centerPuck()
+
         }
     }
     
