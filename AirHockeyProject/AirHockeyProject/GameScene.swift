@@ -109,6 +109,14 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    public func didBeginContact(contact: SKPhysicsContact) {
+        if (contact.bodyA.node == nil || contact.bodyB.node == nil) {
+            return
+        }
+        if (contact.bodyA.node!.name == PUCK_NAME || contact.bodyB.node!.name == PUCK_NAME) {
+            EffectManager.runSparkEffect(contact.contactPoint, parent: self)
+        }
+    }
     
     
     override public func didMoveToView(view: SKView) {
@@ -205,6 +213,13 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             gameplayNode.addChild(playerOneScore)
             gameplayNode.addChild(playerTwoScore)
             
+            var effectOverlay = SKShapeNode(rect: CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: self.frame.width, height: self.frame.height)))
+            
+            effectOverlay.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
+            effectOverlay.zPosition = zPositionEffectOverlay
+            effectOverlay.fillColor = SKColor.clearColor()
+            effectOverlay.name = TABLE_EFFECT_OVERLAY_NAME
+            gameplayNode.addChild(effectOverlay)
             
             overlayNode = SKShapeNode(rect: CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: self.frame.width, height: self.frame.height)))
             
@@ -334,6 +349,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         playingTable.resetPuckToPlayer(playerScoredOn)
         playerOneScore.text = String(playerOne.score)
         playerTwoScore.text = String(playerTwo.score)
+        EffectManager.runFlashEffect(gameplayNode.childNodeWithName(TABLE_EFFECT_OVERLAY_NAME)! as SKShapeNode,originalColor: SKColor.clearColor(), flashColor: SKColor.whiteColor())
     }
     
    

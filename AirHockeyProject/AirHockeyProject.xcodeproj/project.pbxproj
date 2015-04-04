@@ -10,6 +10,8 @@
 		71008D511ACF8918009B3444 /* FittedLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71008D501ACF8918009B3444 /* FittedLabelNode.swift */; };
 		71008D581ACF97F1009B3444 /* GoalEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 71008D561ACF97F1009B3444 /* GoalEmitter.sks */; };
 		71008D591ACF97F1009B3444 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 71008D571ACF97F1009B3444 /* spark.png */; };
+		71008D5D1AD04F56009B3444 /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = 71008D5B1AD04F56009B3444 /* bokeh.png */; };
+		71008D631AD04FB2009B3444 /* Spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = 71008D621AD04FB2009B3444 /* Spark.sks */; };
 		710435B11AC7103B003E9458 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710435B01AC7103B003E9458 /* Table.swift */; };
 		710435B61AC74BB9003E9458 /* InputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710435B51AC74BB9003E9458 /* InputManager.swift */; };
 		7107A29B1AC398B600706EC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A29A1AC398B600706EC8 /* AppDelegate.swift */; };
@@ -35,6 +37,7 @@
 		7115A5721ACB81DD0057A8B8 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115A5701ACB81DD0057A8B8 /* Geometry.swift */; };
 		7115A5741ACB81F10057A8B8 /* GameUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115A5731ACB81F10057A8B8 /* GameUtil.swift */; };
 		7115A5761ACB88650057A8B8 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115A5751ACB88650057A8B8 /* Goal.swift */; };
+		7131F54E1AD054CD00AABF5A /* EffectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7131F54D1AD054CD00AABF5A /* EffectManager.swift */; };
 		716373B01ACB9E1200B1FF7D /* zPositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716373AF1ACB9E1200B1FF7D /* zPositions.swift */; };
 		717B00D91ACC486B0049F3EC /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B00D81ACC486B0049F3EC /* Button.swift */; };
 		717B00DE1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B00DD1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift */; };
@@ -111,6 +114,8 @@
 		71008D501ACF8918009B3444 /* FittedLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FittedLabelNode.swift; sourceTree = "<group>"; };
 		71008D561ACF97F1009B3444 /* GoalEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GoalEmitter.sks; sourceTree = "<group>"; };
 		71008D571ACF97F1009B3444 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		71008D5B1AD04F56009B3444 /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
+		71008D621AD04FB2009B3444 /* Spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Spark.sks; sourceTree = "<group>"; };
 		710435B01AC7103B003E9458 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		710435B51AC74BB9003E9458 /* InputManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputManager.swift; sourceTree = "<group>"; };
 		7107A2951AC398B600706EC8 /* AirHockeyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirHockeyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +144,7 @@
 		7115A5701ACB81DD0057A8B8 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		7115A5731ACB81F10057A8B8 /* GameUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameUtil.swift; sourceTree = "<group>"; };
 		7115A5751ACB88650057A8B8 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		7131F54D1AD054CD00AABF5A /* EffectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffectManager.swift; sourceTree = "<group>"; };
 		716373AF1ACB9E1200B1FF7D /* zPositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = zPositions.swift; sourceTree = "<group>"; };
 		717B00D81ACC486B0049F3EC /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		717B00DD1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchHandlerDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +185,9 @@
 			children = (
 				71008D561ACF97F1009B3444 /* GoalEmitter.sks */,
 				71008D571ACF97F1009B3444 /* spark.png */,
+				71008D5B1AD04F56009B3444 /* bokeh.png */,
+				71008D621AD04FB2009B3444 /* Spark.sks */,
+				7131F54D1AD054CD00AABF5A /* EffectManager.swift */,
 			);
 			path = effects;
 			sourceTree = "<group>";
@@ -509,7 +518,9 @@
 			files = (
 				7107A2A91AC398B600706EC8 /* LaunchScreen.xib in Resources */,
 				7107A2CE1AC398E300706EC8 /* airhockeySchema.sql in Resources */,
+				71008D5D1AD04F56009B3444 /* bokeh.png in Resources */,
 				7107A2A61AC398B600706EC8 /* Images.xcassets in Resources */,
+				71008D631AD04FB2009B3444 /* Spark.sks in Resources */,
 				71008D591ACF97F1009B3444 /* spark.png in Resources */,
 				7107A2A41AC398B600706EC8 /* Main.storyboard in Resources */,
 				7107A2CD1AC398E300706EC8 /* airhockey.sqlite3 in Resources */,
@@ -534,6 +545,7 @@
 				7107A2EA1AC39F2E00706EC8 /* Users.swift in Sources */,
 				7115A5721ACB81DD0057A8B8 /* Geometry.swift in Sources */,
 				71BB49821AC4D24F00898049 /* Constants.swift in Sources */,
+				7131F54E1AD054CD00AABF5A /* EffectManager.swift in Sources */,
 				7107A2ED1AC3A12A00706EC8 /* Util.swift in Sources */,
 				7107A2C61AC398D600706EC8 /* DatabaseManager.swift in Sources */,
 				716373B01ACB9E1200B1FF7D /* zPositions.swift in Sources */,

@@ -25,6 +25,8 @@ public class Puck: SKShapeNode {
         self.physicsBody!.categoryBitMask = puckCategory
         self.physicsBody!.collisionBitMask = self.physicsBody!.collisionBitMask ^ barrierCategory
         self.zPosition = zPositionPuck
+        self.physicsBody!.contactTestBitMask = paddleCategory | edgeCategory
+        self.name = PUCK_NAME
     }
    
     
