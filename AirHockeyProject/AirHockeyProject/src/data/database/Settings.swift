@@ -48,7 +48,7 @@ public class Settings {
     class func addNewSettingsProfile(s : SettingsProfile) -> Int64? {
         let db = Database(DatabaseManager.getDatabasePath())
         
-        let stmt=db.prepare("insert into settings (friction,p1_paddle_radius,p2_paddle_radius,puck_radius,time,goals,ai_difficulty) VALUES (?,?,?,?,?,?,?)",[s.getFriction(),s.getPlayerOnePaddleRadius(),s.getPlayerTwoPaddleRadius(),s.getPuckRadius(),s.getTimeLimit(),s.getGoalLimit(),s.getAIDifficulty()])
+        let stmt=db.prepare("insert into settings (friction,p1_paddle_radius,p2_paddle_radius,puck_radius,time,goals,ai_difficulty) VALUES (?,?,?,?,?,?,?)",[s.getFriction(),s.getPlayerOnePaddleRadius(),s.getPlayerTwoPaddleRadius(),s.getPuckRadius(),s.getTimeLimit(),s.getGoalLimit(),s.getAIDifficultyAsNumber()])
         
         stmt.run()
         
@@ -59,7 +59,7 @@ public class Settings {
     class func updateSettingsProfile(s : SettingsProfile) {
         let db = Database(DatabaseManager.getDatabasePath())
         
-        let stmt=db.prepare("update settings set friction=?,p1_paddle_radius=?,p2_paddle_radius=?,puck_radius=?,time,goals=?,ai_difficulty=? where id=?",[s.getFriction(),s.getPlayerOnePaddleRadius(),s.getPlayerTwoPaddleRadius(),s.getPuckRadius(),s.getTimeLimit(),s.getGoalLimit(),s.getAIDifficulty(),s.getId()])
+        let stmt=db.prepare("update settings set friction=?,p1_paddle_radius=?,p2_paddle_radius=?,puck_radius=?,time,goals=?,ai_difficulty=? where id=?",[s.getFriction(),s.getPlayerOnePaddleRadius(),s.getPlayerTwoPaddleRadius(),s.getPuckRadius(),s.getTimeLimit(),s.getGoalLimit(),s.getAIDifficultyAsNumber(),s.getId()])
         
         stmt.run()
 

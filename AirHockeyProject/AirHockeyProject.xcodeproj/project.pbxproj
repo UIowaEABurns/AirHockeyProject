@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71008D511ACF8918009B3444 /* FittedLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71008D501ACF8918009B3444 /* FittedLabelNode.swift */; };
+		71008D581ACF97F1009B3444 /* GoalEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 71008D561ACF97F1009B3444 /* GoalEmitter.sks */; };
+		71008D591ACF97F1009B3444 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 71008D571ACF97F1009B3444 /* spark.png */; };
 		710435B11AC7103B003E9458 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710435B01AC7103B003E9458 /* Table.swift */; };
 		710435B61AC74BB9003E9458 /* InputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710435B51AC74BB9003E9458 /* InputManager.swift */; };
 		7107A29B1AC398B600706EC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A29A1AC398B600706EC8 /* AppDelegate.swift */; };
@@ -105,6 +108,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		71008D501ACF8918009B3444 /* FittedLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FittedLabelNode.swift; sourceTree = "<group>"; };
+		71008D561ACF97F1009B3444 /* GoalEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GoalEmitter.sks; sourceTree = "<group>"; };
+		71008D571ACF97F1009B3444 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		710435B01AC7103B003E9458 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		710435B51AC74BB9003E9458 /* InputManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputManager.swift; sourceTree = "<group>"; };
 		7107A2951AC398B600706EC8 /* AirHockeyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirHockeyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +174,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71008D551ACF979E009B3444 /* effects */ = {
+			isa = PBXGroup;
+			children = (
+				71008D561ACF97F1009B3444 /* GoalEmitter.sks */,
+				71008D571ACF97F1009B3444 /* spark.png */,
+			);
+			path = effects;
+			sourceTree = "<group>";
+		};
 		7107A28C1AC398B600706EC8 = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +324,7 @@
 				7115A5731ACB81F10057A8B8 /* GameUtil.swift */,
 				716373AF1ACB9E1200B1FF7D /* zPositions.swift */,
 				717B00DD1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift */,
+				71008D501ACF8918009B3444 /* FittedLabelNode.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -326,6 +342,7 @@
 		71A875711AC5D0F5008EDBA9 /* game */ = {
 			isa = PBXGroup;
 			children = (
+				71008D551ACF979E009B3444 /* effects */,
 				717B00DF1ACCD95A0049F3EC /* players */,
 				7115A56E1ACB81DD0057A8B8 /* util */,
 				71A875751AC5D115008EDBA9 /* Puck.swift */,
@@ -493,8 +510,10 @@
 				7107A2A91AC398B600706EC8 /* LaunchScreen.xib in Resources */,
 				7107A2CE1AC398E300706EC8 /* airhockeySchema.sql in Resources */,
 				7107A2A61AC398B600706EC8 /* Images.xcassets in Resources */,
+				71008D591ACF97F1009B3444 /* spark.png in Resources */,
 				7107A2A41AC398B600706EC8 /* Main.storyboard in Resources */,
 				7107A2CD1AC398E300706EC8 /* airhockey.sqlite3 in Resources */,
+				71008D581ACF97F1009B3444 /* GoalEmitter.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +553,7 @@
 				717B00E31ACCD95A0049F3EC /* Player.swift in Sources */,
 				71A875781AC5D4AE008EDBA9 /* Paddle.swift in Sources */,
 				71BB49841AC4D70200898049 /* Statistics.swift in Sources */,
+				71008D511ACF8918009B3444 /* FittedLabelNode.swift in Sources */,
 				7115A5711ACB81DD0057A8B8 /* GameTimer.swift in Sources */,
 				7115A5741ACB81F10057A8B8 /* GameUtil.swift in Sources */,
 				7115A5761ACB88650057A8B8 /* Goal.swift in Sources */,

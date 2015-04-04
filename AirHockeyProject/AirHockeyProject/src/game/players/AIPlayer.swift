@@ -8,16 +8,46 @@
 
 import Foundation
 import SpriteKit
+
+public enum AIDifficulty : String {
+    case Easy = "Easy"
+    case Medium = "Medium"
+    case Hard = "Hard"
+    
+    static func toColor(s : String) -> AIDifficulty? {
+        if (s==Easy.rawValue) {
+            return Easy
+        } else if (s==Medium.rawValue) {
+            return Medium
+        } else if (s==Hard.rawValue) {
+            return Hard
+        }
+        return nil
+    }
+    static func fromNumber(i : Int) -> AIDifficulty? {
+        if (i==1) {
+            return Easy
+        } else if (i==2) {
+            return Medium
+        } else if i==3 {
+            return Hard
+        }
+        return nil
+    }
+}
+
+
 public class AIPlayer : Player  {
     private let WANDER_MIN_SPEED : CGFloat = 10.0
-    private let WANDER_MAX_SPEED : CGFloat = 20.0
-    
+    private let WANDER_MAX_SPEED : CGFloat = 100.0
+    private var difficulty : AIDifficulty
     
     private var defendPoint : CGPoint!
     private var puck : Puck!
     private var defendingHalf : CGRect!
-    override init(speed: CGFloat, accel: CGFloat, i: Int, input: InputManager, p: Table) {
-        super.init(speed: speed, accel: accel, i: i, input: input, p: p)
+    init(diff : AIDifficulty, i: Int, input: InputManager, p: Table) {
+        difficulty = diff
+        super.init(i: i, input: input, p: p)
         //TODO: This will all need to change if we start wanting to do moving goals or multiple goals
         let table = self.getPlayingTable()
         let defendingGoal = table.getDefendingGoal(self.getPlayerNumber())
@@ -41,7 +71,10 @@ public class AIPlayer : Player  {
         let xMag = 1-(GameUtil.getRandomFloat() * 2)
         let yMag = 1-(GameUtil.getRandomFloat() * 2)
         let speed = GameUtil.getRandomFloatInRange(minSpeed,max: maxSpeed)
-        return Geometry.getVectorOfMagnitude(CGVector(dx: xMag, dy: yMag), b: speed)
+        let vector = Geometry.getVectorOfMagnitude(CGVector(dx: xMag, dy: yMag), b: speed)
+        
+        
+        return vector
     }
     //returns a vector that tries to move the paddle back in front of the goal that it is defending
     private func getDefendVector() -> CGVector {
@@ -54,18 +87,50 @@ public class AIPlayer : Player  {
         return self.getPaddleVectorThroughPoint(puck.position)
     }
     
+    private func trackPuckHorizontally() -> CGVector {
+        let vector = self.getPaddleVectorToPoint(CGPoint(x: puck.position.x, y: self.getPaddle()!.position.y))
+        
+       
+        
+        return vector
+    }
+    
     
     //this is the entry point to the AI logic
     override func getMovementVector() -> CGVector? {
         let wanderVector = getWanderVector(WANDER_MIN_SPEED,maxSpeed: WANDER_MAX_SPEED)
         let puckOnThisHalf = defendingHalf.contains(puck.position)
         if (puckOnThisHalf) {
-            return getStrikeVector()
+            return Geometry.getAverageVector([trackPuckHorizontally(),getStrikeVector(),getWanderVector(WANDER_MIN_SPEED, maxSpeed: WANDER_MAX_SPEED)])
         } else {
-            return getDefendVector()
+            return Geometry.getAverageVector([trackPuckHorizontally(),getDefendVector(),getWanderVector(WANDER_MIN_SPEED, maxSpeed: WANDER_MAX_SPEED)])
         }
         
         
+    }
+    
+    override public func getMaxSpeed() -> CGFloat {
+        if (difficulty==AIDifficulty.Easy) {
+            return MAX_EASY_AI_PADDLE_SPEED
+        } else if (difficulty==AIDifficulty.Medium) {
+            return MAX_MEDIUM_AI_PADDLE_SPEED
+
+        } else if (difficulty==AIDifficulty.Hard) {
+            return MAX_HARD_AI_PADDLE_SPEED
+        }
+        return MAX_MEDIUM_AI_PADDLE_SPEED
+    }
+    
+    override public func getMaxAcceleration() -> CGFloat {
+        if (difficulty==AIDifficulty.Easy) {
+            return MAX_EASY_AI_PADDLE_ACCEL
+        } else if (difficulty==AIDifficulty.Medium) {
+            return MAX_MEDIUM_AI_PADDLE_ACCEL
+            
+        } else if (difficulty==AIDifficulty.Hard) {
+            return MAX_HARD_AI_PADDLE_ACCEL
+        }
+        return MAX_MEDIUM_AI_PADDLE_ACCEL
     }
     
     override func processPaddlePosition() {

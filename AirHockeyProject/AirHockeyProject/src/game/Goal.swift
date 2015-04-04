@@ -14,11 +14,11 @@ public class Goal : SKShapeNode {
     
     private var playerNumber : Int // the player number of the DEFENDING player
     
-    
     // initializes a goal with the given size and an
     //anchor point of (0,0). The top will be a barrier that will allow the puck in, and the other three sides are solid
     public init(size : CGSize, playerNum : Int) {
         playerNumber = playerNum
+        
         super.init()
         
         self.path = CGPathCreateWithRect(CGRect(origin: CGPoint(x: 0,y: 0), size: size), nil)
@@ -29,6 +29,7 @@ public class Goal : SKShapeNode {
         self.attachEdges()
         
         
+        
     }
     
     private func attachEdges() {
@@ -36,7 +37,6 @@ public class Goal : SKShapeNode {
         GameUtil.attachHorizontalEdges(self,category: barrierCategory)
         self.childNodeWithName("bottomEdge")!.physicsBody!.categoryBitMask = edgeCategory
         (self.childNodeWithName("bottomEdge")! as SKShapeNode).strokeColor = SKColor.greenColor()
-
 
 
     }
@@ -60,6 +60,19 @@ public class Goal : SKShapeNode {
         p2 = self.parent!.convertPoint(p2, fromNode: self)
         
         return (p1,p2)
+    }
+    
+    //does some graphical effects with a scored goal
+    public func handleGoalScored() {
+        let emitter : SKEmitterNode = SKEmitterNode(fileNamed: "GoalEmitter.sks")
+        let points = self.getGoalLine()
+        let finalPoint = CGPoint(x: (points.0.x+points.1.x)/2, y: (points.0.y+points.1.y)/2)
+        emitter.position = self.convertPoint(finalPoint, fromNode: self.parent!)
+        
+        self.addChild(emitter)
+        let action = SKAction.sequence([SKAction.waitForDuration(5), SKAction.removeFromParent()])
+        emitter.runAction(action)
+
     }
     
 }

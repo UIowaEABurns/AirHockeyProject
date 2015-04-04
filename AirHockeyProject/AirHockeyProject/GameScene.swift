@@ -16,11 +16,19 @@ let barrierCategory : UInt32 = 0x1 << 3
 public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //TODO: need to pass the user setting profile to this variable
-    private var settingsProfile = AirHockeyConstants.getDefaultSettings()
-
+    public var settingsProfile = AirHockeyConstants.getDefaultSettings()
+    public var userOne : User? // TODO: These need to be set by the previous screen
+    
+    public var userTwo : User?
+    
+    
     private var inputManager : InputManager!
     
     private var playingTable : Table!
+    
+   
+    
+    
     private var playerOne : Player!
     private var playerTwo : Player!
     private var timer : GameTimer!
@@ -77,11 +85,13 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func addPauseButtons() {
-        pauseButton  = Button(fontNamed: gameFont, block: {self.pauseGame()})
+        let pauseButtonSize = CGSize(width: ((1-TABLE_WIDTH_FRACTION)/2) * self.frame.width, height: ((1-TABLE_HEIGHT_FRACTION)/2.5) * self.frame.height)
+        
+        
+        pauseButton  = Button(fontNamed: gameFont, block: {self.pauseGame()}, s : pauseButtonSize)
         pauseButton.setText("Pause")
         pauseButton.name = "pause"
     
-        pauseButton.label.fontColor = SKColor.whiteColor()
         pauseButton.position = CGPoint(x: self.frame.minX+5, y: self.frame.minY+5)
         touchHandlers.append(pauseButton)
         
@@ -89,11 +99,10 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         gameplayNode.addChild(pauseButton)
         
         
-        resumeButton = Button(fontNamed: gameFont, block: {self.resumeGame()})
+        resumeButton = Button(fontNamed: gameFont, block: {self.resumeGame()}, s: pauseButtonSize)
         resumeButton.inactivate()
         resumeButton.setText("Resume")
         resumeButton.name="resume"
-        resumeButton.label.fontColor = SKColor.whiteColor()
         resumeButton.position = CGPoint(x: overlayNode.frame.midX-(resumeButton.frame.width/2), y: overlayNode.frame.midY)
         touchHandlers.append(resumeButton)
         overlayNode.addChild(resumeButton)
@@ -139,8 +148,25 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
             inputManager = InputManager(t: playingTable)
-            playerOne=AIPlayer(speed: MAX_MEDIUM_AI_PADDLE_SPEED, accel: MAX_MEDIUM_AI_PADDLE_ACCEL, i: 1,input: inputManager,p: playingTable)
-            playerTwo=AIPlayer(speed: MAX_MEDIUM_AI_PADDLE_SPEED, accel: MAX_MEDIUM_AI_PADDLE_ACCEL, i: 2, input: inputManager,p: playingTable)
+            if (!(userOne==nil)) {
+                playerOne=HumanPlayer(i: 1,input: inputManager,p: playingTable)
+
+            } else {
+                settingsProfile.getAIDifficulty()
+                playerOne=HumanPlayer(i: 1,input: inputManager,p: playingTable)
+
+                //playerOne=AIPlayer(diff: settingsProfile.getAIDifficulty()!, i: 1,input: inputManager,p: playingTable)
+
+            }
+            if !(userTwo==nil) {
+                playerTwo=HumanPlayer(i: 2, input: inputManager,p: playingTable)
+
+            } else {
+                playerTwo=HumanPlayer(i: 2,input: inputManager,p: playingTable)
+
+                //playerTwo=AIPlayer(diff: settingsProfile.getAIDifficulty()!, i: 2, input: inputManager,p: playingTable)
+
+            }
             
             var paddle = getPaddleSprite(boardWidth*CGFloat(settingsProfile.getPlayerOnePaddleRadius()!), mass : puck.physicsBody!.mass * paddlePuckMassRatio)
             var tableHalf = playingTable.getPlayerOneHalf()
@@ -211,7 +237,6 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     public func resumeGame() {
-        println("calling resume")
         gameplayNode.paused = false
         overlayNode.hidden = true
         self.getTimer()!.timer.unpause()
@@ -327,7 +352,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
                 (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
                 let goal = node as Goal
                 if (Geometry.nodeContainsNode(goal, innerNode: self.playingTable.getPuck())) {
-                    
+                    goal.handleGoalScored()
                     self.handleGoalScored(goal.getPlayerNumber())
                     
                 }
@@ -351,14 +376,12 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         for paddle in [playerOne.getPaddle()!, playerTwo.getPaddle()!] {
             if !playingTable.containsPoint(self.convertPoint(paddle.position, fromNode: playingTable)) {
-                println(playingTable.frame)
-                println("paddle escape!")
+               
                 paddle.position = paddle.lastPosition!
             }
         }
         let framePosition = self.convertPoint(playingTable.getPuck().position, fromNode: playingTable)
-        if framePosition.x<self.frame.minX - 100 || framePosition.x>self.frame.maxX + 100 {
-            println("puck escape!")
+        if framePosition.x<self.frame.minX - 100 || framePosition.x>self.frame.maxX + 100 || framePosition.y<self.frame.minY-300 || framePosition.y>self.frame.maxY+300 {
             playingTable.centerPuck()
 
         }

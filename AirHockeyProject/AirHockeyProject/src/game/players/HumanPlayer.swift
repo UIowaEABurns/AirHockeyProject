@@ -35,6 +35,15 @@ public class HumanPlayer : Player {
         return nil
     }
     
+    override public func getMaxSpeed() -> CGFloat {
+        return MAX_HUMAN_PADDLE_SPEED
+        
+    }
+    
+    override public func getMaxAcceleration() -> CGFloat {
+        return MAX_HUMAN_PADDLE_ACCEL
+    }
+    
     override func processPaddlePosition() {
         
     }

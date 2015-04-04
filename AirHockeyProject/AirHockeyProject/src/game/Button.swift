@@ -9,17 +9,32 @@
 import Foundation
 import SpriteKit
 
+enum State : String {
+    case FingerDown = "FingerDown"
+    case Normal = "Normal"
+    
+    
+}
+let BUTTON_ACTIVE_COLOR = SKColor.redColor()
+let BUTTON_INACTIVE_COLOR  = SKColor.whiteColor()
+
 public class Button : SKShapeNode, TouchHandlerDelegate {
     private var block : dispatch_block_t
     private var active : Bool
-     var label : SKLabelNode!
+    private var label : FittedLabelNode
+    private var size : CGSize
+    
+    private var activeTouch : AnyObject? = nil
+    
     // 0 = nothing happening
     // 1 = finger is pressed down on
     
-    private var state : Int = 0
+    private var state : State = State.Normal
     override init() {
         block = {}
         active = true
+        size = CGSize(width: 0,height: 0)
+        label = FittedLabelNode(s: size, str: "")
         super.init()
         
 
@@ -27,33 +42,29 @@ public class Button : SKShapeNode, TouchHandlerDelegate {
     
     
     public func setText(s : String) {
-        label.text = s
-        self.path = CGPathCreateWithRect(CGRect(origin: CGPoint(x: 0, y: 0), size: label.frame.size), nil)
-        label.position = CGPoint(x: self.frame.midX,y: self.frame.midY)
-
-
+        label.setText(s)
+        
     }
     
-    init(fontNamed fontName: String!, block : dispatch_block_t) {
+    init(fontNamed fontName: String!, block : dispatch_block_t, s : CGSize) {
         self.block = {}
         active = true
+        size = s
+        label = FittedLabelNode(s: size, str: "")
+        label.setFontName(fontName)
         super.init()
         self.block = block
-        label = SKLabelNode(fontNamed: fontName)
         label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
         label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center
-        
-        self.path = CGPathCreateWithRect(CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 0,height: 0)), nil)
+        self.path = CGPathCreateWithRect(CGRect(origin: CGPoint(x: 0, y: 0), size: size), nil)
         
         self.strokeColor = SKColor.whiteColor()
-        
-        //label.position = CGPoint(x: self.frame.midX,y: self.frame.midY)
-        
+        label.position = CGPoint(x: self.frame.midX,y: self.frame.midY)
         self.addChild(label)
+        handleTextColor()
     }
     
     private func execute() {
-        println("executing code block")
         block()
     }
     
@@ -73,21 +84,27 @@ public class Button : SKShapeNode, TouchHandlerDelegate {
             
             let containsNow = self.containsPoint(gameLocation)
             let containsBefore = self.containsPoint(prevGameLocation)
-            if (containsNow) {
-                self.registerTouch(touch, containsNow: true)
-            } else if (containsBefore) {
-                self.registerTouch(touch, containsNow: false)
+            if (containsNow || containsBefore) {
+                self.registerTouch(touch, containsNow: containsNow, containsBefore: containsBefore)
             }
             
         }
+        handleTextColor()
     }
+    
+    private func handleTextColor() {
+        if (self.state == State.Normal) {
+            self.label.fontColor = BUTTON_INACTIVE_COLOR
+        } else {
+            self.label.fontColor = BUTTON_ACTIVE_COLOR
 
-    private func registerTouch(touch : AnyObject, containsNow : Bool) {
-        
-        
+        }
+    }
+    
+    private func registerTouch(touch : AnyObject, containsNow : Bool, containsBefore : Bool) {
        
         if (touch.phase == UITouchPhase.Began) {
-            registerTouchStarted()
+            registerTouchStarted(touch)
         }
         if (touch.phase == UITouchPhase.Ended && containsNow) {
             registerTouchEnded()
@@ -96,24 +113,38 @@ public class Button : SKShapeNode, TouchHandlerDelegate {
             registerTouchLeaves()
         }
         
+        if (touch.phase == UITouchPhase.Moved && containsNow && !containsBefore) {
+            registerTouchEnters(touch)
+        }
+        
     }
     
     //called when a touch begins on this button
-    private func registerTouchStarted() {
-        state = 1
+    private func registerTouchStarted(touch : AnyObject) {
+        state = State.FingerDown
+        self.activeTouch = touch
     }
     
     //called when a touch ends (as in, the user removes their finger) when it is over the button
     private func registerTouchEnded() {
-        if (state == 1) {
+        if (state == State.FingerDown) {
             execute()
-            state = 0
+            state = State.Normal
+            self.activeTouch = nil
+        }
+    }
+    
+    private func registerTouchEnters(touch: AnyObject) {
+        
+        if (touch===activeTouch) {
+            state = State.FingerDown
         }
     }
     
     //called when a touch leaves the (as in, the user drags their finger off of the button)
     private func registerTouchLeaves() {
-        state = 0
+        state = State.Normal
+        
     }
     
     public func activate() {
@@ -121,7 +152,7 @@ public class Button : SKShapeNode, TouchHandlerDelegate {
     }
     public func inactivate() {
         active = false
-        state = 0
+        state = State.Normal
     }
     public func isActive() -> Bool {
         return active

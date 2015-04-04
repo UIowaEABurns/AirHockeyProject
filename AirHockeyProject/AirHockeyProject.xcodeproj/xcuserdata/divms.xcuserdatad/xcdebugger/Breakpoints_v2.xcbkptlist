@@ -19,51 +19,5 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AirHockeyProject/GameScene.swift"
-            timestampString = "449603532.06355"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "addPauseButtons()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AirHockeyProject.GameScene.(addPauseButtons in _A26173D6A555DA04C499CC0C0BC5A57C) (AirHockeyProject.GameScene)() -&gt; ()"
-                  moduleName = "AirHockeyProject"
-                  urlString = "file:///Users/divms/Desktop/AirHockeyProject/AirHockeyProject/AirHockeyProject/AirHockeyProject/GameScene.swift"
-                  timestampString = "449602068.855662"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "89"
-                  endingLineNumber = "89"
-                  offsetFromSymbolStart = "2958">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AirHockeyProject.GameScene.((addPauseButtons in _A26173D6A555DA04C499CC0C0BC5A57C) (AirHockeyProject.GameScene) -&gt; () -&gt; ()).(closure #2)"
-                  moduleName = "AirHockeyProject"
-                  urlString = "file:///Users/divms/Desktop/AirHockeyProject/AirHockeyProject/AirHockeyProject/AirHockeyProject/GameScene.swift"
-                  timestampString = "449602068.855967"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "89"
-                  endingLineNumber = "89"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

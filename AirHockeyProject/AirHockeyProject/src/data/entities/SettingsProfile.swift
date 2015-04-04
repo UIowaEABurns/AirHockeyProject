@@ -64,7 +64,10 @@ public class SettingsProfile {
     public func setGoalLimit(g: Int?) {
         goalLimit=g
     }
-    public func getAIDifficulty() -> Int? {
+    public func getAIDifficulty() -> AIDifficulty? {
+        return AIDifficulty.fromNumber(aiDifficulty!)
+    }
+    public func getAIDifficultyAsNumber() -> Int? {
         return aiDifficulty
     }
     public func setAIDifficulty(d: Int? ){

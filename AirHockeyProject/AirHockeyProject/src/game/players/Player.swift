@@ -12,8 +12,7 @@ import SpriteKit
 // represents one of the players of the air hockey game. This class is "abstract" -- we only use human or AI player classes
 public class Player {
     
-    private var maxSpeed : CGFloat // this is the maximum speed that this player's  paddle is allowed to go
-    private var maxAcceleration : CGFloat // this is the
+    
     private var playerNumber : Int
     private var paddle : Paddle? // the paddle for this player
     
@@ -26,9 +25,8 @@ public class Player {
     private var paddlePositionBeforeUpdate : CGPoint
 
     
-    init (speed : CGFloat, accel : CGFloat,i : Int, input : InputManager, p : Table) {
-        maxSpeed=speed
-        maxAcceleration = accel
+    init (i : Int, input : InputManager, p : Table) {
+       
         playerNumber = i
         score = 0
         playingTable = p
@@ -41,14 +39,16 @@ public class Player {
     public final func movePaddle() {
         paddlePositionBeforeUpdate = paddle!.position
         var vector = getMovementVector()
+        
         if (vector==nil) {
 
             return
         }
         
+        
         let acceleration = Geometry.magnitude(vector!)
-        if (acceleration>maxAcceleration) {
-            vector = Geometry.getVectorOfMagnitude(vector!, b: maxAcceleration)
+        if (acceleration>self.getMaxAcceleration()) {
+            vector = Geometry.getVectorOfMagnitude(vector!, b: self.getMaxAcceleration())
             
         }
         
@@ -82,7 +82,13 @@ public class Player {
         return playerNumber
     }
     public func getMaxSpeed() -> CGFloat {
-        return maxSpeed
+        fatalError("This method must be overwritten")
+
+    }
+    
+    public func getMaxAcceleration() -> CGFloat {
+        fatalError("This method must be overwritten")
+
     }
    
     //returns the spped we want to be going if we want to get to a point the given distance away
@@ -99,9 +105,10 @@ public class Player {
     
     // given a point to move the paddle to, gets the vector that works best for moving the paddle to the point
     public func getPaddleVectorToPoint(point : CGPoint) -> CGVector {
-        
         let distance = Geometry.distance(point,b: paddle!.position)
-        
+        if (distance<=0.002) {
+            return CGVector(dx: 0, dy: 0)
+        }
         //first, we get the desired vector
         var desiredVector = Geometry.normalVector(self.getPaddle()!.position, b: point)
         
@@ -125,8 +132,8 @@ public class Player {
     // unlike getPaddleVectorToPoint, this one won't stop on the given point
     public func getPaddleVectorThroughPoint(point : CGPoint) -> CGVector {
         var desiredVector = Geometry.normalVector(self.getPaddle()!.position, b: point)
-        desiredVector.dx = desiredVector.dx * self.maxAcceleration
-        desiredVector.dy = desiredVector.dy * self.maxAcceleration
+        desiredVector.dx = desiredVector.dx * self.getMaxAcceleration()
+        desiredVector.dy = desiredVector.dy * self.getMaxAcceleration()
         //next, this is our current vector
         let currentVector=self.paddle!.physicsBody!.velocity
         

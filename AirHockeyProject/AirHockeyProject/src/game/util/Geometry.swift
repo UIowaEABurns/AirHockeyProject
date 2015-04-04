@@ -78,6 +78,25 @@ public class Geometry {
         return CGPoint(x: x, y: y)
     }
     
+    //returns a vector that is the average of all the given vectors, done by just summing up the dx and dy and dividing by the total number of vectors
+    class func getAverageVector(vectors : [CGVector]) -> CGVector {
+        var averageVector = CGVector(dx: 0, dy: 0)
+        for vector in vectors {
+            
+            averageVector.dx=averageVector.dx+vector.dx
+            averageVector.dy=averageVector.dy+vector.dy
+        }
+        
+        averageVector.dx  = averageVector.dx / CGFloat(vectors.count)
+        averageVector.dy  = averageVector.dy / CGFloat(vectors.count)
+        
+        
+        
+        
+
+        return averageVector
+    }
+    
    
     
     
