@@ -37,7 +37,6 @@ public var TABLE_BARRIER_RESTITUTION : CGFloat = 0.01 // affects how "bouncy" th
 public var GOAL_NAME = "goal"
 public var PUCK_NAME = "puck"
 public var TABLE_EFFECT_OVERLAY_NAME = "effectoverlay"
-public var gameFont : String = "Chalkduster"
 
 
 

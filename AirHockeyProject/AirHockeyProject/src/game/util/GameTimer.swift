@@ -10,18 +10,17 @@ import Foundation
 import SpriteKit
 
 //contains code for configuring the game timer
-public class GameTimer : SKLabelNode {
+public class GameTimer : FittedLabelNode {
     public var timer : Timer
 
-    public init(seconds : Int64, font : String) {
+    public init(seconds : Int64, font : String, size : CGSize) {
         timer=Timer()
         timer.setTimeLimit(seconds)
-        super.init()
+        super.init(s: size, str: timer.getRemainingTimeString()!)
         let action = SKAction.sequence([SKAction.runBlock({self.updateTimerText()}),SKAction.waitForDuration(0.1, withRange: 0.0)])
         self.runAction(SKAction.repeatActionForever(action))
         self.text = timer.getRemainingTimeString()!
-        
-        self.fontSize=30
+        self.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Right
         
         self.zRotation = CGFloat((M_PI*3.0)/2.0)
         self.fontName=font
@@ -33,6 +32,8 @@ public class GameTimer : SKLabelNode {
     }
     
     private func updateTimerText() {
-        self.text = timer.getRemainingTimeString()!
+        self.setTextNoResize(timer.getRemainingTimeString()!)
     }
+    
+   
 }

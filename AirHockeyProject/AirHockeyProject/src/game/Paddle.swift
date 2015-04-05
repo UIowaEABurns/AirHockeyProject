@@ -10,7 +10,7 @@
 //TODO: We actually want textured nodes, but I'm just testing physics with simple graphics
 import Foundation
 import SpriteKit
-public class Paddle : SKShapeNode {
+public class Paddle : SKSpriteNode {
     
     private var playerNumber : Int?
     var lastPosition : CGPoint?
@@ -27,12 +27,13 @@ public class Paddle : SKShapeNode {
         self.physicsBody?.restitution=0.2
         self.physicsBody?.mass=mass
         self.physicsBody?.allowsRotation=true
-        self.fillColor=SKColor.blueColor()
         self.physicsBody?.usesPreciseCollisionDetection=true
         self.physicsBody?.friction=CGFloat(settingsProfile.getFriction()!)
         self.physicsBody?.linearDamping=CGFloat(settingsProfile.getFriction()!)
         self.physicsBody?.angularDamping=CGFloat(settingsProfile.getFriction()!)
         self.physicsBody?.categoryBitMask = paddleCategory
         self.physicsBody?.usesPreciseCollisionDetection = true
+        self.zPosition = zPositionPaddle
+        self.size = CGSize(width: radius * 2, height: radius * 2)
     }
 }

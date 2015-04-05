@@ -11,22 +11,24 @@ import Foundation
 import SpriteKit
 
 
-public class Table : SKShapeNode {
+public class Table : SKSpriteNode {
     
     
     private var puck : Puck!
 
     //TODO: Will be necessary to represent other objects on the board
     private var physicsObjects  : [SKNode] = []
-    private var goalWidthRatio : CGFloat
+    private var goalWidthRatio : CGFloat!
     //goal width is a number between
-    init(rect : CGRect, goalWidthRatio : CGFloat) {
+    public func configureTable(rect : CGRect, goalWidthRatio : CGFloat) {
+        self.size = rect.size
+        self.anchorPoint = rect.origin
         self.goalWidthRatio = goalWidthRatio
-        super.init()
-        self.path = CGPathCreateWithRect(rect, nil)
+        
+        //self.path = CGPathCreateWithRect(rect, nil)
 
-        self.fillColor = SKColor.grayColor()
-        self.strokeColor = SKColor.clearColor()
+        //self.fillColor = SKColor.grayColor()
+        //self.strokeColor = SKColor.clearColor()
         //self.physicsBody=SKPhysicsBody(edgeLoopFromRect: rect)
         //self.physicsBody?.categoryBitMask = edgeCategory
         //creates a center line that paddles cannot cross
@@ -35,14 +37,14 @@ public class Table : SKShapeNode {
         let centerHeight : CGFloat = 1
         let size : CGSize = CGSize(width: self.frame.width, height: centerHeight)
         
-        
+        self.zPosition = zPositionTable
         
         
         let centerRect = CGRect(origin: CGPoint(x: 0,y: 0), size: size)
         
         var midline = SKShapeNode(rect: centerRect)
         
-        midline.fillColor=SKColor.whiteColor()
+        midline.fillColor=SKColor.clearColor()
         
         midline.physicsBody=SKPhysicsBody(edgeFromPoint: CGPoint(x: 0,y: 0), toPoint: CGPoint(x: midline.frame.width,y: midline.frame.height))
         midline.physicsBody!.categoryBitMask = barrierCategory
@@ -99,9 +101,6 @@ public class Table : SKShapeNode {
     
     
 
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     func getHalfForPlayer(playerNumber : Int) -> CGRect {
         if (playerNumber==1) {
@@ -134,11 +133,12 @@ public class Table : SKShapeNode {
     // some effects, and so on.  This is basically just some test code
     public func resetPuckToPlayer(playerNumber : Int) {
         if (playerNumber==1) {
-            puck.position = CGPoint(x: self.frame.midX, y: self.frame.midY - self.frame.height / 4)
+            puck.position = self.convertPoint(CGPoint(x: self.frame.midX, y: self.frame.midY - self.frame.height / 4), fromNode: self.parent!)  
         } else {
             puck.position = CGPoint(x: self.frame.midX, y: self.frame.midY + self.frame.height / 4)
         }
         puck.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
+        puck.physicsBody!.angularVelocity = 0.0
     }
    
     

@@ -21,6 +21,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     public var userTwo : User?
     
+    public var theme : Theme = Theme(name: "space", font: "Digital-7")
     
     private var inputManager : InputManager!
     
@@ -88,7 +89,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         let pauseButtonSize = CGSize(width: ((1-TABLE_WIDTH_FRACTION)/2) * self.frame.width, height: ((1-TABLE_HEIGHT_FRACTION)/2.5) * self.frame.height)
         
         
-        pauseButton  = Button(fontNamed: gameFont, block: {self.pauseGame()}, s : pauseButtonSize)
+        pauseButton  = Button(fontNamed: theme.fontName, block: {self.pauseGame()}, s : pauseButtonSize)
         pauseButton.setText("Pause")
         pauseButton.name = "pause"
     
@@ -99,7 +100,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         gameplayNode.addChild(pauseButton)
         
         
-        resumeButton = Button(fontNamed: gameFont, block: {self.resumeGame()}, s: pauseButtonSize)
+        resumeButton = Button(fontNamed: theme.fontName, block: {self.resumeGame()}, s: pauseButtonSize)
         resumeButton.inactivate()
         resumeButton.setText("Resume")
         resumeButton.name="resume"
@@ -192,24 +193,25 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             playerTwo.setPaddle(paddle)
         
             
+            let timerSize = CGSize(width: (1-TABLE_WIDTH_FRACTION)/2 * self.frame.width * 1.4, height: self.size.height * 0.1)
+            timer = GameTimer(seconds: Int64(settingsProfile.getTimeLimit()!),font : theme.fontName, size: timerSize)
             
             
-            timer = GameTimer(seconds: Int64(settingsProfile.getTimeLimit()!),font : gameFont)
-            
-            
-            timer.position = CGPointMake(CGRectGetMaxX(self.frame)-timer.frame.width-5,CGRectGetMidY(self.frame))
+            timer.position = CGPointMake(CGRectGetMaxX(self.frame)-timer.frame.width-5,CGRectGetMidY(self.frame)-(timer.frame.height/2))
             
             gameplayNode.addChild(timer)
             timer.timer.start()
         
-            playerOneScore = SKLabelNode(fontNamed: gameFont)
+            playerOneScore = SKLabelNode(fontNamed: theme.fontName)
+            playerOneScore.fontSize = timer.getFontSize()
             playerOneScore.zRotation = CGFloat((M_PI*3.0)/2.0)
             playerOneScore.text = "0"
             playerOneScore.position = CGPoint(x: timer.position.x , y: timer.position.y - playerOneScore.frame.height - SCORE_DISPLAY_PADDING)
-            playerTwoScore = SKLabelNode(fontNamed: gameFont)
+            playerTwoScore = SKLabelNode(fontNamed: theme.fontName)
             playerTwoScore.zRotation = CGFloat((M_PI*3.0)/2.0)
             playerTwoScore.text = "0"
-            playerTwoScore.position = CGPoint(x: timer.position.x , y: timer.position.y + playerOneScore.frame.height + SCORE_DISPLAY_PADDING)
+            playerTwoScore.fontSize = timer.getFontSize()
+            playerTwoScore.position = CGPoint(x: timer.position.x , y: timer.position.y + (playerOneScore.frame.height) + timer.frame.height + SCORE_DISPLAY_PADDING)
             gameplayNode.addChild(playerOneScore)
             gameplayNode.addChild(playerTwoScore)
             
@@ -228,6 +230,15 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             overlayNode.fillColor = OVERLAY_COLOR
             overlayNode.hidden = true
             self.addChild(overlayNode)
+            
+            
+            let bgNode = SKSpriteNode(imageNamed: theme.boardName+"Background.jpg")
+            bgNode.size = self.frame.size
+            bgNode.anchorPoint = CGPoint(x: 0,y: 0)
+            bgNode.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
+            bgNode.zPosition = zPositionBackground
+            self.addChild(bgNode)
+            
             self.addPauseButtons()
             
             
@@ -268,10 +279,8 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private func makeTable(rect: CGRect) -> Table {
         // TODO: goal width should be configurable
-        var table = Table(rect: rect, goalWidthRatio: 0.30)
-        
-        
-        
+        var table : Table = Table(imageNamed: theme.boardName+"Table.png")
+        table.configureTable(rect, goalWidthRatio: 0.30)
         return table
     }
     
@@ -307,7 +316,9 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //TODO: we actually want a textured node here, but this is just for testing
     func getPuckSprite(density : CGFloat, radius : CGFloat) -> Puck {
-        var puck = Puck(circleOfRadius : radius)
+        var puck : Puck = Puck(imageNamed: theme.boardName+"Puck.png")
+        
+        puck.size = CGSize(width: radius * 2, height: radius * 2)
         
         puck.configurePuck(density, settingsProfile: settingsProfile)
         return puck
@@ -316,7 +327,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //returns a paddle TODO get a textured node
     func getPaddleSprite(r : CGFloat, mass : CGFloat)-> Paddle{
-        var paddle = Paddle(circleOfRadius : r)
+        var paddle = Paddle(imageNamed: theme.boardName+"Paddle.png")
         
         paddle.configurePaddle(r, settingsProfile: settingsProfile, mass : mass)
         return paddle

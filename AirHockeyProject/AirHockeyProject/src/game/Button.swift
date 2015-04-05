@@ -58,7 +58,7 @@ public class Button : SKShapeNode, TouchHandlerDelegate {
         label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center
         self.path = CGPathCreateWithRect(CGRect(origin: CGPoint(x: 0, y: 0), size: size), nil)
         
-        self.strokeColor = SKColor.whiteColor()
+        //self.strokeColor = SKColor.whiteColor()
         label.position = CGPoint(x: self.frame.midX,y: self.frame.midY)
         self.addChild(label)
         handleTextColor()

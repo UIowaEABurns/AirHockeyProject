@@ -10,13 +10,12 @@
 
 import Foundation
 import SpriteKit
-public class Puck: SKShapeNode {
+public class Puck: SKSpriteNode {
     
     public func configurePuck(density : CGFloat, settingsProfile : SettingsProfile) {
         self.physicsBody=SKPhysicsBody(circleOfRadius: self.frame.width/2)
         self.physicsBody?.restitution=0.95
         self.physicsBody?.allowsRotation=true
-        self.fillColor=SKColor.blackColor()
         self.physicsBody!.density=CGFloat(density)
         self.physicsBody!.usesPreciseCollisionDetection=true
         self.physicsBody!.friction=CGFloat(settingsProfile.getFriction()!)

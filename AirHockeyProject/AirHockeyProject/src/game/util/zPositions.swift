@@ -13,3 +13,7 @@ var zPositionOverlay : CGFloat = 7
 var zPositionEffectOverlay : CGFloat = 6
 var zPositionGoal : CGFloat = 5
 var zPositionPuck : CGFloat = 4
+var zPositionPaddle : CGFloat = zPositionPuck
+var zPositionTable : CGFloat = 3
+
+var zPositionBackground : CGFloat = 0

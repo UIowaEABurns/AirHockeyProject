@@ -16,7 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         DatabaseManager.setupDatabaseIfNotExists()
-
+        
+        for name in UIFont.familyNames() {
+            for str in UIFont.fontNamesForFamilyName(name as String) {
+                //println("font is " + (str as String))
+            }
+        }
+        
+        
         return true
     }
 

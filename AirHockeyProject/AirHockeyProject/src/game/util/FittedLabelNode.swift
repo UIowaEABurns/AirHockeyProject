@@ -68,11 +68,19 @@ public class FittedLabelNode : SKLabelNode {
         super.text = t
     }
     
+    public func setTextNoResize(t : String) {
+        super.text = t
+    }
+    
     public func setFontName(t : String) {
         
         super.fontName = t
         
         self.fontSize = getFontSizeToFitWidth(self.text)
+    }
+    
+    public func getFontSize() -> CGFloat {
+        return self.fontSize
     }
     
 }
