@@ -41,6 +41,15 @@
 		7119B4B91AD1063C002CA09B /* spacePaddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7119B4B51AD1063C002CA09B /* spacePaddle.png */; };
 		7119B4BA1AD1063C002CA09B /* spacePuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7119B4B61AD1063C002CA09B /* spacePuck.png */; };
 		7119B4BB1AD1063C002CA09B /* spaceTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 7119B4B71AD1063C002CA09B /* spaceTable.png */; };
+		7119B4BE1AD22257002CA09B /* BoardSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119B4BD1AD22257002CA09B /* BoardSelectionViewController.swift */; };
+		7119B4C01AD222F7002CA09B /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119B4BF1AD222F7002CA09B /* Themes.swift */; };
+		7119B4C21AD228D6002CA09B /* themeconfig.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7119B4C11AD228D6002CA09B /* themeconfig.xml */; };
+		7119B4CA1AD234A6002CA09B /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119B4C91AD234A6002CA09B /* ThemeView.swift */; };
+		7119B4CC1AD234AE002CA09B /* ThemeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7119B4CB1AD234AE002CA09B /* ThemeView.xib */; };
+		7119B4D11AD24215002CA09B /* classicBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7119B4CD1AD24215002CA09B /* classicBackground.jpg */; };
+		7119B4D21AD24215002CA09B /* classicPaddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7119B4CE1AD24215002CA09B /* classicPaddle.png */; };
+		7119B4D31AD24215002CA09B /* classicPuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7119B4CF1AD24215002CA09B /* classicPuck.png */; };
+		7119B4D41AD24215002CA09B /* classicTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 7119B4D01AD24215002CA09B /* classicTable.png */; };
 		7131F54E1AD054CD00AABF5A /* EffectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7131F54D1AD054CD00AABF5A /* EffectManager.swift */; };
 		7131F5531AD0F33500AABF5A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7131F5521AD0F33500AABF5A /* Theme.swift */; };
 		716373B01ACB9E1200B1FF7D /* zPositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716373AF1ACB9E1200B1FF7D /* zPositions.swift */; };
@@ -54,7 +63,6 @@
 		717F860A1AD0F3E000576E8E /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 717F86051AD0F3E000576E8E /* digital-7 (mono).ttf */; };
 		717F860B1AD0F3E000576E8E /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 717F86061AD0F3E000576E8E /* digital-7.ttf */; };
 		717F860C1AD0F3E000576E8E /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 717F86071AD0F3E000576E8E /* readme.txt */; };
-		717F86151AD0F82E00576E8E /* classic.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 717F86121AD0F82E00576E8E /* classic.atlas */; };
 		71A8756D1AC5C71F008EDBA9 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A8756C1AC5C71F008EDBA9 /* Timer.swift */; };
 		71A875761AC5D115008EDBA9 /* Puck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A875751AC5D115008EDBA9 /* Puck.swift */; };
 		71A875781AC5D4AE008EDBA9 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A875771AC5D4AE008EDBA9 /* Paddle.swift */; };
@@ -159,6 +167,15 @@
 		7119B4B51AD1063C002CA09B /* spacePaddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spacePaddle.png; sourceTree = "<group>"; };
 		7119B4B61AD1063C002CA09B /* spacePuck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spacePuck.png; sourceTree = "<group>"; };
 		7119B4B71AD1063C002CA09B /* spaceTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spaceTable.png; sourceTree = "<group>"; };
+		7119B4BD1AD22257002CA09B /* BoardSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSelectionViewController.swift; sourceTree = "<group>"; };
+		7119B4BF1AD222F7002CA09B /* Themes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
+		7119B4C11AD228D6002CA09B /* themeconfig.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = themeconfig.xml; sourceTree = "<group>"; };
+		7119B4C91AD234A6002CA09B /* ThemeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
+		7119B4CB1AD234AE002CA09B /* ThemeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeView.xib; sourceTree = "<group>"; };
+		7119B4CD1AD24215002CA09B /* classicBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = classicBackground.jpg; sourceTree = "<group>"; };
+		7119B4CE1AD24215002CA09B /* classicPaddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classicPaddle.png; sourceTree = "<group>"; };
+		7119B4CF1AD24215002CA09B /* classicPuck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classicPuck.png; sourceTree = "<group>"; };
+		7119B4D01AD24215002CA09B /* classicTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classicTable.png; sourceTree = "<group>"; };
 		7131F54D1AD054CD00AABF5A /* EffectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffectManager.swift; sourceTree = "<group>"; };
 		7131F5521AD0F33500AABF5A /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		716373AF1ACB9E1200B1FF7D /* zPositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = zPositions.swift; sourceTree = "<group>"; };
@@ -172,7 +189,6 @@
 		717F86051AD0F3E000576E8E /* digital-7 (mono).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7 (mono).ttf"; sourceTree = "<group>"; };
 		717F86061AD0F3E000576E8E /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7.ttf"; sourceTree = "<group>"; };
 		717F86071AD0F3E000576E8E /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
-		717F86121AD0F82E00576E8E /* classic.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = classic.atlas; sourceTree = "<group>"; };
 		71A8756C1AC5C71F008EDBA9 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		71A875751AC5D115008EDBA9 /* Puck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Puck.swift; sourceTree = "<group>"; };
 		71A875771AC5D4AE008EDBA9 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
@@ -238,6 +254,7 @@
 		7107A2971AC398B600706EC8 /* AirHockeyProject */ = {
 			isa = PBXGroup;
 			children = (
+				7119B4CB1AD234AE002CA09B /* ThemeView.xib */,
 				71A875721AC5D103008EDBA9 /* Resources */,
 				7107A2CA1AC398E300706EC8 /* sql */,
 				7107A2BE1AC398D600706EC8 /* src */,
@@ -280,6 +297,7 @@
 		7107A2BE1AC398D600706EC8 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				7119B4BC1AD2223C002CA09B /* View Controllers */,
 				71A875711AC5D0F5008EDBA9 /* game */,
 				71BB49801AC4D23C00898049 /* config */,
 				7107A2EB1AC3A11E00706EC8 /* util */,
@@ -304,6 +322,7 @@
 				7107A2E91AC39F2E00706EC8 /* Users.swift */,
 				71BB497E1AC4CE1C00898049 /* Settings.swift */,
 				71BB49831AC4D70200898049 /* Statistics.swift */,
+				7119B4BF1AD222F7002CA09B /* Themes.swift */,
 			);
 			path = database;
 			sourceTree = "<group>";
@@ -372,6 +391,15 @@
 			path = space;
 			sourceTree = "<group>";
 		};
+		7119B4BC1AD2223C002CA09B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7119B4C91AD234A6002CA09B /* ThemeView.swift */,
+				7119B4BD1AD22257002CA09B /* BoardSelectionViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		717B00DF1ACCD95A0049F3EC /* players */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,6 +433,7 @@
 		717F86101AD0F82E00576E8E /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				7119B4C11AD228D6002CA09B /* themeconfig.xml */,
 				7119B4B11AD105A2002CA09B /* space */,
 				717F86111AD0F82E00576E8E /* classic */,
 			);
@@ -414,7 +443,10 @@
 		717F86111AD0F82E00576E8E /* classic */ = {
 			isa = PBXGroup;
 			children = (
-				717F86121AD0F82E00576E8E /* classic.atlas */,
+				7119B4CD1AD24215002CA09B /* classicBackground.jpg */,
+				7119B4CE1AD24215002CA09B /* classicPaddle.png */,
+				7119B4CF1AD24215002CA09B /* classicPuck.png */,
+				7119B4D01AD24215002CA09B /* classicTable.png */,
 			);
 			path = classic;
 			sourceTree = "<group>";
@@ -589,17 +621,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7119B4D31AD24215002CA09B /* classicPuck.png in Resources */,
 				717F860A1AD0F3E000576E8E /* digital-7 (mono).ttf in Resources */,
 				717F86091AD0F3E000576E8E /* digital-7 (mono italic).ttf in Resources */,
+				7119B4D21AD24215002CA09B /* classicPaddle.png in Resources */,
 				7119B4B91AD1063C002CA09B /* spacePaddle.png in Resources */,
+				7119B4D41AD24215002CA09B /* classicTable.png in Resources */,
 				7107A2A91AC398B600706EC8 /* LaunchScreen.xib in Resources */,
 				717F86081AD0F3E000576E8E /* digital-7 (italic).ttf in Resources */,
-				717F86151AD0F82E00576E8E /* classic.atlas in Resources */,
+				7119B4CC1AD234AE002CA09B /* ThemeView.xib in Resources */,
+				7119B4D11AD24215002CA09B /* classicBackground.jpg in Resources */,
 				717F860C1AD0F3E000576E8E /* readme.txt in Resources */,
 				7119B4BB1AD1063C002CA09B /* spaceTable.png in Resources */,
 				7107A2CE1AC398E300706EC8 /* airhockeySchema.sql in Resources */,
 				71008D5D1AD04F56009B3444 /* bokeh.png in Resources */,
 				717F860B1AD0F3E000576E8E /* digital-7.ttf in Resources */,
+				7119B4C21AD228D6002CA09B /* themeconfig.xml in Resources */,
 				7107A2A61AC398B600706EC8 /* Images.xcassets in Resources */,
 				71008D631AD04FB2009B3444 /* Spark.sks in Resources */,
 				71008D591ACF97F1009B3444 /* spark.png in Resources */,
@@ -626,17 +663,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				7107A2EA1AC39F2E00706EC8 /* Users.swift in Sources */,
+				7119B4CA1AD234A6002CA09B /* ThemeView.swift in Sources */,
 				7115A5721ACB81DD0057A8B8 /* Geometry.swift in Sources */,
 				71BB49821AC4D24F00898049 /* Constants.swift in Sources */,
 				7131F54E1AD054CD00AABF5A /* EffectManager.swift in Sources */,
 				7107A2ED1AC3A12A00706EC8 /* Util.swift in Sources */,
 				7107A2C61AC398D600706EC8 /* DatabaseManager.swift in Sources */,
 				716373B01ACB9E1200B1FF7D /* zPositions.swift in Sources */,
+				7119B4BE1AD22257002CA09B /* BoardSelectionViewController.swift in Sources */,
 				71A8756D1AC5C71F008EDBA9 /* Timer.swift in Sources */,
 				717B00E51ACCD96A0049F3EC /* AIPlayer.swift in Sources */,
 				710435B61AC74BB9003E9458 /* InputManager.swift in Sources */,
 				7107A2C81AC398D600706EC8 /* Stats.swift in Sources */,
 				71A875761AC5D115008EDBA9 /* Puck.swift in Sources */,
+				7119B4C01AD222F7002CA09B /* Themes.swift in Sources */,
 				71BB497F1AC4CE1C00898049 /* Settings.swift in Sources */,
 				7107A29F1AC398B600706EC8 /* GameScene.swift in Sources */,
 				7107A2A11AC398B600706EC8 /* GameViewController.swift in Sources */,

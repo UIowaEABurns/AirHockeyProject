@@ -21,7 +21,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     public var userTwo : User?
     
-    public var theme : Theme = Theme(name: "space", font: "Digital-7")
+    public var theme : Theme = Theme(name: "classic", font: "Digital-7Mono")
     
     private var inputManager : InputManager!
     
@@ -194,15 +194,18 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         
             
             let timerSize = CGSize(width: (1-TABLE_WIDTH_FRACTION)/2 * self.frame.width * 1.4, height: self.size.height * 0.1)
-            timer = GameTimer(seconds: Int64(settingsProfile.getTimeLimit()!),font : theme.fontName, size: timerSize)
+            timer = GameTimer(seconds: Int64(settingsProfile.getTimeLimit()!),font : theme.fontName!, size: timerSize)
             
             
             timer.position = CGPointMake(CGRectGetMaxX(self.frame)-timer.frame.width-5,CGRectGetMidY(self.frame)-(timer.frame.height/2))
-            
+            println(timerSize)
+            println(timer.position)
+            timer.zPosition = zPositionTimer
             gameplayNode.addChild(timer)
             timer.timer.start()
         
             playerOneScore = SKLabelNode(fontNamed: theme.fontName)
+            playerOneScore.zPosition = zPositionTimer
             playerOneScore.fontSize = timer.getFontSize()
             playerOneScore.zRotation = CGFloat((M_PI*3.0)/2.0)
             playerOneScore.text = "0"
@@ -211,6 +214,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             playerTwoScore.zRotation = CGFloat((M_PI*3.0)/2.0)
             playerTwoScore.text = "0"
             playerTwoScore.fontSize = timer.getFontSize()
+            playerTwoScore.zPosition = zPositionTimer
             playerTwoScore.position = CGPoint(x: timer.position.x , y: timer.position.y + (playerOneScore.frame.height) + timer.frame.height + SCORE_DISPLAY_PADDING)
             gameplayNode.addChild(playerOneScore)
             gameplayNode.addChild(playerTwoScore)
@@ -237,7 +241,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             bgNode.anchorPoint = CGPoint(x: 0,y: 0)
             bgNode.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
             bgNode.zPosition = zPositionBackground
-            self.addChild(bgNode)
+            //self.addChild(bgNode)
             
             self.addPauseButtons()
             

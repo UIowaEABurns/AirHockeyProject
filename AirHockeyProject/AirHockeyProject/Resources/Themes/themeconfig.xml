@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<themes>
+<theme name="classic">
+    <fontName value="Digital-7"/>
+</theme>
+<theme name="space">
+    <fontName value="Digital-7"/>
+</theme>
+</themes>

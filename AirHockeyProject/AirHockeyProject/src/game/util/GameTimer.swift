@@ -12,7 +12,8 @@ import SpriteKit
 //contains code for configuring the game timer
 public class GameTimer : FittedLabelNode {
     public var timer : Timer
-
+    
+    //TODO: This 
     public init(seconds : Int64, font : String, size : CGSize) {
         timer=Timer()
         timer.setTimeLimit(seconds)

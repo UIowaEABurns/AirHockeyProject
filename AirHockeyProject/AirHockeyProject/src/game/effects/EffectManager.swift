@@ -60,7 +60,7 @@ public class EffectManager {
     //given a point in the parent's coordinates, executes a spark effect there
     public class func runSparkEffect(point : CGPoint, parent : SKNode) {
         let emitter : SKEmitterNode = SKEmitterNode(fileNamed: "Spark.sks")
-        
+        emitter.zPosition = zPositionSparks
         emitter.position = point
         
         parent.addChild(emitter)

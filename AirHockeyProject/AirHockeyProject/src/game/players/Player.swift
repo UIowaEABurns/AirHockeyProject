@@ -44,7 +44,7 @@ public class Player {
 
             return
         }
-        
+        paddle!.physicsBody!.angularVelocity = 0.0
         
         let acceleration = Geometry.magnitude(vector!)
         if (acceleration>self.getMaxAcceleration()) {
