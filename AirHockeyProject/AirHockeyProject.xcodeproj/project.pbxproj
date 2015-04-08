@@ -50,6 +50,9 @@
 		7119B4D21AD24215002CA09B /* classicPaddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7119B4CE1AD24215002CA09B /* classicPaddle.png */; };
 		7119B4D31AD24215002CA09B /* classicPuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7119B4CF1AD24215002CA09B /* classicPuck.png */; };
 		7119B4D41AD24215002CA09B /* classicTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 7119B4D01AD24215002CA09B /* classicTable.png */; };
+		7119B4D61AD4B23B002CA09B /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 7119B4D51AD4B23B002CA09B /* star.png */; };
+		7119B4D81AD4B25F002CA09B /* Stars.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7119B4D71AD4B25F002CA09B /* Stars.sks */; };
+		7119B4DA1AD4B379002CA09B /* CustomEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119B4D91AD4B379002CA09B /* CustomEmitter.swift */; };
 		7131F54E1AD054CD00AABF5A /* EffectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7131F54D1AD054CD00AABF5A /* EffectManager.swift */; };
 		7131F5531AD0F33500AABF5A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7131F5521AD0F33500AABF5A /* Theme.swift */; };
 		716373B01ACB9E1200B1FF7D /* zPositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716373AF1ACB9E1200B1FF7D /* zPositions.swift */; };
@@ -66,6 +69,7 @@
 		71A8756D1AC5C71F008EDBA9 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A8756C1AC5C71F008EDBA9 /* Timer.swift */; };
 		71A875761AC5D115008EDBA9 /* Puck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A875751AC5D115008EDBA9 /* Puck.swift */; };
 		71A875781AC5D4AE008EDBA9 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A875771AC5D4AE008EDBA9 /* Paddle.swift */; };
+		71AE540F1AD4B8F10024BC44 /* ShootingStar.sks in Resources */ = {isa = PBXBuildFile; fileRef = 71AE540E1AD4B8F10024BC44 /* ShootingStar.sks */; };
 		71BB497F1AC4CE1C00898049 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB497E1AC4CE1C00898049 /* Settings.swift */; };
 		71BB49821AC4D24F00898049 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB49811AC4D24F00898049 /* Constants.swift */; };
 		71BB49841AC4D70200898049 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB49831AC4D70200898049 /* Statistics.swift */; };
@@ -176,6 +180,9 @@
 		7119B4CE1AD24215002CA09B /* classicPaddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classicPaddle.png; sourceTree = "<group>"; };
 		7119B4CF1AD24215002CA09B /* classicPuck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classicPuck.png; sourceTree = "<group>"; };
 		7119B4D01AD24215002CA09B /* classicTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classicTable.png; sourceTree = "<group>"; };
+		7119B4D51AD4B23B002CA09B /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		7119B4D71AD4B25F002CA09B /* Stars.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Stars.sks; sourceTree = "<group>"; };
+		7119B4D91AD4B379002CA09B /* CustomEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEmitter.swift; sourceTree = "<group>"; };
 		7131F54D1AD054CD00AABF5A /* EffectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffectManager.swift; sourceTree = "<group>"; };
 		7131F5521AD0F33500AABF5A /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		716373AF1ACB9E1200B1FF7D /* zPositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = zPositions.swift; sourceTree = "<group>"; };
@@ -192,6 +199,7 @@
 		71A8756C1AC5C71F008EDBA9 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		71A875751AC5D115008EDBA9 /* Puck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Puck.swift; sourceTree = "<group>"; };
 		71A875771AC5D4AE008EDBA9 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
+		71AE540E1AD4B8F10024BC44 /* ShootingStar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ShootingStar.sks; sourceTree = "<group>"; };
 		71BB497E1AC4CE1C00898049 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		71BB49811AC4D24F00898049 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		71BB49831AC4D70200898049 /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
@@ -221,11 +229,14 @@
 		71008D551ACF979E009B3444 /* effects */ = {
 			isa = PBXGroup;
 			children = (
+				7119B4D51AD4B23B002CA09B /* star.png */,
 				71008D561ACF97F1009B3444 /* GoalEmitter.sks */,
 				71008D571ACF97F1009B3444 /* spark.png */,
 				71008D5B1AD04F56009B3444 /* bokeh.png */,
 				71008D621AD04FB2009B3444 /* Spark.sks */,
 				7131F54D1AD054CD00AABF5A /* EffectManager.swift */,
+				7119B4D71AD4B25F002CA09B /* Stars.sks */,
+				71AE540E1AD4B8F10024BC44 /* ShootingStar.sks */,
 			);
 			path = effects;
 			sourceTree = "<group>";
@@ -334,6 +345,7 @@
 				7107A2C41AC398D600706EC8 /* Stats.swift */,
 				7107A2C51AC398D600706EC8 /* User.swift */,
 				7131F5521AD0F33500AABF5A /* Theme.swift */,
+				7119B4D91AD4B379002CA09B /* CustomEmitter.swift */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -626,13 +638,16 @@
 				717F86091AD0F3E000576E8E /* digital-7 (mono italic).ttf in Resources */,
 				7119B4D21AD24215002CA09B /* classicPaddle.png in Resources */,
 				7119B4B91AD1063C002CA09B /* spacePaddle.png in Resources */,
+				71AE540F1AD4B8F10024BC44 /* ShootingStar.sks in Resources */,
 				7119B4D41AD24215002CA09B /* classicTable.png in Resources */,
 				7107A2A91AC398B600706EC8 /* LaunchScreen.xib in Resources */,
 				717F86081AD0F3E000576E8E /* digital-7 (italic).ttf in Resources */,
 				7119B4CC1AD234AE002CA09B /* ThemeView.xib in Resources */,
 				7119B4D11AD24215002CA09B /* classicBackground.jpg in Resources */,
 				717F860C1AD0F3E000576E8E /* readme.txt in Resources */,
+				7119B4D61AD4B23B002CA09B /* star.png in Resources */,
 				7119B4BB1AD1063C002CA09B /* spaceTable.png in Resources */,
+				7119B4D81AD4B25F002CA09B /* Stars.sks in Resources */,
 				7107A2CE1AC398E300706EC8 /* airhockeySchema.sql in Resources */,
 				71008D5D1AD04F56009B3444 /* bokeh.png in Resources */,
 				717F860B1AD0F3E000576E8E /* digital-7.ttf in Resources */,
@@ -685,6 +700,7 @@
 				710435B11AC7103B003E9458 /* Table.swift in Sources */,
 				717B00D91ACC486B0049F3EC /* Button.swift in Sources */,
 				7107A2C71AC398D600706EC8 /* SettingsProfile.swift in Sources */,
+				7119B4DA1AD4B379002CA09B /* CustomEmitter.swift in Sources */,
 				717B00E31ACCD95A0049F3EC /* Player.swift in Sources */,
 				71A875781AC5D4AE008EDBA9 /* Paddle.swift in Sources */,
 				71BB49841AC4D70200898049 /* Statistics.swift in Sources */,

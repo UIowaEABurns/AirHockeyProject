@@ -30,7 +30,7 @@ public class Paddle : SKSpriteNode {
             self.color = settingsProfile.getPlayerTwoPaddleColor()!
         }
         self.colorBlendFactor = 0.7
-        self.physicsBody?.restitution=0.2
+        self.physicsBody?.restitution=00
         self.physicsBody?.mass=mass
         self.physicsBody?.allowsRotation=true
         self.physicsBody?.usesPreciseCollisionDetection=true

@@ -89,12 +89,18 @@ public class Geometry {
         
         averageVector.dx  = averageVector.dx / CGFloat(vectors.count)
         averageVector.dy  = averageVector.dy / CGFloat(vectors.count)
-        
-        
-        
-        
-
         return averageVector
+    }
+    
+    private class func clamp(x : CGFloat, mini : CGFloat, maxi : CGFloat) -> CGFloat {
+        let y : CGFloat = min(x, maxi)
+        return max(mini,y)
+    }
+    
+    class func getNearestPointInRect(rect : CGRect, point : CGPoint) -> CGPoint {
+        let x = clamp(point.x, mini: rect.origin.x, maxi: rect.origin.x+rect.width)
+        let y = clamp(point.y,mini: rect.origin.y,maxi: rect.origin.y + rect.height)
+        return CGPoint(x: x, y: y)
     }
     
    

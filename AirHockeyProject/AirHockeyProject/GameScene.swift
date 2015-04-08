@@ -21,7 +21,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     public var userTwo : User?
     
-    public var theme : Theme = Theme(name: "space", font: "Digital-7Mono")
+    public var theme : Theme = Theme(name: "classic", font: "Digital-7Mono")
     
     private var inputManager : InputManager!
     
@@ -135,6 +135,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     override public func didMoveToView(view: SKView) {
         /* Setup your scene here */
         if (!contentCreated) {
+            theme = Themes.getThemeByName("space")!
             println("console")
             self.physicsWorld.gravity=CGVectorMake(0,0) // no gravity in this game
             self.physicsWorld.contactDelegate = self
@@ -259,6 +260,12 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             self.addPauseButtons()
             
+            for emitter in theme.customEmitters {
+                println(emitter.emitterName)
+                var nextEmitter : SKEmitterNode = SKEmitterNode(fileNamed: emitter.emitterName)
+                nextEmitter.position = CGPoint(x: emitter.getX(self), y: emitter.getY(self))
+                gameplayNode.addChild(nextEmitter)
+            }
             
 
         }

@@ -14,6 +14,8 @@ public class InputManager {
     private var p1TouchLocation : CGPoint?
     private var p2TouchLocation : CGPoint?
     
+    private var finalP1TouchLocation : CGPoint?
+    private var finalP2TouchLocation : CGPoint?
     
     private var playingTable : Table
 
@@ -22,11 +24,7 @@ public class InputManager {
     init(t : Table) {
         playingTable = t
     }
-    
-    
-    
-    
-    
+
     private func sameTouch(a : CGPoint?, b : CGPoint?)-> Bool {
         if (a==nil || b==nil) {
             return false
@@ -42,6 +40,10 @@ public class InputManager {
         let prevP2=p2TouchLocation
         p1TouchLocation = nil
         p2TouchLocation = nil
+        finalP1TouchLocation = nil
+        finalP2TouchLocation = nil
+        let p1Half=playingTable.getPlayerOneHalf()
+        let p2Half=playingTable.getPlayerTwoHalf()
         for touch: AnyObject in touches {
             
             if (touch.phase!==UITouchPhase.Ended ||  touch.phase==UITouchPhase.Cancelled) {
@@ -64,8 +66,7 @@ public class InputManager {
             
             
             
-            let p1Half=playingTable.getPlayerOneHalf()
-            let p2Half=playingTable.getPlayerTwoHalf()
+           
             
             if (p1Half.contains(location)) {
                 if (p1TouchLocation==nil) {
@@ -92,6 +93,12 @@ public class InputManager {
             }
 
         }
+        if ((p1TouchLocation) != nil) {
+            finalP1TouchLocation = Geometry.getNearestPointInRect(p1Half, point: p1TouchLocation!)
+        }
+        if ((p2TouchLocation) != nil) {
+            finalP2TouchLocation = Geometry.getNearestPointInRect(p2Half, point: p2TouchLocation!)
+        }
     }
     // given a player number, returns the input for that player
     public func getInputForPlayer(number : Int) -> CGPoint? {
@@ -105,11 +112,11 @@ public class InputManager {
     }
     
     public func getPlayerOneInput() -> CGPoint?{
-        return p1TouchLocation
+        return finalP1TouchLocation
     }
     
     public func getPlayerTwoInput() -> CGPoint? {
-        return p2TouchLocation
+        return finalP2TouchLocation
     }
     
 

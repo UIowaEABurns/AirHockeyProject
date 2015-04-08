@@ -11,7 +11,7 @@ import SpriteKit
 public class Theme {
     var fontName : String?
     var boardName : String
-
+    var customEmitters : [CustomEmitter] = []
     init(name : String) {
         boardName = name
     }

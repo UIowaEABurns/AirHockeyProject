@@ -26,7 +26,7 @@ public class GameUtil {
             n.addChild(vertEdge)
 
             vertEdge.name = name
-            vertEdge.physicsBody=SKPhysicsBody(edgeFromPoint: CGPoint(x: 0,y: -2), toPoint: CGPoint(x: vertEdge.frame.width, y: vertEdge.frame.height+4))
+            vertEdge.physicsBody=SKPhysicsBody(edgeFromPoint: CGPoint(x: 0,y: 0), toPoint: CGPoint(x: vertEdge.frame.width, y: vertEdge.frame.height))
             
             vertEdge.physicsBody!.categoryBitMask = category
             vertEdge.physicsBody!.usesPreciseCollisionDetection = true
@@ -52,7 +52,7 @@ public class GameUtil {
             n.addChild(vertEdge)
             
             vertEdge.name = name
-            vertEdge.physicsBody=SKPhysicsBody(edgeFromPoint: CGPoint(x: 0,y: -2), toPoint: CGPoint(x: vertEdge.frame.width, y: vertEdge.frame.height+4))
+            vertEdge.physicsBody=SKPhysicsBody(edgeFromPoint: CGPoint(x: 0,y: 0), toPoint: CGPoint(x: vertEdge.frame.width, y: vertEdge.frame.height))
             
             vertEdge.physicsBody!.categoryBitMask = category
             vertEdge.physicsBody!.usesPreciseCollisionDetection = true
