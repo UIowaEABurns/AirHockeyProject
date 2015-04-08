@@ -14,16 +14,22 @@ public class Paddle : SKSpriteNode {
     
     private var playerNumber : Int?
     var lastPosition : CGPoint?
-    public func setPlayerNumber(i : Int) {
-        playerNumber=i
-    }
+   
     
     public func getPlayerNumber()-> Int? {
         return playerNumber
     }
     
-    public func configurePaddle(radius : CGFloat, settingsProfile : SettingsProfile, mass : CGFloat) {
+    public func configurePaddle(playerNumber: Int, radius: CGFloat, settingsProfile : SettingsProfile, mass : CGFloat) {
+        self.playerNumber = playerNumber
         self.physicsBody=SKPhysicsBody(circleOfRadius: radius)
+
+        if (playerNumber==1) {
+            self.color = settingsProfile.getPlayerOnePaddleColor()!
+        } else if (playerNumber==2) {
+            self.color = settingsProfile.getPlayerTwoPaddleColor()!
+        }
+        self.colorBlendFactor = 0.7
         self.physicsBody?.restitution=0.2
         self.physicsBody?.mass=mass
         self.physicsBody?.allowsRotation=true
@@ -34,6 +40,7 @@ public class Paddle : SKSpriteNode {
         self.physicsBody?.categoryBitMask = paddleCategory
         self.physicsBody?.usesPreciseCollisionDetection = true
         self.zPosition = zPositionPaddle
+        
         self.size = CGSize(width: radius * 2, height: radius * 2)
     }
 }

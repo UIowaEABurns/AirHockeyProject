@@ -7,8 +7,43 @@
 //
 
 import Foundation
+import SpriteKit
 
+public enum PaddleColor : Int {
+    case Red = 0
+    case Blue = 1
+    case Green = 2
+    
+    static func allValues() -> [PaddleColor] {
+        return [Red,Blue,Green]
+    }
+    
+    static func intToPaddleColor(i : Int) -> PaddleColor? {
+        for color in allValues() {
+            if color.rawValue==i {
+                return color
+            }
+        }
+        return nil
+    }
+    
+    func getAsColor() -> SKColor? {
+        if (self==Red) {
+            return SKColor.redColor()
+        } else if (self==Blue) {
+            return SKColor.blueColor()
+        } else if (self==Green) {
+            return SKColor.greenColor()
+        }
+        return nil
+    }
+    
+}
 public class SettingsProfile {
+    
+    
+    
+    
     private var id : Int64?
     private var friction : Double?
     private var playerOnePaddleRadius : Double?
@@ -17,7 +52,8 @@ public class SettingsProfile {
     private var timeLimit : Int?
     private var goalLimit : Int? // null if they are infinite
     private var aiDifficulty : Int?
-    
+    private var playerOnePaddleColor : PaddleColor?
+    private var playerTwoPaddleColor : PaddleColor?
     init() {
         
     }
@@ -74,5 +110,33 @@ public class SettingsProfile {
         aiDifficulty=d
     }
     
+    public func setPlayerOnePaddleColor(color : PaddleColor) {
+        playerOnePaddleColor = color
+    }
     
+    public func setPlayerTwoPaddleColor(color : PaddleColor) {
+        playerTwoPaddleColor = color
+    }
+    
+    public func setPlayerOnePaddleColor(colorNumber : Int) {
+        playerOnePaddleColor = PaddleColor.intToPaddleColor(colorNumber)
+    }
+    
+    public func setPlayerTwoPaddleColor(colorNumber : Int) {
+        playerTwoPaddleColor = PaddleColor.intToPaddleColor(colorNumber)
+    }
+    
+    public func getPlayerOnePaddleColor() -> SKColor? {
+        if playerOnePaddleColor==nil {
+            return nil
+        }
+        return playerOnePaddleColor!.getAsColor()
+    }
+    
+    public func getPlayerTwoPaddleColor() -> SKColor? {
+        if playerOnePaddleColor==nil {
+            return nil
+        }
+        return playerTwoPaddleColor!.getAsColor()
+    }
 }

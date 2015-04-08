@@ -135,7 +135,7 @@ public class Table : SKSpriteNode {
         if (playerNumber==1) {
             puck.position = self.convertPoint(CGPoint(x: self.frame.midX, y: self.frame.midY - self.frame.height / 4), fromNode: self.parent!)  
         } else {
-            puck.position = CGPoint(x: self.frame.midX, y: self.frame.midY + self.frame.height / 4)
+            puck.position = self.convertPoint(CGPoint(x: self.frame.midX, y: self.frame.midY + self.frame.height / 4), fromNode: self.parent!)
         }
         puck.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
         puck.physicsBody!.angularVelocity = 0.0

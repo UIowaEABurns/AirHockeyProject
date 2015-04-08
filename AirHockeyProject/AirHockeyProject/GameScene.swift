@@ -21,7 +21,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     public var userTwo : User?
     
-    public var theme : Theme = Theme(name: "classic", font: "Digital-7Mono")
+    public var theme : Theme = Theme(name: "space", font: "Digital-7Mono")
     
     private var inputManager : InputManager!
     
@@ -49,7 +49,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var pauseButton : Button!
     private var resumeButton : Button!
-    
+    private var exitButton : Button!
     private var touchHandlers : [TouchHandlerDelegate] = []
     
     public func getPlayingTable() -> Table {
@@ -99,14 +99,26 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         
         gameplayNode.addChild(pauseButton)
         
-        
-        resumeButton = Button(fontNamed: theme.fontName, block: {self.resumeGame()}, s: pauseButtonSize)
+        let resumeButtonSize=CGSize(width: 0.3 * self.frame.width, height: 0.05 * self.frame.height)
+        resumeButton = Button(fontNamed: theme.fontName, block: {self.resumeGame()}, s: resumeButtonSize)
         resumeButton.inactivate()
         resumeButton.setText("Resume")
         resumeButton.name="resume"
-        resumeButton.position = CGPoint(x: overlayNode.frame.midX-(resumeButton.frame.width/2), y: overlayNode.frame.midY)
+        resumeButton.position = CGPoint(x: overlayNode.frame.midX-(resumeButton.frame.width/2), y: overlayNode.frame.midY+(self.frame.height*0.1))
+        resumeButton.zPosition = zPositionOverlay + 1
+        exitButton  = Button(fontNamed: theme.fontName, block: {self.exitGame()}, s: resumeButtonSize)
+        exitButton.setText("Exit")
+        exitButton.name="exitButton"
+        exitButton.inactivate()
+        exitButton.setFontSize(resumeButton.getFontSize())
+        exitButton.position = CGPoint(x: overlayNode.frame.midX-(resumeButton.frame.width/2), y: overlayNode.frame.midY-(self.frame.height*0.1))
+        exitButton.zPosition = zPositionOverlay + 1
+
         touchHandlers.append(resumeButton)
+        touchHandlers.append(exitButton)
         overlayNode.addChild(resumeButton)
+        
+        overlayNode.addChild(exitButton)
         
     }
     
@@ -176,16 +188,19 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
                 //playerTwo=AIPlayer(diff: settingsProfile.getAIDifficulty()!, i: 2, input: inputManager,p: playingTable)
 
             }
+            var radius = boardWidth*CGFloat(settingsProfile.getPlayerOnePaddleRadius()!)
+           
             
-            var paddle = getPaddleSprite(boardWidth*CGFloat(settingsProfile.getPlayerOnePaddleRadius()!), mass : puck.physicsBody!.mass * paddlePuckMassRatio)
+            var paddle = getPaddleSprite(1,radius: radius, mass : puck.physicsBody!.mass * paddlePuckMassRatio)
             var tableHalf = playingTable.getPlayerOneHalf()
             
             paddle.position = CGPoint(x:CGRectGetMidX(tableHalf),y:CGRectGetMidY(tableHalf))
             playingTable.addChild(paddle)
             playerOne.setPaddle(paddle)
             
-            
-            paddle = getPaddleSprite(boardWidth*CGFloat(settingsProfile.getPlayerTwoPaddleRadius()!),mass : puck.physicsBody!.mass * paddlePuckMassRatio)
+            radius = boardWidth*CGFloat(settingsProfile.getPlayerTwoPaddleRadius()!)
+
+            paddle = getPaddleSprite(2,radius: radius,mass : puck.physicsBody!.mass * paddlePuckMassRatio)
             tableHalf = playingTable.getPlayerTwoHalf()
             
             paddle.position = CGPoint(x:CGRectGetMidX(tableHalf),y:CGRectGetMidY(tableHalf))
@@ -235,13 +250,12 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             overlayNode.hidden = true
             self.addChild(overlayNode)
             
-            
             let bgNode = SKSpriteNode(imageNamed: theme.boardName+"Background.jpg")
             bgNode.size = self.frame.size
             bgNode.anchorPoint = CGPoint(x: 0,y: 0)
             bgNode.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
             bgNode.zPosition = zPositionBackground
-            //self.addChild(bgNode)
+            self.addChild(bgNode)
             
             self.addPauseButtons()
             
@@ -264,6 +278,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         activeNode = overlayNode
         pauseButton.inactivate()
         resumeButton.activate()
+        exitButton.activate()
     }
     
     public func resumeGame() {
@@ -275,10 +290,12 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         activeNode = gameplayNode
         pauseButton.activate()
         resumeButton.inactivate()
+        exitButton.inactivate()
     }
     
     public func exitGame() {
         //TODO: this needs to roll back to the previous screen
+        println("quitting game")
     }
     
     private func makeTable(rect: CGRect) -> Table {
@@ -330,10 +347,11 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     //returns a paddle TODO get a textured node
-    func getPaddleSprite(r : CGFloat, mass : CGFloat)-> Paddle{
+    func getPaddleSprite(playerNumber : Int,radius: CGFloat, mass : CGFloat)-> Paddle{
         var paddle = Paddle(imageNamed: theme.boardName+"Paddle.png")
-        
-        paddle.configurePaddle(r, settingsProfile: settingsProfile, mass : mass)
+       
+       
+        paddle.configurePaddle(playerNumber,radius: radius, settingsProfile: settingsProfile, mass : mass)
         return paddle
     }
     

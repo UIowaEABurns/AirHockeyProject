@@ -60,7 +60,8 @@ public class AirHockeyConstants {
         s.setAIDifficulty(2)
         s.setTimeLimit(420) // seven minutes
         s.setGoalLimit(7)
-        
+        s.setPlayerOnePaddleColor(PaddleColor.Red)
+        s.setPlayerTwoPaddleColor(PaddleColor.Blue)
         return s
     }
     

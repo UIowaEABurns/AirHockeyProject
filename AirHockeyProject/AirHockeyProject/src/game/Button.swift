@@ -64,6 +64,13 @@ public class Button : SKShapeNode, TouchHandlerDelegate {
         handleTextColor()
     }
     
+    public func setFontSize(s : CGFloat) {
+        label.setFontSize(s)
+    }
+    public func getFontSize() -> CGFloat {
+        return label.fontSize
+    }
+    
     private func execute() {
         block()
     }

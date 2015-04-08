@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 
-//this is a label node that automatically resizes text to fit a box of the given size
+//this is a label node that automatically resizes text to fit a box of the given size, or vice verase
 //only works with single line text
 public class FittedLabelNode : SKLabelNode {
     private var size : CGSize
@@ -55,7 +55,7 @@ public class FittedLabelNode : SKLabelNode {
     
     public func setSize(s : CGSize) {
         size = s
-        self.fontSize = getFontSizeToFitWidth(self.text)
+        super.fontSize = getFontSizeToFitWidth(self.text)
 
     }
     public func getSize() -> CGSize {
@@ -63,7 +63,7 @@ public class FittedLabelNode : SKLabelNode {
     }
     
     public func setText(t : String) {
-        self.fontSize = getFontSizeToFitWidth(t)
+        super.fontSize = getFontSizeToFitWidth(t)
         
         super.text = t
     }
@@ -76,7 +76,15 @@ public class FittedLabelNode : SKLabelNode {
         
         super.fontName = t
         
-        self.fontSize = getFontSizeToFitWidth(self.text)
+        super.fontSize = getFontSizeToFitWidth(self.text)
+    }
+    
+    public func setFontSize(s : CGFloat) {
+        super.fontSize = s
+        let dict = [NSFontAttributeName:UIFont(name: self.fontName, size: s)!]
+        let temp : NSString = self.text
+        let curSize : CGSize = temp.sizeWithAttributes(dict)
+        size = curSize
     }
     
     public func getFontSize() -> CGFloat {
