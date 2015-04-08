@@ -26,8 +26,26 @@ public class Puck: SKSpriteNode {
         self.zPosition = zPositionPuck
         self.physicsBody!.contactTestBitMask = paddleCategory | edgeCategory
         self.name = PUCK_NAME
+        
     }
-   
+    
+    
+    public func doIntangibleAnimation() {
+        let blink = EffectManager.blink(self)
+        let physicsBody = self.physicsBody
+        var finalAction = SKAction.sequence([SKAction.runBlock({self.physicsBody = nil}),blink,blink,blink,blink,SKAction.runBlock({self.physicsBody = physicsBody})])
+        self.runAction(finalAction)
+    }
+    
+    
+    public func capSpeed(speed : CGFloat) {
+        if !(self.physicsBody==nil) {
+            if (Geometry.magnitude(self.physicsBody!.velocity) > speed) {
+                self.physicsBody!.velocity = Geometry.getVectorOfMagnitude(self.physicsBody!.velocity, b: speed)
+            }
+        }
+        
+    }
     
 }
 

@@ -13,7 +13,7 @@ import SpriteKit
 public class GameTimer : FittedLabelNode {
     public var timer : Timer
     
-    //TODO: This 
+    
     public init(seconds : Int64, font : String, size : CGSize) {
         timer=Timer()
         timer.setTimeLimit(seconds)
@@ -26,6 +26,10 @@ public class GameTimer : FittedLabelNode {
         self.zRotation = CGFloat((M_PI*3.0)/2.0)
         self.fontName=font
         self.fontColor=SKColor.whiteColor()
+    }
+    
+    public func setFinished(){
+        self.setTextNoResize("0:00")
     }
 
     required public init?(coder aDecoder: NSCoder) {

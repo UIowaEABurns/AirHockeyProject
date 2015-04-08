@@ -267,6 +267,9 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
                 gameplayNode.addChild(nextEmitter)
             }
             
+            
+            
+            
 
         }
         
@@ -274,6 +277,25 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    public func handleGameConcluded() {
+        gameplayNode.paused=true
+        pauseButton.inactivate()
+
+        var playerOneName="AI"
+        var playerTwoName="AI"
+        
+        if !(userOne==nil) {
+            playerOneName=userOne!.getUsername()!
+        }
+        if !(userTwo==nil) {
+            playerTwoName=userTwo!.getUsername()!
+        }
+        let win = WinScreen(p1Score: playerOne.score, p2Score: playerTwo.score, p1Name: playerOneName, p2Name: playerTwoName, t: theme, parent: self)
+        
+        win.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
+
+        self.addChild(win)
+    }
     
     
     public func pauseGame() {
@@ -382,14 +404,22 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     private func handleGoalScored(playerScoredOn : Int) {
         if (playerScoredOn==1) {
             playerTwo.score=playerTwo.score+1
-            
+            if (playerTwo.score == settingsProfile.getGoalLimit() && settingsProfile.getGoalLimit()>0) {
+                self.handleGameConcluded()
+                return
+            }
         } else {
             playerOne.score=playerOne.score+1
+            if (playerOne.score == settingsProfile.getGoalLimit() && settingsProfile.getGoalLimit()>0) {
+                self.handleGameConcluded()
+                return
+            }
         }
         playingTable.resetPuckToPlayer(playerScoredOn)
         playerOneScore.text = String(playerOne.score)
         playerTwoScore.text = String(playerTwo.score)
         EffectManager.runFlashEffect(gameplayNode.childNodeWithName(TABLE_EFFECT_OVERLAY_NAME)! as SKShapeNode,originalColor: SKColor.clearColor(), flashColor: SKColor.whiteColor())
+        
     }
     
    
@@ -397,6 +427,11 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     //TODO: Refactor these tasks to somewhere else?
     override public func update(currentTime: CFTimeInterval) {
         if (!gameplayNode.paused) {
+            if (timer.timer.getRemainingTimeSeconds()==0) {
+                timer.setFinished()
+                self.handleGameConcluded()
+                return
+            }
             playerOne.getPaddle()!.lastPosition = playerOne.getPaddle()!.position
             playerTwo.getPaddle()!.lastPosition = playerTwo.getPaddle()!.position
             playerOne.movePaddle()
@@ -422,14 +457,12 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
+        
     }
    override public func didSimulatePhysics() {
         playerOne.processPaddlePosition()
         playerTwo.processPaddlePosition()
-        if (Geometry.magnitude(playingTable.getPuck().physicsBody!.velocity) > MAX_PUCK_SPEED) {
-            playingTable.getPuck().physicsBody!.velocity = Geometry.getVectorOfMagnitude(playingTable.getPuck().physicsBody!.velocity, b: MAX_PUCK_SPEED)
-        
-        }
+        playingTable.getPuck().capSpeed(MAX_PUCK_SPEED)
         for paddle in [playerOne.getPaddle()!, playerTwo.getPaddle()!] {
             if !playingTable.containsPoint(self.convertPoint(paddle.position, fromNode: playingTable)) {
                

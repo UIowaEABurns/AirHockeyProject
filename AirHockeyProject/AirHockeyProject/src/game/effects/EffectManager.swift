@@ -94,5 +94,28 @@ public class EffectManager {
         let action = SKAction.sequence([transitionOne,transitionTwo, SKAction.runBlock({node.fillColor = originalColor})])
         node.runAction(action, withKey: "flashEffect")
     }
+    
+    //only works on sprite nodes
+    public class func blink(theNode : SKSpriteNode) -> SKAction {
+        let duration = 0.2
+            var fadeOut = SKAction.customActionWithDuration(duration, actionBlock: {
+                (node, elapsedTime) in
+                let sprite = node as SKSpriteNode
+                sprite.alpha = 1 - (CGFloat(duration) / CGFloat(elapsedTime))
+                
+                
+            })
+        var fadeIn = SKAction.customActionWithDuration(duration, actionBlock: {
+            (node, elapsedTime) in
+            let sprite = node as SKSpriteNode
+            sprite.alpha = (CGFloat(duration) / CGFloat(elapsedTime))
+            
+            
+        })
+        
+        
+        return SKAction.sequence([fadeOut,fadeIn,SKAction.runBlock({theNode.alpha = 1})])
+        
+    }
 
 }

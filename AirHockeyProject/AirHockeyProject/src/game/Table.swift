@@ -139,6 +139,7 @@ public class Table : SKSpriteNode {
         }
         puck.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
         puck.physicsBody!.angularVelocity = 0.0
+        puck.doIntangibleAnimation()
     }
    
     

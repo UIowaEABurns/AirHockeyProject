@@ -58,7 +58,7 @@ public class AirHockeyConstants {
         s.setPlayerTwoPaddleRadius(0.04)
         s.setPuckRadius(0.03)
         s.setAIDifficulty(2)
-        s.setTimeLimit(420) // seven minutes
+        s.setTimeLimit(2) // seven minutes
         s.setGoalLimit(7)
         s.setPlayerOnePaddleColor(PaddleColor.Red)
         s.setPlayerTwoPaddleColor(PaddleColor.Blue)

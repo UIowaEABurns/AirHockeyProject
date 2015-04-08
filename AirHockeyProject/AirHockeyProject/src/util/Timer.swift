@@ -143,6 +143,17 @@ public class Timer {
         return timeToString(seconds)
         
     }
+    func getRemainingTimeSeconds() -> Int64 {
+        if (!isStarted()) {
+            return timeLimit
+        }
+        var seconds = getTimedMillis()!/1000
+        seconds = timeLimit - seconds
+        if (seconds < 0) {
+            return 0
+        }
+        return seconds
+    }
     // Ignored if i<=0. Sets the time limit for this timer, in seconds
     func setTimeLimit(i : Int64) {
         if (i>0) {

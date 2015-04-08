@@ -70,6 +70,7 @@
 		71A875761AC5D115008EDBA9 /* Puck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A875751AC5D115008EDBA9 /* Puck.swift */; };
 		71A875781AC5D4AE008EDBA9 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A875771AC5D4AE008EDBA9 /* Paddle.swift */; };
 		71AE540F1AD4B8F10024BC44 /* ShootingStar.sks in Resources */ = {isa = PBXBuildFile; fileRef = 71AE540E1AD4B8F10024BC44 /* ShootingStar.sks */; };
+		71AE54141AD591E00024BC44 /* WinScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AE54131AD591E00024BC44 /* WinScreen.swift */; };
 		71BB497F1AC4CE1C00898049 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB497E1AC4CE1C00898049 /* Settings.swift */; };
 		71BB49821AC4D24F00898049 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB49811AC4D24F00898049 /* Constants.swift */; };
 		71BB49841AC4D70200898049 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB49831AC4D70200898049 /* Statistics.swift */; };
@@ -200,6 +201,7 @@
 		71A875751AC5D115008EDBA9 /* Puck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Puck.swift; sourceTree = "<group>"; };
 		71A875771AC5D4AE008EDBA9 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
 		71AE540E1AD4B8F10024BC44 /* ShootingStar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ShootingStar.sks; sourceTree = "<group>"; };
+		71AE54131AD591E00024BC44 /* WinScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinScreen.swift; sourceTree = "<group>"; };
 		71BB497E1AC4CE1C00898049 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		71BB49811AC4D24F00898049 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		71BB49831AC4D70200898049 /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 				710435B51AC74BB9003E9458 /* InputManager.swift */,
 				7115A5751ACB88650057A8B8 /* Goal.swift */,
 				717B00D81ACC486B0049F3EC /* Button.swift */,
+				71AE54131AD591E00024BC44 /* WinScreen.swift */,
 			);
 			name = game;
 			path = AirHockeyProject/src/game;
@@ -708,6 +711,7 @@
 				7115A5711ACB81DD0057A8B8 /* GameTimer.swift in Sources */,
 				7115A5741ACB81F10057A8B8 /* GameUtil.swift in Sources */,
 				7115A5761ACB88650057A8B8 /* Goal.swift in Sources */,
+				71AE54141AD591E00024BC44 /* WinScreen.swift in Sources */,
 				7131F5531AD0F33500AABF5A /* Theme.swift in Sources */,
 				717B00DE1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift in Sources */,
 				7107A2C91AC398D600706EC8 /* User.swift in Sources */,
