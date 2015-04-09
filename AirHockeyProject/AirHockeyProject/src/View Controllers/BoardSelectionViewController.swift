@@ -23,7 +23,7 @@ class BoardSelectionViewController : UIViewController {
             
             x = x + 300
             nextView.configure(theme)
-            self.view!.addSubview(nextView)
+            self.view.addSubview(nextView)
             nextView.center = CGPoint(x: x,y: y)
         }
         
