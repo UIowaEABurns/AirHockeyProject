@@ -15,7 +15,6 @@ class BoardSelectionViewController : UIViewController {
         
         super.viewDidLoad()
         themes = Themes().getAllThemes()
-        println("view")
         var x = 0
         var y = 500
         for theme in themes {

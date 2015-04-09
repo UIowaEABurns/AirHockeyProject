@@ -30,7 +30,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scene = GameScene(size: self.view.frame.size)
+        //TODO : Pass in the correct values here
+        scene = GameScene(size: self.view.frame.size,p1: nil,p2: nil,t: Themes.getDefaultTheme())
         // Configure the view.
         let skView = self.view as SKView
         skView.showsFPS = true

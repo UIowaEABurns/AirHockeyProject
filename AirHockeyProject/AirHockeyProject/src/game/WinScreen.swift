@@ -9,13 +9,16 @@
 import Foundation
 import SpriteKit
 
-public class WinScreen : SKNode {
+public class WinScreen : SKNode, TouchHandlerDelegate {
     
-    
-    
+    private var active = true
+    var parentScene : GameScene
     var winLabel : FittedLabelNode
-    
-    init(p1Score : Int, p2Score : Int, p1Name : String, p2Name : String, t : Theme, parent : SKNode) {
+    var p1ScoreLabel : SKLabelNode
+    var p2ScoreLabel : SKLabelNode
+    var rematchButton : Button!
+    var exitButton : Button!
+    init(p1Score : Int, p2Score : Int, p1Name : String, p2Name : String, t : Theme, parent : GameScene) {
         let widthFraction : CGFloat = 0.8
         let topLabelSize = CGSize(width: parent.frame.width * widthFraction, height: parent.frame.height * 0.15)
         
@@ -29,19 +32,86 @@ public class WinScreen : SKNode {
         
         
         winLabel = FittedLabelNode(s: topLabelSize, str: finalMessage)
+        winLabel.setFontName(t.fontName!)
         winLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
         winLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center
         winLabel.position = CGPoint(x: parent.frame.midX, y: parent.frame.maxY-150)
         winLabel.zPosition = zPositionOverlayButtons
+        
+        p1ScoreLabel = SKLabelNode(fontNamed: t.fontName!)
+        p1ScoreLabel.fontSize = winLabel.fontSize
+        p1ScoreLabel.text = String(p1Score)
+        let scoreLabelDistanceFromCenter : CGFloat = 120
+        let scoreLabelDistanceFromBanner : CGFloat = 80
+        p1ScoreLabel.position = CGPoint(x: parent.frame.midX-scoreLabelDistanceFromCenter, y: winLabel.position.y - winLabel.frame.height-scoreLabelDistanceFromBanner)
+        p1ScoreLabel.zPosition = zPositionOverlayButtons
+        p2ScoreLabel = SKLabelNode(fontNamed: t.fontName!)
+        p2ScoreLabel.fontSize = winLabel.fontSize
+        p2ScoreLabel.text = String(p2Score)
+        
+        p2ScoreLabel.position = CGPoint(x: parent.frame.midX+scoreLabelDistanceFromCenter, y: winLabel.position.y - winLabel.frame.height-scoreLabelDistanceFromBanner)
+        p2ScoreLabel.zPosition = zPositionOverlayButtons
+        println("here")
+        println(p1ScoreLabel.text)
+        println(p1ScoreLabel.position)
+        println(p1ScoreLabel.frame.size)
+        
+        let buttonSize = CGSize(width: parent.frame.width * 0.3, height: parent.frame.height * 0.09)
+        
+        
+        self.parentScene = parent
         super.init()
         self.addChild(winLabel)
+        self.addChild(p1ScoreLabel)
+        self.addChild(p2ScoreLabel)
+        let overlayNode = SKShapeNode(rect: CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: parent.frame.width, height: parent.frame.height)))
+        
+        overlayNode.position = CGPoint(x: parent.frame.minX, y: parent.frame.minY)
+        overlayNode.zPosition = zPositionOverlay
+        overlayNode.fillColor = OVERLAY_COLOR
+        self.addChild(overlayNode)
+        
+        rematchButton = Button(fontNamed: t.fontName!, block: {self.handleRematch()}, s: buttonSize)
+        rematchButton.setText("Rematch")
+        rematchButton.position = CGPoint(x: parent.frame.midX-rematchButton.frame.width/2, y: parent.frame.midY + 20)
+        rematchButton.zPosition = zPositionOverlayButtons
+        
+        exitButton = Button(fontNamed: t.fontName!, block: {self.handleExit()}, s: buttonSize)
+        exitButton.setText("Exit")
+        exitButton.setFontSize(rematchButton.getFontSize())
+        exitButton.position = CGPoint(x: parent.frame.midX-exitButton.frame.width/2, y: parent.frame.midY-exitButton.frame.height-20)
+        exitButton.zPosition = zPositionOverlayButtons
+
+        self.addChild(rematchButton)
+        self.addChild(exitButton)
 
         
+    }
+    
+    public func handleRematch() {
+        println("rematch!")
+    }
+    public func handleExit() {
+        println("exit!")
     }
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public func activate() {
+        active = true
+    }
+    public func inactivate() {
+        active = false
+    }
+    public func isActive() -> Bool {
+        return active
+    }
+    
+    public func handleTouches(touches: NSSet) {
+        exitButton.handleTouches(touches)
+        rematchButton.handleTouches(touches)
+    }
     
 }

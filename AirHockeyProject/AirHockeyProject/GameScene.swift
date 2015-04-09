@@ -21,13 +21,19 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     public var userTwo : User?
     
-    public var theme : Theme = Theme(name: "classic", font: "Digital-7Mono")
+    public var theme : Theme
     
     private var inputManager : InputManager!
     
     private var playingTable : Table!
     
-   
+    init(size : CGSize, p1 : User?, p2 : User?, t : Theme) {
+        theme = t
+        userOne = p1
+        userTwo = p2
+        
+        super.init(size: size)
+    }
     
     
     private var playerOne : Player!
@@ -56,10 +62,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         return playingTable
     }
 
-    override init(size: CGSize) {
-        super.init(size: size)
-    }
-
+ 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -135,7 +138,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     override public func didMoveToView(view: SKView) {
         /* Setup your scene here */
         if (!contentCreated) {
-            theme = Themes.getThemeByName("space")!
+            theme = Themes.getDefaultTheme()
             println("console")
             self.physicsWorld.gravity=CGVectorMake(0,0) // no gravity in this game
             self.physicsWorld.contactDelegate = self
@@ -214,8 +217,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
             timer.position = CGPointMake(CGRectGetMaxX(self.frame)-timer.frame.width-5,CGRectGetMidY(self.frame)-(timer.frame.height/2))
-            println(timerSize)
-            println(timer.position)
+            
             timer.zPosition = zPositionTimer
             gameplayNode.addChild(timer)
             timer.timer.start()
@@ -251,7 +253,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             overlayNode.hidden = true
             self.addChild(overlayNode)
             
-            let bgNode = SKSpriteNode(imageNamed: theme.boardName+"Background.jpg")
+            let bgNode = SKSpriteNode(imageNamed: theme.getBackgroundImageFile())
             bgNode.size = self.frame.size
             bgNode.anchorPoint = CGPoint(x: 0,y: 0)
             bgNode.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
@@ -261,7 +263,6 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             self.addPauseButtons()
             
             for emitter in theme.customEmitters {
-                println(emitter.emitterName)
                 var nextEmitter : SKEmitterNode = SKEmitterNode(fileNamed: emitter.emitterName)
                 nextEmitter.position = CGPoint(x: emitter.getX(self), y: emitter.getY(self))
                 gameplayNode.addChild(nextEmitter)
@@ -272,15 +273,13 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
 
         }
-        
-        
-        
     }
     
     public func handleGameConcluded() {
+        
         gameplayNode.paused=true
         pauseButton.inactivate()
-
+        
         var playerOneName="AI"
         var playerTwoName="AI"
         
@@ -295,6 +294,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         win.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
 
         self.addChild(win)
+        self.touchHandlers.append(win)
     }
     
     
@@ -324,7 +324,6 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     public func exitGame() {
         //TODO: this needs to roll back to the previous screen
-        println("quitting game")
     }
     
     private func makeTable(rect: CGRect) -> Table {

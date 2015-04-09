@@ -26,7 +26,7 @@ public class Theme {
     }
     
     func getBackgroundImageFile() -> String {
-        return NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent(boardName + "Background.jpg")
+        return NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent(boardName + "Background.png")
     }
     
  

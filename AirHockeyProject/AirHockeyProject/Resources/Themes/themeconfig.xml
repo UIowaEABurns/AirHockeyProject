@@ -7,4 +7,7 @@
     <fontName value="Digital-7"/>
     <emitter name="Stars.sks"/>
 </theme>
+<theme name="soccer">
+    <fontName value="Digital-7"/>
+</theme>
 </themes>
