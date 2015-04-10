@@ -29,5 +29,18 @@ public class Theme {
         return NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent(boardName + "Background.png")
     }
     
+    func getBackgroundMusicName() -> String {
+        return boardName + "BackgroundMusic"
+    }
+    
+    func getPuckWallSoundName() -> String {
+        return boardName + "PuckHitWall"
+    }
+    func getPuckPaddleSoundName() -> String {
+        return boardName + "PuckHitPaddle"
+    }
+    func getGoalSound() -> String {
+        return boardName + "GoalSound"
+    }
  
 }

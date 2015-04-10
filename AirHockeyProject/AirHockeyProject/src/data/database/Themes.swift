@@ -78,6 +78,6 @@ public class Themes : NSObject, NSXMLParserDelegate {
     }
     
     public class func getDefaultTheme() -> Theme {
-        return getThemeByName("soccer")!
+        return getThemeByName("classic")!
     }
 }

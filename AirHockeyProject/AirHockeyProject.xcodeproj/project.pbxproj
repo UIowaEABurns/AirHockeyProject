@@ -79,6 +79,12 @@
 		71BB497F1AC4CE1C00898049 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB497E1AC4CE1C00898049 /* Settings.swift */; };
 		71BB49821AC4D24F00898049 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB49811AC4D24F00898049 /* Constants.swift */; };
 		71BB49841AC4D70200898049 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB49831AC4D70200898049 /* Statistics.swift */; };
+		71F0A1301AD75BF1003AEF5C /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F0A12F1AD75BF1003AEF5C /* SoundManager.swift */; };
+		71F0A1351AD75F07003AEF5C /* spaceBackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71F0A1341AD75F07003AEF5C /* spaceBackgroundMusic.mp3 */; };
+		71F0A1371AD75F13003AEF5C /* classicBackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71F0A1361AD75F13003AEF5C /* classicBackgroundMusic.mp3 */; };
+		71F0A13B1AD763A1003AEF5C /* classicGoalSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71F0A1381AD763A1003AEF5C /* classicGoalSound.mp3 */; };
+		71F0A13C1AD763A1003AEF5C /* classicPuckHitPaddle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71F0A1391AD763A1003AEF5C /* classicPuckHitPaddle.mp3 */; };
+		71F0A13D1AD763A1003AEF5C /* classicPuckHitWall.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71F0A13A1AD763A1003AEF5C /* classicPuckHitWall.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,6 +221,12 @@
 		71BB497E1AC4CE1C00898049 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		71BB49811AC4D24F00898049 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		71BB49831AC4D70200898049 /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		71F0A12F1AD75BF1003AEF5C /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		71F0A1341AD75F07003AEF5C /* spaceBackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spaceBackgroundMusic.mp3; sourceTree = "<group>"; };
+		71F0A1361AD75F13003AEF5C /* classicBackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = classicBackgroundMusic.mp3; sourceTree = "<group>"; };
+		71F0A1381AD763A1003AEF5C /* classicGoalSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = classicGoalSound.mp3; sourceTree = "<group>"; };
+		71F0A1391AD763A1003AEF5C /* classicPuckHitPaddle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = classicPuckHitPaddle.mp3; sourceTree = "<group>"; };
+		71F0A13A1AD763A1003AEF5C /* classicPuckHitWall.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = classicPuckHitWall.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -407,6 +419,7 @@
 		7119B4B11AD105A2002CA09B /* space */ = {
 			isa = PBXGroup;
 			children = (
+				71F0A1341AD75F07003AEF5C /* spaceBackgroundMusic.mp3 */,
 				7119B4B41AD1063C002CA09B /* spaceBackground.jpg */,
 				7119B4B51AD1063C002CA09B /* spacePaddle.png */,
 				7119B4B61AD1063C002CA09B /* spacePuck.png */,
@@ -468,6 +481,10 @@
 		717F86111AD0F82E00576E8E /* classic */ = {
 			isa = PBXGroup;
 			children = (
+				71F0A1381AD763A1003AEF5C /* classicGoalSound.mp3 */,
+				71F0A1391AD763A1003AEF5C /* classicPuckHitPaddle.mp3 */,
+				71F0A13A1AD763A1003AEF5C /* classicPuckHitWall.mp3 */,
+				71F0A1361AD75F13003AEF5C /* classicBackgroundMusic.mp3 */,
 				7119B4CD1AD24215002CA09B /* classicBackground.jpg */,
 				7119B4CE1AD24215002CA09B /* classicPaddle.png */,
 				7119B4CF1AD24215002CA09B /* classicPuck.png */,
@@ -489,6 +506,7 @@
 				7115A5751ACB88650057A8B8 /* Goal.swift */,
 				717B00D81ACC486B0049F3EC /* Button.swift */,
 				71AE54131AD591E00024BC44 /* WinScreen.swift */,
+				71F0A12F1AD75BF1003AEF5C /* SoundManager.swift */,
 			);
 			name = game;
 			path = AirHockeyProject/src/game;
@@ -659,9 +677,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71F0A13B1AD763A1003AEF5C /* classicGoalSound.mp3 in Resources */,
 				7119B4D31AD24215002CA09B /* classicPuck.png in Resources */,
+				71F0A1371AD75F13003AEF5C /* classicBackgroundMusic.mp3 in Resources */,
 				717F860A1AD0F3E000576E8E /* digital-7 (mono).ttf in Resources */,
 				717F86091AD0F3E000576E8E /* digital-7 (mono italic).ttf in Resources */,
+				71F0A13D1AD763A1003AEF5C /* classicPuckHitWall.mp3 in Resources */,
 				7119B4D21AD24215002CA09B /* classicPaddle.png in Resources */,
 				7119B4B91AD1063C002CA09B /* spacePaddle.png in Resources */,
 				71AE540F1AD4B8F10024BC44 /* ShootingStar.sks in Resources */,
@@ -671,6 +692,7 @@
 				7107A2A91AC398B600706EC8 /* LaunchScreen.xib in Resources */,
 				717F86081AD0F3E000576E8E /* digital-7 (italic).ttf in Resources */,
 				7119B4CC1AD234AE002CA09B /* ThemeView.xib in Resources */,
+				71F0A13C1AD763A1003AEF5C /* classicPuckHitPaddle.mp3 in Resources */,
 				7119B4D11AD24215002CA09B /* classicBackground.jpg in Resources */,
 				717F860C1AD0F3E000576E8E /* readme.txt in Resources */,
 				71AE541E1AD620C90024BC44 /* soccerTable.png in Resources */,
@@ -687,6 +709,7 @@
 				71008D591ACF97F1009B3444 /* spark.png in Resources */,
 				71AE541C1AD620C90024BC44 /* soccerPaddle.png in Resources */,
 				7107A2A41AC398B600706EC8 /* Main.storyboard in Resources */,
+				71F0A1351AD75F07003AEF5C /* spaceBackgroundMusic.mp3 in Resources */,
 				7107A2CD1AC398E300706EC8 /* airhockey.sqlite3 in Resources */,
 				7119B4B81AD1063C002CA09B /* spaceBackground.jpg in Resources */,
 				71008D581ACF97F1009B3444 /* GoalEmitter.sks in Resources */,
@@ -725,6 +748,7 @@
 				7119B4C01AD222F7002CA09B /* Themes.swift in Sources */,
 				71BB497F1AC4CE1C00898049 /* Settings.swift in Sources */,
 				7107A29F1AC398B600706EC8 /* GameScene.swift in Sources */,
+				71F0A1301AD75BF1003AEF5C /* SoundManager.swift in Sources */,
 				7107A2A11AC398B600706EC8 /* GameViewController.swift in Sources */,
 				717B00E21ACCD95A0049F3EC /* HumanPlayer.swift in Sources */,
 				7107A29B1AC398B600706EC8 /* AppDelegate.swift in Sources */,

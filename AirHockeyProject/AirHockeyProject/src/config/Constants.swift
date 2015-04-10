@@ -39,6 +39,10 @@ public var PUCK_NAME = "puck"
 public var TABLE_EFFECT_OVERLAY_NAME = "effectoverlay"
 
 
+//these are global system settings
+public var BG_MUSIC_VOLUME = 1.0
+public var FX_VOLUME  = 1.0
+
 
 
 
@@ -58,7 +62,7 @@ public class AirHockeyConstants {
         s.setPlayerTwoPaddleRadius(0.04)
         s.setPuckRadius(0.03)
         s.setAIDifficulty(2)
-        s.setTimeLimit(2) // seven minutes
+        s.setTimeLimit(420) // seven minutes
         s.setGoalLimit(7)
         s.setPlayerOnePaddleColor(PaddleColor.Red)
         s.setPlayerTwoPaddleColor(PaddleColor.Blue)

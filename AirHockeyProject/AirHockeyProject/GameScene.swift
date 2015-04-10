@@ -131,6 +131,13 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         if (contact.bodyA.node!.name == PUCK_NAME || contact.bodyB.node!.name == PUCK_NAME) {
             EffectManager.runSparkEffect(contact.contactPoint, parent: self)
+            //puck colliding with paddle
+            if (contact.bodyA.categoryBitMask == paddleCategory || contact.bodyB.categoryBitMask == paddleCategory) {
+                SoundManager.playPaddleClick(Geometry.distance(CGPoint(x: contact.bodyA.velocity.dx, y: contact.bodyA.velocity.dy), b: CGPoint(x: contact.bodyB.velocity.dx, y: contact.bodyB.velocity.dy)))
+            } else if (contact.bodyA.categoryBitMask == edgeCategory || contact.bodyB.categoryBitMask == edgeCategory) {
+                SoundManager.playWallClick(Geometry.distance(CGPoint(x: contact.bodyA.velocity.dx, y: contact.bodyA.velocity.dy), b: CGPoint(x: contact.bodyB.velocity.dx, y: contact.bodyB.velocity.dy)))
+            }
+            
         }
     }
     
@@ -139,6 +146,8 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Setup your scene here */
         if (!contentCreated) {
             theme = Themes.getDefaultTheme()
+            SoundManager.playBackgroundMusic(theme.getBackgroundMusicName())
+            SoundManager.loadSounds(theme)
             println("console")
             self.physicsWorld.gravity=CGVectorMake(0,0) // no gravity in this game
             self.physicsWorld.contactDelegate = self
@@ -401,6 +410,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //handles a goal being scored on the given player
     private func handleGoalScored(playerScoredOn : Int) {
+        SoundManager.playGoalSound()
         if (playerScoredOn==1) {
             playerTwo.score=playerTwo.score+1
             if (playerTwo.score == settingsProfile.getGoalLimit() && settingsProfile.getGoalLimit()>0) {
