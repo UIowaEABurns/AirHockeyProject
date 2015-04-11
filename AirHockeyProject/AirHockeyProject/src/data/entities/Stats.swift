@@ -83,4 +83,19 @@ public class Stats {
         self.goalsAgainst=i
     }
     
+    //returns a copy of this object
+    public func getCopy() -> Stats {
+        var stats : Stats = Stats()
+        stats.id=self.id
+        stats.gamesComplete=self.gamesComplete
+        stats.gamesExited=self.gamesExited
+        stats.gamesWon=self.gamesWon
+        stats.gamesLost=self.gamesLost
+        stats.gamesTied=self.gamesTied
+        stats.timePlayed=self.timePlayed
+        stats.goalsScored=self.goalsScored
+        stats.goalsAgainst=self.goalsAgainst
+        return stats
+    }
+    
 }

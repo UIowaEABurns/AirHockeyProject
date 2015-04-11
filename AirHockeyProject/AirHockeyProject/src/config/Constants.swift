@@ -18,19 +18,19 @@ public var SCORE_DISPLAY_PADDING : CGFloat = 100 // how many points away from th
 public var OVERLAY_COLOR : SKColor = SKColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.6)
 
 //physical constants for the game
-public var MAX_HUMAN_PADDLE_SPEED : CGFloat=1000.0
-public var MAX_HUMAN_PADDLE_ACCEL : CGFloat = 1000.0
+public var MAX_HUMAN_PADDLE_SPEED : CGFloat=2000.0
+public var MAX_HUMAN_PADDLE_ACCEL : CGFloat = 2000.0
 
 public var MAX_EASY_AI_PADDLE_SPEED : CGFloat = 600.0
 public var MAX_EASY_AI_PADDLE_ACCEL : CGFloat = 600.0
 public var MAX_MEDIUM_AI_PADDLE_SPEED : CGFloat = 800.0
 public var MAX_MEDIUM_AI_PADDLE_ACCEL : CGFloat = 800.0
-public var MAX_HARD_AI_PADDLE_SPEED : CGFloat = 1000.0
-public var MAX_HARD_AI_PADDLE_ACCEL : CGFloat = 1000.0
+public var MAX_HARD_AI_PADDLE_SPEED : CGFloat = 1300.0
+public var MAX_HARD_AI_PADDLE_ACCEL : CGFloat = 1300.0
 
 public var MAX_PUCK_SPEED : CGFloat = 1000.0
 
-public var paddlePuckMassRatio : CGFloat = 3 // how much more should the paddles weigh as compared to the puck
+public var paddlePuckMassRatio : CGFloat = 6 // how much more should the paddles weigh as compared to the puck
 public var TABLE_BARRIER_RESTITUTION : CGFloat = 0.01 // affects how "bouncy" the invisible barrier in the middle of the table is
 
 //node name constants
@@ -58,8 +58,8 @@ public class AirHockeyConstants {
         
         
         //These are ratios of board width to paddle radius
-        s.setPlayerOnePaddleRadius(0.04)
-        s.setPlayerTwoPaddleRadius(0.04)
+        s.setPlayerOnePaddleRadius(0.05)
+        s.setPlayerTwoPaddleRadius(0.05)
         s.setPuckRadius(0.03)
         s.setAIDifficulty(2)
         s.setTimeLimit(420) // seven minutes

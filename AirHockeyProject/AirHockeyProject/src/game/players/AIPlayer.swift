@@ -36,17 +36,30 @@ public enum AIDifficulty : String {
     }
 }
 
+private enum AIState {
+    case Defend // stay near the front of the goal
+    case Strike // hit the puck ASAP
+    case Agress // actively block the front of the court
+    case Align // try to set up for a strike
+}
+
 
 public class AIPlayer : Player  {
     private let WANDER_MIN_SPEED : CGFloat = 10.0
     private let WANDER_MAX_SPEED : CGFloat = 100.0
     private var difficulty : AIDifficulty
     
-    private var defendPoint : CGPoint!
+    private var state : AIState
+    private var defendPoint : CGPoint! // this is the optimal defensive position in front of the goal.
+    private var currentDefendPoint : CGPoint! // this is a random point somewhere near the defendPoint
+    private var switchDefendPointOdds : CGFloat = 0.03
+    
+    
     private var puck : Puck!
     private var defendingHalf : CGRect!
     init(diff : AIDifficulty, i: Int, input: InputManager, p: Table) {
         difficulty = diff
+        state = AIState.Defend
         super.init(i: i, input: input, p: p)
         //TODO: This will all need to change if we start wanting to do moving goals or multiple goals
         let table = self.getPlayingTable()
@@ -63,6 +76,7 @@ public class AIPlayer : Player  {
         
         
         defendPoint = Geometry.getPointAtDistanceWithSlope(centerPoint, slope: perpendicularSlope, distance: distance)
+        currentDefendPoint = defendPoint
         defendingHalf = table.getHalfForPlayer(self.getPlayerNumber())
     }
     
@@ -79,33 +93,56 @@ public class AIPlayer : Player  {
     //returns a vector that tries to move the paddle back in front of the goal that it is defending
     private func getDefendVector() -> CGVector {
         
+        if (GameUtil.getRandomFloat() < switchDefendPointOdds) {
+            currentDefendPoint = getRandomPointFromPoint(defendPoint)
+        }
         
-        return self.getPaddleVectorToPoint(defendPoint)
+        return self.getPaddleVectorToPoint(currentDefendPoint,speedMult: 0.15)
     }
     
     private func getStrikeVector() -> CGVector {
         return self.getPaddleVectorThroughPoint(puck.position)
     }
     
+    private func getRandomPointFromPoint(point : CGPoint) -> CGPoint {
+        let xVar = GameUtil.getRandomFloatInRange(-200, max: 200)
+        let yVar =  GameUtil.getRandomFloatInRange(-20, max: 20)
+        return CGPoint(x: point.x+xVar, y: point.y + yVar)
+    }
+    
     private func trackPuckHorizontally() -> CGVector {
         let vector = self.getPaddleVectorToPoint(CGPoint(x: puck.position.x, y: self.getPaddle()!.position.y))
         
        
-        
         return vector
     }
     
     
     //this is the entry point to the AI logic
     override func getMovementVector() -> CGVector? {
-        let wanderVector = getWanderVector(WANDER_MIN_SPEED,maxSpeed: WANDER_MAX_SPEED)
-        let puckOnThisHalf = defendingHalf.contains(puck.position)
-        if (puckOnThisHalf) {
-            return Geometry.getAverageVector([trackPuckHorizontally(),getStrikeVector(),getWanderVector(WANDER_MIN_SPEED, maxSpeed: WANDER_MAX_SPEED)])
-        } else {
-            return Geometry.getAverageVector([trackPuckHorizontally(),getDefendVector(),getWanderVector(WANDER_MIN_SPEED, maxSpeed: WANDER_MAX_SPEED)])
+        setState()
+        if (self.state == AIState.Strike) {
+            return Geometry.getAverageVector([trackPuckHorizontally(),getStrikeVector()])
+        } else if (self.state == AIState.Defend) {
+            return Geometry.getAverageVector([trackPuckHorizontally(),getDefendVector()])
         }
         
+        return nil
+    }
+    
+    //try to figure out what state to be in during this frame
+    private func setState() {
+        let puckOnThisHalf = defendingHalf.contains(puck.position)
+        
+        if (puckOnThisHalf) {
+            if (puck.isIntangible()) {
+                self.state = AIState.Align
+            } else {
+                self.state = AIState.Strike
+            }
+        } else {
+            self.state = AIState.Defend
+        }
         
     }
     
@@ -133,8 +170,6 @@ public class AIPlayer : Player  {
         return MAX_MEDIUM_AI_PADDLE_ACCEL
     }
     
-    override func processPaddlePosition() {
-        
-    }
+   
     
 }

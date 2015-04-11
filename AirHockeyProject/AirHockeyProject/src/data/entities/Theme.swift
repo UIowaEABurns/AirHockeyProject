@@ -33,14 +33,16 @@ public class Theme {
         return boardName + "BackgroundMusic"
     }
     
+    //TODO: Change these if we get new sounds
+    
     func getPuckWallSoundName() -> String {
-        return boardName + "PuckHitWall"
+        return "classicPuckHitWall"
     }
     func getPuckPaddleSoundName() -> String {
-        return boardName + "PuckHitPaddle"
+        return "classicPuckHitPaddle"
     }
     func getGoalSound() -> String {
-        return boardName + "GoalSound"
+        return "classicGoalSound"
     }
  
 }

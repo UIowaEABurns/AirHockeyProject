@@ -43,6 +43,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     private var defaultPhysicsSpeed : CGFloat!
     private var contentCreated : Bool = false
     private var gamePaused = false
+    private var gameOver = false
     private var shouldRestoreToUnpaused = false
     
     private var playerOneScore : SKLabelNode!
@@ -70,7 +71,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // TODO : should save data here
     public func appEnteringBackground() {
-        if (!self.isGamePaused()) {
+        if (!self.isGamePaused() && !self.isGameConcluded()) {
             shouldRestoreToUnpaused = true
             self.pauseGame()
             
@@ -78,6 +79,17 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             shouldRestoreToUnpaused = false
 
         }
+        if (!self.isGameConcluded()) {
+            if (playerOne is HumanPlayer) {
+                let temp : HumanPlayer = (playerOne as HumanPlayer)
+                temp.handleGameExited(playerTwo.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
+            }
+            if (playerTwo is HumanPlayer) {
+                let temp : HumanPlayer = (playerTwo as HumanPlayer)
+                temp.handleGameExited(playerOne.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
+            }
+        }
+        
     }
     
     public func appEnteringForeground() {
@@ -85,6 +97,20 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         if (shouldRestoreToUnpaused) {
             self.resumeGame()
         }
+        if (!self.isGameConcluded()) {
+            if (playerOne is HumanPlayer) {
+                let temp : HumanPlayer = (playerOne as HumanPlayer)
+                temp.handleGameResumed()
+            }
+            if (playerTwo is HumanPlayer) {
+                let temp : HumanPlayer = (playerTwo as HumanPlayer)
+                temp.handleGameResumed()
+            }
+        }
+        
+        
+        
+        
         shouldRestoreToUnpaused=false
     }
     
@@ -159,23 +185,19 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             gameplayNode = SKNode()
             activeNode = gameplayNode
             self.addChild(gameplayNode)
-            let fractionOfWidth : CGFloat = TABLE_WIDTH_FRACTION
-            let fractionOfHeight : CGFloat = TABLE_HEIGHT_FRACTION
-            let width = self.frame.width * fractionOfWidth
-            let height = self.frame.height * fractionOfHeight
+            
+            let width = self.frame.width * TABLE_WIDTH_FRACTION
+            let height = self.frame.height * TABLE_HEIGHT_FRACTION
             
             let size = CGSize(width: width,height: height)
             
             playingTable = makeTable(CGRect(origin: CGPoint(x: 0,y: 0), size: size))
             
-            playingTable.position = CGPoint(x: self.frame.width*((1-fractionOfWidth)/2), y: self.frame.height*((1-fractionOfHeight)/2))
+            playingTable.position = CGPoint(x: self.frame.width*((1-TABLE_WIDTH_FRACTION)/2), y: self.frame.height*((1-TABLE_HEIGHT_FRACTION)/2))
             gameplayNode.addChild(playingTable)
-            
-            let boardWidth : CGFloat = playingTable.frame.width
 
             
-            
-            var puck = getPuckSprite(2.0, radius: boardWidth*CGFloat(settingsProfile.getPuckRadius()!))
+            var puck = getPuckSprite(2.0, radius: playingTable.frame.width*CGFloat(settingsProfile.getPuckRadius()!))
             playingTable.setPuck(puck)
             
             
@@ -183,25 +205,25 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             inputManager = InputManager(t: playingTable)
             if (!(userOne==nil)) {
-                playerOne=HumanPlayer(i: 1,input: inputManager,p: playingTable)
+                playerOne=HumanPlayer(i: 1,input: inputManager,p: playingTable,s: userOne?.getStats())
 
             } else {
                 settingsProfile.getAIDifficulty()
-                playerOne=HumanPlayer(i: 1,input: inputManager,p: playingTable)
+                playerOne=HumanPlayer(i: 1,input: inputManager,p: playingTable,s: nil)
 
                 //playerOne=AIPlayer(diff: settingsProfile.getAIDifficulty()!, i: 1,input: inputManager,p: playingTable)
 
             }
             if !(userTwo==nil) {
-                playerTwo=HumanPlayer(i: 2, input: inputManager,p: playingTable)
+                playerTwo=HumanPlayer(i: 2, input: inputManager,p: playingTable, s: userTwo!.getStats())
 
             } else {
-                playerTwo=HumanPlayer(i: 2,input: inputManager,p: playingTable)
+                playerTwo=HumanPlayer(i: 2,input: inputManager,p: playingTable, s: nil)
 
                 //playerTwo=AIPlayer(diff: settingsProfile.getAIDifficulty()!, i: 2, input: inputManager,p: playingTable)
 
             }
-            var radius = boardWidth*CGFloat(settingsProfile.getPlayerOnePaddleRadius()!)
+            var radius = playingTable.frame.width*CGFloat(settingsProfile.getPlayerOnePaddleRadius()!)
            
             
             var paddle = getPaddleSprite(1,radius: radius, mass : puck.physicsBody!.mass * paddlePuckMassRatio)
@@ -211,13 +233,14 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             playingTable.addChild(paddle)
             playerOne.setPaddle(paddle)
             
-            radius = boardWidth*CGFloat(settingsProfile.getPlayerTwoPaddleRadius()!)
+            radius = playingTable.frame.width*CGFloat(settingsProfile.getPlayerTwoPaddleRadius()!)
 
             paddle = getPaddleSprite(2,radius: radius,mass : puck.physicsBody!.mass * paddlePuckMassRatio)
             tableHalf = playingTable.getPlayerTwoHalf()
             
             paddle.position = CGPoint(x:CGRectGetMidX(tableHalf),y:CGRectGetMidY(tableHalf))
             playingTable.addChild(paddle)
+            
             playerTwo.setPaddle(paddle)
         
             
@@ -231,18 +254,12 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             gameplayNode.addChild(timer)
             timer.timer.start()
         
-            playerOneScore = SKLabelNode(fontNamed: theme.fontName)
-            playerOneScore.zPosition = zPositionTimer
-            playerOneScore.fontSize = timer.getFontSize()
-            playerOneScore.zRotation = CGFloat((M_PI*3.0)/2.0)
-            playerOneScore.text = "0"
+            playerOneScore = getScoreLabelNode()
             playerOneScore.position = CGPoint(x: timer.position.x , y: timer.position.y - playerOneScore.frame.height - SCORE_DISPLAY_PADDING)
-            playerTwoScore = SKLabelNode(fontNamed: theme.fontName)
-            playerTwoScore.zRotation = CGFloat((M_PI*3.0)/2.0)
-            playerTwoScore.text = "0"
-            playerTwoScore.fontSize = timer.getFontSize()
-            playerTwoScore.zPosition = zPositionTimer
+            
+            playerTwoScore = getScoreLabelNode()
             playerTwoScore.position = CGPoint(x: timer.position.x , y: timer.position.y + (playerOneScore.frame.height) + timer.frame.height + SCORE_DISPLAY_PADDING)
+            
             gameplayNode.addChild(playerOneScore)
             gameplayNode.addChild(playerTwoScore)
             
@@ -274,20 +291,26 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             for emitter in theme.customEmitters {
                 var nextEmitter : SKEmitterNode = SKEmitterNode(fileNamed: emitter.emitterName)
                 nextEmitter.position = CGPoint(x: emitter.getX(self), y: emitter.getY(self))
+                nextEmitter.zPosition = zPositionTable
                 gameplayNode.addChild(nextEmitter)
             }
-            
-            
-            
-            
-
         }
+    }
+    
+    private func getScoreLabelNode() -> SKLabelNode {
+        let score = SKLabelNode(fontNamed: theme.fontName)
+        score.zPosition = zPositionTimer
+        score.fontSize = timer.getFontSize()
+        score.zRotation = CGFloat((M_PI*3.0)/2.0)
+        score.text = "0"
+        return score
     }
     
     public func handleGameConcluded() {
         
         gameplayNode.paused=true
         pauseButton.inactivate()
+        pauseButton.hidden=true
         
         var playerOneName="AI"
         var playerTwoName="AI"
@@ -304,6 +327,15 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
 
         self.addChild(win)
         self.touchHandlers.append(win)
+        gameOver = true
+        if (playerOne is HumanPlayer) {
+            let temp : HumanPlayer = (playerOne as HumanPlayer)
+            temp.handleGameConcluded(playerTwo.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
+        }
+        if (playerTwo is HumanPlayer) {
+            let temp : HumanPlayer = (playerTwo as HumanPlayer)
+            temp.handleGameConcluded(playerOne.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
+        }
     }
     
     
@@ -333,6 +365,14 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     public func exitGame() {
         //TODO: this needs to roll back to the previous screen
+        if (playerOne is HumanPlayer) {
+            let temp : HumanPlayer = (playerOne as HumanPlayer)
+            temp.handleGameExited(playerTwo.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
+        }
+        if (playerTwo is HumanPlayer) {
+            let temp : HumanPlayer = (playerTwo as HumanPlayer)
+            temp.handleGameExited(playerOne.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
+        }
     }
     
     private func makeTable(rect: CGRect) -> Table {
@@ -459,11 +499,6 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
             })
-            
-            
-            
-            
-            
         }
         
         
@@ -472,12 +507,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         playerOne.processPaddlePosition()
         playerTwo.processPaddlePosition()
         playingTable.getPuck().capSpeed(MAX_PUCK_SPEED)
-        for paddle in [playerOne.getPaddle()!, playerTwo.getPaddle()!] {
-            if !playingTable.containsPoint(self.convertPoint(paddle.position, fromNode: playingTable)) {
-               
-                paddle.position = paddle.lastPosition!
-            }
-        }
+    
         let framePosition = self.convertPoint(playingTable.getPuck().position, fromNode: playingTable)
         if framePosition.x<self.frame.minX - 100 || framePosition.x>self.frame.maxX + 100 || framePosition.y<self.frame.minY-300 || framePosition.y>self.frame.maxY+300 {
             playingTable.centerPuck()
@@ -502,5 +532,8 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     public func isGamePaused() -> Bool {
         return gamePaused
+    }
+    public func isGameConcluded() -> Bool {
+        return gameOver
     }
 }

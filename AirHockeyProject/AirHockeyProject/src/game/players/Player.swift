@@ -65,9 +65,12 @@ public class Player {
     }
     
     //called after didSimulatePhysics
+    //enforces that the paddle always remain on the correct half of the table
     func processPaddlePosition() {
-        fatalError("This method must be overwritten")
-
+        if (!playingTable.getHalfForPlayer(playerNumber).contains(paddle!.position)) {
+            println("paddle escape!")
+            paddle!.position = paddle!.lastPosition!
+        }
     }
     
     public func getPaddle() -> Paddle? {
@@ -93,18 +96,24 @@ public class Player {
    
     //returns the spped we want to be going if we want to get to a point the given distance away
     //TODO: The "5" is sort of magic -- really should be refactored
-    private func getDesiredSpeed(distance : CGFloat)-> CGFloat {
+    private func getDesiredSpeed(distance : CGFloat, speedMult : CGFloat)-> CGFloat {
         if (distance==0) {
             return 0
         }
-        var multiplier = distance * 5
+        var multiplier = distance * speedMult
        
         
         return CGFloat(log(distance)*multiplier)
     }
-    
     // given a point to move the paddle to, gets the vector that works best for moving the paddle to the point
     public func getPaddleVectorToPoint(point : CGPoint) -> CGVector {
+        return getPaddleVectorToPoint(point,speedMult: 5)
+        
+        
+    }
+    
+    // given a point to move the paddle to, gets the vector that works best for moving the paddle to the point
+    public func getPaddleVectorToPoint(point : CGPoint, speedMult : CGFloat) -> CGVector {
         let distance = Geometry.distance(point,b: paddle!.position)
         if (distance<=0.002) {
             return CGVector(dx: 0, dy: 0)
@@ -113,8 +122,8 @@ public class Player {
         var desiredVector = Geometry.normalVector(self.getPaddle()!.position, b: point)
         
         //todo: speed here should be the desired speed
-        desiredVector.dx = desiredVector.dx * getDesiredSpeed(distance)
-        desiredVector.dy = desiredVector.dy * getDesiredSpeed(distance)
+        desiredVector.dx = desiredVector.dx * self.getDesiredSpeed(distance, speedMult: speedMult)
+        desiredVector.dy = desiredVector.dy * self.getDesiredSpeed(distance, speedMult: speedMult)
         
         //next, this is our current vector
         let currentVector=self.paddle!.physicsBody!.velocity

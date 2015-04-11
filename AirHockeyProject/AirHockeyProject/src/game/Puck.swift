@@ -11,7 +11,6 @@
 import Foundation
 import SpriteKit
 public class Puck: SKSpriteNode {
-    
     public func configurePuck(density : CGFloat, settingsProfile : SettingsProfile) {
         self.physicsBody=SKPhysicsBody(circleOfRadius: self.frame.width/2)
         self.physicsBody?.restitution=0.95
@@ -27,6 +26,10 @@ public class Puck: SKSpriteNode {
         self.physicsBody!.contactTestBitMask = paddleCategory | edgeCategory
         self.name = PUCK_NAME
         
+    }
+    
+    public func isIntangible() -> Bool {
+        return self.physicsBody==nil
     }
     
     

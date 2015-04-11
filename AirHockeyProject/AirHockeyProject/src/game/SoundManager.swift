@@ -35,6 +35,8 @@ public class SoundManager {
     //the relative speed is how fast the puck and wall are going relative to each other.
     public class func playWallClick(relativeSpeed : CGFloat) {
         if (wallClickPlayer != nil) {
+            wallClickPlayer!.stop()
+            wallClickPlayer!.currentTime = 0.0
             wallClickPlayer!.play()
         }
     }

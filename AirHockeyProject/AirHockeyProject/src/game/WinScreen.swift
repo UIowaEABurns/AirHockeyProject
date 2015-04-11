@@ -51,10 +51,7 @@ public class WinScreen : SKNode, TouchHandlerDelegate {
         
         p2ScoreLabel.position = CGPoint(x: parent.frame.midX+scoreLabelDistanceFromCenter, y: winLabel.position.y - winLabel.frame.height-scoreLabelDistanceFromBanner)
         p2ScoreLabel.zPosition = zPositionOverlayButtons
-        println("here")
-        println(p1ScoreLabel.text)
-        println(p1ScoreLabel.position)
-        println(p1ScoreLabel.frame.size)
+        
         
         let buttonSize = CGSize(width: parent.frame.width * 0.3, height: parent.frame.height * 0.09)
         
