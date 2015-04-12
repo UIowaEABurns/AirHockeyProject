@@ -41,13 +41,7 @@ public class HumanPlayer : Player {
             let original = input!
             input = Geometry.getNearestPointInRect(boundRect, point: input!)
 
-            if (original.x != input!.x || original.y != input!.y) {
-                println("different")
-                
-                println(self.getPaddle()!.position.x)
-                println(tableHalf.maxX)
-                println(self.getPaddle()!.frame.width)
-            }
+            
             
             return self.getPaddleVectorToPoint(input!)
             

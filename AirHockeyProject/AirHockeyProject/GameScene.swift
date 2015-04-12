@@ -44,6 +44,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     private var contentCreated : Bool = false
     private var gamePaused = false
     private var gameOver = false
+    private var gameStarted = false
     private var shouldRestoreToUnpaused = false
     
     private var playerOneScore : SKLabelNode!
@@ -52,7 +53,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     private var overlayNode : SKShapeNode! // just a transparent gray overlay that we can put over the game
     
     private var activeNode : SKNode!
-    
+    private var startupNode : GameTimer!
     
     private var pauseButton : Button!
     private var resumeButton : Button!
@@ -183,6 +184,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             defaultPhysicsSpeed = self.physicsWorld.speed
             
             gameplayNode = SKNode()
+
             activeNode = gameplayNode
             self.addChild(gameplayNode)
             
@@ -195,7 +197,6 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             playingTable.position = CGPoint(x: self.frame.width*((1-TABLE_WIDTH_FRACTION)/2), y: self.frame.height*((1-TABLE_HEIGHT_FRACTION)/2))
             gameplayNode.addChild(playingTable)
-
             
             var puck = getPuckSprite(2.0, radius: playingTable.frame.width*CGFloat(settingsProfile.getPuckRadius()!))
             playingTable.setPuck(puck)
@@ -245,14 +246,15 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         
             
             let timerSize = CGSize(width: (1-TABLE_WIDTH_FRACTION)/2 * self.frame.width * 1.4, height: self.size.height * 0.1)
-            timer = GameTimer(seconds: Int64(settingsProfile.getTimeLimit()!),font : theme.fontName!, size: timerSize)
-            
+
+            timer = GameTimer(seconds: Int64(settingsProfile.getTimeLimit()!),font : theme.fontName!, size: timerSize, singleSecond: false)
+            timer.zRotation = CGFloat((M_PI*3.0)/2.0)
+
             
             timer.position = CGPointMake(CGRectGetMaxX(self.frame)-timer.frame.width-5,CGRectGetMidY(self.frame)-(timer.frame.height/2))
             
             timer.zPosition = zPositionTimer
             gameplayNode.addChild(timer)
-            timer.timer.start()
         
             playerOneScore = getScoreLabelNode()
             playerOneScore.position = CGPoint(x: timer.position.x , y: timer.position.y - playerOneScore.frame.height - SCORE_DISPLAY_PADDING)
@@ -294,7 +296,24 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
                 nextEmitter.zPosition = zPositionTable
                 gameplayNode.addChild(nextEmitter)
             }
+            startGame()
         }
+    }
+    
+    // this function is called at the initialization of the game. It allows the paddles to start moving and starts the timer
+    public func startGame() {
+        
+        var countdownSize = CGSize(width: self.frame.width * 0.7, height: self.frame.height * 0.7)
+        startupNode = GameTimer(seconds: 3, font: theme.fontName!, size: countdownSize, singleSecond: true)
+        startupNode.zPosition = zPositionStartTimer
+        startupNode.position = CGPoint(x: self.frame.midX,y: self.frame.midY - startupNode.frame.height/2)
+        startupNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
+        
+        self.addChild(startupNode)
+        startupNode.timer.start()
+        
+    
+
     }
     
     private func getScoreLabelNode() -> SKLabelNode {
@@ -308,7 +327,6 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     public func handleGameConcluded() {
         
-        gameplayNode.paused=true
         pauseButton.inactivate()
         pauseButton.hidden=true
         
@@ -340,7 +358,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     public func pauseGame() {
-        gameplayNode.paused=true
+    
         overlayNode.hidden = false
         self.getTimer()!.timer.pause()
         self.physicsWorld.speed=0.0
@@ -349,10 +367,12 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         pauseButton.inactivate()
         resumeButton.activate()
         exitButton.activate()
+        if (!self.isGameStarted()) {
+            startupNode.timer.pause()
+        }
     }
     
     public func resumeGame() {
-        gameplayNode.paused = false
         overlayNode.hidden = true
         self.getTimer()!.timer.unpause()
         self.physicsWorld.speed = defaultPhysicsSpeed
@@ -361,6 +381,9 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         pauseButton.activate()
         resumeButton.inactivate()
         exitButton.inactivate()
+        if (!self.isGameStarted()) {
+            startupNode.timer.unpause()
+        }
     }
     
     public func exitGame() {
@@ -434,7 +457,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override public func didEvaluateActions() {
-        if (!gameplayNode.paused) {
+        if (self.isGameRunning()) {
             // ensure player paddles are not going faster than the maximum
             for player in [playerOne, playerTwo] {
                 let paddle=player.getPaddle()!
@@ -475,7 +498,9 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //TODO: Refactor these tasks to somewhere else?
     override public func update(currentTime: CFTimeInterval) {
-        if (!gameplayNode.paused) {
+        super.update(currentTime)
+        if (self.isGameRunning()) {
+            //println("huh?")
             if (timer.timer.getRemainingTimeSeconds()==0) {
                 timer.setFinished()
                 self.handleGameConcluded()
@@ -499,11 +524,31 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
             })
+        } else if (!self.isGameStarted()) {
+            if (startupNode.timer.isDone()!) {
+            
+                self.timer.timer.start()
+                self.gameStarted = true
+                startupNode.hidden = true
+                
+                let size = CGSize(width: self.frame.width * 0.8, height: self.frame.height * 0.6)
+                let goNode = FittedLabelNode(s: size, str: "Go!")
+                goNode.zPosition = zPositionStartTimer
+                goNode.setFontName(theme.fontName!)
+                goNode.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+                self.addChild(goNode)
+                
+                let x : SKAction = SKAction.sequence([SKAction.waitForDuration(0.4), SKAction.fadeOutWithDuration(0.4)])
+                goNode.runAction(x)
+                
+                
+            }
         }
         
         
     }
    override public func didSimulatePhysics() {
+        super.didSimulatePhysics()
         playerOne.processPaddlePosition()
         playerTwo.processPaddlePosition()
         playingTable.getPuck().capSpeed(MAX_PUCK_SPEED)
@@ -535,5 +580,11 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     public func isGameConcluded() -> Bool {
         return gameOver
+    }
+    public func isGameStarted() -> Bool {
+        return gameStarted
+    }
+    public func isGameRunning() -> Bool {
+        return !isGamePaused() && !isGameConcluded() && isGameStarted()
     }
 }

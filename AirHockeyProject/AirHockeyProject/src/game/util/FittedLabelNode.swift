@@ -14,7 +14,7 @@ import SpriteKit
 //only works with single line text
 public class FittedLabelNode : SKLabelNode {
     private var size : CGSize
-    private var MAX_FONTSIZE : CGFloat = 300
+    private var MAX_FONTSIZE : CGFloat = 700
     init(s : CGSize, str : String) {
         size = s
         super.init()
@@ -90,5 +90,6 @@ public class FittedLabelNode : SKLabelNode {
     public func getFontSize() -> CGFloat {
         return self.fontSize
     }
+    
     
 }

@@ -126,6 +126,21 @@ public class SettingsProfile {
         playerTwoPaddleColor = PaddleColor.intToPaddleColor(colorNumber)
     }
     
+    public func getPlayerOnePaddleColorNumber() -> Int? {
+        if (playerOnePaddleColor==nil) {
+            return nil
+        }
+        return playerOnePaddleColor!.rawValue
+    }
+    
+    public func getPlayerTwoPaddleColorNumber() -> Int? {
+        if (playerTwoPaddleColor==nil) {
+            return nil
+        }
+        return playerTwoPaddleColor!.rawValue
+    }
+    
+    
     public func getPlayerOnePaddleColor() -> SKColor? {
         if playerOnePaddleColor==nil {
             return nil

@@ -12,33 +12,50 @@ import SpriteKit
 //contains code for configuring the game timer
 public class GameTimer : FittedLabelNode {
     public var timer : Timer
+    private var singleSecond : Bool
     
-    
-    public init(seconds : Int64, font : String, size : CGSize) {
+    public init(seconds : Int64, font : String, size : CGSize, singleSecond : Bool) {
         timer=Timer()
         timer.setTimeLimit(seconds)
-        super.init(s: size, str: timer.getRemainingTimeString()!)
+        self.singleSecond = singleSecond
+        super.init(s: size, str: "")
+        self.setText(getTimerText())
         let action = SKAction.sequence([SKAction.runBlock({self.updateTimerText()}),SKAction.waitForDuration(0.1, withRange: 0.0)])
         self.runAction(SKAction.repeatActionForever(action))
-        self.text = timer.getRemainingTimeString()!
         self.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Right
-        
-        self.zRotation = CGFloat((M_PI*3.0)/2.0)
+
         self.fontName=font
         self.fontColor=SKColor.whiteColor()
+        
     }
     
     public func setFinished(){
-        self.setTextNoResize("0:00")
+        if (!singleSecond) {
+            self.setTextNoResize("0:00")
+
+        } else {
+            self.setTextNoResize("0")
+
+        }
     }
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func updateTimerText() {
-        self.setTextNoResize(timer.getRemainingTimeString()!)
+    private func getTimerText() -> NSString {
+        let string : NSString = timer.getRemainingTimeString()!
+        if (!singleSecond) {
+            return string
+        } else {
+           return string.substringFromIndex(string.length-1)
+        }
     }
+    
+    private func updateTimerText() {
+        self.setTextNoResize(getTimerText())
+    }
+   
     
    
 }

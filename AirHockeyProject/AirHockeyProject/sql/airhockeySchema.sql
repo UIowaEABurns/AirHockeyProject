@@ -22,6 +22,8 @@ CREATE TABLE settings (
 	friction REAL, 
 	p1_paddle_radius REAL,
 	p2_paddle_radius REAL,
+    p1_paddle_color INTEGER,
+    p2_paddle_color INTEGER,
 	puck_radius REAL,
 	time INTEGER,
 	goals INTEGER,
