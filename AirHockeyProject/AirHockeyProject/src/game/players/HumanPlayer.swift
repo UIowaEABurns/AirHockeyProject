@@ -36,8 +36,7 @@ public class HumanPlayer : Player {
             //paddles have no momentum unless they are simply released
             self.getPaddle()?.physicsBody!.velocity.dx = 0
             self.getPaddle()?.physicsBody!.velocity.dy = 0
-        
-            let boundRect = CGRect(origin: CGPoint(x: tableHalf.origin.x + paddle.frame.width/2, y: tableHalf.origin.y + paddle.frame.height/2), size: CGSize(width: tableHalf.width - paddle.frame.width, height: tableHalf.height - paddle.frame.height))
+            let boundRect = CGRect(origin: CGPoint(x: tableHalf.origin.x + paddle.size.width/2, y: tableHalf.origin.y + paddle.size.height/2), size: CGSize(width: tableHalf.width - paddle.size.width, height: tableHalf.height - paddle.size.height))
             let original = input!
             input = Geometry.getNearestPointInRect(boundRect, point: input!)
 

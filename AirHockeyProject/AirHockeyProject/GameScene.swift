@@ -500,7 +500,6 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     override public func update(currentTime: CFTimeInterval) {
         super.update(currentTime)
         if (self.isGameRunning()) {
-            //println("huh?")
             if (timer.timer.getRemainingTimeSeconds()==0) {
                 timer.setFinished()
                 self.handleGameConcluded()
