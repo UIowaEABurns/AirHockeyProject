@@ -15,4 +15,9 @@
     <emitter name="Bubbles.sks"/>
 
 </theme>
+<theme name="ice">
+    <fontName value="Digital-7"/>
+    <emitter name="Snow.sks" align="top"/>
+
+</theme>
 </themes>

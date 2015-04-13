@@ -11,7 +11,7 @@ import SpriteKit
 
 //size constants for the game
 public var TABLE_WIDTH_FRACTION : CGFloat = 0.8 // how tall / wide should the table be compared to the screen
-public var TABLE_HEIGHT_FRACTION : CGFloat = 0.9
+public var TABLE_HEIGHT_FRACTION : CGFloat = 0.99
 public var SCORE_DISPLAY_PADDING : CGFloat = 100 // how many points away from the timer should we place the scores?
 
 //display constants for the game
@@ -42,7 +42,7 @@ public var TABLE_EFFECT_OVERLAY_NAME = "effectoverlay"
 //these are global system settings
 public var BG_MUSIC_VOLUME = 1.0
 public var FX_VOLUME  = 1.0
-
+public var muted : Bool = true
 
 
 

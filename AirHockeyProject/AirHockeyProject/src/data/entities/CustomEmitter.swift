@@ -15,6 +15,7 @@ public class CustomEmitter {
     var emitterName : String
     private var x : CGFloat?
     private var y : CGFloat?
+    var align : String?
     init(emitterName : String, x : CGFloat, y : CGFloat) {
         self.emitterName = emitterName
         self.x=x
@@ -36,6 +37,9 @@ public class CustomEmitter {
     public func getY(parent : SKNode) -> CGFloat {
         if !(y==nil) {
             return y!
+        } else if (align == "top") {
+            return parent.frame.maxY + 5
+
         }
         return parent.frame.midY
     }

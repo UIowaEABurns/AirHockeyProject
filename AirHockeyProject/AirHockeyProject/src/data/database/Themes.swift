@@ -48,14 +48,19 @@ public class Themes : NSObject, NSXMLParserDelegate {
             let emitterName = attributeDict["name"] as? String
             let x = attributeDict["x"] as? String
             let y = attributeDict["y"] as? String
-            println(x)
+            let align = attributeDict["align"] as? String
+            var emitter : CustomEmitter?  = nil
             if (x==nil || y==nil) {
-                currentTheme?.customEmitters.append(CustomEmitter(emitterName: emitterName!))
+                emitter = CustomEmitter(emitterName: emitterName!)
+                
 
             } else {
-                currentTheme?.customEmitters.append(CustomEmitter(emitterName: emitterName!,x: CGFloat(x!.toInt()!),y: CGFloat(y!.toInt()!)))
+                emitter = CustomEmitter(emitterName: emitterName!,x: CGFloat(x!.toInt()!),y: CGFloat(y!.toInt()!))
 
             }
+            emitter!.align = align
+            currentTheme?.customEmitters.append(emitter!)
+            
         }
     }
     
@@ -78,6 +83,6 @@ public class Themes : NSObject, NSXMLParserDelegate {
     }
     
     public class func getDefaultTheme() -> Theme {
-        return getThemeByName("space")!
+        return getThemeByName("classic")!
     }
 }

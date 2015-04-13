@@ -68,7 +68,6 @@ public class Player {
     //enforces that the paddle always remain on the correct half of the table
     func processPaddlePosition() {
         if (!playingTable.getHalfForPlayer(playerNumber).contains(paddle!.position)) {
-            println("paddle escape!")
             paddle!.position = paddle!.lastPosition!
         }
     }

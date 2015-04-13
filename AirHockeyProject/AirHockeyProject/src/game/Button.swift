@@ -21,7 +21,7 @@ let BUTTON_INACTIVE_COLOR  = SKColor.whiteColor()
 public class Button : SKShapeNode, TouchHandlerDelegate {
     private var block : dispatch_block_t
     private var active : Bool
-    private var label : FittedLabelNode
+    var label : FittedLabelNode
     private var size : CGSize
     
     private var activeTouch : AnyObject? = nil

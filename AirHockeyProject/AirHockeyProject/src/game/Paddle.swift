@@ -40,7 +40,6 @@ public class Paddle : SKSpriteNode {
         self.physicsBody?.categoryBitMask = paddleCategory
         self.physicsBody?.usesPreciseCollisionDetection = true
         self.zPosition = zPositionPaddle
-        
         self.size = CGSize(width: radius * 2, height: radius * 2)
     }
 }

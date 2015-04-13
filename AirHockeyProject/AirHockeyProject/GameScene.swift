@@ -13,6 +13,7 @@ let puckCategory :  UInt32 =  0x1 << 0;
 let paddleCategory :  UInt32 =  0x1 << 1;
 let edgeCategory : UInt32 = 0x1 << 2
 let barrierCategory : UInt32 = 0x1 << 3
+let lightCategory : UInt32 = 0x1 << 0
 public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //TODO: need to pass the user setting profile to this variable
@@ -54,7 +55,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var activeNode : SKNode!
     private var startupNode : GameTimer!
-    
+    private var bgNode : SKSpriteNode!
     private var pauseButton : Button!
     private var resumeButton : Button!
     private var exitButton : Button!
@@ -116,10 +117,11 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func addPauseButtons() {
-        let pauseButtonSize = CGSize(width: ((1-TABLE_WIDTH_FRACTION)/2) * self.frame.width, height: ((1-TABLE_HEIGHT_FRACTION)/2.5) * self.frame.height)
+        let pauseButtonSize = CGSize(width: ((1-TABLE_WIDTH_FRACTION)/2) * self.frame.width, height: 0.03 * self.frame.height)
         
         
         pauseButton  = Button(fontNamed: theme.fontName, block: {self.pauseGame()}, s : pauseButtonSize)
+        pauseButton.label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Bottom
         pauseButton.setText("Pause")
         pauseButton.name = "pause"
     
@@ -173,7 +175,6 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Setup your scene here */
         if (!contentCreated) {
             theme = Themes.getDefaultTheme()
-            SoundManager.playBackgroundMusic(theme.getBackgroundMusicName())
             SoundManager.loadSounds(theme)
             println("console")
             self.physicsWorld.gravity=CGVectorMake(0,0) // no gravity in this game
@@ -281,7 +282,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             overlayNode.hidden = true
             self.addChild(overlayNode)
             
-            let bgNode = SKSpriteNode(imageNamed: theme.getBackgroundImageFile())
+            bgNode = SKSpriteNode(imageNamed: theme.getBackgroundImageFile())
             bgNode.size = self.frame.size
             bgNode.anchorPoint = CGPoint(x: 0,y: 0)
             bgNode.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
@@ -296,6 +297,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
                 nextEmitter.zPosition = zPositionTable
                 gameplayNode.addChild(nextEmitter)
             }
+            applyLighting(self)
             startGame()
         }
     }
@@ -390,11 +392,26 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         //TODO: this needs to roll back to the previous screen
         if (playerOne is HumanPlayer) {
             let temp : HumanPlayer = (playerOne as HumanPlayer)
-            temp.handleGameExited(playerTwo.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
+            if (self.isGameStarted()) {
+                temp.handleGameExited(playerTwo.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
+
+            } else {
+                temp.handleGameExited(0, timePlayed: 0)
+
+            }
         }
         if (playerTwo is HumanPlayer) {
             let temp : HumanPlayer = (playerTwo as HumanPlayer)
-            temp.handleGameExited(playerOne.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
+            
+            if (self.isGameStarted()) {
+                temp.handleGameExited(playerOne.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
+                
+            } else {
+                temp.handleGameExited(0, timePlayed: 0)
+                
+            }
+            
+            
         }
     }
     
@@ -585,5 +602,13 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     public func isGameRunning() -> Bool {
         return !isGamePaused() && !isGameConcluded() && isGameStarted()
+    }
+    
+    public func applyLighting(node : SKNode) {
+        bgNode.lightingBitMask = lightCategory
+        playerOne.getPaddle()!.lightingBitMask = lightCategory
+        playerTwo.getPaddle()!.lightingBitMask = lightCategory
+        playingTable.lightingBitMask = lightCategory
+        playingTable.getPuck().lightingBitMask = lightCategory
     }
 }
