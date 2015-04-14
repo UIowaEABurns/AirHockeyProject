@@ -99,6 +99,9 @@
 		71F0A14D1AD8548A003AEF5C /* underwaterPuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0A1471AD8548A003AEF5C /* underwaterPuck.png */; };
 		71F0A14E1AD8548A003AEF5C /* underwaterTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0A1481AD8548A003AEF5C /* underwaterTable.png */; };
 		71F0A1501AD85604003AEF5C /* Bubbles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 71F0A14F1AD85604003AEF5C /* Bubbles.sks */; };
+		9F627A011ADC9EFC00DDD0AB /* PlayerSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F627A001ADC9EFC00DDD0AB /* PlayerSelectViewController.swift */; };
+		9F627A061ADCA5AF00DDD0AB /* TwoPBaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F627A051ADCA5AF00DDD0AB /* TwoPBaseView.xib */; };
+		9F627A081ADCABA000DDD0AB /* TwoPBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F627A071ADCABA000DDD0AB /* TwoPBaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,6 +258,9 @@
 		71F0A1471AD8548A003AEF5C /* underwaterPuck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = underwaterPuck.png; sourceTree = "<group>"; };
 		71F0A1481AD8548A003AEF5C /* underwaterTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = underwaterTable.png; sourceTree = "<group>"; };
 		71F0A14F1AD85604003AEF5C /* Bubbles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Bubbles.sks; sourceTree = "<group>"; };
+		9F627A001ADC9EFC00DDD0AB /* PlayerSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSelectViewController.swift; sourceTree = "<group>"; };
+		9F627A051ADCA5AF00DDD0AB /* TwoPBaseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoPBaseView.xib; sourceTree = "<group>"; };
+		9F627A071ADCABA000DDD0AB /* TwoPBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoPBaseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,9 +330,12 @@
 				7107A2CA1AC398E300706EC8 /* sql */,
 				7107A2BE1AC398D600706EC8 /* src */,
 				7107A29A1AC398B600706EC8 /* AppDelegate.swift */,
+				9F627A001ADC9EFC00DDD0AB /* PlayerSelectViewController.swift */,
 				7107A29E1AC398B600706EC8 /* GameScene.swift */,
 				7107A2A01AC398B600706EC8 /* GameViewController.swift */,
 				7107A2A21AC398B600706EC8 /* Main.storyboard */,
+				9F627A051ADCA5AF00DDD0AB /* TwoPBaseView.xib */,
+				9F627A071ADCABA000DDD0AB /* TwoPBaseView.swift */,
 				7107A2A51AC398B600706EC8 /* Images.xcassets */,
 				7107A2A71AC398B600706EC8 /* LaunchScreen.xib */,
 				7107A2981AC398B600706EC8 /* Supporting Files */,
@@ -766,6 +775,7 @@
 				71F0A14C1AD8548A003AEF5C /* underwaterPaddle.png in Resources */,
 				7119B4D81AD4B25F002CA09B /* Stars.sks in Resources */,
 				71F0A14E1AD8548A003AEF5C /* underwaterTable.png in Resources */,
+				9F627A061ADCA5AF00DDD0AB /* TwoPBaseView.xib in Resources */,
 				71F0A1501AD85604003AEF5C /* Bubbles.sks in Resources */,
 				7107A2CE1AC398E300706EC8 /* airhockeySchema.sql in Resources */,
 				71008D5D1AD04F56009B3444 /* bokeh.png in Resources */,
@@ -814,6 +824,7 @@
 				7119B4BE1AD22257002CA09B /* BoardSelectionViewController.swift in Sources */,
 				71A8756D1AC5C71F008EDBA9 /* Timer.swift in Sources */,
 				717B00E51ACCD96A0049F3EC /* AIPlayer.swift in Sources */,
+				9F627A081ADCABA000DDD0AB /* TwoPBaseView.swift in Sources */,
 				710435B61AC74BB9003E9458 /* InputManager.swift in Sources */,
 				7107A2C81AC398D600706EC8 /* Stats.swift in Sources */,
 				71A875761AC5D115008EDBA9 /* Puck.swift in Sources */,
@@ -827,6 +838,7 @@
 				710435B11AC7103B003E9458 /* Table.swift in Sources */,
 				717B00D91ACC486B0049F3EC /* Button.swift in Sources */,
 				7107A2C71AC398D600706EC8 /* SettingsProfile.swift in Sources */,
+				9F627A011ADC9EFC00DDD0AB /* PlayerSelectViewController.swift in Sources */,
 				7119B4DA1AD4B379002CA09B /* CustomEmitter.swift in Sources */,
 				717B00E31ACCD95A0049F3EC /* Player.swift in Sources */,
 				71A875781AC5D4AE008EDBA9 /* Paddle.swift in Sources */,
