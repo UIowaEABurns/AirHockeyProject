@@ -33,6 +33,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         userOne = p1
         userTwo = p2
         soundManager = sound
+        println(size)
         super.init(size: size)
     }
     
@@ -191,11 +192,13 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             let width = self.frame.width * TABLE_WIDTH_FRACTION
             let height = self.frame.height * TABLE_HEIGHT_FRACTION
+            println("table")
+            println(self.frame.width)
+            println(self.frame.height)
             
             let size = CGSize(width: width,height: height)
             
             playingTable = makeTable(CGRect(origin: CGPoint(x: 0,y: 0), size: size))
-            
             playingTable.position = CGPoint(x: self.frame.width*((1-TABLE_WIDTH_FRACTION)/2), y: self.frame.height*((1-TABLE_HEIGHT_FRACTION)/2))
             gameplayNode.addChild(playingTable)
             
@@ -246,7 +249,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             playerTwo.setPaddle(paddle)
         
             
-            let timerSize = CGSize(width: (1-TABLE_WIDTH_FRACTION)/2 * self.frame.width * 1.4, height: self.size.height * 0.1)
+            let timerSize = CGSize(width: (1-TABLE_WIDTH_FRACTION)/2 * self.frame.width * 1.4, height: self.frame.height * 0.1)
 
             timer = GameTimer(seconds: Int64(settingsProfile.getTimeLimit()!),font : theme.fontName!, size: timerSize, singleSecond: false)
             timer.zRotation = CGFloat((M_PI*3.0)/2.0)
@@ -517,6 +520,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     override public func update(currentTime: CFTimeInterval) {
         super.update(currentTime)
         if (self.isGameRunning()) {
+            
             if (timer.timer.getRemainingTimeSeconds()==0) {
                 timer.setFinished()
                 self.handleGameConcluded()

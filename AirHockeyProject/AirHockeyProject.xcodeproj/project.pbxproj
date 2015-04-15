@@ -54,6 +54,7 @@
 		7131F54E1AD054CD00AABF5A /* EffectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7131F54D1AD054CD00AABF5A /* EffectManager.swift */; };
 		7131F5531AD0F33500AABF5A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7131F5521AD0F33500AABF5A /* Theme.swift */; };
 		716373B01ACB9E1200B1FF7D /* zPositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716373AF1ACB9E1200B1FF7D /* zPositions.swift */; };
+		7178D3601ADE00EC00834CC5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178D35F1ADE00EC00834CC5 /* HomeViewController.swift */; };
 		717B00D91ACC486B0049F3EC /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B00D81ACC486B0049F3EC /* Button.swift */; };
 		717B00DE1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B00DD1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift */; };
 		717B00E21ACCD95A0049F3EC /* HumanPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B00E01ACCD95A0049F3EC /* HumanPlayer.swift */; };
@@ -226,6 +227,7 @@
 		7131F54D1AD054CD00AABF5A /* EffectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffectManager.swift; sourceTree = "<group>"; };
 		7131F5521AD0F33500AABF5A /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		716373AF1ACB9E1200B1FF7D /* zPositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = zPositions.swift; sourceTree = "<group>"; };
+		7178D35F1ADE00EC00834CC5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		717B00D81ACC486B0049F3EC /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		717B00DD1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchHandlerDelegate.swift; sourceTree = "<group>"; };
 		717B00E01ACCD95A0049F3EC /* HumanPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HumanPlayer.swift; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 			children = (
 				7119B4C91AD234A6002CA09B /* ThemeView.swift */,
 				7119B4BD1AD22257002CA09B /* BoardSelectionViewController.swift */,
+				7178D35F1ADE00EC00834CC5 /* HomeViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -899,6 +902,7 @@
 				7115A5711ACB81DD0057A8B8 /* GameTimer.swift in Sources */,
 				7115A5741ACB81F10057A8B8 /* GameUtil.swift in Sources */,
 				7115A5761ACB88650057A8B8 /* Goal.swift in Sources */,
+				7178D3601ADE00EC00834CC5 /* HomeViewController.swift in Sources */,
 				71AE54141AD591E00024BC44 /* WinScreen.swift in Sources */,
 				7131F5531AD0F33500AABF5A /* Theme.swift in Sources */,
 				717B00DE1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift in Sources */,

@@ -25,43 +25,54 @@ extension SKNode {
     }
 }
 
-class GameViewController: UIViewController {
+public class GameViewController: UIViewController {
     private var scene : GameScene!
-    override func viewDidLoad() {
+    public var isDemo = false
+
+    
+    override public func viewDidLoad() {
+        println("one")
         super.viewDidLoad()
+        println("two")
         let soundManager : SoundManager = SoundManager()
+        if (isDemo) {
+            soundManager.isMuted = true
+        }
+        println("three")
         //TODO : Pass in the correct values here
         scene = GameScene(size: self.view.frame.size,p1: nil,p2: nil,t: Themes.getDefaultTheme(), sound: soundManager)
         // Configure the view.
+        println("four")
         let skView = self.view as SKView
         skView.showsFPS = true
         skView.showsNodeCount = true
         
-        
+        println("five")
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
         
         /* Set the scale mode to scale to fit the window */
         scene.scaleMode = .AspectFill
-            
+        println("six")
         skView.presentScene(scene)
+
         
     }
 
-    override func shouldAutorotate() -> Bool {
-        return true
+    override public func shouldAutorotate() -> Bool {
+        return false
     }
 
-    override func supportedInterfaceOrientations() -> Int {
+    override public func supportedInterfaceOrientations() -> Int {
         return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
 
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
 
-    override func prefersStatusBarHidden() -> Bool {
+    override public func prefersStatusBarHidden() -> Bool {
         return true
     }
 }
