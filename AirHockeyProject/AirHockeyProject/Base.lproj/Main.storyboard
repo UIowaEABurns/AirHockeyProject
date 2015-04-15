@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DQb-Ot-GJ7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DQb-Ot-GJ7">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -103,8 +104,36 @@
                                     <segue destination="ZDm-3w-qSw" kind="show" id="eqy-3d-4Rg"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xn-LZ-cQ7" customClass="MuteWidget" customModule="AirHockeyProject" customModuleProvider="target">
+                                <rect key="frame" x="563" y="563" width="37" height="37"/>
+                                <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="5zD-aL-jdh"/>
+                                    <constraint firstAttribute="width" secondItem="9xn-LZ-cQ7" secondAttribute="height" multiplier="1:1" id="AdN-zD-qRL"/>
+                                    <constraint firstAttribute="width" constant="37" id="RxD-5y-5CB"/>
+                                    <constraint firstAttribute="width" secondItem="9xn-LZ-cQ7" secondAttribute="height" multiplier="1:1" id="oLf-mT-9DF"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="AdN-zD-qRL"/>
+                                        <exclude reference="RxD-5y-5CB"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.22441496969999999" green="0.96667725879999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="9xn-LZ-cQ7" secondAttribute="trailing" constant="-16" id="JOB-Zd-sNF"/>
+                            <constraint firstItem="hpc-bb-rS6" firstAttribute="top" secondItem="9xn-LZ-cQ7" secondAttribute="bottom" id="NZD-u0-F45"/>
+                            <constraint firstItem="hpc-bb-rS6" firstAttribute="top" secondItem="9xn-LZ-cQ7" secondAttribute="bottom" id="iYd-Lm-ART"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9xn-LZ-cQ7" secondAttribute="trailing" constant="-16" id="xFM-8T-BUc"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="NZD-u0-F45"/>
+                                <exclude reference="JOB-Zd-sNF"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKc-9W-cYe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -249,10 +278,50 @@
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBn-gr-1AS" customClass="MuteWidget" customModule="AirHockeyProject" customModuleProvider="target">
+                                <rect key="frame" x="563" y="563" width="37" height="37"/>
+                                <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="UBn-gr-1AS" secondAttribute="height" multiplier="1:1" id="33I-dl-gPG"/>
+                                    <constraint firstAttribute="width" constant="37" id="59m-gw-kLX"/>
+                                    <constraint firstAttribute="width" secondItem="UBn-gr-1AS" secondAttribute="height" multiplier="1:1" id="AdJ-J4-DZo"/>
+                                    <constraint firstAttribute="height" constant="37" id="UXG-Om-0zH"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="33I-dl-gPG"/>
+                                        <exclude reference="59m-gw-kLX"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="khH-OB-KpY" firstAttribute="top" secondItem="UBn-gr-1AS" secondAttribute="bottom" id="Cxs-tJ-14E"/>
+                            <constraint firstItem="UBn-gr-1AS" firstAttribute="width" secondItem="UBn-gr-1AS" secondAttribute="height" multiplier="1:1" id="EoO-T2-9ed"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UBn-gr-1AS" secondAttribute="trailing" constant="-16" id="S2Q-yu-RZ8"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dYC-TT-vLi">
+            <objects>
+                <viewController id="7WK-oY-HK2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FKl-Cb-sC1"/>
+                        <viewControllerLayoutGuide type="bottom" id="rr6-l6-4Dy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eFu-8P-5Rw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MTh-Fq-n4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>

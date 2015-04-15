@@ -4,14 +4,14 @@
     <fontName value="Digital-7"/>
 </theme>
 <theme name="space">
-    <fontName value="Digital-7"/>
+    <fontName value="VTCAllSkratchedUpOne"/>
     <emitter name="Stars.sks"/>
 </theme>
 <theme name="soccer">
-    <fontName value="Digital-7"/>
+    <fontName value="Friday Night Lights"/>
 </theme>
 <theme name="underwater">
-    <fontName value="Digital-7"/>
+    <fontName value="Definately Maybe"/>
     <emitter name="Bubbles.sks"/>
 
 </theme>
@@ -19,5 +19,21 @@
     <fontName value="Digital-7"/>
     <emitter name="Snow.sks" align="top"/>
 
+</theme>
+<theme name="car">
+    <fontName value="Ferro Rosso"/>
+    
+</theme>
+<theme name="wood">
+    <fontName value="JFWildWood"/>
+    
+</theme>
+<theme name="beach">
+    <fontName value="Pineapple Demo"/>
+    
+</theme>
+<theme name="hawkeye">
+    <fontName value="Richardson Brand Revolution Block"/>
+    
 </theme>
 </themes>

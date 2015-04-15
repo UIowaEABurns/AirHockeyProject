@@ -84,6 +84,18 @@
 		71E166631ADB38000042D96A /* iceTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E1665D1ADB38000042D96A /* iceTable.png */; };
 		71E166641ADB38000042D96A /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 71E1665E1ADB38000042D96A /* Thumbs.db */; };
 		71E166691ADB3FEE0042D96A /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 71E166681ADB3FEE0042D96A /* Snow.sks */; };
+		71E166741ADDE6A00042D96A /* BeachFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71E1666C1ADDE6A00042D96A /* BeachFont.ttf */; };
+		71E166751ADDE6A00042D96A /* CarFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71E1666D1ADDE6A00042D96A /* CarFont.ttf */; };
+		71E166761ADDE6A00042D96A /* DesertFont.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 71E1666E1ADDE6A00042D96A /* DesertFont.TTF */; };
+		71E166771ADDE6A00042D96A /* HawkeyeFont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71E1666F1ADDE6A00042D96A /* HawkeyeFont.otf */; };
+		71E166781ADDE6A00042D96A /* SoccerFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71E166701ADDE6A00042D96A /* SoccerFont.ttf */; };
+		71E166791ADDE6A00042D96A /* SpaceFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71E166711ADDE6A00042D96A /* SpaceFont.ttf */; };
+		71E1667A1ADDE6A00042D96A /* UnderwaterFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71E166721ADDE6A00042D96A /* UnderwaterFont.ttf */; };
+		71E1667B1ADDE6A00042D96A /* WoodFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71E166731ADDE6A00042D96A /* WoodFont.ttf */; };
+		71E166801ADDECA40042D96A /* MuteWidget.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E1667F1ADDECA40042D96A /* MuteWidget.xib */; };
+		71E166821ADDEDE90042D96A /* MuteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E166811ADDEDE90042D96A /* MuteWidget.swift */; };
+		71E166891ADDF3FF0042D96A /* soundOnIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E166871ADDF3FF0042D96A /* soundOnIcon.png */; };
+		71E1668A1ADDF3FF0042D96A /* soundOffIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E166881ADDF3FF0042D96A /* soundOffIcon.png */; };
 		71F0A1301AD75BF1003AEF5C /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F0A12F1AD75BF1003AEF5C /* SoundManager.swift */; };
 		71F0A1351AD75F07003AEF5C /* spaceBackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71F0A1341AD75F07003AEF5C /* spaceBackgroundMusic.mp3 */; };
 		71F0A1371AD75F13003AEF5C /* classicBackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71F0A1361AD75F13003AEF5C /* classicBackgroundMusic.mp3 */; };
@@ -243,6 +255,18 @@
 		71E1665D1ADB38000042D96A /* iceTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iceTable.png; sourceTree = "<group>"; };
 		71E1665E1ADB38000042D96A /* Thumbs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thumbs.db; sourceTree = "<group>"; };
 		71E166681ADB3FEE0042D96A /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
+		71E1666C1ADDE6A00042D96A /* BeachFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BeachFont.ttf; sourceTree = "<group>"; };
+		71E1666D1ADDE6A00042D96A /* CarFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CarFont.ttf; sourceTree = "<group>"; };
+		71E1666E1ADDE6A00042D96A /* DesertFont.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DesertFont.TTF; sourceTree = "<group>"; };
+		71E1666F1ADDE6A00042D96A /* HawkeyeFont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HawkeyeFont.otf; sourceTree = "<group>"; };
+		71E166701ADDE6A00042D96A /* SoccerFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoccerFont.ttf; sourceTree = "<group>"; };
+		71E166711ADDE6A00042D96A /* SpaceFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpaceFont.ttf; sourceTree = "<group>"; };
+		71E166721ADDE6A00042D96A /* UnderwaterFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UnderwaterFont.ttf; sourceTree = "<group>"; };
+		71E166731ADDE6A00042D96A /* WoodFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WoodFont.ttf; sourceTree = "<group>"; };
+		71E1667F1ADDECA40042D96A /* MuteWidget.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MuteWidget.xib; sourceTree = "<group>"; };
+		71E166811ADDEDE90042D96A /* MuteWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuteWidget.swift; sourceTree = "<group>"; };
+		71E166871ADDF3FF0042D96A /* soundOnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundOnIcon.png; sourceTree = "<group>"; };
+		71E166881ADDF3FF0042D96A /* soundOffIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundOffIcon.png; sourceTree = "<group>"; };
 		71F0A12F1AD75BF1003AEF5C /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		71F0A1341AD75F07003AEF5C /* spaceBackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spaceBackgroundMusic.mp3; sourceTree = "<group>"; };
 		71F0A1361AD75F13003AEF5C /* classicBackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = classicBackgroundMusic.mp3; sourceTree = "<group>"; };
@@ -438,6 +462,8 @@
 			children = (
 				7107A2EC1AC3A12A00706EC8 /* Util.swift */,
 				71A8756C1AC5C71F008EDBA9 /* Timer.swift */,
+				71E1667F1ADDECA40042D96A /* MuteWidget.xib */,
+				71E166811ADDEDE90042D96A /* MuteWidget.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -489,6 +515,14 @@
 		717F86011AD0F3E000576E8E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				71E1666C1ADDE6A00042D96A /* BeachFont.ttf */,
+				71E1666D1ADDE6A00042D96A /* CarFont.ttf */,
+				71E1666E1ADDE6A00042D96A /* DesertFont.TTF */,
+				71E1666F1ADDE6A00042D96A /* HawkeyeFont.otf */,
+				71E166701ADDE6A00042D96A /* SoccerFont.ttf */,
+				71E166711ADDE6A00042D96A /* SpaceFont.ttf */,
+				71E166721ADDE6A00042D96A /* UnderwaterFont.ttf */,
+				71E166731ADDE6A00042D96A /* WoodFont.ttf */,
 				717F86021AD0F3E000576E8E /* style-7_digital-7 */,
 			);
 			path = Fonts;
@@ -567,6 +601,8 @@
 		71A875731AC5D103008EDBA9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				71E166871ADDF3FF0042D96A /* soundOnIcon.png */,
+				71E166881ADDF3FF0042D96A /* soundOffIcon.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -752,6 +788,7 @@
 				717F860A1AD0F3E000576E8E /* digital-7 (mono).ttf in Resources */,
 				717F86091AD0F3E000576E8E /* digital-7 (mono italic).ttf in Resources */,
 				71F0A13D1AD763A1003AEF5C /* classicPuckHitWall.mp3 in Resources */,
+				71E1667B1ADDE6A00042D96A /* WoodFont.ttf in Resources */,
 				7119B4D21AD24215002CA09B /* classicPaddle.png in Resources */,
 				7119B4B91AD1063C002CA09B /* spacePaddle.png in Resources */,
 				71E166601ADB38000042D96A /* iceBackgroundMusic.mp3 in Resources */,
@@ -763,34 +800,44 @@
 				7107A2A91AC398B600706EC8 /* LaunchScreen.xib in Resources */,
 				71E1665F1ADB38000042D96A /* iceBackground.png in Resources */,
 				717F86081AD0F3E000576E8E /* digital-7 (italic).ttf in Resources */,
+				71E1668A1ADDF3FF0042D96A /* soundOffIcon.png in Resources */,
 				7119B4CC1AD234AE002CA09B /* ThemeView.xib in Resources */,
 				71F0A13C1AD763A1003AEF5C /* classicPuckHitPaddle.mp3 in Resources */,
 				717F860C1AD0F3E000576E8E /* readme.txt in Resources */,
+				71E166741ADDE6A00042D96A /* BeachFont.ttf in Resources */,
 				71AE541E1AD620C90024BC44 /* soccerTable.png in Resources */,
 				71F0A1411AD85471003AEF5C /* classicBackground.png in Resources */,
 				7119B4D61AD4B23B002CA09B /* star.png in Resources */,
 				71F0A14D1AD8548A003AEF5C /* underwaterPuck.png in Resources */,
 				71AE541F1AD620C90024BC44 /* Thumbs.db in Resources */,
+				71E166761ADDE6A00042D96A /* DesertFont.TTF in Resources */,
 				7119B4BB1AD1063C002CA09B /* spaceTable.png in Resources */,
 				71F0A14C1AD8548A003AEF5C /* underwaterPaddle.png in Resources */,
+				71E166891ADDF3FF0042D96A /* soundOnIcon.png in Resources */,
 				7119B4D81AD4B25F002CA09B /* Stars.sks in Resources */,
 				71F0A14E1AD8548A003AEF5C /* underwaterTable.png in Resources */,
 				9F627A061ADCA5AF00DDD0AB /* TwoPBaseView.xib in Resources */,
 				71F0A1501AD85604003AEF5C /* Bubbles.sks in Resources */,
 				7107A2CE1AC398E300706EC8 /* airhockeySchema.sql in Resources */,
 				71008D5D1AD04F56009B3444 /* bokeh.png in Resources */,
+				71E1667A1ADDE6A00042D96A /* UnderwaterFont.ttf in Resources */,
 				71E166621ADB38000042D96A /* icePuck.png in Resources */,
+				71E166791ADDE6A00042D96A /* SpaceFont.ttf in Resources */,
+				71E166781ADDE6A00042D96A /* SoccerFont.ttf in Resources */,
 				717F860B1AD0F3E000576E8E /* digital-7.ttf in Resources */,
 				7119B4C21AD228D6002CA09B /* themeconfig.xml in Resources */,
 				7107A2A61AC398B600706EC8 /* Images.xcassets in Resources */,
 				71008D631AD04FB2009B3444 /* Spark.sks in Resources */,
 				71F0A1491AD8548A003AEF5C /* Thumbs.db in Resources */,
+				71E166771ADDE6A00042D96A /* HawkeyeFont.otf in Resources */,
 				71008D591ACF97F1009B3444 /* spark.png in Resources */,
 				71E166631ADB38000042D96A /* iceTable.png in Resources */,
 				71AE541C1AD620C90024BC44 /* soccerPaddle.png in Resources */,
 				7107A2A41AC398B600706EC8 /* Main.storyboard in Resources */,
+				71E166801ADDECA40042D96A /* MuteWidget.xib in Resources */,
 				71E166611ADB38000042D96A /* icePaddle.png in Resources */,
 				71F0A1351AD75F07003AEF5C /* spaceBackgroundMusic.mp3 in Resources */,
+				71E166751ADDE6A00042D96A /* CarFont.ttf in Resources */,
 				71E166641ADB38000042D96A /* Thumbs.db in Resources */,
 				7107A2CD1AC398E300706EC8 /* airhockey.sqlite3 in Resources */,
 				71E166691ADB3FEE0042D96A /* Snow.sks in Resources */,
@@ -830,6 +877,7 @@
 				71A875761AC5D115008EDBA9 /* Puck.swift in Sources */,
 				7119B4C01AD222F7002CA09B /* Themes.swift in Sources */,
 				71BB497F1AC4CE1C00898049 /* Settings.swift in Sources */,
+				71E166821ADDEDE90042D96A /* MuteWidget.swift in Sources */,
 				7107A29F1AC398B600706EC8 /* GameScene.swift in Sources */,
 				71F0A1301AD75BF1003AEF5C /* SoundManager.swift in Sources */,
 				7107A2A11AC398B600706EC8 /* GameViewController.swift in Sources */,

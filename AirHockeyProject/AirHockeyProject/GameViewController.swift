@@ -29,9 +29,9 @@ class GameViewController: UIViewController {
     private var scene : GameScene!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let soundManager : SoundManager = SoundManager()
         //TODO : Pass in the correct values here
-        scene = GameScene(size: self.view.frame.size,p1: nil,p2: nil,t: Themes.getDefaultTheme())
+        scene = GameScene(size: self.view.frame.size,p1: nil,p2: nil,t: Themes.getDefaultTheme(), sound: soundManager)
         // Configure the view.
         let skView = self.view as SKView
         skView.showsFPS = true

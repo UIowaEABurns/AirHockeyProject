@@ -9,6 +9,8 @@
 import Foundation
 import SpriteKit
 
+let defaults=NSUserDefaults.standardUserDefaults()
+
 //size constants for the game
 public var TABLE_WIDTH_FRACTION : CGFloat = 0.8 // how tall / wide should the table be compared to the screen
 public var TABLE_HEIGHT_FRACTION : CGFloat = 0.99
@@ -40,9 +42,9 @@ public var TABLE_EFFECT_OVERLAY_NAME = "effectoverlay"
 
 
 //these are global system settings
-public var BG_MUSIC_VOLUME = 1.0
-public var FX_VOLUME  = 1.0
-public var muted : Bool = true
+public var BG_MUSIC_VOLUME : Float = 1.0
+public var FX_VOLUME : Float  = 1.0
+public var muted : Bool = false
 
 
 
@@ -69,8 +71,33 @@ public class AirHockeyConstants {
         return s
     }
     
+    // populates BG_MUSIC_VOLUME and FX_VOLUME
+    public class func loadVolumeSettings() {
+        defaults.setObject(BG_MUSIC_VOLUME, forKey: "bgvolume")
+        defaults.setObject(FX_VOLUME, forKey: "fxvolume")
+    }
     
+    // writes BG_MUSIC_VOLUME and FX_VOLUME to NSUserDefaults
+    public class func saveVolumeSettings() {
+        
+        if let temp: AnyObject = defaults.objectForKey("bgvolume") {
+            BG_MUSIC_VOLUME = defaults.floatForKey("bgvolume")
 
+        }
+        if let temp : AnyObject = defaults.objectForKey("fxvolume") {
+            FX_VOLUME = defaults.floatForKey("fxvolume")
+        }
+    }
+    
+    public class func saveMuteSetting() {
+        defaults.setObject(muted, forKey: "mutedsetting")
+    }
+    
+    public class func loadMuteSetting() {
+        if let temp: AnyObject = defaults.objectForKey("mutedsetting") {
+            muted = defaults.boolForKey("mutedsetting")
+        }
+    }
     
     
 }

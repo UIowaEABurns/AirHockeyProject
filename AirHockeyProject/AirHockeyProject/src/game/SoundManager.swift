@@ -12,13 +12,15 @@ private var bgPlayer : AVAudioPlayer? = nil
 private var wallClickPlayer : AVAudioPlayer? = nil
 private var paddleClickPlayer : AVAudioPlayer? = nil
 private var goalPlayer : AVAudioPlayer? = nil
+
+
 public class SoundManager {
-    
-    private class func playSound(p: AVAudioPlayer?) {
+    var isMuted = false // whether THIS INSTANCE is muted
+    private func playSound(p: AVAudioPlayer?) {
         if p==nil {
             return
         }
-        if (!muted) {
+        if (!muted && !isMuted) {
             let player = p!
             if (player.playing) {
                 player.stop()
@@ -29,34 +31,34 @@ public class SoundManager {
         }
     }
     
-    private class func playMusic(p: AVAudioPlayer?) {
+    private  func playMusic(p: AVAudioPlayer?) {
         if (p==nil) {
             return
         }
         let player = p!
         player.numberOfLoops = -1
-        player.volume = Float(BG_MUSIC_VOLUME)
+        p!.volume = BG_MUSIC_VOLUME
         playSound(player)
     }
     
-    private class func playSoundEffect(player : AVAudioPlayer?) {
-        player!.volume = Float(FX_VOLUME)
+    private  func playSoundEffect(player : AVAudioPlayer?) {
+        player!.volume = FX_VOLUME
         playSound(player)
     }
     
     //the relative speed is how fast the puck and wall are going relative to each other.
-    public class func playWallClick(relativeSpeed : CGFloat) {
+    public  func playWallClick(relativeSpeed : CGFloat) {
         playSoundEffect(wallClickPlayer)
     }
-    public class func playGoalSound() {
+    public  func playGoalSound() {
         playSoundEffect(goalPlayer)
     }
-    public class func playPaddleClick(relativeSpeed : CGFloat) {
+    public func playPaddleClick(relativeSpeed : CGFloat) {
         playSoundEffect(paddleClickPlayer)
         
     }
     
-    private class func getSoundURL(fileName : String, type : String) -> NSURL? {
+    private func getSoundURL(fileName : String, type : String) -> NSURL? {
         let url = NSBundle.mainBundle().pathForResource(fileName, ofType: type)
         if (url==nil) {
             return nil
@@ -68,7 +70,7 @@ public class SoundManager {
     
     // given a theme, loads the clicking and goal sounds so that they can be played quickly during the game.
     // also starts playing the background music
-    public class func loadSounds(t : Theme){
+    public func loadSounds(t : Theme){
         // Removed deprecated use of AVAudioSessionDelegate protocol
         AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
         AVAudioSession.sharedInstance().setActive(true, error: nil)
@@ -77,7 +79,6 @@ public class SoundManager {
         let wallClick = getSoundURL(t.getPuckWallSoundName(), type: "mp3")
         if (wallClick != nil) {
             wallClickPlayer = AVAudioPlayer(contentsOfURL: wallClick, error: nil)
-            wallClickPlayer!.volume = Float(FX_VOLUME)
             wallClickPlayer!.prepareToPlay()
         }
         
@@ -85,7 +86,6 @@ public class SoundManager {
         let paddleClick = getSoundURL(t.getPuckPaddleSoundName(), type: "mp3")
         if (paddleClick != nil) {
             paddleClickPlayer = AVAudioPlayer(contentsOfURL: paddleClick, error: nil)
-            paddleClickPlayer!.volume = Float(FX_VOLUME)
             paddleClickPlayer!.prepareToPlay()
         }
         
@@ -93,7 +93,6 @@ public class SoundManager {
         let goal = getSoundURL(t.getGoalSound(), type: "mp3")
         if (goal != nil) {
             goalPlayer = AVAudioPlayer(contentsOfURL: goal, error: nil)
-            goalPlayer!.volume = Float(FX_VOLUME)
             goalPlayer!.prepareToPlay()
         }
         
@@ -109,16 +108,20 @@ public class SoundManager {
 
     }
     // perform when mute is selected
-    public func mute() {
+    public class func mute() {
         if (bgPlayer != nil) {
-            bgPlayer!.volume = 0.0
+            bgPlayer!.stop()
 
         }
     }
     
-    public func unmute() {
+    public class func unmute() {
+        SoundManager().playMusic(bgPlayer)
+    }
+    
+    public class func volumeChanged() {
         if (bgPlayer != nil) {
-            bgPlayer!.volume = Float(BG_MUSIC_VOLUME)
+            bgPlayer!.volume = BG_MUSIC_VOLUME
             
         }
     }

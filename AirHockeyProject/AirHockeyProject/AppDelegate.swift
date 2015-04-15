@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //println("font is " + (str as String))
             }
         }
-        
+        AirHockeyConstants.loadMuteSetting()
+        AirHockeyConstants.loadVolumeSettings()
         return true
     }
 
