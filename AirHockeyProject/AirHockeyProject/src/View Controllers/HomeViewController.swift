@@ -12,14 +12,22 @@ import SpriteKit
 class HomeViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        let gameView = SKView(frame: CGRect(origin: CGPoint(x: 50,y: 0), size: CGSize(width: 300, height: 700)))
+        let widthFraction : CGFloat = 0.9
+        let heightFraction : CGFloat = 0.4
+        let rect = CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: self.view.frame.height * heightFraction, height: self.view.frame.width * widthFraction))
+        let gameView = SKView(frame: rect)
         
-        
+        gameView.backgroundColor = UIColor.clearColor()
+        gameView.alpha = 0.5
+        gameView.userInteractionEnabled = false
         let soundManager : SoundManager = SoundManager()
         soundManager.isMuted = true
+        let settings = AirHockeyConstants.getDefaultSettings()
+        settings.setTimeLimit(0)
+        settings.setGoalLimit(0)
         
-        let scene = GameScene(size: gameView.frame.size,p1: nil,p2: nil,t: Themes.getDefaultTheme(), sound: soundManager)
-       
+        let scene = GameScene(size: gameView.frame.size,p1: nil,p2: nil,profile: settings, sound: soundManager)
+        scene.alpha = 1
         
         println(gameView.frame.size)
         
@@ -32,7 +40,7 @@ class HomeViewController : UIViewController {
         
         self.view.addSubview(gameView)
         println(gameView.frame.origin)
-        gameView.frame.origin = CGPoint(x: 0, y: 0)
+        gameView.frame.origin = CGPoint(x: ((1-widthFraction)/2) * self.view.frame.width, y: 20)
     }
     
    

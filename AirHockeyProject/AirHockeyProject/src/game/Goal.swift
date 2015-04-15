@@ -38,7 +38,9 @@ public class Goal : SKShapeNode {
         self.childNodeWithName("bottomEdge")!.physicsBody!.categoryBitMask = edgeCategory
         (self.childNodeWithName("bottomEdge")! as SKShapeNode).strokeColor = SKColor.greenColor()
 
-
+        let goalEdge = (self.childNodeWithName("topEdge")!) as SKShapeNode
+        goalEdge.strokeColor = SKColor.clearColor()
+        goalEdge.fillColor = SKColor.clearColor()
     }
 
     required public init?(coder aDecoder: NSCoder) {

@@ -87,7 +87,7 @@ public class WinScreen : SKNode, TouchHandlerDelegate {
     
     public func handleRematch() {
         println("rematch!")
-        self.scene!.view!.presentScene(GameScene(size: self.scene!.size, p1: parentScene.userOne, p2: parentScene.userTwo, t: parentScene.theme,sound: parentScene.soundManager), transition: SKTransition.fadeWithColor(UIColor.blackColor(), duration: 1.5))
+        self.scene!.view!.presentScene(GameScene(size: self.scene!.size, p1: parentScene.userOne, p2: parentScene.userTwo, profile: parentScene.settingsProfile,sound: parentScene.soundManager), transition: SKTransition.fadeWithColor(UIColor.blackColor(), duration: 1.5))
         
     }
     public func handleExit() {

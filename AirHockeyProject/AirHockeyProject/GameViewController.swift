@@ -40,7 +40,7 @@ public class GameViewController: UIViewController {
         }
         println("three")
         //TODO : Pass in the correct values here
-        scene = GameScene(size: self.view.frame.size,p1: nil,p2: nil,t: Themes.getDefaultTheme(), sound: soundManager)
+        scene = GameScene(size: self.view.frame.size,p1: nil,p2: nil,profile: AirHockeyConstants.getDefaultSettings(), sound: soundManager)
         // Configure the view.
         println("four")
         let skView = self.view as SKView

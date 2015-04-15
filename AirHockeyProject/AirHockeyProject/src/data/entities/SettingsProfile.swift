@@ -54,6 +54,7 @@ public class SettingsProfile {
     private var aiDifficulty : Int?
     private var playerOnePaddleColor : PaddleColor?
     private var playerTwoPaddleColor : PaddleColor?
+    private var themeName : String?
     init() {
         
     }
@@ -153,5 +154,12 @@ public class SettingsProfile {
             return nil
         }
         return playerTwoPaddleColor!.getAsColor()
+    }
+    
+    public func setThemeName(s : String) {
+        themeName = s
+    }
+    public func getThemeName() -> String? {
+        return themeName
     }
 }

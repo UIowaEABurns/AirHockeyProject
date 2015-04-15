@@ -17,7 +17,7 @@ let lightCategory : UInt32 = 0x1 << 0
 public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //TODO: need to pass the user setting profile to this variable
-    public var settingsProfile = AirHockeyConstants.getDefaultSettings()
+    public var settingsProfile : SettingsProfile
     public var userOne : User? // TODO: These need to be set by the previous screen
     
     public var userTwo : User?
@@ -28,11 +28,12 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var playingTable : Table!
     public var soundManager : SoundManager
-    init(size : CGSize, p1 : User?, p2 : User?, t : Theme, sound: SoundManager) {
-        theme = t
+    init(size : CGSize, p1 : User?, p2 : User?, profile : SettingsProfile, sound: SoundManager) {
         userOne = p1
         userTwo = p2
         soundManager = sound
+        settingsProfile = profile
+        theme = Themes.getThemeByName(settingsProfile.getThemeName()!)!
         println(size)
         super.init(size: size)
     }
@@ -95,6 +96,11 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    
+    
+    
+    
+    
     public func appEnteringForeground() {
         
         if (shouldRestoreToUnpaused) {
@@ -110,10 +116,6 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
                 temp.handleGameResumed()
             }
         }
-        
-        
-        
-        
         shouldRestoreToUnpaused=false
     }
     
@@ -175,7 +177,6 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     override public func didMoveToView(view: SKView) {
         /* Setup your scene here */
         if (!contentCreated) {
-            theme = Themes.getDefaultTheme()
             soundManager.loadSounds(theme)
             println("console")
             self.physicsWorld.gravity=CGVectorMake(0,0) // no gravity in this game
@@ -259,7 +260,9 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             timer.zPosition = zPositionTimer
             gameplayNode.addChild(timer)
-        
+            if (settingsProfile.getTimeLimit()!==0) {
+                timer.hidden = true // we won't be timing anything if the limit is 0
+            }
             playerOneScore = getScoreLabelNode()
             playerOneScore.position = CGPoint(x: timer.position.x , y: timer.position.y - playerOneScore.frame.height - SCORE_DISPLAY_PADDING)
             
@@ -521,7 +524,9 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         super.update(currentTime)
         if (self.isGameRunning()) {
             
-            if (timer.timer.getRemainingTimeSeconds()==0) {
+            
+            // if the timer is hidden, that means there is no countdown
+            if (timer.timer.getRemainingTimeSeconds()==0 && !timer.hidden) {
                 timer.setFinished()
                 self.handleGameConcluded()
                 return

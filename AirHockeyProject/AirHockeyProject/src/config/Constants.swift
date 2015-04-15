@@ -13,7 +13,7 @@ let defaults=NSUserDefaults.standardUserDefaults()
 
 //size constants for the game
 public var TABLE_WIDTH_FRACTION : CGFloat = 0.8 // how tall / wide should the table be compared to the screen
-public var TABLE_HEIGHT_FRACTION : CGFloat = 0.99
+public var TABLE_HEIGHT_FRACTION : CGFloat = 0.96
 public var SCORE_DISPLAY_PADDING : CGFloat = 100 // how many points away from the timer should we place the scores?
 
 //display constants for the game
@@ -68,6 +68,7 @@ public class AirHockeyConstants {
         s.setGoalLimit(7)
         s.setPlayerOnePaddleColor(PaddleColor.Red)
         s.setPlayerTwoPaddleColor(PaddleColor.Blue)
+        s.setThemeName("classic")
         return s
     }
     

@@ -27,7 +27,8 @@ CREATE TABLE settings (
 	puck_radius REAL,
 	time INTEGER,
 	goals INTEGER,
-	ai_difficulty INTEGER
+	ai_difficulty INTEGER,
+    theme_name TEXT
 );
 
 DROP TABLE IF EXISTS users;
