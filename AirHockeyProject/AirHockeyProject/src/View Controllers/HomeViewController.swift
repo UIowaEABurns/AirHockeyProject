@@ -10,8 +10,12 @@ import Foundation
 import UIKit
 import SpriteKit
 class HomeViewController : UIViewController {
+    private var skView : SKView?
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    private func setupGame() {
         let widthFraction : CGFloat = 0.9
         let heightFraction : CGFloat = 0.4
         let rect = CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: self.view.frame.height * heightFraction, height: self.view.frame.width * widthFraction))
@@ -43,6 +47,22 @@ class HomeViewController : UIViewController {
         gameView.frame.origin = CGPoint(x: ((1-widthFraction)/2) * self.view.frame.width, y: 20)
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        if (skView != nil) {
+            skView!.scene!.paused = true
+            skView!.presentScene(nil)
+            skView!.removeFromSuperview()
+            
+        }
+    }
+    
+    override func  viewWillAppear(animated: Bool) {
+        //setupGame()
+    }
+    
+    @IBAction func buttonTouched(sender: AnyObject) {
+        SoundManager().playButtonPressedSound()
+    }
    
     
     override func shouldAutorotate() -> Bool {

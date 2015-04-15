@@ -42,6 +42,7 @@ class MuteWidget : UIView {
             SoundManager.mute()
         } else {
             SoundManager.unmute()
+            SoundManager().playButtonPressedSound()
         }
         AirHockeyConstants.saveMuteSetting()
         setImage()

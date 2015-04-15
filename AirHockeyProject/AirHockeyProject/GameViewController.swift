@@ -31,29 +31,23 @@ public class GameViewController: UIViewController {
 
     
     override public func viewDidLoad() {
-        println("one")
         super.viewDidLoad()
-        println("two")
         let soundManager : SoundManager = SoundManager()
         if (isDemo) {
             soundManager.isMuted = true
         }
-        println("three")
         //TODO : Pass in the correct values here
         scene = GameScene(size: self.view.frame.size,p1: nil,p2: nil,profile: AirHockeyConstants.getDefaultSettings(), sound: soundManager)
         // Configure the view.
-        println("four")
         let skView = self.view as SKView
         skView.showsFPS = true
         skView.showsNodeCount = true
         
-        println("five")
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
         
         /* Set the scale mode to scale to fit the window */
         scene.scaleMode = .AspectFill
-        println("six")
         skView.presentScene(scene)
 
         

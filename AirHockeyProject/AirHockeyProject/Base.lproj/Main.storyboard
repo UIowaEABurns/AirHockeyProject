@@ -93,7 +93,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="PYh-5H-Kh3" kind="show" id="iP9-kW-WhG"/>
+                                    <action selector="buttonTouched:" destination="DQb-Ot-GJ7" eventType="touchUpInside" id="s70-cP-fCZ"/>
+                                    <segue destination="PYh-5H-Kh3" kind="show" id="A1V-FE-Lnq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63H-V8-DUc">
@@ -102,6 +103,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="buttonTouched:" destination="DQb-Ot-GJ7" eventType="touchUpInside" id="bft-tW-Wkw"/>
                                     <segue destination="ZDm-3w-qSw" kind="show" id="eqy-3d-4Rg"/>
                                 </connections>
                             </button>
@@ -110,6 +112,9 @@
                                 <state key="normal" title="High Scores">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonTouched:" destination="DQb-Ot-GJ7" eventType="touchUpInside" id="aPo-On-sKZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlZ-8t-6RN">
                                 <rect key="frame" x="272" y="394" width="56" height="30"/>
@@ -117,7 +122,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="aiV-Dk-Td3" kind="show" id="okl-UD-Ygq"/>
+                                    <action selector="buttonTouched:" destination="DQb-Ot-GJ7" eventType="touchUpInside" id="bEg-wR-9hC"/>
+                                    <segue destination="aiV-Dk-Td3" kind="show" id="wLu-Q5-jgT"/>
                                 </connections>
                             </button>
                         </subviews>
