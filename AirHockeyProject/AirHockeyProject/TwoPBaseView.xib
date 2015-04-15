@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TwoPBaseView" customModule="AirHockeyProject" customModuleProvider="target">
             <connections>
+                <outlet property="BackButton" destination="dyi-8Q-Zws" id="eHr-1G-1BF"/>
                 <outlet property="Display" destination="iN0-l3-epB" id="inx-I7-LmM"/>
+                <outlet property="LoginButton" destination="gI3-zz-kdg" id="j7H-hh-igz"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -14,11 +16,14 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gI3-zz-kdg">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gI3-zz-kdg">
                     <rect key="frame" x="281" y="75" width="38" height="30"/>
                     <state key="normal" title="Login">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="LoginButtonPressed:" destination="-1" eventType="touchUpInside" id="jsm-bC-fnz"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNB-y2-K1o">
                     <rect key="frame" x="280" y="129" width="41" height="30"/>
@@ -26,29 +31,39 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOZ-Zy-1Ne">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOZ-Zy-1Ne">
                     <rect key="frame" x="260" y="176" width="81" height="30"/>
                     <state key="normal" title="Create New">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Player 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T83-vO-Zgm">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T83-vO-Zgm">
                     <rect key="frame" x="269" y="8" width="62" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyi-8Q-Zws">
+                    <rect key="frame" x="8" y="7" width="35" height="30"/>
+                    <state key="normal" title="Back">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstAttribute="centerX" secondItem="T83-vO-Zgm" secondAttribute="centerX" id="1au-fm-7xb"/>
                 <constraint firstAttribute="centerY" secondItem="pOZ-Zy-1Ne" secondAttribute="centerY" constant="-41" id="6Be-D1-0C3"/>
                 <constraint firstAttribute="centerY" secondItem="gI3-zz-kdg" secondAttribute="centerY" constant="60" id="8fH-v8-Hqj"/>
                 <constraint firstAttribute="centerY" secondItem="T83-vO-Zgm" secondAttribute="centerY" constant="131.5" id="M7L-nU-jNA"/>
                 <constraint firstAttribute="centerX" secondItem="aNB-y2-K1o" secondAttribute="centerX" id="TqS-rc-EYv"/>
                 <constraint firstAttribute="centerY" secondItem="T83-vO-Zgm" secondAttribute="centerY" constant="131.5" id="UfL-ta-ncK"/>
+                <constraint firstAttribute="centerX" secondItem="pOZ-Zy-1Ne" secondAttribute="centerX" constant="-0.5" id="Zt8-F2-j4m"/>
                 <constraint firstAttribute="centerY" secondItem="gI3-zz-kdg" secondAttribute="centerY" constant="62" id="aY7-BI-vtp"/>
                 <constraint firstAttribute="centerY" secondItem="pOZ-Zy-1Ne" secondAttribute="centerY" constant="-41" id="bXK-rW-ped"/>
+                <constraint firstAttribute="centerX" secondItem="gI3-zz-kdg" secondAttribute="centerX" id="cBa-wg-JUQ"/>
                 <constraint firstAttribute="centerY" secondItem="aNB-y2-K1o" secondAttribute="centerY" constant="6" id="qaH-vc-c8v"/>
+                <constraint firstAttribute="centerX" secondItem="aNB-y2-K1o" secondAttribute="centerX" constant="-0.5" id="yzB-PK-6qZ"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
