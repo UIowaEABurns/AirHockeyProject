@@ -62,7 +62,7 @@ public class FittedLabelNode : SKLabelNode {
         return size
     }
     
-    public func setText(t : String) {
+    public func setFittedText(t : String) {
         super.fontSize = getFontSizeToFitWidth(t)
         
         super.text = t
@@ -72,14 +72,14 @@ public class FittedLabelNode : SKLabelNode {
         super.text = t
     }
     
-    public func setFontName(t : String) {
+    public func setFittedFontName(t : String) {
         
         super.fontName = t
         
         super.fontSize = getFontSizeToFitWidth(self.text)
     }
     
-    public func setFontSize(s : CGFloat) {
+    public func setFittedFontSize(s : CGFloat) {
         super.fontSize = s
         let dict = [NSFontAttributeName:UIFont(name: self.fontName, size: s)!]
         let temp : NSString = self.text

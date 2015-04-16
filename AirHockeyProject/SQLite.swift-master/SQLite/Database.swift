@@ -22,12 +22,12 @@
 // THE SOFTWARE.
 //
 
-import Foundation
+import sqlite3
 
-/// A connection (handle) to a SQLite database.
+/// A connection (handle) to SQLite.
 public final class Database {
 
-    internal let handle: COpaquePointer = nil
+    internal var handle: COpaquePointer = nil
 
     /// Whether or not the database was opened in a read-only state.
     public var readonly: Bool { return sqlite3_db_readonly(handle, nil) == 1 }
@@ -46,22 +46,22 @@ public final class Database {
     /// :returns: A new database connection.
     public init(_ path: String? = ":memory:", readonly: Bool = false) {
         let flags = readonly ? SQLITE_OPEN_READONLY : SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE
-        try(sqlite3_open_v2(path ?? "", &handle, flags | SQLITE_OPEN_FULLMUTEX, nil))
+        try { sqlite3_open_v2(path ?? "", &self.handle, flags | SQLITE_OPEN_FULLMUTEX, nil) }
     }
 
-    deinit { try(sqlite3_close(handle)) } // sqlite3_close_v2 in Yosemite/iOS 8?
+    deinit { try { sqlite3_close(self.handle) } } // sqlite3_close_v2 in Yosemite/iOS 8?
 
     // MARK: -
 
     /// The last rowid inserted into the database via this connection.
-    public var lastId: Int64? {
-        let lastId = sqlite3_last_insert_rowid(handle)
-        return lastId == 0 ? nil : lastId
+    public var lastInsertRowid: Int64? {
+        let rowid = sqlite3_last_insert_rowid(handle)
+        return rowid == 0 ? nil : rowid
     }
 
     /// The last number of changes (inserts, updates, or deletes) made to the
     /// database via this connection.
-    public var lastChanges: Int {
+    public var changes: Int {
         return Int(sqlite3_changes(handle))
     }
 
@@ -75,7 +75,7 @@ public final class Database {
     ///
     /// :param: SQL A batch of zero or more semicolon-separated SQL statements.
     public func execute(SQL: String) {
-        try(sqlite3_exec(handle, SQL, nil, nil, nil))
+        try { sqlite3_exec(self.handle, SQL, nil, nil, nil) }
     }
 
     // MARK: - Prepare
@@ -206,142 +206,155 @@ public final class Database {
 
     }
 
+    /// The result of a transaction.
     public enum TransactionResult: String {
 
+        /// Commits a transaction.
         case Commit = "COMMIT TRANSACTION"
 
+        /// Rolls a transaction back.
         case Rollback = "ROLLBACK TRANSACTION"
 
     }
 
-    /// Runs a series of statements in a transaction. The first statement to
-    /// fail will short-circuit the rest and roll back the changes. A successful
-    /// transaction will automatically be committed.
+    /// Starts a new transaction with the given mode.
     ///
-    /// :param: statements Statements to run in the transaction.
+    /// :param: mode The mode in which a transaction acquires a lock. (Default:
+    ///              .Deferred.)
     ///
-    /// :returns: The last statement executed, successful or not.
-    public func transaction(statements: (@autoclosure () -> Statement)...) -> Statement {
-        return transaction(statements)
-    }
-    
-    /// Runs a series of statements in a transaction. The first statement to
-    /// fail will short-circuit the rest and roll back the changes. A successful
-    /// transaction will automatically be committed.
-    ///
-    /// :param: statements Statements to run in the transaction.
-    ///
-    /// :returns: The last statement executed, successful or not.
-    public func transaction(statements: [@autoclosure () -> Statement]) -> Statement {
-        return transaction(.Deferred, statements)
+    /// :returns: The BEGIN TRANSACTION statement.
+    public func transaction(_ mode: TransactionMode = .Deferred) -> Statement {
+        return run("BEGIN \(mode.rawValue) TRANSACTION")
     }
 
-    /// Runs a series of statements in a transaction. The first statement to
-    /// fail will short-circuit the rest and roll back the changes. A successful
-    /// transaction will automatically be committed.
+    /// Runs a transaction with the given savepoint name (if omitted, it will
+    /// generate a UUID).
     ///
-    /// :param: mode       The mode in which the transaction will acquire a
-    ///                    lock.
+    /// :param: mode  The mode in which a transaction acquires a lock. (Default:
+    ///               .Deferred.)
     ///
-    /// :param: statements Statements to run in the transaction.
+    /// :param: block A closure to run SQL statements within the transaction.
+    ///               Should return a TransactionResult depending on success or
+    ///               failure.
     ///
-    /// :returns: The last statement executed, successful or not.
-    public func transaction(mode: TransactionMode, _ statements: (@autoclosure () -> Statement)...) -> Statement {
-        return transaction(mode, statements)
+    /// :returns: The COMMIT or ROLLBACK statement.
+    public func transaction(_ mode: TransactionMode = .Deferred, @noescape _ block: (txn: Statement) -> TransactionResult) -> Statement {
+        return run(block(txn: transaction(mode)).rawValue)
     }
 
-    /// Runs a series of statements in a transaction. The first statement to
-    /// fail will short-circuit the rest and roll back the changes. A successful
-    /// transaction will automatically be committed.
+    /// Commits the current transaction (or, if a savepoint is open, releases
+    /// the current savepoint).
     ///
-    /// :param: mode       The mode in which the transaction will acquire a
-    ///                    lock.
+    /// :param: all Only applicable if a savepoint is open. If true, commits all
+    ///             open savepoints, otherwise releases the current savepoint.
+    ///             (Default: false.)
     ///
-    /// :param: statements Statements to run in the transaction.
-    ///
-    /// :returns: The last statement executed, successful or not.
-    public func transaction(mode: TransactionMode, _ statements: [@autoclosure () -> Statement]) -> Statement {
-        var statement: Statement!
-        let result = transaction(mode) { transaction in
-            statement = reduce(statements, transaction, &&)
-            return statement.failed ? .Rollback : .Commit
+    /// :returns: The COMMIT (or RELEASE) statement.
+    public func commit(all: Bool = false) -> Statement {
+        if !savepointStack.isEmpty && !all {
+            return release()
         }
-        return statement && result
+        savepointStack.removeAll()
+        return run(TransactionResult.Commit.rawValue)
     }
 
-    public func transaction(_ mode: TransactionMode = .Deferred, block: Statement -> TransactionResult) -> Statement {
-        return run(block(run("BEGIN \(mode.rawValue) TRANSACTION")).rawValue)
+    /// Rolls back the current transaction (or, if a savepoint is open, the
+    /// current savepoint).
+    ///
+    /// :param: all Only applicable if a savepoint is open. If true, rolls back
+    ///             all open savepoints, otherwise rolls back the current
+    ///             savepoint. (Default: false.)
+    ///
+    /// :returns: The ROLLBACK statement.
+    public func rollback(all: Bool = false) -> Statement {
+        if !savepointStack.isEmpty && !all {
+            return rollback(savepointStack.removeLast())
+        }
+        savepointStack.removeAll()
+        return run(TransactionResult.Rollback.rawValue)
     }
 
     // MARK: - Savepoints
 
-    private var saveName = 0
+    /// The result of a savepoint.
+    public enum SavepointResult {
 
-    /// Runs a series of statements in a new savepoint. The first statement to
-    /// fail will short-circuit the rest and roll back the changes. A successful
-    /// savepoint will automatically be committed.
-    ///
-    /// :param: statements Statements to run in the savepoint.
-    ///
-    /// :returns: The last statement executed, successful or not.
-    public func savepoint(statements: (@autoclosure () -> Statement)...) -> Statement {
-        return savepoint(statements)
+        /// Releases a savepoint.
+        case Release
+
+        /// Rolls a savepoint back.
+        case Rollback
+
     }
 
-    /// Runs a series of statements in a new savepoint. The first statement to
-    /// fail will short-circuit the rest and roll back the changes. A successful
-    /// savepoint will automatically be committed.
+    private var savepointStack = [String]()
+
+    /// Starts a new transaction with the given savepoint name.
     ///
-    /// :param: statements Statements to run in the savepoint.
+    /// :param: savepointName A unique identifier for the savepoint.
     ///
-    /// :returns: The last statement executed, successful or not.
-    public func savepoint(statements: [@autoclosure () -> Statement]) -> Statement {
-        let transaction = savepoint("\(++saveName)", statements)
-        --saveName
-        return transaction
+    /// :returns: The SAVEPOINT statement.
+    public func savepoint(_ savepointName: String? = nil) -> Statement {
+        let name = savepointName ?? NSUUID().UUIDString
+        savepointStack.append(name)
+        return run("SAVEPOINT \(quote(literal: name))")
     }
 
-    /// Runs a series of statements in a new savepoint. The first statement to
-    /// fail will short-circuit the rest and roll back the changes. A successful
-    /// savepoint will automatically be committed.
+    /// Runs a transaction with the given savepoint name (if omitted, it will
+    /// generate a UUID).
     ///
-    /// :param: name       The name of the savepoint.
+    /// :param: savepointName A unique identifier for the savepoint (optional).
     ///
-    /// :param: statements Statements to run in the savepoint.
+    /// :param: block         A closure to run SQL statements within the
+    ///                       transaction. Should return a SavepointResult
+    ///                       depending on success or failure.
     ///
-    /// :returns: The last statement executed, successful or not.
-    public func savepoint(name: String, _ statements: (@autoclosure () -> Statement)...) -> Statement {
-        return savepoint(name, statements)
+    /// :returns: The RELEASE or ROLLBACK statement.
+    public func savepoint(_ savepointName: String? = nil, @noescape _ block: (txn: Statement) -> SavepointResult) -> Statement {
+        switch block(txn: savepoint(savepointName)) {
+        case .Release:
+            return release()
+        case .Rollback:
+            return rollback()
+        }
     }
 
-    /// Runs a series of statements in a new savepoint. The first statement to
-    /// fail will short-circuit the rest and roll back the changes. A successful
-    /// savepoint will automatically be committed.
+    /// Releases a savepoint with the given savepoint name (or the most
+    /// recently-opened savepoint).
     ///
-    /// :param: name       The name of the savepoint.
+    /// :param: savepointName A unique identifier for the savepoint (optional).
     ///
-    /// :param: statements Statements to run in the savepoint.
+    /// :returns: The RELEASE SAVEPOINT statement.
+    public func release(_ savepointName: String? = nil) -> Statement {
+        let name = savepointName ?? savepointStack.removeLast()
+        if let idx = find(savepointStack, name) { savepointStack.removeRange(idx..<savepointStack.count) }
+        return run("RELEASE SAVEPOINT \(quote(literal: name))")
+    }
+
+    /// Rolls a transaction back to the given savepoint name.
     ///
-    /// :returns: The last statement executed, successful or not.
-    public func savepoint(name: String, _ statements: [@autoclosure () -> Statement]) -> Statement {
-        let quotedName = quote(literal: name)
-        var savepoint = run("SAVEPOINT \(quotedName)")
-        // FIXME: rdar://15217242 // for statement in statements { savepoint = savepoint && statement() }
-        for idx in 0..<statements.count { savepoint = savepoint && statements[idx]() }
-        savepoint = savepoint && run("RELEASE SAVEPOINT \(quotedName)")
-        if savepoint.failed { run("ROLLBACK TO SAVEPOINT \(quotedName)") }
-        return savepoint
+    /// :param: savepointName A unique identifier for the savepoint.
+    ///
+    /// :returns: The ROLLBACK TO SAVEPOINT statement.
+    public func rollback(savepointName: String) -> Statement {
+        if let idx = find(savepointStack, savepointName) { savepointStack.removeRange(idx..<savepointStack.count) }
+        return run("ROLLBACK TO SAVEPOINT \(quote(literal: savepointName))")
+    }
+
+    /// Interrupts any long-running queries.
+    public func interrupt() {
+        sqlite3_interrupt(handle)
     }
 
     // MARK: - Configuration
 
     public var foreignKeys: Bool {
-        get { return Bool.fromDatatypeValue(scalar("PRAGMA foreign_keys") as Int64) }
+        get { return Bool.fromDatatypeValue(scalar("PRAGMA foreign_keys") as! Int64) }
         set { run("PRAGMA foreign_keys = \(transcode(newValue.datatypeValue))") }
     }
 
     public var userVersion: Int {
-        get { return Int(scalar("PRAGMA user_version") as Int64) }
+        get { return Int(scalar("PRAGMA user_version") as! Int64) }
         set { run("PRAGMA user_version = \(transcode(Int64(newValue)))") }
     }
 
@@ -350,7 +363,7 @@ public final class Database {
     /// Sets a busy timeout to retry after encountering a busy signal (lock).
     ///
     /// :param: ms Milliseconds to wait before retrying.
-    public func timeout(ms: Int) {
+    public func busyTimeout(ms: Int) {
         sqlite3_busy_timeout(handle, Int32(ms))
     }
 
@@ -361,27 +374,107 @@ public final class Database {
     ///                  number of times it’s been called for this lock. If it
     ///                  returns true, it will try again. If it returns false,
     ///                  no further attempts will be made.
-    public func busy(callback: (Int -> Bool)?) {
-        if let callback = callback {
-            try(SQLiteBusyHandler(handle) { callback(Int($0)) ? 1 : 0 })
-        } else {
-            try(SQLiteBusyHandler(handle, nil))
+    public func busyHandler(callback: ((tries: Int) -> Bool)?) {
+        try {
+            if let callback = callback {
+                self.busyHandler = { callback(tries: Int($0)) ? 1 : 0 }
+            } else {
+                self.busyHandler = nil
+            }
+            return _SQLiteBusyHandler(self.handle, self.busyHandler)
         }
     }
+    private var busyHandler: _SQLiteBusyHandlerCallback?
 
     /// Sets a handler to call when a statement is executed with the compiled
     /// SQL.
     ///
-    /// :param: callback This block is executed as a statement is executed with
-    ///                  the compiled SQL as an argument. E.g., pass println to
-    ///                  act as a logger.
-    public func trace(callback: (String -> ())?) {
+    /// :param: callback This block is invoked when a statement is executed with
+    ///                  the compiled SQL as its argument. E.g., pass `println`
+    ///                  to act as a logger.
+    public func trace(callback: ((SQL: String) -> ())?) {
         if let callback = callback {
-            SQLiteTrace(handle) { callback(String.fromCString($0)!) }
+            trace = { callback(SQL: String.fromCString($0)!) }
         } else {
-            SQLiteTrace(handle, nil)
+            trace = nil
         }
+        _SQLiteTrace(handle, trace)
     }
+    private var trace: _SQLiteTraceCallback?
+
+    /// An SQL operation passed to update callbacks.
+    public enum Operation {
+
+        /// An INSERT operation.
+        case Insert
+
+        /// An UPDATE operation.
+        case Update
+
+        /// A DELETE operation.
+        case Delete
+
+        private static func fromRawValue(rawValue: Int32) -> Operation {
+            switch rawValue {
+            case SQLITE_INSERT:
+                return .Insert
+            case SQLITE_UPDATE:
+                return .Update
+            case SQLITE_DELETE:
+                return .Delete
+            default:
+                fatalError("unhandled operation code: \(rawValue)")
+            }
+        }
+
+    }
+
+    /// Registers a callback to be invoked whenever a row is inserted, updated,
+    /// or deleted in a rowid table.
+    ///
+    /// :param: callback A callback invoked with the `Operation` (one
+    ///                  of `.Insert`, `.Update`, or `.Delete`), database name,
+    ///                  table name, and rowid.
+    public func updateHook(callback: ((operation: Operation, db: String, table: String, rowid: Int64) -> ())?) {
+        if let callback = callback {
+            updateHook = { operation, db, table, rowid in
+                callback(
+                    operation: .fromRawValue(operation),
+                    db: String.fromCString(db)!,
+                    table: String.fromCString(table)!,
+                    rowid: rowid
+                )
+            }
+        } else {
+            updateHook = nil
+        }
+        _SQLiteUpdateHook(handle, updateHook)
+    }
+    private var updateHook: _SQLiteUpdateHookCallback?
+
+    /// Registers a callback to be invoked whenever a transaction is committed.
+    ///
+    /// :param: callback A callback that must return `.Commit` or `.Rollback` to
+    ///                  determine whether a transaction should be committed or
+    ///                  not.
+    public func commitHook(callback: (() -> TransactionResult)?) {
+        if let callback = callback {
+            commitHook = { callback() == .Commit ? 0 : 1 }
+        } else {
+            commitHook = nil
+        }
+        _SQLiteCommitHook(handle, commitHook)
+    }
+    private var commitHook: _SQLiteCommitHookCallback?
+
+    /// Registers a callback to be invoked whenever a transaction rolls back.
+    ///
+    /// :param: callback A callback invoked when a transaction is rolled back.
+    public func rollbackHook(callback: (() -> ())?) {
+        rollbackHook = callback.map { $0 }
+        _SQLiteRollbackHook(handle, rollbackHook)
+    }
+    private var rollbackHook: _SQLiteRollbackHookCallback?
 
     /// Creates or redefines a custom SQL function.
     ///
@@ -400,43 +493,48 @@ public final class Database {
     ///                       called. The block is called with an array of raw
     ///                       SQL values mapped to the function's parameters and
     ///                       should return a raw SQL value (or nil).
-    public func create(#function: String, argc: Int = -1, deterministic: Bool = false, _ block: [Binding?] -> Binding?) {
-        try(SQLiteCreateFunction(handle, function, Int32(argc), deterministic ? 1 : 0) { context, argc, argv in
-            let arguments: [Binding?] = map(0..<Int(argc)) { idx in
-                let value = argv[Int(idx)]
-                switch sqlite3_value_type(value) {
-                case SQLITE_BLOB:
-                    let bytes = sqlite3_value_blob(value)
-                    let length = sqlite3_value_bytes(value)
-                    return Blob(bytes: bytes, length: Int(length))
-                case SQLITE_FLOAT:
-                    return sqlite3_value_double(value)
-                case SQLITE_INTEGER:
-                    return sqlite3_value_int64(value)
-                case SQLITE_NULL:
-                    return nil
-                case SQLITE_TEXT:
-                    return String.fromCString(UnsafePointer(sqlite3_value_text(value)))!
-                case let type:
-                    assertionFailure("unsupported value type: \(type)")
+    public func create(#function: String, argc: Int = -1, deterministic: Bool = false, _ block: (args: [Binding?]) -> Binding?) {
+        try {
+            if self.functions[function] == nil { self.functions[function] = [:] }
+            self.functions[function]?[argc] = { context, argc, argv in
+                let arguments: [Binding?] = map(0..<Int(argc)) { idx in
+                    let value = argv[idx]
+                    switch sqlite3_value_type(value) {
+                    case SQLITE_BLOB:
+                        let bytes = sqlite3_value_blob(value)
+                        let length = sqlite3_value_bytes(value)
+                        return Blob(bytes: bytes, length: Int(length))
+                    case SQLITE_FLOAT:
+                        return sqlite3_value_double(value)
+                    case SQLITE_INTEGER:
+                        return sqlite3_value_int64(value)
+                    case SQLITE_NULL:
+                        return nil
+                    case SQLITE_TEXT:
+                        return String.fromCString(UnsafePointer(sqlite3_value_text(value)))!
+                    case let type:
+                        fatalError("unsupported value type: \(type)")
+                    }
+                }
+                let result = block(args: arguments)
+                if let result = result as? Blob {
+                    sqlite3_result_blob(context, result.bytes, Int32(result.length), nil)
+                } else if let result = result as? Double {
+                    sqlite3_result_double(context, result)
+                } else if let result = result as? Int64 {
+                    sqlite3_result_int64(context, result)
+                } else if let result = result as? String {
+                    sqlite3_result_text(context, result, Int32(count(result)), SQLITE_TRANSIENT)
+                } else if result == nil {
+                    sqlite3_result_null(context)
+                } else {
+                    fatalError("unsupported result type: \(result)")
                 }
             }
-            let result = block(arguments)
-            if let result = result as? Blob {
-                sqlite3_result_blob(context, result.bytes, Int32(result.length), nil)
-            } else if let result = result as? Double {
-                sqlite3_result_double(context, result)
-            } else if let result = result as? Int64 {
-                sqlite3_result_int64(context, result)
-            } else if let result = result as? String {
-                sqlite3_result_text(context, result, Int32(countElements(result)), SQLITE_TRANSIENT)
-            } else if result == nil {
-                sqlite3_result_null(context)
-            } else {
-                assertionFailure("unsupported result type: \(result)")
-            }
-        })
+            return _SQLiteCreateFunction(self.handle, function, Int32(argc), deterministic ? 1 : 0, self.functions[function]?[argc])
+        }
     }
+    private var functions = [String: [Int: _SQLiteCreateFunctionCallback]]()
 
     /// The return type of a collation comparison function.
     public typealias ComparisonResult = NSComparisonResult
@@ -447,11 +545,15 @@ public final class Database {
     ///
     /// :param: block     A collation function that takes two strings and
     ///                   returns the comparison result.
-    public func create(#collation: String, _ block: (String, String) -> ComparisonResult) {
-        try(SQLiteCreateCollation(handle, collation) { lhs, rhs in
-            return Int32(block(String.fromCString(lhs)!, String.fromCString(rhs)!).rawValue)
-        })
+    public func create(#collation: String, _ block: (lhs: String, rhs: String) -> ComparisonResult) {
+        try {
+            self.collations[collation] = { lhs, rhs in
+                return Int32(block(lhs: String.fromCString(lhs)!, rhs: String.fromCString(rhs)!).rawValue)
+            }
+            return _SQLiteCreateCollation(self.handle, collation, self.collations[collation])
+        }
     }
+    private var collations = [String: _SQLiteCreateCollationCallback]()
 
     // MARK: - Error Handling
 
@@ -460,7 +562,7 @@ public final class Database {
         return String.fromCString(sqlite3_errmsg(handle))!
     }
 
-    internal func try(block: @autoclosure () -> Int32) {
+    internal func try(block: () -> Int32) {
         perform { if block() != SQLITE_OK { assertionFailure("\(self.lastError)") } }
     }
 

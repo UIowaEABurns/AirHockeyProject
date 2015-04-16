@@ -166,9 +166,9 @@ public class Table : SKSpriteNode {
     //returns the goal that the given player is defending
     public func getDefendingGoal(playerNumber: Int)-> Goal! {
         for node in children {
-            let sknode = node as SKNode
+            let sknode = node as! SKNode
             if sknode.name==GOAL_NAME {
-                let goal = sknode as Goal
+                let goal = sknode as! Goal
                 if goal.getPlayerNumber()==playerNumber {
                     return goal
                 }

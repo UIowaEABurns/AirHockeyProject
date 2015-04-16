@@ -85,11 +85,11 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         if (!self.isGameConcluded()) {
             if (playerOne is HumanPlayer) {
-                let temp : HumanPlayer = (playerOne as HumanPlayer)
+                let temp : HumanPlayer = (playerOne as! HumanPlayer)
                 temp.handleGameExited(playerTwo.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
             }
             if (playerTwo is HumanPlayer) {
-                let temp : HumanPlayer = (playerTwo as HumanPlayer)
+                let temp : HumanPlayer = (playerTwo as! HumanPlayer)
                 temp.handleGameExited(playerOne.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
             }
         }
@@ -108,11 +108,11 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         if (!self.isGameConcluded()) {
             if (playerOne is HumanPlayer) {
-                let temp : HumanPlayer = (playerOne as HumanPlayer)
+                let temp : HumanPlayer = (playerOne as! HumanPlayer)
                 temp.handleGameResumed()
             }
             if (playerTwo is HumanPlayer) {
-                let temp : HumanPlayer = (playerTwo as HumanPlayer)
+                let temp : HumanPlayer = (playerTwo as! HumanPlayer)
                 temp.handleGameResumed()
             }
         }
@@ -355,11 +355,11 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         self.touchHandlers.append(win)
         gameOver = true
         if (playerOne is HumanPlayer) {
-            let temp : HumanPlayer = (playerOne as HumanPlayer)
+            let temp : HumanPlayer = (playerOne as! HumanPlayer)
             temp.handleGameConcluded(playerTwo.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
         }
         if (playerTwo is HumanPlayer) {
-            let temp : HumanPlayer = (playerTwo as HumanPlayer)
+            let temp : HumanPlayer = (playerTwo as! HumanPlayer)
             temp.handleGameConcluded(playerOne.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
         }
     }
@@ -397,7 +397,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     public func exitGame() {
         //TODO: this needs to roll back to the previous screen
         if (playerOne is HumanPlayer) {
-            let temp : HumanPlayer = (playerOne as HumanPlayer)
+            let temp : HumanPlayer = (playerOne as! HumanPlayer)
             if (self.isGameStarted()) {
                 temp.handleGameExited(playerTwo.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
 
@@ -407,7 +407,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         if (playerTwo is HumanPlayer) {
-            let temp : HumanPlayer = (playerTwo as HumanPlayer)
+            let temp : HumanPlayer = (playerTwo as! HumanPlayer)
             
             if (self.isGameStarted()) {
                 temp.handleGameExited(playerOne.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
@@ -438,20 +438,25 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
 
     }
     
-    override public func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    
+   
+    
+    
+    
+    override public func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         handleTouches(touches)
     }
     
-   override public func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+   override public func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         handleTouches(touches)
 
     }
     
-    override public func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override public func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         handleTouches(touches)
 
     }
-    override public func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
+    override public func touchesCancelled(touches: Set<NSObject>, withEvent event: UIEvent!) {
         handleTouches(touches)
 
     }
@@ -513,7 +518,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         playingTable.resetPuckToPlayer(playerScoredOn)
         playerOneScore.text = String(playerOne.score)
         playerTwoScore.text = String(playerTwo.score)
-        EffectManager.runFlashEffect(gameplayNode.childNodeWithName(TABLE_EFFECT_OVERLAY_NAME)! as SKShapeNode,originalColor: SKColor.clearColor(), flashColor: SKColor.whiteColor())
+        EffectManager.runFlashEffect(gameplayNode.childNodeWithName(TABLE_EFFECT_OVERLAY_NAME)! as! SKShapeNode,originalColor: SKColor.clearColor(), flashColor: SKColor.whiteColor())
         
     }
     
@@ -540,7 +545,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             playingTable.enumerateChildNodesWithName(GOAL_NAME, usingBlock: {
                 (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
-                let goal = node as Goal
+                let goal = node as! Goal
                 if (Geometry.nodeContainsNode(goal, innerNode: self.playingTable.getPuck())) {
                     goal.handleGoalScored()
                     self.handleGoalScored(goal.getPlayerNumber())
@@ -559,7 +564,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
                 let size = CGSize(width: self.frame.width * 0.8, height: self.frame.height * 0.6)
                 let goNode = FittedLabelNode(s: size, str: "Go!")
                 goNode.zPosition = zPositionStartTimer
-                goNode.setFontName(theme.fontName!)
+                goNode.setFittedFontName(theme.fontName!)
                 goNode.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
                 self.addChild(goNode)
                 

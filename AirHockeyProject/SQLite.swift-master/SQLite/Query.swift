@@ -89,13 +89,12 @@ public struct Query {
         return query
     }
 
-    // rdar://18778670 causes select(distinct: *) to make select(*) ambiguous
     /// Sets the SELECT clause on the query.
     ///
     /// :param: star A literal *.
     ///
     /// :returns: A query with SELECT * applied.
-    public func select(all star: Star) -> Query {
+    public func select(star: Star) -> Query {
         var query = self
         (query.distinct, query.columns) = (false, nil)
         return query
@@ -445,14 +444,14 @@ public struct Query {
     /// :param: values A list of values to set.
     ///
     /// :returns: The rowid.
-    public func insert(value: Setter, _ more: Setter...) -> Int64? { return insert([value] + more).id }
+    public func insert(value: Setter, _ more: Setter...) -> Int64? { return insert([value] + more).rowid }
 
     /// Runs an INSERT statement against the query.
     ///
     /// :param: values A list of values to set.
     ///
     /// :returns: The rowid and statement.
-    public func insert(value: Setter, _ more: Setter...) -> (id: Int64?, statement: Statement) {
+    public func insert(value: Setter, _ more: Setter...) -> (rowid: Int64?, statement: Statement) {
         return insert([value] + more)
     }
 
@@ -461,16 +460,16 @@ public struct Query {
     /// :param: values An array of values to set.
     ///
     /// :returns: The rowid.
-    public func insert(values: [Setter]) -> Int64? { return insert(values).id }
+    public func insert(values: [Setter]) -> Int64? { return insert(values).rowid }
 
     /// Runs an INSERT statement against the query.
     ///
     /// :param: values An array of values to set.
     ///
     /// :returns: The rowid and statement.
-    public func insert(values: [Setter]) -> (id: Int64?, statement: Statement) {
+    public func insert(values: [Setter]) -> (rowid: Int64?, statement: Statement) {
         let statement = insertStatement(values).run()
-        return (statement.failed ? nil : database.lastId, statement)
+        return (statement.failed ? nil : database.lastInsertRowid, statement)
     }
 
     public func insert(query: Query) -> Int? { return insert(query).changes }
@@ -480,16 +479,16 @@ public struct Query {
     public func insert(query: Query) -> (changes: Int?, statement: Statement) {
         let expression = query.selectExpression
         let statement = database.run("INSERT INTO \(tableName.unaliased.SQL) \(expression.SQL)", expression.bindings)
-        return (statement.failed ? nil : database.lastChanges, statement)
+        return (statement.failed ? nil : database.changes, statement)
     }
 
-    public func insert() -> Int64? { return insert().id }
+    public func insert() -> Int64? { return insert().rowid }
 
     public func insert() -> Statement { return insert().statement }
 
-    public func insert() -> (id: Int64?, statement: Statement) {
+    public func insert() -> (rowid: Int64?, statement: Statement) {
         let statement = database.run("INSERT INTO \(tableName.unaliased.SQL) DEFAULT VALUES")
-        return (statement.failed ? nil : database.lastId, statement)
+        return (statement.failed ? nil : database.lastInsertRowid, statement)
     }
 
     /// Runs a REPLACE statement against the query.
@@ -504,14 +503,14 @@ public struct Query {
     /// :param: values A list of values to set.
     ///
     /// :returns: The rowid.
-    public func replace(values: Setter...) -> Int64? { return replace(values).id }
+    public func replace(values: Setter...) -> Int64? { return replace(values).rowid }
 
     /// Runs a REPLACE statement against the query.
     ///
     /// :param: values A list of values to set.
     ///
     /// :returns: The rowid and statement.
-    public func replace(values: Setter...) -> (id: Int64?, statement: Statement) {
+    public func replace(values: Setter...) -> (rowid: Int64?, statement: Statement) {
         return replace(values)
     }
 
@@ -520,16 +519,16 @@ public struct Query {
     /// :param: values An array of values to set.
     ///
     /// :returns: The rowid.
-    public func replace(values: [Setter]) -> Int64? { return replace(values).id }
+    public func replace(values: [Setter]) -> Int64? { return replace(values).rowid }
 
     /// Runs a REPLACE statement against the query.
     ///
     /// :param: values An array of values to set.
     ///
     /// :returns: The rowid and statement.
-    public func replace(values: [Setter]) -> (id: Int64?, statement: Statement) {
+    public func replace(values: [Setter]) -> (rowid: Int64?, statement: Statement) {
         let statement = insertStatement(values, or: .Replace).run()
-        return (statement.failed ? nil : database.lastId, statement)
+        return (statement.failed ? nil : database.lastInsertRowid, statement)
     }
 
     /// Runs an UPDATE statement against the query.
@@ -569,7 +568,7 @@ public struct Query {
     /// :returns: The number of updated rows and statement.
     public func update(values: [Setter]) -> (changes: Int?, statement: Statement) {
         let statement = updateStatement(values).run()
-        return (statement.failed ? nil : database.lastChanges, statement)
+        return (statement.failed ? nil : database.changes, statement)
     }
 
     /// Runs a DELETE statement against the query.
@@ -587,7 +586,7 @@ public struct Query {
     /// :returns: The number of deleted rows and statement.
     public func delete() -> (changes: Int?, statement: Statement) {
         let statement = deleteStatement.run()
-        return (statement.failed ? nil : database.lastChanges, statement)
+        return (statement.failed ? nil : database.changes, statement)
     }
 
     // MARK: - Aggregate Functions
@@ -716,16 +715,10 @@ public struct Query {
     }
 
     private func calculate<V: Value>(expression: Expression<V>) -> V? {
-        if let scalar = select(expression).selectStatement.scalar() as? V.Datatype {
-            return (V.fromDatatypeValue(scalar) as V)
-        }
-        return nil
+        return (select(expression).selectStatement.scalar() as? V.Datatype).map(V.fromDatatypeValue) as? V
     }
     private func calculate<V: Value>(expression: Expression<V?>) -> V? {
-        if let scalar = select(expression).selectStatement.scalar() as? V.Datatype {
-            return (V.fromDatatypeValue(scalar) as V)
-        }
-        return nil
+        return (select(expression).selectStatement.scalar() as? V.Datatype).map(V.fromDatatypeValue) as? V
     }
 
     // MARK: - Array
@@ -775,7 +768,7 @@ public struct Row {
     }
     public func get<V: Value>(column: Expression<V?>) -> V? {
         func valueAtIndex(idx: Int) -> V? {
-            if let value = values[idx] as? V.Datatype { return (V.fromDatatypeValue(value) as V) }
+            if let value = values[idx] as? V.Datatype { return (V.fromDatatypeValue(value) as! V) }
             return nil
         }
 
@@ -842,7 +835,7 @@ public struct QueryGenerator: GeneratorType {
             }
 
             if column == "*" {
-                let tables = [self.query.select(all: *)] + self.query.joins.map { $0.table }
+                let tables = [self.query.select(*)] + self.query.joins.map { $0.table }
                 if let tableName = tableName {
                     for table in tables {
                         if table.tableName.SQL == tableName {

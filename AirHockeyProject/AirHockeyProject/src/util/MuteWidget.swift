@@ -12,9 +12,7 @@ class MuteWidget : UIView {
     @IBOutlet var display: UIView!
 
     @IBOutlet weak var soundImageView: UIImageView!
-    override init() {
-        super.init()
-    }
+    
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

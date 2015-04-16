@@ -16,9 +16,7 @@ class TwoPBaseView: UIView {
     @IBOutlet var LoginDisplay: UIView!
     @IBOutlet weak var LoginButton: UIButton!
     @IBOutlet var Display: UIView!
-    override init() {
-        super.init()
-    }
+    
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

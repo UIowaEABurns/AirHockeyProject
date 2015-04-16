@@ -7,12 +7,12 @@
 //
 
 import Foundation
-import SQLite
+//import SQLite
 
 public class DatabaseManager {
     
     class func getDatabasePath() -> NSString {
-        var path : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)[0] as NSString;
+        var path : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)[0] as! NSString;
         
         path=path.stringByAppendingPathComponent("airhockeydatabase.sql")
         
@@ -28,7 +28,7 @@ public class DatabaseManager {
     
     class func deleteAndRefreshDatabase() {
         let path=getDatabasePath()
-        NSFileManager().removeItemAtPath(path, error: NSErrorPointer())
+        NSFileManager().removeItemAtPath(path as String, error: NSErrorPointer())
         setupDatabaseIfNotExists()
     }
     
@@ -36,9 +36,9 @@ public class DatabaseManager {
         var databasePath=getDatabasePath()
         
         let fileManager = NSFileManager()
-        if (!fileManager.fileExistsAtPath(databasePath)) {
+        if (!fileManager.fileExistsAtPath(databasePath as String)) {
             let basePath=getBaseDatabasePath()
-            fileManager.copyItemAtPath(basePath, toPath: databasePath, error: NSErrorPointer())
+            fileManager.copyItemAtPath(basePath as String, toPath: databasePath as String, error: NSErrorPointer())
         }
     }
     

@@ -100,14 +100,14 @@ public class EffectManager {
         let duration = 0.2
             var fadeOut = SKAction.customActionWithDuration(duration, actionBlock: {
                 (node, elapsedTime) in
-                let sprite = node as SKSpriteNode
+                let sprite = node as! SKSpriteNode
                 sprite.alpha = 1 - (CGFloat(duration) / CGFloat(elapsedTime))
                 
                 
             })
         var fadeIn = SKAction.customActionWithDuration(duration, actionBlock: {
             (node, elapsedTime) in
-            let sprite = node as SKSpriteNode
+            let sprite = node as! SKSpriteNode
             sprite.alpha = (CGFloat(duration) / CGFloat(elapsedTime))
             
             

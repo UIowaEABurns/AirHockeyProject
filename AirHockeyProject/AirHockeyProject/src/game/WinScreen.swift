@@ -32,7 +32,7 @@ public class WinScreen : SKNode, TouchHandlerDelegate {
         
         
         winLabel = FittedLabelNode(s: topLabelSize, str: finalMessage)
-        winLabel.setFontName(t.fontName!)
+        winLabel.setFittedFontName(t.fontName!)
         winLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
         winLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center
         winLabel.position = CGPoint(x: parent.frame.midX, y: parent.frame.maxY-150)

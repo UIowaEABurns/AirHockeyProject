@@ -11,12 +11,12 @@ import SpriteKit
 
 extension SKNode {
     class func unarchiveFromFile(file : NSString) -> SKNode? {
-        if let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks") {
+        if let path = NSBundle.mainBundle().pathForResource(file as String, ofType: "sks") {
             var sceneData = NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe, error: nil)!
             var archiver = NSKeyedUnarchiver(forReadingWithData: sceneData)
             
             archiver.setClass(self.classForKeyedUnarchiver(), forClassName: "SKScene")
-            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as GameScene
+            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as! GameScene
             archiver.finishDecoding()
             return scene
         } else {
@@ -31,6 +31,7 @@ public class GameViewController: UIViewController {
 
     
     override public func viewDidLoad() {
+        self.navigationController!.navigationBar.hidden = true
         super.viewDidLoad()
         let soundManager : SoundManager = SoundManager()
         if (isDemo) {
@@ -39,7 +40,7 @@ public class GameViewController: UIViewController {
         //TODO : Pass in the correct values here
         scene = GameScene(size: self.view.frame.size,p1: nil,p2: nil,profile: AirHockeyConstants.getDefaultSettings(), sound: soundManager)
         // Configure the view.
-        let skView = self.view as SKView
+        let skView = self.view as! SKView
         skView.showsFPS = true
         skView.showsNodeCount = true
         

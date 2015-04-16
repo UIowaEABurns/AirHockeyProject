@@ -122,7 +122,7 @@ public class Timer {
         
         var secondsString = String(remainingSeconds)
         
-        if (countElements(secondsString)==1) {
+        if (count(secondsString)==1) {
             secondsString="0"+secondsString
         }
         

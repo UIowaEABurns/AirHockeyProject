@@ -7,17 +7,17 @@
 //
 
 import Foundation
-import SQLite
+//import SQLite
 public class Users {
     
     /**
 
         Adds a new user to the database. Also gives them a new, default set of settings and stats. Settings and stats
         the user object has are not respected!
-    */
+
     class func createUser(u : User) {
         let timestamp=Util.getCurrentTimeMillis()
-        let db = Database(DatabaseManager.getDatabasePath())
+        let db = Database(DatabaseManager.getDatabasePath() as String)
         let settingId=Settings.addNewSettingsProfile()
         let statsId=Statistics.addNewStats()
         println("settings id = ")
@@ -66,7 +66,7 @@ public class Users {
     }
     // deletes the user with the given username from the database
     class func deleteUserByUsername(s: String) {
-        let db = Database(DatabaseManager.getDatabasePath())
+        let db = Database(DatabaseManager.getDatabasePath() as String)
         let stmt=db.prepare("delete from users where username=?",[s])
         stmt.run()
         
@@ -74,7 +74,7 @@ public class Users {
     
     
     class func getUserByUsername(s: String) -> User? {
-        let db = Database(DatabaseManager.getDatabasePath())
+        let db = Database(DatabaseManager.getDatabasePath() as String)
         
         let stmt=db.prepare("select username,first_name,last_name,setting_id,stats_id,last_login from users where username=?",[s])
         
@@ -91,7 +91,7 @@ public class Users {
     }
     
     class func getAllUsers(s: String) -> [User] {
-        let db = Database(DatabaseManager.getDatabasePath())
+        let db = Database(DatabaseManager.getDatabasePath() as String)
         
         let stmt=db.prepare("select username,first_name,last_name,setting_id,stats_id,last_login from users")
         var users : [User] = []
@@ -104,6 +104,6 @@ public class Users {
         return users
     }
     
-    
+    */
     
 }

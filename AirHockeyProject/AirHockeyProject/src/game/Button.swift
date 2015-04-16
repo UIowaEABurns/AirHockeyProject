@@ -42,7 +42,7 @@ public class Button : SKShapeNode, TouchHandlerDelegate {
     
     
     public func setText(s : String) {
-        label.setText(s)
+        label.setFittedText(s)
         
     }
     
@@ -51,7 +51,7 @@ public class Button : SKShapeNode, TouchHandlerDelegate {
         active = true
         size = s
         label = FittedLabelNode(s: size, str: "")
-        label.setFontName(fontName)
+        label.setFittedFontName(fontName)
         super.init()
         self.block = block
         label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
@@ -65,7 +65,7 @@ public class Button : SKShapeNode, TouchHandlerDelegate {
     }
     
     public func setFontSize(s : CGFloat) {
-        label.setFontSize(s)
+        label.setFittedFontSize(s)
     }
     public func getFontSize() -> CGFloat {
         return label.fontSize

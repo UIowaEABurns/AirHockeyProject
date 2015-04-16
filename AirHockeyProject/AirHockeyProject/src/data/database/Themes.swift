@@ -8,6 +8,8 @@
 
 import Foundation
 import SpriteKit
+//import SQLite
+
 var themes : [Theme] = []
 
 //manages all the game's themes
@@ -17,7 +19,7 @@ public class Themes : NSObject, NSXMLParserDelegate {
     //loads all themes from the given file
     public func loadThemes() {
         var path : NSString = NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent("themeconfig.xml")
-        let parser = NSXMLParser(stream: NSInputStream(fileAtPath: path)!)
+        let parser = NSXMLParser(stream: NSInputStream(fileAtPath: path as String)!)
         parser.delegate = self
         currentTheme = nil
         parser.parse()
@@ -33,15 +35,15 @@ public class Themes : NSObject, NSXMLParserDelegate {
         return themes
     }
     
-    func parser(parser: NSXMLParser!,didStartElement elementName: String!, namespaceURI: String!, qualifiedName : String!, attributes attributeDict: NSDictionary!) {
-        
+    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
+    
         if (elementName == "theme"){
             if (!(currentTheme==nil)) {
                 themes.append(currentTheme!)
                 currentTheme = nil
             }
             
-            currentTheme = Theme(name: attributeDict["name"] as String)
+            currentTheme = Theme(name: attributeDict["name"] as! String)
         } else if (elementName == "fontName") {
             currentTheme!.fontName = attributeDict["value"] as? String
         } else if (elementName == "emitter") {
@@ -53,16 +55,17 @@ public class Themes : NSObject, NSXMLParserDelegate {
             if (x==nil || y==nil) {
                 emitter = CustomEmitter(emitterName: emitterName!)
                 
-
+                
             } else {
                 emitter = CustomEmitter(emitterName: emitterName!,x: CGFloat(x!.toInt()!),y: CGFloat(y!.toInt()!))
-
+                
             }
             emitter!.align = align
             currentTheme?.customEmitters.append(emitter!)
             
         }
     }
+   
     
     public func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
     }

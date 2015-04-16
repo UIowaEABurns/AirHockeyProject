@@ -36,9 +36,9 @@ public class Goal : SKShapeNode {
         GameUtil.attachVerticalEdges(self, category: edgeCategory)
         GameUtil.attachHorizontalEdges(self,category: barrierCategory)
         self.childNodeWithName("bottomEdge")!.physicsBody!.categoryBitMask = edgeCategory
-        (self.childNodeWithName("bottomEdge")! as SKShapeNode).strokeColor = SKColor.greenColor()
+        (self.childNodeWithName("bottomEdge")! as! SKShapeNode).strokeColor = SKColor.greenColor()
 
-        let goalEdge = (self.childNodeWithName("topEdge")!) as SKShapeNode
+        let goalEdge = (self.childNodeWithName("topEdge")!) as! SKShapeNode
         goalEdge.strokeColor = SKColor.clearColor()
         goalEdge.fillColor = SKColor.clearColor()
     }

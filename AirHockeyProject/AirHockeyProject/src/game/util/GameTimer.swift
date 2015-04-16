@@ -19,7 +19,7 @@ public class GameTimer : FittedLabelNode {
         timer.setTimeLimit(seconds)
         self.singleSecond = singleSecond
         super.init(s: size, str: "")
-        self.setText(getTimerText())
+        self.setFittedText(getTimerText() as String)
         let action = SKAction.sequence([SKAction.runBlock({self.updateTimerText()}),SKAction.waitForDuration(0.1, withRange: 0.0)])
         self.runAction(SKAction.repeatActionForever(action))
         self.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Right
@@ -53,7 +53,7 @@ public class GameTimer : FittedLabelNode {
     }
     
     private func updateTimerText() {
-        self.setTextNoResize(getTimerText())
+        self.setTextNoResize(getTimerText() as String)
     }
    
     

@@ -72,14 +72,15 @@ public class AirHockeyConstants {
         return s
     }
     
-    // populates BG_MUSIC_VOLUME and FX_VOLUME
-    public class func loadVolumeSettings() {
+    // writes BG_MUSIC_VOLUME and FX_VOLUME to NSUserDefaults
+
+    public class func saveVolumeSettings() {
         defaults.setObject(BG_MUSIC_VOLUME, forKey: "bgvolume")
         defaults.setObject(FX_VOLUME, forKey: "fxvolume")
     }
     
-    // writes BG_MUSIC_VOLUME and FX_VOLUME to NSUserDefaults
-    public class func saveVolumeSettings() {
+    // populates BG_MUSIC_VOLUME and FX_VOLUME
+    public class func loadVolumeSettings() {
         
         if let temp: AnyObject = defaults.objectForKey("bgvolume") {
             BG_MUSIC_VOLUME = defaults.floatForKey("bgvolume")

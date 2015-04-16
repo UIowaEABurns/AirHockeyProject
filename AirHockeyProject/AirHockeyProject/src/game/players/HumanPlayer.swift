@@ -79,7 +79,8 @@ public class HumanPlayer : Player {
         } else {
             newStats.setGamesWon(stats!.getGamesWon()!+1)
         }
-        Statistics.updateStats(newStats)
+        //TODO: Revert
+        //Statistics.updateStats(newStats)
     }
     
     // called when the user quits the game OR goes out to the home screen
@@ -96,7 +97,8 @@ public class HumanPlayer : Player {
         newStats.setTimePlayed(stats!.getTimePlayed()!+timePlayed)
         
         newStats.setGamesExited(stats!.getGamesExited()!+1)
-        Statistics.updateStats(newStats)
+        //TODO: Revert
+        //Statistics.updateStats(newStats)
         
 
     }
@@ -107,7 +109,8 @@ public class HumanPlayer : Player {
         if (stats==nil) {
             return
         }
-        Statistics.updateStats(stats!)
+        //TODO: Reert
+        //Statistics.updateStats(stats!)
 
     }
     
