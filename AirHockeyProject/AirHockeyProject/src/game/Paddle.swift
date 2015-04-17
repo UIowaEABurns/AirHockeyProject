@@ -40,6 +40,8 @@ public class Paddle : SKSpriteNode {
         self.physicsBody?.categoryBitMask = paddleCategory
         self.zPosition = zPositionPaddle
         self.physicsBody!.collisionBitMask = self.physicsBody!.collisionBitMask ^ powerupCategory
+        self.physicsBody!.fieldBitMask = 0
+
         self.size = CGSize(width: radius * 2, height: radius * 2)
     }
     
@@ -63,7 +65,6 @@ public class Paddle : SKSpriteNode {
         gravField!.strength = 3
         gravField!.falloff = 0.7
         gravField!.categoryBitMask = gravCategory
-        gravField!.physicsBody!.fieldBitMask = 0
         self.addChild(gravField!)
     }
     func removeGravity() {

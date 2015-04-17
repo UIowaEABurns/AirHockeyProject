@@ -61,7 +61,6 @@ public class AIPlayer : Player  {
         difficulty = diff
         state = AIState.Defend
         super.init(i: i, input: input, p: p)
-        //TODO: This will all need to change if we start wanting to do moving goals or multiple goals
         let table = self.getPlayingTable()
         let defendingGoal = table.getDefendingGoal(self.getPlayerNumber())
         let line : (CGPoint,CGPoint) = defendingGoal.getGoalLine()

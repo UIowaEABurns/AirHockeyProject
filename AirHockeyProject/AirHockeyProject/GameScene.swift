@@ -597,13 +597,13 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             })
             
-            if (powerup == nil) {
+            if (powerup == nil && settingsProfile.arePowerupsEnabled()!) {
                 
                 let randomNumber = GameUtil.getRandomFloat()
                 
                 if (randomNumber  < powerupOdds) {
                     let testSize = CGSize(width: 50,height: 50)
-                    powerup = Powerup.getRandomPowerup(testSize, del: SizeIncreasePowerup(s: self))
+                    powerup = Powerup.getRandomPowerup(testSize, scene: self)
                     playingTable.addChild(powerup!)
                     powerup!.moveToRandomPositionOnBoard(playingTable)
                 }
