@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
-class Util {
+let SwipeDelegate = Util()
+class Util : NSObject, UIGestureRecognizerDelegate {
     
     class func getCurrentTimeMillis() -> Int64 {
         let date = NSDate().timeIntervalSince1970*1000
@@ -20,6 +22,15 @@ class Util {
         
         
         return nsString.longLongValue
+        
+        
+        
     }
+    
+    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false
+    }
+    
+    
     
 }

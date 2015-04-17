@@ -13,7 +13,8 @@ class BoardSelectionViewController : UIViewController {
     private var selectedView : ThemeView?
     @IBOutlet weak var scrollView: UIScrollView!
     override func viewDidLoad() {
-        
+        self.navigationController!.interactivePopGestureRecognizer.enabled = false
+
         
         let horizontalSpacing : CGFloat = 10
         let verticalSpacing : CGFloat = 10

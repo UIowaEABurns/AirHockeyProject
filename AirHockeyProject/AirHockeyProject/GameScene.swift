@@ -7,7 +7,7 @@
 //
 
 import SpriteKit
-
+import UIKit
 // collision detection categories
 let puckCategory :  UInt32 =  0x1 << 0;
 let paddleCategory :  UInt32 =  0x1 << 1;
@@ -25,16 +25,16 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     public var theme : Theme
     
     private var inputManager : InputManager!
-    
+    public var navigationController : UINavigationController?
     private var playingTable : Table!
     public var soundManager : SoundManager
-    init(size : CGSize, p1 : User?, p2 : User?, profile : SettingsProfile, sound: SoundManager) {
+    init(size : CGSize, p1 : User?, p2 : User?, profile : SettingsProfile, sound: SoundManager, nav : UINavigationController?) {
         userOne = p1
         userTwo = p2
         soundManager = sound
         settingsProfile = profile
         theme = Themes.getThemeByName(settingsProfile.getThemeName()!)!
-        println(size)
+        navigationController = nav
         super.init(size: size)
     }
     
@@ -49,7 +49,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     private var gameOver = false
     private var gameStarted = false
     private var shouldRestoreToUnpaused = false
-    
+    private var goNode : FittedLabelNode!
     private var playerOneScore : SKLabelNode!
     private var playerTwoScore : SKLabelNode!
     
@@ -154,6 +154,15 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         overlayNode.addChild(resumeButton)
         
         overlayNode.addChild(exitButton)
+        
+        
+        let size = CGSize(width: self.frame.width * 0.8, height: self.frame.height * 0.6)
+        goNode = FittedLabelNode(s: size, str: "")
+        goNode.setTextNoResize("Go!")
+        goNode.zPosition = zPositionStartTimer
+        goNode.setFittedFontName(theme.fontName!)
+        
+        goNode.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         
     }
     
@@ -420,6 +429,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
         }
+        navigationController!.popViewControllerAnimated(true)
     }
     
     private func makeTable(rect: CGRect) -> Table {
@@ -562,15 +572,12 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.gameStarted = true
                 startupNode.hidden = true
                 
-                let size = CGSize(width: self.frame.width * 0.8, height: self.frame.height * 0.6)
-                let goNode = FittedLabelNode(s: size, str: "Go!")
-                goNode.zPosition = zPositionStartTimer
-                goNode.setFittedFontName(theme.fontName!)
-                goNode.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+                
                 self.addChild(goNode)
                 
                 let x : SKAction = SKAction.sequence([SKAction.waitForDuration(0.4), SKAction.fadeOutWithDuration(0.4)])
                 goNode.runAction(x)
+                
                 
                 
             }

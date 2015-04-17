@@ -32,13 +32,15 @@ public class GameViewController: UIViewController {
     
     override public func viewDidLoad() {
         self.navigationController!.navigationBar.hidden = true
+        self.navigationController!.interactivePopGestureRecognizer.delegate = SwipeDelegate
+
         super.viewDidLoad()
         let soundManager : SoundManager = SoundManager()
         if (isDemo) {
             soundManager.isMuted = true
         }
         //TODO : Pass in the correct values here
-        scene = GameScene(size: self.view.frame.size,p1: nil,p2: nil,profile: AirHockeyConstants.getDefaultSettings(), sound: soundManager)
+        scene = GameScene(size: self.view.frame.size,p1: nil,p2: nil,profile: AirHockeyConstants.getDefaultSettings(), sound: soundManager, nav: self.navigationController)
         // Configure the view.
         let skView = self.view as! SKView
         skView.showsFPS = true

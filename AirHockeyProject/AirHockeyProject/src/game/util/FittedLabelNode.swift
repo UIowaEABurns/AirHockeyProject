@@ -45,9 +45,9 @@ public class FittedLabelNode : SKLabelNode {
             }
             
             
-            testSize = testSize + 0.5
+            testSize = testSize + 1
         }
-        return testSize - 0.5
+        return testSize - 1
     }
     
     

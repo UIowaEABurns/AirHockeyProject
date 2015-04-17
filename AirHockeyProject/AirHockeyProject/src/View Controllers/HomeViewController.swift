@@ -30,7 +30,7 @@ class HomeViewController : UIViewController {
         settings.setTimeLimit(0)
         settings.setGoalLimit(0)
         
-        let scene = GameScene(size: gameView.frame.size,p1: nil,p2: nil,profile: settings, sound: soundManager)
+        let scene = GameScene(size: gameView.frame.size,p1: nil,p2: nil,profile: settings, sound: soundManager, nav: nil)
         scene.alpha = 1
         
         println(gameView.frame.size)
@@ -45,6 +45,7 @@ class HomeViewController : UIViewController {
         self.view.addSubview(gameView)
         println(gameView.frame.origin)
         gameView.frame.origin = CGPoint(x: ((1-widthFraction)/2) * self.view.frame.width, y: 20)
+        self.navigationController!.interactivePopGestureRecognizer.enabled = false
     }
     
     override func viewWillDisappear(animated: Bool) {

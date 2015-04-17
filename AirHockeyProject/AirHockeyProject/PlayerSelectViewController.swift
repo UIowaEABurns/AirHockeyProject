@@ -19,15 +19,18 @@ class PlayerSelectViewController: UIViewController {
         //I JUST GUESSED THINGS AND IT DISAPPEARD
         //IM A GENIUS!!!!!
         test.BackButton.hidden = true
-        test.transform = CGAffineTransformMakeRotation(3.141592654)
+        test.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
         self.view.addSubview(test)
-        println(self.view.frame.origin)
-        println(test.frame.origin)
+
         // Do any additional setup after loading the view, typically from a nib.
         let rect2 = CGRect(origin: CGPoint(x: 0,y: (self.view.bounds.height/2)), size: CGSize(width: self.view.bounds.width, height: self.view.bounds.height/2))
         
         let test2 = TwoPBaseView(frame: rect2)
         self.view.addSubview(test2)
+        self.navigationController!.interactivePopGestureRecognizer.enabled = false
+        self.navigationController!.interactivePopGestureRecognizer.delegate = SwipeDelegate
+
+
     }
     
     

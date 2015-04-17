@@ -27,7 +27,7 @@ public class Puck: SKSpriteNode {
         
         self.name = PUCK_NAME
         
-        //addLight()
+        addLight()
     }
     
     private func addLight() {

@@ -110,6 +110,7 @@ public class SoundManager : NSObject, AVAudioPlayerDelegate {
         let goal = SoundManager.getSoundURL(t.getGoalSound(), type: "mp3")
         if (goal != nil) {
             goalPlayer = AVAudioPlayer(contentsOfURL: goal, error: nil)
+            goalPlayer!.delegate = soundManagerDelegate
             goalPlayer!.prepareToPlay()
         }
         
