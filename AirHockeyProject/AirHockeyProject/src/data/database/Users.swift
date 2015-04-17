@@ -7,13 +7,13 @@
 //
 
 import Foundation
-//import SQLite
+import SQLite
 public class Users {
     
-    /**
+    
 
-        Adds a new user to the database. Also gives them a new, default set of settings and stats. Settings and stats
-        the user object has are not respected!
+        /*Adds a new user to the database. Also gives them a new, default set of settings and stats. Settings and stats
+        the user object has are not respected!*/
 
     class func createUser(u : User) {
         let timestamp=Util.getCurrentTimeMillis()
@@ -104,6 +104,6 @@ public class Users {
         return users
     }
     
-    */
+    
     
 }

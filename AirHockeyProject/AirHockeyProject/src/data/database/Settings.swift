@@ -7,11 +7,11 @@
 //
 
 import Foundation
-//import SQLite
+import SQLite
 
 public class Settings {
     
-    /*
+    
 
     private class func getSettingsProfileByRow(row: [Binding?]) -> SettingsProfile {
         println("getting settings profile by row")
@@ -31,6 +31,12 @@ public class Settings {
         s.setGoalLimit(Int(row[8]! as! Int64))
         s.setAIDifficulty(Int(row[9]! as! Int64))
         s.setThemeName(row[10]! as! String)
+        let x = row[11]! as! Int64
+        if (x == 1) {
+            s.setPowerupsEnabled(true)
+        } else {
+            s.setPowerupsEnabled(false)
+        }
         return s
         
        
@@ -39,7 +45,7 @@ public class Settings {
     class func getSettingsById(i : Int64) -> SettingsProfile? {
         let db = Database(DatabaseManager.getDatabasePath() as String)
         
-        let stmt=db.prepare("select id, friction, p1_paddle_radius,p2_paddle_radius,p1_paddle_color,p2_paddle_color,puck_radius,time,goals,ai_difficulty,theme_name from settings where id=?",[i])
+        let stmt=db.prepare("select id, friction, p1_paddle_radius,p2_paddle_radius,p1_paddle_color,p2_paddle_color,puck_radius,time,goals,ai_difficulty,theme_name, powerups_enabled from settings where id=?",[i])
         
         for row in stmt.run() {
             var s : SettingsProfile = getSettingsProfileByRow(row)
@@ -55,7 +61,11 @@ public class Settings {
     
     class func addNewSettingsProfile(s : SettingsProfile) -> Int64? {
         let db = Database(DatabaseManager.getDatabasePath() as String)
-        let stmt=db.prepare("insert into settings (friction,p1_paddle_radius,p2_paddle_radius,p1_paddle_color,p2_paddle_color,puck_radius,time,goals,ai_difficulty,theme_name) VALUES (?,?,?,?,?,?,?,?,?)",[s.getFriction(),s.getPlayerOnePaddleRadius(),s.getPlayerTwoPaddleRadius(),s.getPlayerOnePaddleColorNumber(),s.getPlayerTwoPaddleColorNumber(), s.getPuckRadius(),s.getTimeLimit(),s.getGoalLimit(),s.getAIDifficultyAsNumber(),s.getThemeName()])
+        var powerups = 0
+        if (s.arePowerupsEnabled() != nil && s.arePowerupsEnabled()!) {
+            powerups = 1
+        }
+        let stmt=db.prepare("insert into settings (friction,p1_paddle_radius,p2_paddle_radius,p1_paddle_color,p2_paddle_color,puck_radius,time,goals,ai_difficulty,theme_name) VALUES (?,?,?,?,?,?,?,?,?,?,?)",[s.getFriction(),s.getPlayerOnePaddleRadius(),s.getPlayerTwoPaddleRadius(),s.getPlayerOnePaddleColorNumber(),s.getPlayerTwoPaddleColorNumber(), s.getPuckRadius(),s.getTimeLimit(),s.getGoalLimit(),s.getAIDifficultyAsNumber(),s.getThemeName(), powerups])
         
         stmt.run()
         
@@ -65,11 +75,14 @@ public class Settings {
     // given a SettingsProfile with all fields set, updates what is saved in the database
     class func updateSettingsProfile(s : SettingsProfile) {
         let db = Database(DatabaseManager.getDatabasePath() as String)
-        
-        let stmt=db.prepare("update settings set friction=?,p1_paddle_radius=?,p2_paddle_radius=?,p1_paddle_color=?,p2_paddle_color=?,puck_radius=?,time,goals=?,ai_difficulty=?, theme_name=? where id=?",[s.getFriction(),s.getPlayerOnePaddleRadius(),s.getPlayerTwoPaddleRadius(),s.getPlayerOnePaddleColorNumber(),s.getPlayerTwoPaddleColorNumber(), s.getPuckRadius(),s.getTimeLimit(),s.getGoalLimit(),s.getAIDifficultyAsNumber(),s.getThemeName(),s.getId()])
+        var powerups = 0
+        if (s.arePowerupsEnabled() != nil && s.arePowerupsEnabled()!) {
+            powerups = 1
+        }
+        let stmt=db.prepare("update settings set friction=?,p1_paddle_radius=?,p2_paddle_radius=?,p1_paddle_color=?,p2_paddle_color=?,puck_radius=?,time,goals=?,ai_difficulty=?, theme_name=?, powerups_enabled=? where id=?",[s.getFriction(),s.getPlayerOnePaddleRadius(),s.getPlayerTwoPaddleRadius(),s.getPlayerOnePaddleColorNumber(),s.getPlayerTwoPaddleColorNumber(), s.getPuckRadius(),s.getTimeLimit(),s.getGoalLimit(),s.getAIDifficultyAsNumber(),s.getThemeName(),powerups,s.getId()])
         
         stmt.run()
 
     }
-*/
+
 }

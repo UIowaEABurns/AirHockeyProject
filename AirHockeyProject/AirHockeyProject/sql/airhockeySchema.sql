@@ -28,7 +28,8 @@ CREATE TABLE settings (
 	time INTEGER,
 	goals INTEGER,
 	ai_difficulty INTEGER,
-    theme_name TEXT
+    theme_name TEXT,
+    powerups_enabled INTEGER
 );
 
 DROP TABLE IF EXISTS users;

@@ -5,7 +5,6 @@
 //  Created by divms on 3/28/15.
 //  Copyright (c) 2015 divms. All rights reserved.
 //
-//TODO: We actually want textured nodes, but I'm just testing physics with simple graphics
 
 import Foundation
 import SpriteKit
@@ -45,7 +44,8 @@ public class Table : SKSpriteNode {
         midline.physicsBody!.collisionBitMask = paddleCategory // the midline only blocks paddles
         midline.physicsBody!.restitution=TABLE_BARRIER_RESTITUTION
         midline.position = CGPoint(x: 0, y: self.frame.height/2)
-        
+        midline.physicsBody!.fieldBitMask = 0
+
         self.addChild(midline)
         
     }

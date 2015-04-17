@@ -15,6 +15,7 @@ let edgeCategory : UInt32 = 0x1 << 2
 let barrierCategory : UInt32 = 0x1 << 3
 let powerupCategory : UInt32 = 0x1 << 4
 let lightCategory : UInt32 = 0x1 << 0
+let gravCategory : UInt32 = 0x1 << 0
 public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //TODO: need to pass the user setting profile to this variable

@@ -11,9 +11,24 @@ import SpriteKit
 
 public class Powerup : SKSpriteNode {
     
+    
+    private class func getRandomDelegate(scene : GameScene) -> PowerupDelegate {
+        let x = arc4random_uniform(3)
+        if (x==0) {
+            return SizeIncreasePowerup(s: scene)
+        } else if (x==1) {
+            return MagnetPowerup(s: scene)
+        } else if (x==2) {
+            return LightPowerup(s: scene)
+        } else {
+            return SizeIncreasePowerup(s: scene)
+        }
+    }
+    
     private var delegate : PowerupDelegate?
     var timer : Timer?
-    public class func getRandomPowerup(size: CGSize, del : PowerupDelegate) -> Powerup {
+    public class func getRandomPowerup(size: CGSize, scene: GameScene) -> Powerup {
+        let del = getRandomDelegate(scene)
         let powerup = Powerup(imageNamed: del.getTexture())
         
         powerup.size = size
@@ -50,7 +65,7 @@ public class Powerup : SKSpriteNode {
         
         delegate = del
         timer = Timer()
-        timer!.setTimeLimit(20)
+        timer!.setTimeLimit(15)
     }
     
     public func touched(p : Player) {

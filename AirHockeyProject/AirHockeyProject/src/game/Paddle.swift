@@ -11,7 +11,8 @@
 import Foundation
 import SpriteKit
 public class Paddle : SKSpriteNode {
-    
+    private var light : SKLightNode?
+    private var gravField : SKFieldNode?
     private var playerNumber : Int?
     var lastPosition : CGPoint?
    
@@ -40,5 +41,34 @@ public class Paddle : SKSpriteNode {
         self.zPosition = zPositionPaddle
         self.physicsBody!.collisionBitMask = self.physicsBody!.collisionBitMask ^ powerupCategory
         self.size = CGSize(width: radius * 2, height: radius * 2)
+    }
+    
+    func addLight() {
+        light = SKLightNode()
+        
+        light!.lightColor = SKColor(red: 1, green: 1, blue: 1, alpha: 0.3)
+        light!.enabled  = true
+        
+        light!.categoryBitMask = lightCategory
+        self.addChild(light!)
+    }
+    func removeLight() {
+        if light != nil {
+            light!.removeFromParent()
+        }
+    }
+    
+    func addGravity() {
+        gravField = SKFieldNode.radialGravityField()
+        gravField!.strength = 3
+        gravField!.falloff = 0.7
+        gravField!.categoryBitMask = gravCategory
+        gravField!.physicsBody!.fieldBitMask = 0
+        self.addChild(gravField!)
+    }
+    func removeGravity() {
+        if gravField != nil {
+            gravField!.removeFromParent()
+        }
     }
 }

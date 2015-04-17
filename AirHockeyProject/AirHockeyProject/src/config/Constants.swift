@@ -68,7 +68,8 @@ public class AirHockeyConstants {
         s.setGoalLimit(7)
         s.setPlayerOnePaddleColor(PaddleColor.Red)
         s.setPlayerTwoPaddleColor(PaddleColor.Blue)
-        s.setThemeName("ice")
+        s.setThemeName("classic")
+        s.setPowerupsEnabled(true)
         return s
     }
     

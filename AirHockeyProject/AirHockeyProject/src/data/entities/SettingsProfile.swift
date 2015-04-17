@@ -55,6 +55,7 @@ public class SettingsProfile {
     private var playerOnePaddleColor : PaddleColor?
     private var playerTwoPaddleColor : PaddleColor?
     private var themeName : String?
+    private var powerupsEnabled : Bool?
     init() {
         
     }
@@ -161,5 +162,11 @@ public class SettingsProfile {
     }
     public func getThemeName() -> String? {
         return themeName
+    }
+    public func setPowerupsEnabled(b : Bool) {
+        powerupsEnabled = b
+    }
+    public func arePowerupsEnabled() -> Bool? {
+        return powerupsEnabled
     }
 }

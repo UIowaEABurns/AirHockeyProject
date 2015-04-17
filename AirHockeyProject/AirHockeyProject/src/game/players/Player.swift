@@ -120,7 +120,6 @@ public class Player {
         //first, we get the desired vector
         var desiredVector = Geometry.normalVector(self.getPaddle()!.position, b: point)
         
-        //todo: speed here should be the desired speed
         desiredVector.dx = desiredVector.dx * self.getDesiredSpeed(distance, speedMult: speedMult)
         desiredVector.dy = desiredVector.dy * self.getDesiredSpeed(distance, speedMult: speedMult)
         

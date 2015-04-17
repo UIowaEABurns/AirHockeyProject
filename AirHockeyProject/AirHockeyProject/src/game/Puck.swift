@@ -24,21 +24,12 @@ public class Puck: SKSpriteNode {
         self.physicsBody!.collisionBitMask = self.physicsBody!.collisionBitMask ^ ( barrierCategory | powerupCategory )
         self.zPosition = zPositionPuck
         self.physicsBody!.contactTestBitMask = paddleCategory | edgeCategory
-        
+        self.physicsBody!.fieldBitMask = gravCategory
         self.name = PUCK_NAME
         
-        addLight()
     }
     
-    private func addLight() {
-        let light = SKLightNode()
-        
-        light.lightColor = SKColor(red: 1, green: 1, blue: 1, alpha: 0.05)
-        light.enabled  = true
-        
-        light.categoryBitMask = lightCategory
-        //self.addChild(light)
-    }
+   
     
     public func isIntangible() -> Bool {
         return self.physicsBody==nil

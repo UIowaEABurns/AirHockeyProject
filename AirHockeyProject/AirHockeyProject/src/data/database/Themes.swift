@@ -8,7 +8,7 @@
 
 import Foundation
 import SpriteKit
-//import SQLite
+import SQLite
 
 var themes : [Theme] = []
 

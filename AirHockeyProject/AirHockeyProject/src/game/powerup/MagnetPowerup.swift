@@ -1,5 +1,5 @@
 //
-//  SizeIncreasePowerup.swift
+//  MagnetPowerup.swift
 //  AirHockeyProject
 //
 //  Created by divms on 4/17/15.
@@ -7,23 +7,22 @@
 //
 
 import Foundation
-import SpriteKit
 
-public class SizeIncreasePowerup : PowerupDelegate {
+
+public class MagnetPowerup  : PowerupDelegate {
+    
     
     override public func getTexture() -> String {
-        return "GrowthPowerup.png"
+        return "MagnetPowerup.png"
     }
     
     override public func startEffect(p: Player) {
         super.startEffect(p)
-        p.getPaddle()!.xScale = 1.5
-        p.getPaddle()!.yScale = 1.5
+        p.getPaddle()!.addGravity()
     }
     
     override public func endEffect() {
-        self.owningPlayer!.getPaddle()!.xScale = 1.0
-        self.owningPlayer!.getPaddle()!.yScale = 1.0
+        self.owningPlayer!.getPaddle()!.removeGravity()
+
     }
-    
 }

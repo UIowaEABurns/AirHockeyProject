@@ -30,7 +30,8 @@ public class GameUtil {
             
             vertEdge.physicsBody!.categoryBitMask = category
             vertEdge.physicsBody!.collisionBitMask = vertEdge.physicsBody!.collisionBitMask ^ powerupCategory
-            
+            vertEdge.physicsBody!.fieldBitMask = 0
+
         }
     }
     
@@ -55,6 +56,7 @@ public class GameUtil {
             
             vertEdge.physicsBody!.categoryBitMask = category
             vertEdge.physicsBody!.collisionBitMask = vertEdge.physicsBody!.collisionBitMask ^ powerupCategory
+            vertEdge.physicsBody!.fieldBitMask = 0
 
             
             
@@ -81,6 +83,7 @@ public class GameUtil {
             
             edge.physicsBody!.categoryBitMask = category
             edge.physicsBody!.collisionBitMask = edge.physicsBody!.collisionBitMask ^ powerupCategory
+            edge.physicsBody!.fieldBitMask = 0
 
             
             
