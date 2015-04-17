@@ -13,6 +13,7 @@ let puckCategory :  UInt32 =  0x1 << 0;
 let paddleCategory :  UInt32 =  0x1 << 1;
 let edgeCategory : UInt32 = 0x1 << 2
 let barrierCategory : UInt32 = 0x1 << 3
+let powerupCategory : UInt32 = 0x1 << 4
 let lightCategory : UInt32 = 0x1 << 0
 public class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -63,6 +64,9 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     private var exitButton : Button!
     private var touchHandlers : [TouchHandlerDelegate] = []
     
+    
+    private var powerup : Powerup?
+    let powerupOdds : CGFloat = 0.002
     public func getPlayingTable() -> Table {
         return playingTable
     }
@@ -180,6 +184,21 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
                 soundManager.playWallClick(Geometry.distance(CGPoint(x: contact.bodyA.velocity.dx, y: contact.bodyA.velocity.dy), b: CGPoint(x: contact.bodyB.velocity.dx, y: contact.bodyB.velocity.dy)))
             }
             
+        } else if (contact.bodyA.node!.physicsBody!.categoryBitMask == powerupCategory || contact.bodyB.node!.physicsBody!.categoryBitMask == powerupCategory) {
+            // some player touched a powerup
+            var powerup : Powerup? = nil
+            var player : Player? = nil
+            if (contact.bodyA.node!.physicsBody!.categoryBitMask == powerupCategory) {
+                powerup = (contact.bodyA.node!) as? Powerup
+                let pNumber = ((contact.bodyB.node!) as! Paddle).getPlayerNumber()!
+                player = getPlayerFromPlayerNumber(pNumber)
+            } else {
+                powerup = (contact.bodyB.node!) as? Powerup
+                let pNumber = ((contact.bodyA.node!) as! Paddle).getPlayerNumber()!
+                player = getPlayerFromPlayerNumber(pNumber)
+            }
+            
+            powerup!.touched(player!)
         }
     }
     
@@ -388,6 +407,9 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         if (!self.isGameStarted()) {
             startupNode.timer.pause()
         }
+        if (powerup != nil && powerup!.timer != nil ) {
+            powerup!.timer!.pause()
+        }
     }
     
     public func resumeGame() {
@@ -401,6 +423,9 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         exitButton.inactivate()
         if (!self.isGameStarted()) {
             startupNode.timer.unpause()
+        }
+        if (powerup != nil && powerup!.timer != nil ) {
+            powerup!.timer!.unpause()
         }
     }
     
@@ -508,7 +533,12 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    
+    private func getPlayerFromPlayerNumber(number : Int) -> Player {
+        if number==1 {
+            return playerOne
+        }
+        return playerTwo
+    }
     
     //handles a goal being scored on the given player
     private func handleGoalScored(playerScoredOn : Int) {
@@ -565,6 +595,24 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
             })
+            
+            if (powerup == nil) {
+                
+                let randomNumber = GameUtil.getRandomFloat()
+                
+                if (randomNumber  < powerupOdds) {
+                    let testSize = CGSize(width: 50,height: 50)
+                    powerup = Powerup.getRandomPowerup(testSize, del: SizeIncreasePowerup(s: self))
+                    playingTable.addChild(powerup!)
+                    powerup!.moveToRandomPositionOnBoard(playingTable)
+                }
+                
+            } else {
+                let powerupFinished = powerup!.update()
+                if (powerupFinished) {
+                    powerup = nil
+                }
+            }
         } else if (!self.isGameStarted()) {
             if (startupNode.timer.isDone()!) {
             

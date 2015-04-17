@@ -21,7 +21,7 @@ public class Puck: SKSpriteNode {
         self.physicsBody!.linearDamping=CGFloat(settingsProfile.getFriction()!)
         self.physicsBody!.angularDamping=CGFloat(settingsProfile.getFriction()!)
         self.physicsBody!.categoryBitMask = puckCategory
-        self.physicsBody!.collisionBitMask = self.physicsBody!.collisionBitMask ^ barrierCategory
+        self.physicsBody!.collisionBitMask = self.physicsBody!.collisionBitMask ^ ( barrierCategory | powerupCategory )
         self.zPosition = zPositionPuck
         self.physicsBody!.contactTestBitMask = paddleCategory | edgeCategory
         
@@ -37,7 +37,7 @@ public class Puck: SKSpriteNode {
         light.enabled  = true
         
         light.categoryBitMask = lightCategory
-        self.addChild(light)
+        //self.addChild(light)
     }
     
     public func isIntangible() -> Bool {

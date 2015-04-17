@@ -8,10 +8,11 @@
 
 import Foundation
 import SpriteKit
-var zPositionOverlayButtons : CGFloat = 9
-var zPositionOverlay : CGFloat = 8
-var zPositionEffectOverlay : CGFloat = 7
-var zPositionStartTimer : CGFloat = 6
+var zPositionOverlayButtons : CGFloat = 10
+var zPositionOverlay : CGFloat = 9
+var zPositionEffectOverlay : CGFloat = 8
+var zPositionStartTimer : CGFloat = 7
+var zPositionPowerup : CGFloat = 6
 var zPositionGoal : CGFloat = 5
 var zPositionTimer : CGFloat = 5
 var zPositionSparks : CGFloat = 5

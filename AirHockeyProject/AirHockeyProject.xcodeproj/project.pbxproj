@@ -51,6 +51,9 @@
 		7131F5531AD0F33500AABF5A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7131F5521AD0F33500AABF5A /* Theme.swift */; };
 		7155B2B91ADF917000B71479 /* SystemSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7155B2B81ADF917000B71479 /* SystemSettingsViewController.swift */; };
 		716373B01ACB9E1200B1FF7D /* zPositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716373AF1ACB9E1200B1FF7D /* zPositions.swift */; };
+		71763AD41AE179BD00155C15 /* Powerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71763AD31AE179BD00155C15 /* Powerup.swift */; };
+		71763AD61AE182DD00155C15 /* PowerupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71763AD51AE182DD00155C15 /* PowerupDelegate.swift */; };
+		71763AD81AE186D800155C15 /* SizeIncreasePowerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71763AD71AE186D800155C15 /* SizeIncreasePowerup.swift */; };
 		7178D3601ADE00EC00834CC5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178D35F1ADE00EC00834CC5 /* HomeViewController.swift */; };
 		717B00D91ACC486B0049F3EC /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B00D81ACC486B0049F3EC /* Button.swift */; };
 		717B00DE1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B00DD1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift */; };
@@ -76,6 +79,8 @@
 		71BB497F1AC4CE1C00898049 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB497E1AC4CE1C00898049 /* Settings.swift */; };
 		71BB49821AC4D24F00898049 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB49811AC4D24F00898049 /* Constants.swift */; };
 		71BB49841AC4D70200898049 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB49831AC4D70200898049 /* Statistics.swift */; };
+		71C225AB1AE176BF00B87460 /* Sparkle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 71C225AA1AE176BF00B87460 /* Sparkle.sks */; };
+		71C225AD1AE177B400B87460 /* Square.png in Resources */ = {isa = PBXBuildFile; fileRef = 71C225AC1AE177B400B87460 /* Square.png */; };
 		71D803CE1ADECCF4000BE4A3 /* confirmSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71D803CB1ADECCF4000BE4A3 /* confirmSound.mp3 */; };
 		71D803CF1ADECCF4000BE4A3 /* menuBackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71D803CC1ADECCF4000BE4A3 /* menuBackgroundMusic.mp3 */; };
 		71D803D01ADECCF4000BE4A3 /* menuSelect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71D803CD1ADECCF4000BE4A3 /* menuSelect.mp3 */; };
@@ -198,6 +203,9 @@
 		7131F5521AD0F33500AABF5A /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		7155B2B81ADF917000B71479 /* SystemSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemSettingsViewController.swift; sourceTree = "<group>"; };
 		716373AF1ACB9E1200B1FF7D /* zPositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = zPositions.swift; sourceTree = "<group>"; };
+		71763AD31AE179BD00155C15 /* Powerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Powerup.swift; sourceTree = "<group>"; };
+		71763AD51AE182DD00155C15 /* PowerupDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerupDelegate.swift; sourceTree = "<group>"; };
+		71763AD71AE186D800155C15 /* SizeIncreasePowerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeIncreasePowerup.swift; sourceTree = "<group>"; };
 		7178D35F1ADE00EC00834CC5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		717B00D81ACC486B0049F3EC /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		717B00DD1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchHandlerDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +230,8 @@
 		71BB497E1AC4CE1C00898049 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		71BB49811AC4D24F00898049 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		71BB49831AC4D70200898049 /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		71C225AA1AE176BF00B87460 /* Sparkle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Sparkle.sks; sourceTree = "<group>"; };
+		71C225AC1AE177B400B87460 /* Square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Square.png; sourceTree = "<group>"; };
 		71D803CB1ADECCF4000BE4A3 /* confirmSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = confirmSound.mp3; sourceTree = "<group>"; };
 		71D803CC1ADECCF4000BE4A3 /* menuBackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menuBackgroundMusic.mp3; sourceTree = "<group>"; };
 		71D803CD1ADECCF4000BE4A3 /* menuSelect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menuSelect.mp3; sourceTree = "<group>"; };
@@ -294,6 +304,7 @@
 		71008D551ACF979E009B3444 /* effects */ = {
 			isa = PBXGroup;
 			children = (
+				71C225AC1AE177B400B87460 /* Square.png */,
 				7119B4D51AD4B23B002CA09B /* star.png */,
 				71008D561ACF97F1009B3444 /* GoalEmitter.sks */,
 				71008D571ACF97F1009B3444 /* spark.png */,
@@ -304,6 +315,7 @@
 				71AE540E1AD4B8F10024BC44 /* ShootingStar.sks */,
 				71F0A14F1AD85604003AEF5C /* Bubbles.sks */,
 				71E166681ADB3FEE0042D96A /* Snow.sks */,
+				71C225AA1AE176BF00B87460 /* Sparkle.sks */,
 			);
 			path = effects;
 			sourceTree = "<group>";
@@ -475,6 +487,16 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		71763AD21AE179AE00155C15 /* powerup */ = {
+			isa = PBXGroup;
+			children = (
+				71763AD31AE179BD00155C15 /* Powerup.swift */,
+				71763AD51AE182DD00155C15 /* PowerupDelegate.swift */,
+				71763AD71AE186D800155C15 /* SizeIncreasePowerup.swift */,
+			);
+			path = powerup;
+			sourceTree = "<group>";
+		};
 		717B00DF1ACCD95A0049F3EC /* players */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,6 +573,7 @@
 		71A875711AC5D0F5008EDBA9 /* game */ = {
 			isa = PBXGroup;
 			children = (
+				71763AD21AE179AE00155C15 /* powerup */,
 				71008D551ACF979E009B3444 /* effects */,
 				717B00DF1ACCD95A0049F3EC /* players */,
 				7115A56E1ACB81DD0057A8B8 /* util */,
@@ -738,6 +761,7 @@
 				7119B4D31AD24215002CA09B /* classicPuck.png in Resources */,
 				71F0A1371AD75F13003AEF5C /* classicBackgroundMusic.mp3 in Resources */,
 				71F0A14A1AD8548A003AEF5C /* underwaterBackground.png in Resources */,
+				71C225AB1AE176BF00B87460 /* Sparkle.sks in Resources */,
 				71F0A13F1AD85465003AEF5C /* spaceBackground.png in Resources */,
 				71F0600C1AE08394000A7F9F /* hawkeyeTable.png in Resources */,
 				717F860A1AD0F3E000576E8E /* digital-7 (mono).ttf in Resources */,
@@ -765,6 +789,7 @@
 				717F860C1AD0F3E000576E8E /* readme.txt in Resources */,
 				71E166741ADDE6A00042D96A /* BeachFont.ttf in Resources */,
 				71AE541E1AD620C90024BC44 /* soccerTable.png in Resources */,
+				71C225AD1AE177B400B87460 /* Square.png in Resources */,
 				71F0A1411AD85471003AEF5C /* classicBackground.png in Resources */,
 				7119B4D61AD4B23B002CA09B /* star.png in Resources */,
 				71F0A14D1AD8548A003AEF5C /* underwaterPuck.png in Resources */,
@@ -828,8 +853,10 @@
 				7107A2EA1AC39F2E00706EC8 /* Users.swift in Sources */,
 				7119B4CA1AD234A6002CA09B /* ThemeView.swift in Sources */,
 				7115A5721ACB81DD0057A8B8 /* Geometry.swift in Sources */,
+				71763AD81AE186D800155C15 /* SizeIncreasePowerup.swift in Sources */,
 				71BB49821AC4D24F00898049 /* Constants.swift in Sources */,
 				7131F54E1AD054CD00AABF5A /* EffectManager.swift in Sources */,
+				71763AD41AE179BD00155C15 /* Powerup.swift in Sources */,
 				7107A2ED1AC3A12A00706EC8 /* Util.swift in Sources */,
 				7107A2C61AC398D600706EC8 /* DatabaseManager.swift in Sources */,
 				716373B01ACB9E1200B1FF7D /* zPositions.swift in Sources */,
@@ -861,6 +888,7 @@
 				7115A5711ACB81DD0057A8B8 /* GameTimer.swift in Sources */,
 				7115A5741ACB81F10057A8B8 /* GameUtil.swift in Sources */,
 				7115A5761ACB88650057A8B8 /* Goal.swift in Sources */,
+				71763AD61AE182DD00155C15 /* PowerupDelegate.swift in Sources */,
 				7178D3601ADE00EC00834CC5 /* HomeViewController.swift in Sources */,
 				71AE54141AD591E00024BC44 /* WinScreen.swift in Sources */,
 				7131F5531AD0F33500AABF5A /* Theme.swift in Sources */,

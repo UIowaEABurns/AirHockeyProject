@@ -33,12 +33,12 @@ public class Paddle : SKSpriteNode {
         self.physicsBody?.restitution=0
         self.physicsBody?.mass=mass
         self.physicsBody?.allowsRotation=true
-        //self.physicsBody?.usesPreciseCollisionDetection=true
         self.physicsBody?.friction=CGFloat(settingsProfile.getFriction()!)
         self.physicsBody?.linearDamping=CGFloat(settingsProfile.getFriction()!)
         self.physicsBody?.angularDamping=CGFloat(settingsProfile.getFriction()!)
         self.physicsBody?.categoryBitMask = paddleCategory
         self.zPosition = zPositionPaddle
+        self.physicsBody!.collisionBitMask = self.physicsBody!.collisionBitMask ^ powerupCategory
         self.size = CGSize(width: radius * 2, height: radius * 2)
     }
 }

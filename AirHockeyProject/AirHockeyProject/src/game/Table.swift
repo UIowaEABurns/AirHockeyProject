@@ -25,13 +25,7 @@ public class Table : SKSpriteNode {
         self.anchorPoint = rect.origin
         self.goalWidthRatio = goalWidthRatio
         
-        //self.path = CGPathCreateWithRect(rect, nil)
-
-        //self.fillColor = SKColor.grayColor()
-        //self.strokeColor = SKColor.clearColor()
-        //self.physicsBody=SKPhysicsBody(edgeLoopFromRect: rect)
-        //self.physicsBody?.categoryBitMask = edgeCategory
-        //creates a center line that paddles cannot cross
+        
         
         attachEdgesAndGoals()
         let centerHeight : CGFloat = 1

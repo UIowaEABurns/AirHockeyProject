@@ -33,7 +33,6 @@ class HomeViewController : UIViewController {
         let scene = GameScene(size: gameView.frame.size,p1: nil,p2: nil,profile: settings, sound: soundManager, nav: nil)
         scene.alpha = 1
         
-        println(gameView.frame.size)
         
         
         gameView.ignoresSiblingOrder = true
@@ -43,7 +42,6 @@ class HomeViewController : UIViewController {
         gameView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI) * 3 / 2)
         
         self.view.addSubview(gameView)
-        println(gameView.frame.origin)
         gameView.frame.origin = CGPoint(x: ((1-widthFraction)/2) * self.view.frame.width, y: 20)
         self.navigationController!.interactivePopGestureRecognizer.enabled = false
     }

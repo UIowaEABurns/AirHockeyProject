@@ -86,12 +86,11 @@ public class WinScreen : SKNode, TouchHandlerDelegate {
     }
     
     public func handleRematch() {
-        println("rematch!")
         self.scene!.view!.presentScene(GameScene(size: self.scene!.size, p1: parentScene.userOne, p2: parentScene.userTwo, profile: parentScene.settingsProfile,sound: parentScene.soundManager, nav: parentScene.navigationController), transition: SKTransition.fadeWithColor(UIColor.blackColor(), duration: 1.5))
         
     }
     public func handleExit() {
-        println("exit!")
+        parentScene.navigationController!.popViewControllerAnimated(true)
     }
 
     required public init?(coder aDecoder: NSCoder) {

@@ -73,7 +73,6 @@ public class Themes : NSObject, NSXMLParserDelegate {
     public func parser(parser: NSXMLParser!, foundCharacters string: String!) {
     }
     public  func parser(parser: NSXMLParser!, parseErrorOccurred parseError: NSError!) {
-        println(parseError)
     }
     
     public class func getThemeByName(name : String) -> Theme? {
