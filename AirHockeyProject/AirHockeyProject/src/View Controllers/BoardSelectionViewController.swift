@@ -67,7 +67,7 @@ class BoardSelectionViewController : UIViewController {
 
                     selectedView = curView
                     selectedView!.layer.borderColor = UIColor.greenColor().CGColor
-                    println(selectedView!.theme.boardName)
+                    SoundManager().playButtonPressedSound()
                 }
             }
             

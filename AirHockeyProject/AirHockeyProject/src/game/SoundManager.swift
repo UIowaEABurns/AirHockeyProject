@@ -14,21 +14,28 @@ private var paddleClickPlayer : AVAudioPlayer? = nil
 private var goalPlayer : AVAudioPlayer? = nil
 
 private var buttonPlayer : AVAudioPlayer? = nil
-
-public class SoundManager {
+private var soundManagerDelegate = SoundManager()
+public class SoundManager : NSObject, AVAudioPlayerDelegate {
     var isMuted = false // whether THIS INSTANCE is muted
     private func playSound(p: AVAudioPlayer?) {
         if p==nil {
             return
         }
         if (!muted && !isMuted) {
-            let player = p!
-            if (player.playing) {
-                player.stop()
-                player.currentTime = 0.0
+            dispatch_async(dispatch_get_main_queue()) {
+                let player = p!
+                if (player.playing) {
+                    //player.stop()
+                    //player.currentTime = 0.0
+                } else {
+                    player.play()
+
+                }
+                
             }
             
-            player.play()
+            
+            
         }
     }
     
@@ -81,14 +88,13 @@ public class SoundManager {
         if (isMuted) {
             return
         }
-        // Removed deprecated use of AVAudioSessionDelegate protocol
-        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
-        AVAudioSession.sharedInstance().setActive(true, error: nil)
+        
         
         
         let wallClick = SoundManager.getSoundURL(t.getPuckWallSoundName(), type: "mp3")
         if (wallClick != nil) {
             wallClickPlayer = AVAudioPlayer(contentsOfURL: wallClick, error: nil)
+            wallClickPlayer!.delegate = soundManagerDelegate
             wallClickPlayer!.prepareToPlay()
         }
         
@@ -96,6 +102,7 @@ public class SoundManager {
         let paddleClick = SoundManager.getSoundURL(t.getPuckPaddleSoundName(), type: "mp3")
         if (paddleClick != nil) {
             paddleClickPlayer = AVAudioPlayer(contentsOfURL: paddleClick, error: nil)
+            paddleClickPlayer!.delegate = soundManagerDelegate
             paddleClickPlayer!.prepareToPlay()
         }
         
@@ -138,6 +145,11 @@ public class SoundManager {
     
     //this is executed on startup to load some basic system sounds, and it also starts the bgPlayer
     public class func setupSystemSounds() {
+        // Removed deprecated use of AVAudioSessionDelegate protocol
+        
+        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategorySoloAmbient, error: nil)
+        AVAudioSession.sharedInstance().setActive(true, error: nil)
+        
         let menuSound =  SoundManager.getSoundURL("menuSelect", type: ".mp3")
         if (menuSound != nil) {
             buttonPlayer = AVAudioPlayer(contentsOfURL: menuSound, error: nil)
@@ -148,11 +160,14 @@ public class SoundManager {
         if (music != nil ) {
             bgPlayer = AVAudioPlayer(contentsOfURL: music, error: nil)
             bgPlayer!.prepareToPlay()
-            println("playing bg music")
             SoundManager().playMusic(bgPlayer)
         }
     }
     
+    public func audioPlayerDidFinishPlaying(player: AVAudioPlayer!, successfully flag: Bool) {
+        println("called")
+        player.prepareToPlay()
+    }
     
     
 }

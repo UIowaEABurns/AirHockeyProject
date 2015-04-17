@@ -29,7 +29,6 @@ public class GameUtil {
             vertEdge.physicsBody=SKPhysicsBody(edgeFromPoint: CGPoint(x: 0,y: 0), toPoint: CGPoint(x: vertEdge.frame.width, y: vertEdge.frame.height))
             
             vertEdge.physicsBody!.categoryBitMask = category
-            vertEdge.physicsBody!.usesPreciseCollisionDetection = true
             
             
         }
@@ -55,7 +54,6 @@ public class GameUtil {
             vertEdge.physicsBody=SKPhysicsBody(edgeFromPoint: CGPoint(x: 0,y: 0), toPoint: CGPoint(x: vertEdge.frame.width, y: vertEdge.frame.height))
             
             vertEdge.physicsBody!.categoryBitMask = category
-            vertEdge.physicsBody!.usesPreciseCollisionDetection = true
             
             
         }
@@ -80,7 +78,6 @@ public class GameUtil {
             edge.physicsBody=SKPhysicsBody(edgeFromPoint: CGPoint(x: -2,y: 0), toPoint: CGPoint(x: edge.frame.width+4, y: edge.frame.height))
             
             edge.physicsBody!.categoryBitMask = category
-            edge.physicsBody!.usesPreciseCollisionDetection = true
             
             
         }

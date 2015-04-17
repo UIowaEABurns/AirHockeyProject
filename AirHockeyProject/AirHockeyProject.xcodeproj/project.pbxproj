@@ -1002,7 +1002,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e43e785a-8a8f-4403-ac90-fe98fb8e3e6c";
+				PROVISIONING_PROFILE = "e29d9323-2623-4b24-9172-4bcf0a1382db";
 			};
 			name = Debug;
 		};
@@ -1018,7 +1018,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e43e785a-8a8f-4403-ac90-fe98fb8e3e6c";
+				PROVISIONING_PROFILE = "e29d9323-2623-4b24-9172-4bcf0a1382db";
 			};
 			name = Release;
 		};

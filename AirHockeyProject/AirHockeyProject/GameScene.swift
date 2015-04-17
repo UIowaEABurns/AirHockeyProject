@@ -162,6 +162,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         if (contact.bodyA.node!.name == PUCK_NAME || contact.bodyB.node!.name == PUCK_NAME) {
+            
             EffectManager.runSparkEffect(contact.contactPoint, parent: self)
             //puck colliding with paddle
             if (contact.bodyA.categoryBitMask == paddleCategory || contact.bodyB.categoryBitMask == paddleCategory) {
