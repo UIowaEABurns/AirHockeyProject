@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class ThemeView : UIView {
-    private var theme : Theme!
+    var theme : Theme!
    
     @IBOutlet weak var boardImage: UIImageView!
     @IBOutlet weak var boardNameField: UILabel!
@@ -26,6 +26,9 @@ class ThemeView : UIView {
         
         boardImage.image = UIImage(contentsOfFile: theme.getTableImageFile())
         backgroundImage.image = UIImage(contentsOfFile: theme.getBackgroundImageFile())
+        
+        
+        boardImage.center = backgroundImage.center
     }
     
    
@@ -40,10 +43,12 @@ class ThemeView : UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         NSBundle.mainBundle().loadNibNamed("ThemeView", owner: self, options: nil)
+        self.contentView.bounds.size = frame.size
+        self.contentView.frame = frame
         
-        self.bounds = self.contentView.bounds
-
         self.addSubview(self.contentView)
+        
+        
     }
     
    

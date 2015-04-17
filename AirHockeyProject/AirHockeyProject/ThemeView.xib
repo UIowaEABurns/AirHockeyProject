@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ThemeView" customModule="AirHockeyProject" customModuleProvider="target">
@@ -20,8 +21,8 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x9F-Pc-ivJ">
                     <rect key="frame" x="8" y="46" width="236" height="272"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obH-Q6-mqh">
-                    <rect key="frame" x="29" y="64" width="200" height="236"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="obH-Q6-mqh">
+                    <rect key="frame" x="26" y="64" width="200" height="236"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKU-Yl-RsM">
                     <rect key="frame" x="8" y="8" width="236" height="30"/>
@@ -40,21 +41,47 @@
                 </label>
             </subviews>
             <constraints>
+                <constraint firstItem="x9F-Pc-ivJ" firstAttribute="top" secondItem="obH-Q6-mqh" secondAttribute="bottom" constant="-254" id="0Za-yC-XIb"/>
                 <constraint firstItem="KKU-Yl-RsM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="0wu-IN-tfN"/>
+                <constraint firstItem="obH-Q6-mqh" firstAttribute="top" secondItem="KKU-Yl-RsM" secondAttribute="bottom" constant="26" id="43W-ja-Fv9"/>
                 <constraint firstAttribute="trailing" secondItem="KKU-Yl-RsM" secondAttribute="trailing" constant="8" id="6Rg-ED-4Ou"/>
                 <constraint firstAttribute="bottom" secondItem="x9F-Pc-ivJ" secondAttribute="bottom" constant="8" id="9Gq-ie-EYq"/>
+                <constraint firstItem="obH-Q6-mqh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="29" id="DKn-W3-0Md"/>
+                <constraint firstItem="x9F-Pc-ivJ" firstAttribute="leading" secondItem="obH-Q6-mqh" secondAttribute="trailing" constant="-218" id="Dc7-hJ-oNj"/>
+                <constraint firstAttribute="trailing" secondItem="obH-Q6-mqh" secondAttribute="trailing" constant="26" id="HJG-6b-fV0"/>
+                <constraint firstItem="x9F-Pc-ivJ" firstAttribute="width" secondItem="obH-Q6-mqh" secondAttribute="height" multiplier="1:1" id="Iao-gz-NSk"/>
+                <constraint firstItem="x9F-Pc-ivJ" firstAttribute="centerY" secondItem="obH-Q6-mqh" secondAttribute="centerY" id="RrM-5r-u4n"/>
+                <constraint firstItem="obH-Q6-mqh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="26" id="SEu-fJ-X0M"/>
                 <constraint firstAttribute="centerX" secondItem="KKU-Yl-RsM" secondAttribute="centerX" id="SOS-1K-mM0"/>
+                <constraint firstItem="x9F-Pc-ivJ" firstAttribute="centerY" secondItem="obH-Q6-mqh" secondAttribute="centerY" id="YFx-wH-kcH"/>
+                <constraint firstItem="obH-Q6-mqh" firstAttribute="leading" secondItem="x9F-Pc-ivJ" secondAttribute="trailing" constant="-215" id="Ziz-TR-YNm"/>
+                <constraint firstAttribute="centerY" secondItem="obH-Q6-mqh" secondAttribute="centerY" constant="-19" id="cjr-t2-vnd"/>
                 <constraint firstItem="x9F-Pc-ivJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="fI5-hq-WTn"/>
+                <constraint firstItem="x9F-Pc-ivJ" firstAttribute="width" secondItem="obH-Q6-mqh" secondAttribute="width" id="gMr-RZ-6sP"/>
+                <constraint firstItem="obH-Q6-mqh" firstAttribute="leading" secondItem="x9F-Pc-ivJ" secondAttribute="trailing" constant="-215" id="kdt-sF-PTj"/>
+                <constraint firstItem="x9F-Pc-ivJ" firstAttribute="centerX" secondItem="obH-Q6-mqh" secondAttribute="centerX" id="keL-X9-ln2"/>
+                <constraint firstItem="x9F-Pc-ivJ" firstAttribute="centerX" secondItem="obH-Q6-mqh" secondAttribute="centerX" id="msO-pr-Vh7"/>
                 <constraint firstItem="x9F-Pc-ivJ" firstAttribute="top" secondItem="KKU-Yl-RsM" secondAttribute="bottom" constant="8" id="sih-PC-2Qt"/>
+                <constraint firstItem="x9F-Pc-ivJ" firstAttribute="leading" secondItem="obH-Q6-mqh" secondAttribute="trailing" constant="-218" id="tes-Ph-9Yf"/>
                 <constraint firstAttribute="trailing" secondItem="x9F-Pc-ivJ" secondAttribute="trailing" constant="8" id="xMj-gv-3wF"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                    <integer key="value" value="3"/>
-                </userDefinedRuntimeAttribute>
-            </userDefinedRuntimeAttributes>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="0Za-yC-XIb"/>
+                    <exclude reference="Dc7-hJ-oNj"/>
+                    <exclude reference="Iao-gz-NSk"/>
+                    <exclude reference="RrM-5r-u4n"/>
+                    <exclude reference="gMr-RZ-6sP"/>
+                    <exclude reference="msO-pr-Vh7"/>
+                    <exclude reference="tes-Ph-9Yf"/>
+                    <exclude reference="DKn-W3-0Md"/>
+                    <exclude reference="Ziz-TR-YNm"/>
+                    <exclude reference="cjr-t2-vnd"/>
+                    <exclude reference="kdt-sF-PTj"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="330" y="347"/>
         </view>
     </objects>

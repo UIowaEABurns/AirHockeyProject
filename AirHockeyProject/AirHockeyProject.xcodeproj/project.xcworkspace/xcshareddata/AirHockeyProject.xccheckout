@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>E2D2C7BE-80E7-477E-A534-FFD266E7508A</string>
 	<key>IDESourceControlProjectName</key>
-	<string>AirHockeyProject</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>877C89C610FFA36C51B9622B9581DCE1AAF38053</key>
 		<string>https://github.com/UIowaEABurns/AirHockeyProject.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>AirHockeyProject/AirHockeyProject.xcodeproj</string>
+	<string>AirHockeyProject/AirHockeyProject.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>877C89C610FFA36C51B9622B9581DCE1AAF38053</key>
