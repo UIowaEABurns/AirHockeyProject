@@ -14,14 +14,15 @@ let defaults=NSUserDefaults.standardUserDefaults()
 //size constants for the game
 public var TABLE_WIDTH_FRACTION : CGFloat = 0.8 // how tall / wide should the table be compared to the screen
 public var TABLE_HEIGHT_FRACTION : CGFloat = 0.96
+public var GOAL_WIDTH_RATIO : CGFloat = 0.40
 public var SCORE_DISPLAY_PADDING : CGFloat = 100 // how many points away from the timer should we place the scores?
 
 //display constants for the game
 public var OVERLAY_COLOR : SKColor = SKColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.6)
 
 //physical constants for the game
-public var MAX_HUMAN_PADDLE_SPEED : CGFloat=2000.0
-public var MAX_HUMAN_PADDLE_ACCEL : CGFloat = 2000.0
+public var MAX_HUMAN_PADDLE_SPEED : CGFloat=3000.0
+public var MAX_HUMAN_PADDLE_ACCEL : CGFloat = 3000.0
 
 public var MAX_EASY_AI_PADDLE_SPEED : CGFloat = 600.0
 public var MAX_EASY_AI_PADDLE_ACCEL : CGFloat = 600.0
@@ -30,7 +31,7 @@ public var MAX_MEDIUM_AI_PADDLE_ACCEL : CGFloat = 800.0
 public var MAX_HARD_AI_PADDLE_SPEED : CGFloat = 1300.0
 public var MAX_HARD_AI_PADDLE_ACCEL : CGFloat = 1300.0
 
-public var MAX_PUCK_SPEED : CGFloat = 1000.0
+public var MAX_PUCK_SPEED : CGFloat = 2000.0
 
 public var paddlePuckMassRatio : CGFloat = 6 // how much more should the paddles weigh as compared to the puck
 public var TABLE_BARRIER_RESTITUTION : CGFloat = 0.01 // affects how "bouncy" the invisible barrier in the middle of the table is
@@ -60,15 +61,15 @@ public class AirHockeyConstants {
         
         
         //These are ratios of board width to paddle radius
-        s.setPlayerOnePaddleRadius(0.05)
-        s.setPlayerTwoPaddleRadius(0.05)
+        s.setPlayerOnePaddleRadius(0.06)
+        s.setPlayerTwoPaddleRadius(0.06)
         s.setPuckRadius(0.03)
         s.setAIDifficulty(2)
         s.setTimeLimit(420) // seven minutes
         s.setGoalLimit(7)
         s.setPlayerOnePaddleColor(PaddleColor.Red)
         s.setPlayerTwoPaddleColor(PaddleColor.Blue)
-        s.setThemeName("classic")
+        s.setThemeName("space")
         s.setPowerupsEnabled(true)
         return s
     }

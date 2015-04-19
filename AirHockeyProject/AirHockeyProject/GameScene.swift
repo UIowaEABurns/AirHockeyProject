@@ -125,7 +125,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func addPauseButtons() {
-        let pauseButtonSize = CGSize(width: ((1-TABLE_WIDTH_FRACTION)/2) * self.frame.width, height: 0.03 * self.frame.height)
+        let pauseButtonSize = CGSize(width: ((1-TABLE_WIDTH_FRACTION)/2) - 5 * self.frame.width, height: 0.03 * self.frame.height)
         
         
         pauseButton  = Button(fontNamed: theme.fontName, block: {self.pauseGame()}, s : pauseButtonSize)
@@ -133,7 +133,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         pauseButton.setText("Pause")
         pauseButton.name = "pause"
     
-        pauseButton.position = CGPoint(x: self.frame.minX+5, y: self.frame.minY+5)
+        pauseButton.position = CGPoint(x: self.frame.minX+2, y: self.frame.minY)
         touchHandlers.append(pauseButton)
         
         
@@ -199,6 +199,8 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
                 player = getPlayerFromPlayerNumber(pNumber)
             }
             
+            soundManager.playPowerupSound()
+            
             powerup!.touched(player!)
         }
     }
@@ -241,22 +243,22 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             inputManager = InputManager(t: playingTable)
             if (!(userOne==nil)) {
-                playerOne=HumanPlayer(i: 1,input: inputManager,p: playingTable,s: userOne?.getStats())
+                playerOne=HumanPlayer(i: 1,input: inputManager,p: self,s: userOne?.getStats())
 
             } else {
                 settingsProfile.getAIDifficulty()
-                playerOne=HumanPlayer(i: 1,input: inputManager,p: playingTable,s: nil)
+                playerOne=HumanPlayer(i: 1,input: inputManager,p: self,s: nil)
 
                 //playerOne=AIPlayer(diff: settingsProfile.getAIDifficulty()!, i: 1,input: inputManager,p: playingTable)
 
             }
             if !(userTwo==nil) {
-                playerTwo=HumanPlayer(i: 2, input: inputManager,p: playingTable, s: userTwo!.getStats())
+                playerTwo=HumanPlayer(i: 2, input: inputManager,p: self, s: userTwo!.getStats())
 
             } else {
-                playerTwo=HumanPlayer(i: 2,input: inputManager,p: playingTable, s: nil)
+                //playerTwo=HumanPlayer(i: 2,input: inputManager,p: self, s: nil)
 
-                //playerTwo=AIPlayer(diff: settingsProfile.getAIDifficulty()!, i: 2, input: inputManager,p: playingTable)
+                playerTwo=AIPlayer(diff: settingsProfile.getAIDifficulty()!, i: 2, input: inputManager,p: self)
 
             }
             var radius = playingTable.frame.width*CGFloat(settingsProfile.getPlayerOnePaddleRadius()!)
@@ -346,7 +348,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         startupNode.zPosition = zPositionStartTimer
         startupNode.position = CGPoint(x: self.frame.midX,y: self.frame.midY - startupNode.frame.height/2)
         startupNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
-        
+        startupNode.setBlock({self.soundManager.playCountdownSound()})
         self.addChild(startupNode)
         startupNode.timer.start()
         
@@ -461,7 +463,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     private func makeTable(rect: CGRect) -> Table {
         // TODO: goal width should be configurable
         var table : Table = Table(imageNamed: theme.boardName+"Table.png")
-        table.configureTable(rect, goalWidthRatio: 0.30)
+        table.configureTable(rect, goalWidthRatio: GOAL_WIDTH_RATIO)
         return table
     }
     
@@ -621,14 +623,11 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.gameStarted = true
                 startupNode.hidden = true
                 
-                
+                soundManager.playGoSound()
                 self.addChild(goNode)
                 
                 let x : SKAction = SKAction.sequence([SKAction.waitForDuration(0.4), SKAction.fadeOutWithDuration(0.4)])
                 goNode.runAction(x)
-                
-                
-                
             }
         }
         
@@ -673,6 +672,9 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     public func isGameRunning() -> Bool {
         return !isGamePaused() && !isGameConcluded() && isGameStarted()
+    }
+    public func getPowerup() -> Powerup? {
+        return powerup
     }
     
     public func applyLighting(node : SKNode) {

@@ -14,6 +14,13 @@ private var paddleClickPlayer : AVAudioPlayer? = nil
 private var goalPlayer : AVAudioPlayer? = nil
 
 private var buttonPlayer : AVAudioPlayer? = nil
+
+private var powerupPlayer : AVAudioPlayer? = nil
+private var countdownPlayer : AVAudioPlayer? = nil
+private var goPlayer : AVAudioPlayer? = nil
+
+
+
 private var soundManagerDelegate = SoundManager()
 public class SoundManager : NSObject, AVAudioPlayerDelegate {
     var isMuted = false // whether THIS INSTANCE is muted
@@ -39,7 +46,7 @@ public class SoundManager : NSObject, AVAudioPlayerDelegate {
         }
     }
     
-    private  func playMusic(p: AVAudioPlayer?) {
+    private func playMusic(p: AVAudioPlayer?) {
         if (p==nil) {
             return
         }
@@ -68,6 +75,16 @@ public class SoundManager : NSObject, AVAudioPlayerDelegate {
     
     public func playButtonPressedSound() {
         playSoundEffect(buttonPlayer)
+    }
+    
+    public func playCountdownSound() {
+        playSoundEffect(countdownPlayer)
+    }
+    public func playGoSound() {
+        playSoundEffect(goPlayer)
+    }
+    public func playPowerupSound() {
+        playSoundEffect(powerupPlayer)
     }
     
     private class func getSoundURL(fileName : String, type : String) -> NSURL? {
@@ -146,7 +163,6 @@ public class SoundManager : NSObject, AVAudioPlayerDelegate {
     
     //this is executed on startup to load some basic system sounds, and it also starts the bgPlayer
     public class func setupSystemSounds() {
-        // Removed deprecated use of AVAudioSessionDelegate protocol
         
         AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategorySoloAmbient, error: nil)
         AVAudioSession.sharedInstance().setActive(true, error: nil)
@@ -154,7 +170,8 @@ public class SoundManager : NSObject, AVAudioPlayerDelegate {
         let menuSound =  SoundManager.getSoundURL("menuSelect", type: ".mp3")
         if (menuSound != nil) {
             buttonPlayer = AVAudioPlayer(contentsOfURL: menuSound, error: nil)
-            buttonPlayer?.prepareToPlay()
+            buttonPlayer!.delegate = soundManagerDelegate
+            buttonPlayer!.prepareToPlay()
         }
         
         let music = SoundManager.getSoundURL("menuBackgroundMusic", type: "mp3")
@@ -163,10 +180,30 @@ public class SoundManager : NSObject, AVAudioPlayerDelegate {
             bgPlayer!.prepareToPlay()
             SoundManager().playMusic(bgPlayer)
         }
+        
+        let powerupSound = SoundManager.getSoundURL("Powerup",type: "wav")
+        if (powerupSound != nil) {
+            powerupPlayer = AVAudioPlayer(contentsOfURL: powerupSound, error: nil)
+            powerupPlayer!.delegate = soundManagerDelegate
+            powerupPlayer!.prepareToPlay()
+        }
+        
+        let countdownSound = SoundManager.getSoundURL("Countdown",type: "wav")
+        if (countdownSound != nil) {
+            countdownPlayer = AVAudioPlayer(contentsOfURL: countdownSound, error: nil)
+            countdownPlayer!.delegate = soundManagerDelegate
+            countdownPlayer!.prepareToPlay()
+        }
+        
+        let goSound = SoundManager.getSoundURL("GoSound",type: "wav")
+        if (goSound != nil) {
+            goPlayer = AVAudioPlayer(contentsOfURL: goSound, error: nil)
+            goPlayer!.delegate = soundManagerDelegate
+            goPlayer!.prepareToPlay()
+        }
     }
     
     public func audioPlayerDidFinishPlaying(player: AVAudioPlayer!, successfully flag: Bool) {
-        println("called")
         player.prepareToPlay()
     }
     

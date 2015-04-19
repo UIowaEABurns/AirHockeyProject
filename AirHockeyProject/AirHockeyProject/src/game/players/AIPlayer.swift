@@ -41,6 +41,7 @@ private enum AIState {
     case Strike // hit the puck ASAP
     case Agress // actively block the front of the court
     case Align // try to set up for a strike
+    case Powerup // try to obtain a powerup
 }
 
 
@@ -57,7 +58,7 @@ public class AIPlayer : Player  {
     
     private var puck : Puck!
     private var defendingHalf : CGRect!
-    init(diff : AIDifficulty, i: Int, input: InputManager, p: Table) {
+    init(diff : AIDifficulty, i: Int, input: InputManager, p: GameScene) {
         difficulty = diff
         state = AIState.Defend
         super.init(i: i, input: input, p: p)
@@ -102,6 +103,14 @@ public class AIPlayer : Player  {
     private func getStrikeVector() -> CGVector {
         return self.getPaddleVectorThroughPoint(puck.position)
     }
+    private func getPowerupVector() -> CGVector? {
+        if let powerup = self.scene.getPowerup() {
+            
+            return self.getPaddleVectorThroughPoint(powerup.position)
+        }
+        
+        return nil
+    }
     
     private func getRandomPointFromPoint(point : CGPoint) -> CGPoint {
         let xVar = GameUtil.getRandomFloatInRange(-200, max: 200)
@@ -124,6 +133,12 @@ public class AIPlayer : Player  {
             return Geometry.getAverageVector([trackPuckHorizontally(),getStrikeVector()])
         } else if (self.state == AIState.Defend) {
             return Geometry.getAverageVector([trackPuckHorizontally(),getDefendVector()])
+        } else if (self.state == AIState.Powerup) {
+            let powerVector = getPowerupVector()
+            if (powerVector != nil) {
+                return Geometry.getAverageVector([powerVector!])
+
+            }
         }
         
         return nil
@@ -140,7 +155,14 @@ public class AIPlayer : Player  {
                 self.state = AIState.Strike
             }
         } else {
-            self.state = AIState.Defend
+            let powerup = self.scene.getPowerup()
+        
+            if (powerup != nil && powerup!.parent != nil) {
+                self.state = AIState.Powerup
+            } else {
+                self.state = AIState.Defend
+
+            }
         }
         
     }

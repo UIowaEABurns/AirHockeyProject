@@ -58,6 +58,11 @@
 		714449E01AE1C4F800535D3D /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 714449D41AE1C4E600535D3D /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7155B2B91ADF917000B71479 /* SystemSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7155B2B81ADF917000B71479 /* SystemSettingsViewController.swift */; };
 		716373B01ACB9E1200B1FF7D /* zPositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716373AF1ACB9E1200B1FF7D /* zPositions.swift */; };
+		7169DE891AE40B1C006B34C9 /* GoSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE881AE40B1C006B34C9 /* GoSound.wav */; };
+		7169DE8F1AE40B21006B34C9 /* Countdown.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE8E1AE40B21006B34C9 /* Countdown.wav */; };
+		7169DE911AE40B2B006B34C9 /* Powerup.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE901AE40B2B006B34C9 /* Powerup.wav */; };
+		7169DE931AE40E4A006B34C9 /* UnderwaterFont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE921AE40E4A006B34C9 /* UnderwaterFont.otf */; };
+		7169DE951AE41248006B34C9 /* VortexPowerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169DE941AE41248006B34C9 /* VortexPowerup.swift */; };
 		71763AD41AE179BD00155C15 /* Powerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71763AD31AE179BD00155C15 /* Powerup.swift */; };
 		71763AD61AE182DD00155C15 /* PowerupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71763AD51AE182DD00155C15 /* PowerupDelegate.swift */; };
 		71763AD81AE186D800155C15 /* SizeIncreasePowerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71763AD71AE186D800155C15 /* SizeIncreasePowerup.swift */; };
@@ -104,7 +109,6 @@
 		71E166771ADDE6A00042D96A /* HawkeyeFont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71E1666F1ADDE6A00042D96A /* HawkeyeFont.otf */; };
 		71E166781ADDE6A00042D96A /* SoccerFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71E166701ADDE6A00042D96A /* SoccerFont.ttf */; };
 		71E166791ADDE6A00042D96A /* SpaceFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71E166711ADDE6A00042D96A /* SpaceFont.ttf */; };
-		71E1667A1ADDE6A00042D96A /* UnderwaterFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71E166721ADDE6A00042D96A /* UnderwaterFont.ttf */; };
 		71E1667B1ADDE6A00042D96A /* WoodFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71E166731ADDE6A00042D96A /* WoodFont.ttf */; };
 		71E166801ADDECA40042D96A /* MuteWidget.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E1667F1ADDECA40042D96A /* MuteWidget.xib */; };
 		71E166821ADDEDE90042D96A /* MuteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E166811ADDEDE90042D96A /* MuteWidget.swift */; };
@@ -211,7 +215,7 @@
 		71008D621AD04FB2009B3444 /* Spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Spark.sks; sourceTree = "<group>"; };
 		710435B01AC7103B003E9458 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		710435B51AC74BB9003E9458 /* InputManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputManager.swift; sourceTree = "<group>"; };
-		7107A2951AC398B600706EC8 /* AirHockeyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirHockeyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7107A2951AC398B600706EC8 /* Face Off.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Face Off.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7107A2991AC398B600706EC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7107A29A1AC398B600706EC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7107A29E1AC398B600706EC8 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -259,6 +263,11 @@
 		714449CA1AE1C4E500535D3D /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		7155B2B81ADF917000B71479 /* SystemSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemSettingsViewController.swift; sourceTree = "<group>"; };
 		716373AF1ACB9E1200B1FF7D /* zPositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = zPositions.swift; sourceTree = "<group>"; };
+		7169DE881AE40B1C006B34C9 /* GoSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GoSound.wav; sourceTree = "<group>"; };
+		7169DE8E1AE40B21006B34C9 /* Countdown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Countdown.wav; sourceTree = "<group>"; };
+		7169DE901AE40B2B006B34C9 /* Powerup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Powerup.wav; sourceTree = "<group>"; };
+		7169DE921AE40E4A006B34C9 /* UnderwaterFont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UnderwaterFont.otf; sourceTree = "<group>"; };
+		7169DE941AE41248006B34C9 /* VortexPowerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VortexPowerup.swift; sourceTree = "<group>"; };
 		71763AD31AE179BD00155C15 /* Powerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Powerup.swift; sourceTree = "<group>"; };
 		71763AD51AE182DD00155C15 /* PowerupDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerupDelegate.swift; sourceTree = "<group>"; };
 		71763AD71AE186D800155C15 /* SizeIncreasePowerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeIncreasePowerup.swift; sourceTree = "<group>"; };
@@ -304,7 +313,6 @@
 		71E1666F1ADDE6A00042D96A /* HawkeyeFont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HawkeyeFont.otf; sourceTree = "<group>"; };
 		71E166701ADDE6A00042D96A /* SoccerFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoccerFont.ttf; sourceTree = "<group>"; };
 		71E166711ADDE6A00042D96A /* SpaceFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpaceFont.ttf; sourceTree = "<group>"; };
-		71E166721ADDE6A00042D96A /* UnderwaterFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UnderwaterFont.ttf; sourceTree = "<group>"; };
 		71E166731ADDE6A00042D96A /* WoodFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WoodFont.ttf; sourceTree = "<group>"; };
 		71E1667F1ADDECA40042D96A /* MuteWidget.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MuteWidget.xib; sourceTree = "<group>"; };
 		71E166811ADDEDE90042D96A /* MuteWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuteWidget.swift; sourceTree = "<group>"; };
@@ -391,7 +399,7 @@
 		7107A2961AC398B600706EC8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7107A2951AC398B600706EC8 /* AirHockeyProject.app */,
+				7107A2951AC398B600706EC8 /* Face Off.app */,
 				7107A2AE1AC398B600706EC8 /* AirHockeyProjectTests.xctest */,
 			);
 			name = Products;
@@ -575,6 +583,7 @@
 				71763AD71AE186D800155C15 /* SizeIncreasePowerup.swift */,
 				714449BF1AE1C35F00535D3D /* MagnetPowerup.swift */,
 				714449C81AE1C3E500535D3D /* LightPowerup.swift */,
+				7169DE941AE41248006B34C9 /* VortexPowerup.swift */,
 			);
 			path = powerup;
 			sourceTree = "<group>";
@@ -592,13 +601,13 @@
 		717F86011AD0F3E000576E8E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				7169DE921AE40E4A006B34C9 /* UnderwaterFont.otf */,
 				71E1666C1ADDE6A00042D96A /* BeachFont.ttf */,
 				71E1666D1ADDE6A00042D96A /* CarFont.ttf */,
 				71E1666E1ADDE6A00042D96A /* DesertFont.TTF */,
 				71E1666F1ADDE6A00042D96A /* HawkeyeFont.otf */,
 				71E166701ADDE6A00042D96A /* SoccerFont.ttf */,
 				71E166711ADDE6A00042D96A /* SpaceFont.ttf */,
-				71E166721ADDE6A00042D96A /* UnderwaterFont.ttf */,
 				71E166731ADDE6A00042D96A /* WoodFont.ttf */,
 				717F86021AD0F3E000576E8E /* style-7_digital-7 */,
 			);
@@ -725,6 +734,9 @@
 		71D803CA1ADECCF4000BE4A3 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				7169DE901AE40B2B006B34C9 /* Powerup.wav */,
+				7169DE8E1AE40B21006B34C9 /* Countdown.wav */,
+				7169DE881AE40B1C006B34C9 /* GoSound.wav */,
 				71D803CB1ADECCF4000BE4A3 /* confirmSound.mp3 */,
 				71D803CC1ADECCF4000BE4A3 /* menuBackgroundMusic.mp3 */,
 				71D803CD1ADECCF4000BE4A3 /* menuSelect.mp3 */,
@@ -777,7 +789,7 @@
 			);
 			name = AirHockeyProject;
 			productName = AirHockeyProject;
-			productReference = 7107A2951AC398B600706EC8 /* AirHockeyProject.app */;
+			productReference = 7107A2951AC398B600706EC8 /* Face Off.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7107A2AD1AC398B600706EC8 /* AirHockeyProjectTests */ = {
@@ -907,6 +919,7 @@
 				71D803CF1ADECCF4000BE4A3 /* menuBackgroundMusic.mp3 in Resources */,
 				71F0A14B1AD8548A003AEF5C /* underwaterBackgroundMusic.mp3 in Resources */,
 				7119B4D41AD24215002CA09B /* classicTable.png in Resources */,
+				7169DE891AE40B1C006B34C9 /* GoSound.wav in Resources */,
 				7107A2A91AC398B600706EC8 /* LaunchScreen.xib in Resources */,
 				71D803CE1ADECCF4000BE4A3 /* confirmSound.mp3 in Resources */,
 				9F627A101ADE0DCE00DDD0AB /* LoginView.xib in Resources */,
@@ -931,6 +944,7 @@
 				7119B4BB1AD1063C002CA09B /* spaceTable.png in Resources */,
 				71F0A14C1AD8548A003AEF5C /* underwaterPaddle.png in Resources */,
 				71E166891ADDF3FF0042D96A /* soundOnIcon.png in Resources */,
+				7169DE8F1AE40B21006B34C9 /* Countdown.wav in Resources */,
 				7119B4D81AD4B25F002CA09B /* Stars.sks in Resources */,
 				71F0A14E1AD8548A003AEF5C /* underwaterTable.png in Resources */,
 				9F627A061ADCA5AF00DDD0AB /* TwoPBaseView.xib in Resources */,
@@ -938,7 +952,7 @@
 				71F0600B1AE08394000A7F9F /* hawkeyePuck.png in Resources */,
 				7107A2CE1AC398E300706EC8 /* airhockeySchema.sql in Resources */,
 				71008D5D1AD04F56009B3444 /* bokeh.png in Resources */,
-				71E1667A1ADDE6A00042D96A /* UnderwaterFont.ttf in Resources */,
+				7169DE931AE40E4A006B34C9 /* UnderwaterFont.otf in Resources */,
 				71E166621ADB38000042D96A /* icePuck.png in Resources */,
 				71E166791ADDE6A00042D96A /* SpaceFont.ttf in Resources */,
 				71E166781ADDE6A00042D96A /* SoccerFont.ttf in Resources */,
@@ -960,6 +974,7 @@
 				71E166641ADB38000042D96A /* Thumbs.db in Resources */,
 				7107A2CD1AC398E300706EC8 /* airhockey.sqlite3 in Resources */,
 				71E166691ADB3FEE0042D96A /* Snow.sks in Resources */,
+				7169DE911AE40B2B006B34C9 /* Powerup.wav in Resources */,
 				71008D581ACF97F1009B3444 /* GoalEmitter.sks in Resources */,
 				71F060091AE08394000A7F9F /* hawkeyeBackground.png in Resources */,
 				7119B4BA1AD1063C002CA09B /* spacePuck.png in Resources */,
@@ -1019,6 +1034,7 @@
 				71008D511ACF8918009B3444 /* FittedLabelNode.swift in Sources */,
 				7115A5711ACB81DD0057A8B8 /* GameTimer.swift in Sources */,
 				7115A5741ACB81F10057A8B8 /* GameUtil.swift in Sources */,
+				7169DE951AE41248006B34C9 /* VortexPowerup.swift in Sources */,
 				7115A5761ACB88650057A8B8 /* Goal.swift in Sources */,
 				71763AD61AE182DD00155C15 /* PowerupDelegate.swift in Sources */,
 				7178D3601ADE00EC00834CC5 /* HomeViewController.swift in Sources */,
@@ -1167,7 +1183,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Face Off";
 				PROVISIONING_PROFILE = "e29d9323-2623-4b24-9172-4bcf0a1382db";
 			};
 			name = Debug;
@@ -1183,7 +1199,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Face Off";
 				PROVISIONING_PROFILE = "e29d9323-2623-4b24-9172-4bcf0a1382db";
 			};
 			name = Release;

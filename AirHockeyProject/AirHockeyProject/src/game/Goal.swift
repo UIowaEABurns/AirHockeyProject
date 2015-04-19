@@ -13,7 +13,7 @@ import SpriteKit
 public class Goal : SKShapeNode {
     
     private var playerNumber : Int // the player number of the DEFENDING player
-    
+    private var gravField : SKFieldNode?
     // initializes a goal with the given size and an
     //anchor point of (0,0). The top will be a barrier that will allow the puck in, and the other three sides are solid
     public init(size : CGSize, playerNum : Int) {
@@ -75,6 +75,31 @@ public class Goal : SKShapeNode {
         let action = SKAction.sequence([SKAction.waitForDuration(5), SKAction.removeFromParent()])
         emitter.runAction(action)
 
+    }
+    
+    public func addGravity() {
+        if (gravField != nil) {
+            removeGravity()
+        }
+        gravField = SKFieldNode.radialGravityField()
+        gravField!.strength = 10
+        gravField!.falloff = 0.5
+        gravField!.categoryBitMask = gravCategory
+        
+        
+        let goalEdge = self.childNodeWithName("topEdge")!
+        var p1 : CGPoint = CGPoint(x: goalEdge.frame.minX, y: goalEdge.frame.minY)
+        var p2 : CGPoint = CGPoint(x: goalEdge.frame.maxX, y: goalEdge.frame.maxY)
+        
+        gravField!.position = CGPoint(x: (p1.x + p2.x)/2 , y: (p1.y + p2.y)/2 - 100)
+        
+        self.addChild(gravField!)
+    }
+    
+    public func removeGravity() {
+        if (gravField != nil) {
+            gravField!.removeFromParent()
+        }
     }
     
 }

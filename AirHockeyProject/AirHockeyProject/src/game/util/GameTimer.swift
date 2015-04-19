@@ -13,7 +13,7 @@ import SpriteKit
 public class GameTimer : FittedLabelNode {
     public var timer : Timer
     private var singleSecond : Bool
-    
+    private var block : dispatch_block_t?
     public init(seconds : Int64, font : String, size : CGSize, singleSecond : Bool) {
         timer=Timer()
         timer.setTimeLimit(seconds)
@@ -27,6 +27,10 @@ public class GameTimer : FittedLabelNode {
         self.fontName=font
         self.fontColor=SKColor.whiteColor()
         
+    }
+    
+    public func setBlock(changeHandler : dispatch_block_t) {
+        block = changeHandler
     }
     
     public func setFinished(){
@@ -53,7 +57,16 @@ public class GameTimer : FittedLabelNode {
     }
     
     private func updateTimerText() {
+        let oldText = self.text
         self.setTextNoResize(getTimerText() as String)
+        if (self.text != oldText) {
+            if (block != nil) {
+                if (timer.isDone() != nil && !timer.isDone()!) {
+                    block!()
+
+                }
+            }
+        }
     }
    
     

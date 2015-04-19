@@ -12,7 +12,7 @@ import SpriteKit
 public class PowerupDelegate {
     
     var owningPlayer : Player?
-    private var scene : GameScene
+    var scene : GameScene
     
     init(s : GameScene) {
         scene = s

@@ -18,18 +18,19 @@ public class Player {
     
     private var inputManager : InputManager
     private var playingTable : Table
-    
+    public var scene : GameScene
     public var score : Int
 
     
     private var paddlePositionBeforeUpdate : CGPoint
 
     
-    init (i : Int, input : InputManager, p : Table) {
+    init (i : Int, input : InputManager, p : GameScene) {
        
         playerNumber = i
         score = 0
-        playingTable = p
+        playingTable = p.getPlayingTable()
+        scene = p
         inputManager = input
         paddlePositionBeforeUpdate = CGPoint(x: 0,y: 0)
     }

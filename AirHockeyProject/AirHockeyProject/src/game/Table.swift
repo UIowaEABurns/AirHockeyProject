@@ -170,4 +170,16 @@ public class Table : SKSpriteNode {
         }
         return nil
     }
+    public func getOpposingGoal(playerNumber: Int) -> Goal! {
+        for node in children {
+            let sknode = node as! SKNode
+            if sknode.name==GOAL_NAME {
+                let goal = sknode as! Goal
+                if goal.getPlayerNumber() != playerNumber {
+                    return goal
+                }
+            }
+        }
+        return nil
+    }
 }

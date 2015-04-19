@@ -16,10 +16,10 @@ public class HumanPlayer : Player {
     // the stats profile associated with this user, as they were BEFORE THE START OF THE GAME!
     private var stats : Stats?
     private var tableHalf : CGRect
-    init (i : Int, input : InputManager, p : Table, s : Stats?) {
+    init (i : Int, input : InputManager, p : GameScene, s : Stats?) {
         stats = s
         
-        tableHalf = p.getHalfForPlayer(i)
+        tableHalf = p.getPlayingTable().getHalfForPlayer(i)
         super.init(i: i, input: input, p: p)
     }
     

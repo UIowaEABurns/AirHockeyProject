@@ -13,14 +13,18 @@ public class Powerup : SKSpriteNode {
     
     
     private class func getRandomDelegate(scene : GameScene) -> PowerupDelegate {
-        let x = arc4random_uniform(3)
+        var x = arc4random_uniform(4)
+        
         if (x==0) {
             return SizeIncreasePowerup(s: scene)
         } else if (x==1) {
             return MagnetPowerup(s: scene)
         } else if (x==2) {
             return LightPowerup(s: scene)
-        } else {
+        } else if (x==3) {
+            return VortextPowerup(s: scene)
+        }
+        else {
             return SizeIncreasePowerup(s: scene)
         }
     }
@@ -69,7 +73,6 @@ public class Powerup : SKSpriteNode {
     }
     
     public func touched(p : Player) {
-        println("touched by player " + String(p.getPlayerNumber()))
         timer!.start()
         self.removeFromParent()
         delegate!.startEffect(p)
