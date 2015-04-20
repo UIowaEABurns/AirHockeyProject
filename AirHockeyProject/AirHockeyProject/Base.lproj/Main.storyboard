@@ -102,7 +102,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zK8-MN-Xx0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2275" y="915"/>
+            <point key="canvasLocation" x="-2271" y="950"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="hzt-g0-fyV">
@@ -263,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ESS-Qa-Cvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1533" y="1825"/>
+            <point key="canvasLocation" x="-1485" y="1825"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="u9d-aj-oAQ">
@@ -378,10 +378,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="878" y="950"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dYC-TT-vLi">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MTh-Fq-n4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="7WK-oY-HK2" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FKl-Cb-sC1"/>
@@ -393,9 +395,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MTh-Fq-n4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="235" y="1382"/>
+            <point key="canvasLocation" x="878" y="1696"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="LMw-Zs-eLY">

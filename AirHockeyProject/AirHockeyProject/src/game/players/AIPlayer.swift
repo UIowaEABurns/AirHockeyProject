@@ -55,6 +55,10 @@ public class AIPlayer : Player  {
     private var currentDefendPoint : CGPoint! // this is a random point somewhere near the defendPoint
     private var switchDefendPointOdds : CGFloat = 0.03
     
+    private var reactionCount : Int = 0
+    private var minReactionFrames = 15
+    private var maxReactionFrames = 60
+    
     
     private var puck : Puck!
     private var defendingHalf : CGRect!
@@ -147,24 +151,61 @@ public class AIPlayer : Player  {
     //try to figure out what state to be in during this frame
     private func setState() {
         let puckOnThisHalf = defendingHalf.contains(puck.position)
-        
+        var newState = self.state
         if (puckOnThisHalf) {
             if (puck.isIntangible()) {
-                self.state = AIState.Align
+                newState = AIState.Defend
             } else {
-                self.state = AIState.Strike
+                newState = AIState.Strike
             }
         } else {
             let powerup = self.scene.getPowerup()
         
             if (powerup != nil && powerup!.parent != nil) {
-                self.state = AIState.Powerup
+                newState = AIState.Powerup
             } else {
-                self.state = AIState.Defend
+                newState = AIState.Defend
 
             }
         }
         
+        
+        if ( newState != self.state ) {
+            if (canReact()) {
+                self.state = newState
+            }
+        }
+        
+    }
+    
+    //figures out if we can react (defined as changing states) on this frame
+    private func canReact() -> Bool {
+        reactionCount = reactionCount + 1
+        if (reactionCount >= maxReactionFrames) {
+            reactionCount = 0
+            return true
+        } else if (reactionCount < minReactionFrames) {
+            return false
+        }
+        
+        if ( GameUtil.getRandomFloat() < getReactionOdds() ) {
+            reactionCount = 0
+            return true
+        }
+
+        return false
+    }
+    
+    private func getReactionOdds() -> CGFloat {
+        if (difficulty==AIDifficulty.Easy) {
+            return 0.01
+        } else if (difficulty==AIDifficulty.Medium) {
+            return 0.1
+            
+        } else if (difficulty==AIDifficulty.Hard) {
+            return 0.5
+        }
+        return 0.1
     }
     
     override public func getMaxSpeed() -> CGFloat {
