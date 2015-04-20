@@ -11,11 +11,13 @@ import UIKit
 class TwoPBaseView: UIView {
     
     //multiple of these displays
-    //attempting to reference this in the viewcontroller to hide
+    
     @IBOutlet weak var BackButton: UIButton!
     @IBOutlet var LoginDisplay: UIView!
     @IBOutlet weak var LoginButton: UIButton!
     @IBOutlet var Display: UIView!
+    @IBOutlet var ReadyDisplay: UIView!
+    @IBOutlet weak var GuestButton: UIButton!
     
     
     required init(coder aDecoder: NSCoder) {
@@ -38,9 +40,20 @@ class TwoPBaseView: UIView {
     @IBAction func LoginButtonPressed(sender: AnyObject) {
         self.LoginDisplay.bounds = frame
         self.LoginDisplay.frame = frame
-        self.removeFromSuperview()
+        //self.removeFromSuperview()
+        self.addSubview(self.LoginDisplay)
+    }
+    @IBAction func GuestButtonPressed(sender: AnyObject) {
+        self.ReadyDisplay.bounds = frame
+        self.ReadyDisplay.frame = frame
+        self.addSubview(self.ReadyDisplay)
+    }
+    @IBAction func CancelLoginButton(sender: AnyObject) {
+        self.Display.bounds = frame
+        self.Display.frame = frame
         self.addSubview(self.Display)
     }
+    
     
     
 }

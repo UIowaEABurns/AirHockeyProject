@@ -147,6 +147,7 @@
 		71F0A14D1AD8548A003AEF5C /* underwaterPuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0A1471AD8548A003AEF5C /* underwaterPuck.png */; };
 		71F0A14E1AD8548A003AEF5C /* underwaterTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0A1481AD8548A003AEF5C /* underwaterTable.png */; };
 		71F0A1501AD85604003AEF5C /* Bubbles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 71F0A14F1AD85604003AEF5C /* Bubbles.sks */; };
+		9F318E971AE45FE6002F3821 /* ReadyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F318E961AE45FE6002F3821 /* ReadyView.xib */; };
 		9F627A011ADC9EFC00DDD0AB /* PlayerSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F627A001ADC9EFC00DDD0AB /* PlayerSelectViewController.swift */; };
 		9F627A061ADCA5AF00DDD0AB /* TwoPBaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F627A051ADCA5AF00DDD0AB /* TwoPBaseView.xib */; };
 		9F627A081ADCABA000DDD0AB /* TwoPBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F627A071ADCABA000DDD0AB /* TwoPBaseView.swift */; };
@@ -362,6 +363,7 @@
 		71F0A1471AD8548A003AEF5C /* underwaterPuck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = underwaterPuck.png; sourceTree = "<group>"; };
 		71F0A1481AD8548A003AEF5C /* underwaterTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = underwaterTable.png; sourceTree = "<group>"; };
 		71F0A14F1AD85604003AEF5C /* Bubbles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Bubbles.sks; sourceTree = "<group>"; };
+		9F318E961AE45FE6002F3821 /* ReadyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadyView.xib; sourceTree = "<group>"; };
 		9F627A001ADC9EFC00DDD0AB /* PlayerSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSelectViewController.swift; sourceTree = "<group>"; };
 		9F627A051ADCA5AF00DDD0AB /* TwoPBaseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoPBaseView.xib; sourceTree = "<group>"; };
 		9F627A071ADCABA000DDD0AB /* TwoPBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoPBaseView.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				9F627A0F1ADE0DCE00DDD0AB /* LoginView.xib */,
 				7107A2A21AC398B600706EC8 /* Main.storyboard */,
 				9F627A051ADCA5AF00DDD0AB /* TwoPBaseView.xib */,
+				9F318E961AE45FE6002F3821 /* ReadyView.xib */,
 				9F627A071ADCABA000DDD0AB /* TwoPBaseView.swift */,
 				7107A2A51AC398B600706EC8 /* Images.xcassets */,
 				7107A2A71AC398B600706EC8 /* LaunchScreen.xib */,
@@ -963,7 +966,12 @@
 				71F0A14A1AD8548A003AEF5C /* underwaterBackground.png in Resources */,
 				71C225AB1AE176BF00B87460 /* Sparkle.sks in Resources */,
 				71F0A13F1AD85465003AEF5C /* spaceBackground.png in Resources */,
+<<<<<<< Updated upstream
 				7169DEB21AE487E3006B34C9 /* beachTable.png in Resources */,
+=======
+				9F318E971AE45FE6002F3821 /* ReadyView.xib in Resources */,
+				71F0600C1AE08394000A7F9F /* hawkeyeTable.png in Resources */,
+>>>>>>> Stashed changes
 				717F860A1AD0F3E000576E8E /* digital-7 (mono).ttf in Resources */,
 				717F86091AD0F3E000576E8E /* digital-7 (mono italic).ttf in Resources */,
 				71F0A13D1AD763A1003AEF5C /* classicPuckHitWall.mp3 in Resources */,
