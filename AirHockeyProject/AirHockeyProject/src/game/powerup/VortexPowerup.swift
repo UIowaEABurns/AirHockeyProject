@@ -10,7 +10,7 @@ import Foundation
 
 public class VortextPowerup : PowerupDelegate {
     override public func getTexture() -> String {
-        return "LightPowerup.png"
+        return "VortexPowerup.png"
     }
     
     override public func startEffect(p: Player) {

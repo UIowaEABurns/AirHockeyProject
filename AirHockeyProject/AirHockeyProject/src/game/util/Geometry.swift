@@ -49,7 +49,10 @@ public class Geometry {
     
     
     class func nodeContainsNode(outerNode : SKNode, innerNode : SKNode) -> Bool {
-        return outerNode.containsPoint(CGPoint(x: innerNode.frame.minX, y: innerNode.frame.minY)) && outerNode.containsPoint(CGPoint(x: innerNode.frame.minX, y: innerNode.frame.maxY)) && outerNode.containsPoint(CGPoint(x: innerNode.frame.maxX, y: innerNode.frame.minY)) && outerNode.containsPoint(CGPoint(x: innerNode.frame.maxX, y: innerNode.frame.maxY))
+        return outerNode.containsPoint(CGPoint(x: innerNode.frame.minX, y: innerNode.frame.minY)) &&
+            outerNode.containsPoint(CGPoint(x: innerNode.frame.minX, y: innerNode.frame.maxY)) &&
+            outerNode.containsPoint(CGPoint(x: innerNode.frame.maxX, y: innerNode.frame.minY)) &&
+            outerNode.containsPoint(CGPoint(x: innerNode.frame.maxX, y: innerNode.frame.maxY))
  
     }
     

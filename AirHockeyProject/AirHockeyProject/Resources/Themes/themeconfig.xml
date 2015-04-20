@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <themes>
+<theme name="ice">
+    <fontName value="Digital-7"/>
+    <emitter name="Snow.sks" align="top"/>
+</theme>
 <theme name="classic">
     <fontName value="Digital-7"/>
 </theme>
@@ -8,29 +12,17 @@
     <emitter name="Stars.sks"/>
 </theme>
 <theme name="soccer">
-    <fontName value="Friday Night Lights"/>
+    <fontName value="JerseyLetters"/>
 </theme>
 <theme name="underwater">
-    <fontName value="Definately Maybe"/>
+    <fontName value="Vaporized BB"/>
     <emitter name="Bubbles.sks"/>
-
-</theme>
-<theme name="ice">
-    <fontName value="Digital-7"/>
-    <emitter name="Snow.sks" align="top"/>
-
 </theme>
 <theme name="car">
     <fontName value="Ferro Rosso"/>
-    
-</theme>
-<theme name="wood">
-    <fontName value="JFWildWood"/>
-    
 </theme>
 <theme name="beach">
     <fontName value="Pineapple Demo"/>
-    
 </theme>
 <theme name="hawkeye">
     <fontName value="Richardson Brand Revolution Block"/>

@@ -63,6 +63,24 @@
 		7169DE911AE40B2B006B34C9 /* Powerup.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE901AE40B2B006B34C9 /* Powerup.wav */; };
 		7169DE931AE40E4A006B34C9 /* UnderwaterFont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE921AE40E4A006B34C9 /* UnderwaterFont.otf */; };
 		7169DE951AE41248006B34C9 /* VortexPowerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7169DE941AE41248006B34C9 /* VortexPowerup.swift */; };
+		7169DE991AE47BFB006B34C9 /* goalTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE981AE47BFB006B34C9 /* goalTexture.png */; };
+		7169DE9B1AE47C02006B34C9 /* VortexPowerup.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE9A1AE47C02006B34C9 /* VortexPowerup.png */; };
+		7169DEA21AE487DD006B34C9 /* hawkeyeBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE9D1AE487DD006B34C9 /* hawkeyeBackground.png */; };
+		7169DEA31AE487DD006B34C9 /* hawkeyePaddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE9E1AE487DD006B34C9 /* hawkeyePaddle.png */; };
+		7169DEA41AE487DD006B34C9 /* hawkeyePuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE9F1AE487DD006B34C9 /* hawkeyePuck.png */; };
+		7169DEA51AE487DD006B34C9 /* hawkeyeTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEA01AE487DD006B34C9 /* hawkeyeTable.png */; };
+		7169DEA61AE487DD006B34C9 /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEA11AE487DD006B34C9 /* Thumbs.db */; };
+		7169DEAE1AE487E3006B34C9 /* beachBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEA81AE487E3006B34C9 /* beachBackground.png */; };
+		7169DEAF1AE487E3006B34C9 /* beachBackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEA91AE487E3006B34C9 /* beachBackgroundMusic.mp3 */; };
+		7169DEB01AE487E3006B34C9 /* beachPaddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEAA1AE487E3006B34C9 /* beachPaddle.png */; };
+		7169DEB11AE487E3006B34C9 /* beachPuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEAB1AE487E3006B34C9 /* beachPuck.png */; };
+		7169DEB21AE487E3006B34C9 /* beachTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEAC1AE487E3006B34C9 /* beachTable.png */; };
+		7169DEB31AE487E3006B34C9 /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEAD1AE487E3006B34C9 /* Thumbs.db */; };
+		7169DEBA1AE487EB006B34C9 /* carBackround.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEB51AE487EB006B34C9 /* carBackround.png */; };
+		7169DEBB1AE487EB006B34C9 /* carPaddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEB61AE487EB006B34C9 /* carPaddle.png */; };
+		7169DEBC1AE487EB006B34C9 /* carPuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEB71AE487EB006B34C9 /* carPuck.png */; };
+		7169DEBD1AE487EB006B34C9 /* carTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEB81AE487EB006B34C9 /* carTable.png */; };
+		7169DEBE1AE487EB006B34C9 /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEB91AE487EB006B34C9 /* Thumbs.db */; };
 		71763AD41AE179BD00155C15 /* Powerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71763AD31AE179BD00155C15 /* Powerup.swift */; };
 		71763AD61AE182DD00155C15 /* PowerupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71763AD51AE182DD00155C15 /* PowerupDelegate.swift */; };
 		71763AD81AE186D800155C15 /* SizeIncreasePowerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71763AD71AE186D800155C15 /* SizeIncreasePowerup.swift */; };
@@ -114,13 +132,6 @@
 		71E166821ADDEDE90042D96A /* MuteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E166811ADDEDE90042D96A /* MuteWidget.swift */; };
 		71E166891ADDF3FF0042D96A /* soundOnIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E166871ADDF3FF0042D96A /* soundOnIcon.png */; };
 		71E1668A1ADDF3FF0042D96A /* soundOffIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E166881ADDF3FF0042D96A /* soundOffIcon.png */; };
-		71F060091AE08394000A7F9F /* hawkeyeBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F060051AE08394000A7F9F /* hawkeyeBackground.png */; };
-		71F0600A1AE08394000A7F9F /* hawkeyePaddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F060061AE08394000A7F9F /* hawkeyePaddle.png */; };
-		71F0600B1AE08394000A7F9F /* hawkeyePuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F060071AE08394000A7F9F /* hawkeyePuck.png */; };
-		71F0600C1AE08394000A7F9F /* hawkeyeTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F060081AE08394000A7F9F /* hawkeyeTable.png */; };
-		71F060101AE083AE000A7F9F /* carPaddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0600D1AE083AD000A7F9F /* carPaddle.png */; };
-		71F060111AE083AE000A7F9F /* carPuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0600E1AE083AD000A7F9F /* carPuck.png */; };
-		71F060121AE083AE000A7F9F /* carTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0600F1AE083AD000A7F9F /* carTable.png */; };
 		71F0A1301AD75BF1003AEF5C /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F0A12F1AD75BF1003AEF5C /* SoundManager.swift */; };
 		71F0A1351AD75F07003AEF5C /* spaceBackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71F0A1341AD75F07003AEF5C /* spaceBackgroundMusic.mp3 */; };
 		71F0A1371AD75F13003AEF5C /* classicBackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71F0A1361AD75F13003AEF5C /* classicBackgroundMusic.mp3 */; };
@@ -268,6 +279,24 @@
 		7169DE901AE40B2B006B34C9 /* Powerup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Powerup.wav; sourceTree = "<group>"; };
 		7169DE921AE40E4A006B34C9 /* UnderwaterFont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UnderwaterFont.otf; sourceTree = "<group>"; };
 		7169DE941AE41248006B34C9 /* VortexPowerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VortexPowerup.swift; sourceTree = "<group>"; };
+		7169DE981AE47BFB006B34C9 /* goalTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goalTexture.png; sourceTree = "<group>"; };
+		7169DE9A1AE47C02006B34C9 /* VortexPowerup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VortexPowerup.png; sourceTree = "<group>"; };
+		7169DE9D1AE487DD006B34C9 /* hawkeyeBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hawkeyeBackground.png; sourceTree = "<group>"; };
+		7169DE9E1AE487DD006B34C9 /* hawkeyePaddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hawkeyePaddle.png; sourceTree = "<group>"; };
+		7169DE9F1AE487DD006B34C9 /* hawkeyePuck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hawkeyePuck.png; sourceTree = "<group>"; };
+		7169DEA01AE487DD006B34C9 /* hawkeyeTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hawkeyeTable.png; sourceTree = "<group>"; };
+		7169DEA11AE487DD006B34C9 /* Thumbs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thumbs.db; sourceTree = "<group>"; };
+		7169DEA81AE487E3006B34C9 /* beachBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beachBackground.png; sourceTree = "<group>"; };
+		7169DEA91AE487E3006B34C9 /* beachBackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beachBackgroundMusic.mp3; sourceTree = "<group>"; };
+		7169DEAA1AE487E3006B34C9 /* beachPaddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beachPaddle.png; sourceTree = "<group>"; };
+		7169DEAB1AE487E3006B34C9 /* beachPuck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beachPuck.png; sourceTree = "<group>"; };
+		7169DEAC1AE487E3006B34C9 /* beachTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beachTable.png; sourceTree = "<group>"; };
+		7169DEAD1AE487E3006B34C9 /* Thumbs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thumbs.db; sourceTree = "<group>"; };
+		7169DEB51AE487EB006B34C9 /* carBackround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carBackround.png; sourceTree = "<group>"; };
+		7169DEB61AE487EB006B34C9 /* carPaddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carPaddle.png; sourceTree = "<group>"; };
+		7169DEB71AE487EB006B34C9 /* carPuck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carPuck.png; sourceTree = "<group>"; };
+		7169DEB81AE487EB006B34C9 /* carTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carTable.png; sourceTree = "<group>"; };
+		7169DEB91AE487EB006B34C9 /* Thumbs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thumbs.db; sourceTree = "<group>"; };
 		71763AD31AE179BD00155C15 /* Powerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Powerup.swift; sourceTree = "<group>"; };
 		71763AD51AE182DD00155C15 /* PowerupDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerupDelegate.swift; sourceTree = "<group>"; };
 		71763AD71AE186D800155C15 /* SizeIncreasePowerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeIncreasePowerup.swift; sourceTree = "<group>"; };
@@ -318,13 +347,6 @@
 		71E166811ADDEDE90042D96A /* MuteWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuteWidget.swift; sourceTree = "<group>"; };
 		71E166871ADDF3FF0042D96A /* soundOnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundOnIcon.png; sourceTree = "<group>"; };
 		71E166881ADDF3FF0042D96A /* soundOffIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundOffIcon.png; sourceTree = "<group>"; };
-		71F060051AE08394000A7F9F /* hawkeyeBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hawkeyeBackground.png; path = hawkeye/hawkeyeBackground.png; sourceTree = "<group>"; };
-		71F060061AE08394000A7F9F /* hawkeyePaddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hawkeyePaddle.png; path = hawkeye/hawkeyePaddle.png; sourceTree = "<group>"; };
-		71F060071AE08394000A7F9F /* hawkeyePuck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hawkeyePuck.png; path = hawkeye/hawkeyePuck.png; sourceTree = "<group>"; };
-		71F060081AE08394000A7F9F /* hawkeyeTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hawkeyeTable.png; path = hawkeye/hawkeyeTable.png; sourceTree = "<group>"; };
-		71F0600D1AE083AD000A7F9F /* carPaddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = carPaddle.png; path = car/carPaddle.png; sourceTree = "<group>"; };
-		71F0600E1AE083AD000A7F9F /* carPuck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = carPuck.png; path = car/carPuck.png; sourceTree = "<group>"; };
-		71F0600F1AE083AD000A7F9F /* carTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = carTable.png; path = car/carTable.png; sourceTree = "<group>"; };
 		71F0A12F1AD75BF1003AEF5C /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		71F0A1341AD75F07003AEF5C /* spaceBackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spaceBackgroundMusic.mp3; sourceTree = "<group>"; };
 		71F0A1361AD75F13003AEF5C /* classicBackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = classicBackgroundMusic.mp3; sourceTree = "<group>"; };
@@ -556,6 +578,7 @@
 		714449C11AE1C39700535D3D /* powerups */ = {
 			isa = PBXGroup;
 			children = (
+				7169DE9A1AE47C02006B34C9 /* VortexPowerup.png */,
 				714449C21AE1C39700535D3D /* GrowthPowerup.png */,
 				714449C31AE1C39700535D3D /* LightPowerup.png */,
 				714449C41AE1C39700535D3D /* MagnetPowerup.png */,
@@ -573,6 +596,43 @@
 				714449DC1AE1C4E600535D3D /* sqlite3.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7169DE9C1AE487DD006B34C9 /* hawkeye */ = {
+			isa = PBXGroup;
+			children = (
+				7169DE9D1AE487DD006B34C9 /* hawkeyeBackground.png */,
+				7169DE9E1AE487DD006B34C9 /* hawkeyePaddle.png */,
+				7169DE9F1AE487DD006B34C9 /* hawkeyePuck.png */,
+				7169DEA01AE487DD006B34C9 /* hawkeyeTable.png */,
+				7169DEA11AE487DD006B34C9 /* Thumbs.db */,
+			);
+			path = hawkeye;
+			sourceTree = "<group>";
+		};
+		7169DEA71AE487E3006B34C9 /* beach */ = {
+			isa = PBXGroup;
+			children = (
+				7169DEA81AE487E3006B34C9 /* beachBackground.png */,
+				7169DEA91AE487E3006B34C9 /* beachBackgroundMusic.mp3 */,
+				7169DEAA1AE487E3006B34C9 /* beachPaddle.png */,
+				7169DEAB1AE487E3006B34C9 /* beachPuck.png */,
+				7169DEAC1AE487E3006B34C9 /* beachTable.png */,
+				7169DEAD1AE487E3006B34C9 /* Thumbs.db */,
+			);
+			path = beach;
+			sourceTree = "<group>";
+		};
+		7169DEB41AE487EB006B34C9 /* car */ = {
+			isa = PBXGroup;
+			children = (
+				7169DEB51AE487EB006B34C9 /* carBackround.png */,
+				7169DEB61AE487EB006B34C9 /* carPaddle.png */,
+				7169DEB71AE487EB006B34C9 /* carPuck.png */,
+				7169DEB81AE487EB006B34C9 /* carTable.png */,
+				7169DEB91AE487EB006B34C9 /* Thumbs.db */,
+			);
+			path = car;
 			sourceTree = "<group>";
 		};
 		71763AD21AE179AE00155C15 /* powerup */ = {
@@ -629,13 +689,9 @@
 		717F86101AD0F82E00576E8E /* Themes */ = {
 			isa = PBXGroup;
 			children = (
-				71F0600D1AE083AD000A7F9F /* carPaddle.png */,
-				71F0600E1AE083AD000A7F9F /* carPuck.png */,
-				71F0600F1AE083AD000A7F9F /* carTable.png */,
-				71F060051AE08394000A7F9F /* hawkeyeBackground.png */,
-				71F060061AE08394000A7F9F /* hawkeyePaddle.png */,
-				71F060071AE08394000A7F9F /* hawkeyePuck.png */,
-				71F060081AE08394000A7F9F /* hawkeyeTable.png */,
+				7169DEB41AE487EB006B34C9 /* car */,
+				7169DEA71AE487E3006B34C9 /* beach */,
+				7169DE9C1AE487DD006B34C9 /* hawkeye */,
 				71E166581ADB38000042D96A /* ice */,
 				71F0A1421AD8548A003AEF5C /* underwater */,
 				71AE54151AD620C90024BC44 /* soccer */,
@@ -696,6 +752,7 @@
 		71A875731AC5D103008EDBA9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7169DE981AE47BFB006B34C9 /* goalTexture.png */,
 				714449C11AE1C39700535D3D /* powerups */,
 				71E166871ADDF3FF0042D96A /* soundOnIcon.png */,
 				71E166881ADDF3FF0042D96A /* soundOffIcon.png */,
@@ -900,11 +957,13 @@
 				71F0A13B1AD763A1003AEF5C /* classicGoalSound.mp3 in Resources */,
 				714449C61AE1C39700535D3D /* LightPowerup.png in Resources */,
 				7119B4D31AD24215002CA09B /* classicPuck.png in Resources */,
+				7169DEA41AE487DD006B34C9 /* hawkeyePuck.png in Resources */,
+				7169DE991AE47BFB006B34C9 /* goalTexture.png in Resources */,
 				71F0A1371AD75F13003AEF5C /* classicBackgroundMusic.mp3 in Resources */,
 				71F0A14A1AD8548A003AEF5C /* underwaterBackground.png in Resources */,
 				71C225AB1AE176BF00B87460 /* Sparkle.sks in Resources */,
 				71F0A13F1AD85465003AEF5C /* spaceBackground.png in Resources */,
-				71F0600C1AE08394000A7F9F /* hawkeyeTable.png in Resources */,
+				7169DEB21AE487E3006B34C9 /* beachTable.png in Resources */,
 				717F860A1AD0F3E000576E8E /* digital-7 (mono).ttf in Resources */,
 				717F86091AD0F3E000576E8E /* digital-7 (mono italic).ttf in Resources */,
 				71F0A13D1AD763A1003AEF5C /* classicPuckHitWall.mp3 in Resources */,
@@ -912,18 +971,24 @@
 				7119B4D21AD24215002CA09B /* classicPaddle.png in Resources */,
 				7119B4B91AD1063C002CA09B /* spacePaddle.png in Resources */,
 				714449C51AE1C39700535D3D /* GrowthPowerup.png in Resources */,
+				7169DEA61AE487DD006B34C9 /* Thumbs.db in Resources */,
 				71E166601ADB38000042D96A /* iceBackgroundMusic.mp3 in Resources */,
+				7169DEA21AE487DD006B34C9 /* hawkeyeBackground.png in Resources */,
 				71AE540F1AD4B8F10024BC44 /* ShootingStar.sks in Resources */,
 				71AE541B1AD620C90024BC44 /* soccerBackground.png in Resources */,
 				71AE541D1AD620C90024BC44 /* soccerPuck.png in Resources */,
 				71D803CF1ADECCF4000BE4A3 /* menuBackgroundMusic.mp3 in Resources */,
 				71F0A14B1AD8548A003AEF5C /* underwaterBackgroundMusic.mp3 in Resources */,
+				7169DEBD1AE487EB006B34C9 /* carTable.png in Resources */,
+				7169DEBA1AE487EB006B34C9 /* carBackround.png in Resources */,
 				7119B4D41AD24215002CA09B /* classicTable.png in Resources */,
 				7169DE891AE40B1C006B34C9 /* GoSound.wav in Resources */,
+				7169DEB01AE487E3006B34C9 /* beachPaddle.png in Resources */,
 				7107A2A91AC398B600706EC8 /* LaunchScreen.xib in Resources */,
 				71D803CE1ADECCF4000BE4A3 /* confirmSound.mp3 in Resources */,
 				9F627A101ADE0DCE00DDD0AB /* LoginView.xib in Resources */,
 				71E1665F1ADB38000042D96A /* iceBackground.png in Resources */,
+				7169DEB31AE487E3006B34C9 /* Thumbs.db in Resources */,
 				717F86081AD0F3E000576E8E /* digital-7 (italic).ttf in Resources */,
 				71E1668A1ADDF3FF0042D96A /* soundOffIcon.png in Resources */,
 				7119B4CC1AD234AE002CA09B /* ThemeView.xib in Resources */,
@@ -931,15 +996,13 @@
 				71D803D01ADECCF4000BE4A3 /* menuSelect.mp3 in Resources */,
 				717F860C1AD0F3E000576E8E /* readme.txt in Resources */,
 				71E166741ADDE6A00042D96A /* BeachFont.ttf in Resources */,
+				7169DEBE1AE487EB006B34C9 /* Thumbs.db in Resources */,
 				71AE541E1AD620C90024BC44 /* soccerTable.png in Resources */,
 				71C225AD1AE177B400B87460 /* Square.png in Resources */,
 				71F0A1411AD85471003AEF5C /* classicBackground.png in Resources */,
 				7119B4D61AD4B23B002CA09B /* star.png in Resources */,
 				71F0A14D1AD8548A003AEF5C /* underwaterPuck.png in Resources */,
 				71AE541F1AD620C90024BC44 /* Thumbs.db in Resources */,
-				71F060111AE083AE000A7F9F /* carPuck.png in Resources */,
-				71F0600A1AE08394000A7F9F /* hawkeyePaddle.png in Resources */,
-				71F060121AE083AE000A7F9F /* carTable.png in Resources */,
 				71E166761ADDE6A00042D96A /* DesertFont.TTF in Resources */,
 				7119B4BB1AD1063C002CA09B /* spaceTable.png in Resources */,
 				71F0A14C1AD8548A003AEF5C /* underwaterPaddle.png in Resources */,
@@ -949,16 +1012,19 @@
 				71F0A14E1AD8548A003AEF5C /* underwaterTable.png in Resources */,
 				9F627A061ADCA5AF00DDD0AB /* TwoPBaseView.xib in Resources */,
 				71F0A1501AD85604003AEF5C /* Bubbles.sks in Resources */,
-				71F0600B1AE08394000A7F9F /* hawkeyePuck.png in Resources */,
 				7107A2CE1AC398E300706EC8 /* airhockeySchema.sql in Resources */,
 				71008D5D1AD04F56009B3444 /* bokeh.png in Resources */,
 				7169DE931AE40E4A006B34C9 /* UnderwaterFont.otf in Resources */,
 				71E166621ADB38000042D96A /* icePuck.png in Resources */,
+				7169DE9B1AE47C02006B34C9 /* VortexPowerup.png in Resources */,
+				7169DEAE1AE487E3006B34C9 /* beachBackground.png in Resources */,
 				71E166791ADDE6A00042D96A /* SpaceFont.ttf in Resources */,
 				71E166781ADDE6A00042D96A /* SoccerFont.ttf in Resources */,
+				7169DEBB1AE487EB006B34C9 /* carPaddle.png in Resources */,
 				717F860B1AD0F3E000576E8E /* digital-7.ttf in Resources */,
 				7119B4C21AD228D6002CA09B /* themeconfig.xml in Resources */,
 				7107A2A61AC398B600706EC8 /* Images.xcassets in Resources */,
+				7169DEA31AE487DD006B34C9 /* hawkeyePaddle.png in Resources */,
 				71008D631AD04FB2009B3444 /* Spark.sks in Resources */,
 				71F0A1491AD8548A003AEF5C /* Thumbs.db in Resources */,
 				71E166771ADDE6A00042D96A /* HawkeyeFont.otf in Resources */,
@@ -969,14 +1035,16 @@
 				71E166801ADDECA40042D96A /* MuteWidget.xib in Resources */,
 				71E166611ADB38000042D96A /* icePaddle.png in Resources */,
 				71F0A1351AD75F07003AEF5C /* spaceBackgroundMusic.mp3 in Resources */,
-				71F060101AE083AE000A7F9F /* carPaddle.png in Resources */,
+				7169DEAF1AE487E3006B34C9 /* beachBackgroundMusic.mp3 in Resources */,
+				7169DEA51AE487DD006B34C9 /* hawkeyeTable.png in Resources */,
 				71E166751ADDE6A00042D96A /* CarFont.ttf in Resources */,
+				7169DEB11AE487E3006B34C9 /* beachPuck.png in Resources */,
+				7169DEBC1AE487EB006B34C9 /* carPuck.png in Resources */,
 				71E166641ADB38000042D96A /* Thumbs.db in Resources */,
 				7107A2CD1AC398E300706EC8 /* airhockey.sqlite3 in Resources */,
 				71E166691ADB3FEE0042D96A /* Snow.sks in Resources */,
 				7169DE911AE40B2B006B34C9 /* Powerup.wav in Resources */,
 				71008D581ACF97F1009B3444 /* GoalEmitter.sks in Resources */,
-				71F060091AE08394000A7F9F /* hawkeyeBackground.png in Resources */,
 				7119B4BA1AD1063C002CA09B /* spacePuck.png in Resources */,
 				714449C71AE1C39700535D3D /* MagnetPowerup.png in Resources */,
 			);

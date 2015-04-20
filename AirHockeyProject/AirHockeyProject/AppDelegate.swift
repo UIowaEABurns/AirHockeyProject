@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Themes().loadThemes()
         for name in UIFont.familyNames() {
             for str in UIFont.fontNamesForFamilyName(name as! String) {
-                //println("font is " + (str as String))
+                println("font is " + (str as! String))
             }
         }
         AirHockeyConstants.loadMuteSetting()

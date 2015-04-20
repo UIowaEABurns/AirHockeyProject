@@ -67,6 +67,10 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     private var powerup : Powerup?
+    
+    
+    var goalFrameCounter = 0
+    
     let powerupOdds : CGFloat = 0.002
     public func getPlayingTable() -> Table {
         return playingTable
@@ -546,22 +550,25 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     //handles a goal being scored on the given player
     private func handleGoalScored(playerScoredOn : Int) {
         soundManager.playGoalSound()
+        
         if (playerScoredOn==1) {
             playerTwo.score=playerTwo.score+1
-            if (playerTwo.score == settingsProfile.getGoalLimit() && settingsProfile.getGoalLimit()>0) {
-                self.handleGameConcluded()
-                return
-            }
+            
         } else {
             playerOne.score=playerOne.score+1
-            if (playerOne.score == settingsProfile.getGoalLimit() && settingsProfile.getGoalLimit()>0) {
-                self.handleGameConcluded()
-                return
-            }
+            
         }
-        playingTable.resetPuckToPlayer(playerScoredOn)
         playerOneScore.text = String(playerOne.score)
         playerTwoScore.text = String(playerTwo.score)
+        playingTable.resetPuckToPlayer(playerScoredOn)
+        
+        
+        if ((playerOne.score == settingsProfile.getGoalLimit() && settingsProfile.getGoalLimit()>0) ||
+            (playerTwo.score == settingsProfile.getGoalLimit() && settingsProfile.getGoalLimit()>0)) {
+            self.handleGameConcluded()
+            return
+        }
+        
         EffectManager.runFlashEffect(gameplayNode.childNodeWithName(TABLE_EFFECT_OVERLAY_NAME)! as! SKShapeNode,originalColor: SKColor.clearColor(), flashColor: SKColor.whiteColor())
         
     }
@@ -591,9 +598,17 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
                 (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
                 let goal = node as! Goal
                 if (Geometry.nodeContainsNode(goal, innerNode: self.playingTable.getPuck())) {
+                    self.goalFrameCounter = 0
                     goal.handleGoalScored()
                     self.handleGoalScored(goal.getPlayerNumber())
                     
+                } else if goal.containsPoint(self.playingTable.getPuck().position) {
+                    self.goalFrameCounter = self.goalFrameCounter + 1
+                    if (self.goalFrameCounter > 80) {
+                        self.goalFrameCounter = 0
+                        goal.handleGoalScored()
+                        self.handleGoalScored(goal.getPlayerNumber())
+                    }
                 }
             
             

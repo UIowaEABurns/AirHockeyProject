@@ -68,13 +68,13 @@ public class Table : SKSpriteNode {
             nodes.append(edge)
             
         }
-        //TODO: height?
-        let goalSize = CGSize(width: goalWidth, height: 10000)
-        let bottomGoal = Goal(size: goalSize, playerNum : 1)
+        
+        let goalSize = CGSize(width: goalWidth, height: 1000)
+        let bottomGoal = Goal(size: goalSize, visibleHeight: 100, playerNum : 1)
         bottomGoal.position = CGPoint(x: wallWidth, y: -bottomGoal.frame.height)
         self.addChild(bottomGoal)
         
-        let topGoal = Goal(size: goalSize, playerNum : 2)
+        let topGoal = Goal(size: goalSize,visibleHeight: 100, playerNum : 2)
         topGoal.zRotation = CGFloat(M_PI)
 
         topGoal.position = CGPoint(x: wallWidth+topGoal.frame.width, y: self.frame.maxY+topGoal.frame.height)

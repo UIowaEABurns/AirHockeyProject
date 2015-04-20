@@ -16,7 +16,7 @@ public class Goal : SKShapeNode {
     private var gravField : SKFieldNode?
     // initializes a goal with the given size and an
     //anchor point of (0,0). The top will be a barrier that will allow the puck in, and the other three sides are solid
-    public init(size : CGSize, playerNum : Int) {
+    public init(size : CGSize, visibleHeight : CGFloat, playerNum : Int) {
         playerNumber = playerNum
         
         super.init()
@@ -24,11 +24,21 @@ public class Goal : SKShapeNode {
         self.path = CGPathCreateWithRect(CGRect(origin: CGPoint(x: 0,y: 0), size: size), nil)
         self.name=GOAL_NAME
         
-        self.fillColor = SKColor.blackColor()
+        self.fillColor = SKColor.clearColor()
         self.zPosition = zPositionGoal
         self.attachEdges()
         
-        
+        //next, attach the goal texture
+        let sprite = SKSpriteNode(imageNamed: "goalTexture.png")
+        //sprite.size = self.frame.size
+        //sprite.frame = self.frame
+        sprite.size = CGSize(width: self.frame.width, height: visibleHeight)
+        sprite.position = CGPoint(x: 0, y: self.frame.height - sprite.frame.height)
+        //println(sprite.frame.origin)
+        sprite.anchorPoint = CGPoint(x: 0,y: 0)
+        self.addChild(sprite)
+        println(sprite.position)
+        println(self.frame.origin)
         
     }
     

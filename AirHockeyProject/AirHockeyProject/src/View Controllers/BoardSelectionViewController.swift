@@ -13,7 +13,9 @@ class BoardSelectionViewController : UIViewController {
     private var selectedView : ThemeView?
     @IBOutlet weak var scrollView: UIScrollView!
     override func viewDidLoad() {
-        self.navigationController!.interactivePopGestureRecognizer.enabled = false
+        if let nav = self.navigationController {
+            nav.interactivePopGestureRecognizer.delegate = SwipeDelegate
+        }
 
         
         let horizontalSpacing : CGFloat = 10
