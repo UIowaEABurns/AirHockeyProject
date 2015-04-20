@@ -14,18 +14,18 @@ class PlayerSelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let rect = CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: self.view.bounds.width, height: self.view.bounds.height/2))
-        let test = TwoPBaseView(frame: rect)
+        let test = TwoPBaseView(frame: rect, playerNumber: 2)
         
-        test.BackButton.hidden = true
+        
         test.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
         self.view.addSubview(test)
 
         // Do any additional setup after loading the view, typically from a nib.
         let rect2 = CGRect(origin: CGPoint(x: 0,y: (self.view.bounds.height/2)), size: CGSize(width: self.view.bounds.width, height: self.view.bounds.height/2))
         
-        let test2 = TwoPBaseView(frame: rect2)
+        let test2 = TwoPBaseView(frame: rect2, playerNumber: 1)
         self.view.addSubview(test2)
-        self.navigationController!.interactivePopGestureRecognizer.enabled = false
+        self.navigationController!.navigationBar.hidden = true
         self.navigationController!.interactivePopGestureRecognizer.delegate = SwipeDelegate
 
 

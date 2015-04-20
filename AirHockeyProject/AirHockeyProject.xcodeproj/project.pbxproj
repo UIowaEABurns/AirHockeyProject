@@ -966,12 +966,9 @@
 				71F0A14A1AD8548A003AEF5C /* underwaterBackground.png in Resources */,
 				71C225AB1AE176BF00B87460 /* Sparkle.sks in Resources */,
 				71F0A13F1AD85465003AEF5C /* spaceBackground.png in Resources */,
-<<<<<<< Updated upstream
 				7169DEB21AE487E3006B34C9 /* beachTable.png in Resources */,
-=======
 				9F318E971AE45FE6002F3821 /* ReadyView.xib in Resources */,
 				71F0600C1AE08394000A7F9F /* hawkeyeTable.png in Resources */,
->>>>>>> Stashed changes
 				717F860A1AD0F3E000576E8E /* digital-7 (mono).ttf in Resources */,
 				717F86091AD0F3E000576E8E /* digital-7 (mono italic).ttf in Resources */,
 				71F0A13D1AD763A1003AEF5C /* classicPuckHitWall.mp3 in Resources */,
