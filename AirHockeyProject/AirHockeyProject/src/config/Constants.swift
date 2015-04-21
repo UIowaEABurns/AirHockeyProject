@@ -74,6 +74,15 @@ public class AirHockeyConstants {
         return s
     }
     
+    public class func getGuestUser() -> User {
+        var u : User = User()
+        u.setFirstName("Guest")
+        u.setLastName("Guest")
+        u.setUsername("Guest")
+        
+        return u
+    }
+    
     // writes BG_MUSIC_VOLUME and FX_VOLUME to NSUserDefaults
 
     public class func saveVolumeSettings() {

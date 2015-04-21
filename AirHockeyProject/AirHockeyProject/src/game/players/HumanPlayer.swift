@@ -61,10 +61,11 @@ public class HumanPlayer : Player {
    
     
     public func handleGameConcluded(theirScore : Int, timePlayed : Int) {
-        let myScore = self.score
         if (stats==nil) {
             return
         }
+        let myScore = self.score
+
         var newStats = stats!.getCopy()
         
         newStats.setGoalsAgainst(stats!.getGoalsAgainst()!+theirScore)

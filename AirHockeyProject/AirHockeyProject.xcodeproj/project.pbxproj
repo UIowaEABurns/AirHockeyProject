@@ -29,6 +29,12 @@
 		7107A2CE1AC398E300706EC8 /* airhockeySchema.sql in Resources */ = {isa = PBXBuildFile; fileRef = 7107A2CC1AC398E300706EC8 /* airhockeySchema.sql */; };
 		7107A2EA1AC39F2E00706EC8 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A2E91AC39F2E00706EC8 /* Users.swift */; };
 		7107A2ED1AC3A12A00706EC8 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A2EC1AC3A12A00706EC8 /* Util.swift */; };
+		711249811AE5FB910020FB19 /* DownArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7112497D1AE5FB910020FB19 /* DownArrow.png */; };
+		711249821AE5FB910020FB19 /* GreenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7112497E1AE5FB910020FB19 /* GreenButton.png */; };
+		711249831AE5FB910020FB19 /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 7112497F1AE5FB910020FB19 /* Thumbs.db */; };
+		711249841AE5FB910020FB19 /* UpArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 711249801AE5FB910020FB19 /* UpArrow.png */; };
+		7112498A1AE600510020FB19 /* TempOnePlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711249891AE600510020FB19 /* TempOnePlayerController.swift */; };
+		7112498C1AE606B80020FB19 /* PlayerSelectEventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112498B1AE606B80020FB19 /* PlayerSelectEventDelegate.swift */; };
 		7115A5711ACB81DD0057A8B8 /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115A56F1ACB81DD0057A8B8 /* GameTimer.swift */; };
 		7115A5721ACB81DD0057A8B8 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115A5701ACB81DD0057A8B8 /* Geometry.swift */; };
 		7115A5741ACB81F10057A8B8 /* GameUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115A5731ACB81F10057A8B8 /* GameUtil.swift */; };
@@ -57,6 +63,16 @@
 		714449DF1AE1C4F500535D3D /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 714449D41AE1C4E600535D3D /* SQLite.framework */; };
 		714449E01AE1C4F800535D3D /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 714449D41AE1C4E600535D3D /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7155B2B91ADF917000B71479 /* SystemSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7155B2B81ADF917000B71479 /* SystemSettingsViewController.swift */; };
+		715F43081AE5653B002D44AD /* FaceOffLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F42FE1AE5653B002D44AD /* FaceOffLogo.png */; };
+		715F43091AE5653B002D44AD /* FaceOffLogo28.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F42FF1AE5653B002D44AD /* FaceOffLogo28.png */; };
+		715F430A1AE5653B002D44AD /* FaceOffLogo30.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43001AE5653B002D44AD /* FaceOffLogo30.png */; };
+		715F430B1AE5653B002D44AD /* FaceOffLogo58.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43011AE5653B002D44AD /* FaceOffLogo58.png */; };
+		715F430C1AE5653B002D44AD /* FaceOffLogo80.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43021AE5653B002D44AD /* FaceOffLogo80.png */; };
+		715F430D1AE5653B002D44AD /* iPad2.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43031AE5653B002D44AD /* iPad2.png */; };
+		715F430E1AE5653B002D44AD /* iPadMini.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43041AE5653B002D44AD /* iPadMini.png */; };
+		715F430F1AE5653B002D44AD /* iPhone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43051AE5653B002D44AD /* iPhone4.png */; };
+		715F43101AE5653B002D44AD /* iPhone6.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43061AE5653B002D44AD /* iPhone6.png */; };
+		715F43111AE5653B002D44AD /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 715F43071AE5653B002D44AD /* Thumbs.db */; };
 		716373B01ACB9E1200B1FF7D /* zPositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716373AF1ACB9E1200B1FF7D /* zPositions.swift */; };
 		7169DE891AE40B1C006B34C9 /* GoSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE881AE40B1C006B34C9 /* GoSound.wav */; };
 		7169DE8F1AE40B21006B34C9 /* Countdown.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE8E1AE40B21006B34C9 /* Countdown.wav */; };
@@ -76,7 +92,7 @@
 		7169DEB11AE487E3006B34C9 /* beachPuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEAB1AE487E3006B34C9 /* beachPuck.png */; };
 		7169DEB21AE487E3006B34C9 /* beachTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEAC1AE487E3006B34C9 /* beachTable.png */; };
 		7169DEB31AE487E3006B34C9 /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEAD1AE487E3006B34C9 /* Thumbs.db */; };
-		7169DEBA1AE487EB006B34C9 /* carBackround.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEB51AE487EB006B34C9 /* carBackround.png */; };
+		7169DEBA1AE487EB006B34C9 /* carBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEB51AE487EB006B34C9 /* carBackground.png */; };
 		7169DEBB1AE487EB006B34C9 /* carPaddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEB61AE487EB006B34C9 /* carPaddle.png */; };
 		7169DEBC1AE487EB006B34C9 /* carPuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEB71AE487EB006B34C9 /* carPuck.png */; };
 		7169DEBD1AE487EB006B34C9 /* carTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEB81AE487EB006B34C9 /* carTable.png */; };
@@ -247,6 +263,12 @@
 		7107A2CF1AC3990E00706EC8 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		7107A2E91AC39F2E00706EC8 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		7107A2EC1AC3A12A00706EC8 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		7112497D1AE5FB910020FB19 /* DownArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DownArrow.png; sourceTree = "<group>"; };
+		7112497E1AE5FB910020FB19 /* GreenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenButton.png; sourceTree = "<group>"; };
+		7112497F1AE5FB910020FB19 /* Thumbs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thumbs.db; sourceTree = "<group>"; };
+		711249801AE5FB910020FB19 /* UpArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpArrow.png; sourceTree = "<group>"; };
+		711249891AE600510020FB19 /* TempOnePlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempOnePlayerController.swift; sourceTree = "<group>"; };
+		7112498B1AE606B80020FB19 /* PlayerSelectEventDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSelectEventDelegate.swift; sourceTree = "<group>"; };
 		7115A56F1ACB81DD0057A8B8 /* GameTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
 		7115A5701ACB81DD0057A8B8 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		7115A5731ACB81F10057A8B8 /* GameUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameUtil.swift; sourceTree = "<group>"; };
@@ -274,6 +296,16 @@
 		714449C81AE1C3E500535D3D /* LightPowerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightPowerup.swift; sourceTree = "<group>"; };
 		714449CA1AE1C4E500535D3D /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		7155B2B81ADF917000B71479 /* SystemSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemSettingsViewController.swift; sourceTree = "<group>"; };
+		715F42FE1AE5653B002D44AD /* FaceOffLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo.png; sourceTree = "<group>"; };
+		715F42FF1AE5653B002D44AD /* FaceOffLogo28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo28.png; sourceTree = "<group>"; };
+		715F43001AE5653B002D44AD /* FaceOffLogo30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo30.png; sourceTree = "<group>"; };
+		715F43011AE5653B002D44AD /* FaceOffLogo58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo58.png; sourceTree = "<group>"; };
+		715F43021AE5653B002D44AD /* FaceOffLogo80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo80.png; sourceTree = "<group>"; };
+		715F43031AE5653B002D44AD /* iPad2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPad2.png; sourceTree = "<group>"; };
+		715F43041AE5653B002D44AD /* iPadMini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadMini.png; sourceTree = "<group>"; };
+		715F43051AE5653B002D44AD /* iPhone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone4.png; sourceTree = "<group>"; };
+		715F43061AE5653B002D44AD /* iPhone6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone6.png; sourceTree = "<group>"; };
+		715F43071AE5653B002D44AD /* Thumbs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thumbs.db; sourceTree = "<group>"; };
 		716373AF1ACB9E1200B1FF7D /* zPositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = zPositions.swift; sourceTree = "<group>"; };
 		7169DE881AE40B1C006B34C9 /* GoSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GoSound.wav; sourceTree = "<group>"; };
 		7169DE8E1AE40B21006B34C9 /* Countdown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Countdown.wav; sourceTree = "<group>"; };
@@ -293,7 +325,7 @@
 		7169DEAB1AE487E3006B34C9 /* beachPuck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beachPuck.png; sourceTree = "<group>"; };
 		7169DEAC1AE487E3006B34C9 /* beachTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beachTable.png; sourceTree = "<group>"; };
 		7169DEAD1AE487E3006B34C9 /* Thumbs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thumbs.db; sourceTree = "<group>"; };
-		7169DEB51AE487EB006B34C9 /* carBackround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carBackround.png; sourceTree = "<group>"; };
+		7169DEB51AE487EB006B34C9 /* carBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carBackground.png; sourceTree = "<group>"; };
 		7169DEB61AE487EB006B34C9 /* carPaddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carPaddle.png; sourceTree = "<group>"; };
 		7169DEB71AE487EB006B34C9 /* carPuck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carPuck.png; sourceTree = "<group>"; };
 		7169DEB81AE487EB006B34C9 /* carTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carTable.png; sourceTree = "<group>"; };
@@ -542,6 +574,17 @@
 			path = util;
 			sourceTree = "<group>";
 		};
+		7112497C1AE5FB910020FB19 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				7112497D1AE5FB910020FB19 /* DownArrow.png */,
+				7112497E1AE5FB910020FB19 /* GreenButton.png */,
+				7112497F1AE5FB910020FB19 /* Thumbs.db */,
+				711249801AE5FB910020FB19 /* UpArrow.png */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		7115A56E1ACB81DD0057A8B8 /* util */ = {
 			isa = PBXGroup;
 			children = (
@@ -574,6 +617,8 @@
 				7119B4C91AD234A6002CA09B /* ThemeView.swift */,
 				7119B4BD1AD22257002CA09B /* BoardSelectionViewController.swift */,
 				7178D35F1ADE00EC00834CC5 /* HomeViewController.swift */,
+				711249891AE600510020FB19 /* TempOnePlayerController.swift */,
+				7112498B1AE606B80020FB19 /* PlayerSelectEventDelegate.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -599,6 +644,23 @@
 				714449DC1AE1C4E600535D3D /* sqlite3.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		715F42FD1AE5653B002D44AD /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				715F42FE1AE5653B002D44AD /* FaceOffLogo.png */,
+				715F42FF1AE5653B002D44AD /* FaceOffLogo28.png */,
+				715F43001AE5653B002D44AD /* FaceOffLogo30.png */,
+				715F43011AE5653B002D44AD /* FaceOffLogo58.png */,
+				715F43021AE5653B002D44AD /* FaceOffLogo80.png */,
+				715F43031AE5653B002D44AD /* iPad2.png */,
+				715F43041AE5653B002D44AD /* iPadMini.png */,
+				715F43051AE5653B002D44AD /* iPhone4.png */,
+				715F43061AE5653B002D44AD /* iPhone6.png */,
+				715F43071AE5653B002D44AD /* Thumbs.db */,
+			);
+			path = icons;
 			sourceTree = "<group>";
 		};
 		7169DE9C1AE487DD006B34C9 /* hawkeye */ = {
@@ -629,7 +691,7 @@
 		7169DEB41AE487EB006B34C9 /* car */ = {
 			isa = PBXGroup;
 			children = (
-				7169DEB51AE487EB006B34C9 /* carBackround.png */,
+				7169DEB51AE487EB006B34C9 /* carBackground.png */,
 				7169DEB61AE487EB006B34C9 /* carPaddle.png */,
 				7169DEB71AE487EB006B34C9 /* carPuck.png */,
 				7169DEB81AE487EB006B34C9 /* carTable.png */,
@@ -755,6 +817,8 @@
 		71A875731AC5D103008EDBA9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7112497C1AE5FB910020FB19 /* Buttons */,
+				715F42FD1AE5653B002D44AD /* icons */,
 				7169DE981AE47BFB006B34C9 /* goalTexture.png */,
 				714449C11AE1C39700535D3D /* powerups */,
 				71E166871ADDF3FF0042D96A /* soundOnIcon.png */,
@@ -958,6 +1022,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71F0A13B1AD763A1003AEF5C /* classicGoalSound.mp3 in Resources */,
+				711249811AE5FB910020FB19 /* DownArrow.png in Resources */,
 				714449C61AE1C39700535D3D /* LightPowerup.png in Resources */,
 				7119B4D31AD24215002CA09B /* classicPuck.png in Resources */,
 				7169DEA41AE487DD006B34C9 /* hawkeyePuck.png in Resources */,
@@ -968,10 +1033,10 @@
 				71F0A13F1AD85465003AEF5C /* spaceBackground.png in Resources */,
 				7169DEB21AE487E3006B34C9 /* beachTable.png in Resources */,
 				9F318E971AE45FE6002F3821 /* ReadyView.xib in Resources */,
-				71F0600C1AE08394000A7F9F /* hawkeyeTable.png in Resources */,
 				717F860A1AD0F3E000576E8E /* digital-7 (mono).ttf in Resources */,
 				717F86091AD0F3E000576E8E /* digital-7 (mono italic).ttf in Resources */,
 				71F0A13D1AD763A1003AEF5C /* classicPuckHitWall.mp3 in Resources */,
+				715F43081AE5653B002D44AD /* FaceOffLogo.png in Resources */,
 				71E1667B1ADDE6A00042D96A /* WoodFont.ttf in Resources */,
 				7119B4D21AD24215002CA09B /* classicPaddle.png in Resources */,
 				7119B4B91AD1063C002CA09B /* spacePaddle.png in Resources */,
@@ -985,19 +1050,26 @@
 				71D803CF1ADECCF4000BE4A3 /* menuBackgroundMusic.mp3 in Resources */,
 				71F0A14B1AD8548A003AEF5C /* underwaterBackgroundMusic.mp3 in Resources */,
 				7169DEBD1AE487EB006B34C9 /* carTable.png in Resources */,
-				7169DEBA1AE487EB006B34C9 /* carBackround.png in Resources */,
+				715F430B1AE5653B002D44AD /* FaceOffLogo58.png in Resources */,
+				7169DEBA1AE487EB006B34C9 /* carBackground.png in Resources */,
 				7119B4D41AD24215002CA09B /* classicTable.png in Resources */,
 				7169DE891AE40B1C006B34C9 /* GoSound.wav in Resources */,
+				715F43111AE5653B002D44AD /* Thumbs.db in Resources */,
 				7169DEB01AE487E3006B34C9 /* beachPaddle.png in Resources */,
 				7107A2A91AC398B600706EC8 /* LaunchScreen.xib in Resources */,
 				71D803CE1ADECCF4000BE4A3 /* confirmSound.mp3 in Resources */,
+				711249821AE5FB910020FB19 /* GreenButton.png in Resources */,
 				9F627A101ADE0DCE00DDD0AB /* LoginView.xib in Resources */,
 				71E1665F1ADB38000042D96A /* iceBackground.png in Resources */,
 				7169DEB31AE487E3006B34C9 /* Thumbs.db in Resources */,
 				717F86081AD0F3E000576E8E /* digital-7 (italic).ttf in Resources */,
+				711249831AE5FB910020FB19 /* Thumbs.db in Resources */,
 				71E1668A1ADDF3FF0042D96A /* soundOffIcon.png in Resources */,
 				7119B4CC1AD234AE002CA09B /* ThemeView.xib in Resources */,
 				71F0A13C1AD763A1003AEF5C /* classicPuckHitPaddle.mp3 in Resources */,
+				711249841AE5FB910020FB19 /* UpArrow.png in Resources */,
+				715F430E1AE5653B002D44AD /* iPadMini.png in Resources */,
+				715F43091AE5653B002D44AD /* FaceOffLogo28.png in Resources */,
 				71D803D01ADECCF4000BE4A3 /* menuSelect.mp3 in Resources */,
 				717F860C1AD0F3E000576E8E /* readme.txt in Resources */,
 				71E166741ADDE6A00042D96A /* BeachFont.ttf in Resources */,
@@ -1013,6 +1085,7 @@
 				71F0A14C1AD8548A003AEF5C /* underwaterPaddle.png in Resources */,
 				71E166891ADDF3FF0042D96A /* soundOnIcon.png in Resources */,
 				7169DE8F1AE40B21006B34C9 /* Countdown.wav in Resources */,
+				715F43101AE5653B002D44AD /* iPhone6.png in Resources */,
 				7119B4D81AD4B25F002CA09B /* Stars.sks in Resources */,
 				71F0A14E1AD8548A003AEF5C /* underwaterTable.png in Resources */,
 				9F627A061ADCA5AF00DDD0AB /* TwoPBaseView.xib in Resources */,
@@ -1027,11 +1100,14 @@
 				71E166781ADDE6A00042D96A /* SoccerFont.ttf in Resources */,
 				7169DEBB1AE487EB006B34C9 /* carPaddle.png in Resources */,
 				717F860B1AD0F3E000576E8E /* digital-7.ttf in Resources */,
+				715F430D1AE5653B002D44AD /* iPad2.png in Resources */,
 				7119B4C21AD228D6002CA09B /* themeconfig.xml in Resources */,
+				715F430F1AE5653B002D44AD /* iPhone4.png in Resources */,
 				7107A2A61AC398B600706EC8 /* Images.xcassets in Resources */,
 				7169DEA31AE487DD006B34C9 /* hawkeyePaddle.png in Resources */,
 				71008D631AD04FB2009B3444 /* Spark.sks in Resources */,
 				71F0A1491AD8548A003AEF5C /* Thumbs.db in Resources */,
+				715F430C1AE5653B002D44AD /* FaceOffLogo80.png in Resources */,
 				71E166771ADDE6A00042D96A /* HawkeyeFont.otf in Resources */,
 				71008D591ACF97F1009B3444 /* spark.png in Resources */,
 				71E166631ADB38000042D96A /* iceTable.png in Resources */,
@@ -1042,6 +1118,7 @@
 				71F0A1351AD75F07003AEF5C /* spaceBackgroundMusic.mp3 in Resources */,
 				7169DEAF1AE487E3006B34C9 /* beachBackgroundMusic.mp3 in Resources */,
 				7169DEA51AE487DD006B34C9 /* hawkeyeTable.png in Resources */,
+				715F430A1AE5653B002D44AD /* FaceOffLogo30.png in Resources */,
 				71E166751ADDE6A00042D96A /* CarFont.ttf in Resources */,
 				7169DEB11AE487E3006B34C9 /* beachPuck.png in Resources */,
 				7169DEBC1AE487EB006B34C9 /* carPuck.png in Resources */,
@@ -1086,6 +1163,7 @@
 				717B00E51ACCD96A0049F3EC /* AIPlayer.swift in Sources */,
 				9F627A081ADCABA000DDD0AB /* TwoPBaseView.swift in Sources */,
 				710435B61AC74BB9003E9458 /* InputManager.swift in Sources */,
+				7112498A1AE600510020FB19 /* TempOnePlayerController.swift in Sources */,
 				7107A2C81AC398D600706EC8 /* Stats.swift in Sources */,
 				71A875761AC5D115008EDBA9 /* Puck.swift in Sources */,
 				7119B4C01AD222F7002CA09B /* Themes.swift in Sources */,
@@ -1107,6 +1185,7 @@
 				71008D511ACF8918009B3444 /* FittedLabelNode.swift in Sources */,
 				7115A5711ACB81DD0057A8B8 /* GameTimer.swift in Sources */,
 				7115A5741ACB81F10057A8B8 /* GameUtil.swift in Sources */,
+				7112498C1AE606B80020FB19 /* PlayerSelectEventDelegate.swift in Sources */,
 				7169DE951AE41248006B34C9 /* VortexPowerup.swift in Sources */,
 				7115A5761ACB88650057A8B8 /* Goal.swift in Sources */,
 				71763AD61AE182DD00155C15 /* PowerupDelegate.swift in Sources */,

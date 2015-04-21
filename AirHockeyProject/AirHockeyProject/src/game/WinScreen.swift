@@ -90,6 +90,7 @@ public class WinScreen : SKNode, TouchHandlerDelegate {
         
     }
     public func handleExit() {
+        SoundManager.playMenuMusic()
         parentScene.navigationController!.popViewControllerAnimated(true)
     }
 

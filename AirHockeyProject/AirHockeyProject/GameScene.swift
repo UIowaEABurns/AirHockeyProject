@@ -129,15 +129,16 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func addPauseButtons() {
-        let pauseButtonSize = CGSize(width: ((1-TABLE_WIDTH_FRACTION)/2) - 5 * self.frame.width, height: 0.03 * self.frame.height)
+        let pauseButtonSize = CGSize(width: ((1-TABLE_WIDTH_FRACTION)/2) * self.frame.width, height: 0.03 * self.frame.height)
         
         
         pauseButton  = Button(fontNamed: theme.fontName, block: {self.pauseGame()}, s : pauseButtonSize)
         pauseButton.label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Bottom
         pauseButton.setText("Pause")
+        //pauseButton.zPosition = zPositionOverlay
         pauseButton.name = "pause"
     
-        pauseButton.position = CGPoint(x: self.frame.minX+2, y: self.frame.minY)
+        pauseButton.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
         touchHandlers.append(pauseButton)
         
         
@@ -214,7 +215,6 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Setup your scene here */
         if (!contentCreated) {
             soundManager.loadSounds(theme)
-            println("console")
             self.physicsWorld.gravity=CGVectorMake(0,0) // no gravity in this game
             self.physicsWorld.contactDelegate = self
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "appEnteringBackground", name: UIApplicationDidEnterBackgroundNotification, object: nil)
@@ -229,9 +229,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             let width = self.frame.width * TABLE_WIDTH_FRACTION
             let height = self.frame.height * TABLE_HEIGHT_FRACTION
-            println("table")
-            println(self.frame.width)
-            println(self.frame.height)
+            
             
             let size = CGSize(width: width,height: height)
             
@@ -247,13 +245,12 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             inputManager = InputManager(t: playingTable)
             if (!(userOne==nil)) {
-                playerOne=HumanPlayer(i: 1,input: inputManager,p: self,s: userOne?.getStats())
+                playerOne=HumanPlayer(i: 1,input: inputManager,p: self,s: userOne!.getStats())
 
             } else {
-                settingsProfile.getAIDifficulty()
-                playerOne=HumanPlayer(i: 1,input: inputManager,p: self,s: nil)
+                //playerOne=HumanPlayer(i: 1,input: inputManager,p: self,s: nil)
 
-                //playerOne=AIPlayer(diff: settingsProfile.getAIDifficulty()!, i: 1,input: inputManager,p: playingTable)
+                playerOne=AIPlayer(diff: settingsProfile.getAIDifficulty()!, i: 1,input: inputManager,p: self)
 
             }
             if !(userTwo==nil) {
@@ -437,7 +434,6 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     public func exitGame() {
-        //TODO: this needs to roll back to the previous screen
         if (playerOne is HumanPlayer) {
             let temp : HumanPlayer = (playerOne as! HumanPlayer)
             if (self.isGameStarted()) {
@@ -461,6 +457,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
         }
+        SoundManager.playMenuMusic()
         navigationController!.popViewControllerAnimated(true)
     }
     
@@ -625,7 +622,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
                     powerup!.moveToRandomPositionOnBoard(playingTable)
                 }
                 
-            } else {
+            } else if (powerup != nil) {
                 let powerupFinished = powerup!.update()
                 if (powerupFinished) {
                     powerup = nil

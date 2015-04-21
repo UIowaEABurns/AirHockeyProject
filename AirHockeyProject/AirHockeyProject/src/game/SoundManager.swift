@@ -56,7 +56,10 @@ public class SoundManager : NSObject, AVAudioPlayerDelegate {
         playSound(player)
     }
     
-    private  func playSoundEffect(player : AVAudioPlayer?) {
+    private func playSoundEffect(player : AVAudioPlayer?) {
+        if (player == nil) {
+            return
+        }
         player!.volume = FX_VOLUME
         playSound(player)
     }
@@ -161,6 +164,15 @@ public class SoundManager : NSObject, AVAudioPlayerDelegate {
         }
     }
     
+    public class func playMenuMusic() {
+        let music = SoundManager.getSoundURL("menuBackgroundMusic", type: "mp3")
+        if (music != nil ) {
+            bgPlayer = AVAudioPlayer(contentsOfURL: music, error: nil)
+            bgPlayer!.prepareToPlay()
+            SoundManager().playMusic(bgPlayer)
+        }
+    }
+    
     //this is executed on startup to load some basic system sounds, and it also starts the bgPlayer
     public class func setupSystemSounds() {
         
@@ -174,12 +186,7 @@ public class SoundManager : NSObject, AVAudioPlayerDelegate {
             buttonPlayer!.prepareToPlay()
         }
         
-        let music = SoundManager.getSoundURL("menuBackgroundMusic", type: "mp3")
-        if (music != nil ) {
-            bgPlayer = AVAudioPlayer(contentsOfURL: music, error: nil)
-            bgPlayer!.prepareToPlay()
-            SoundManager().playMusic(bgPlayer)
-        }
+        playMenuMusic()
         
         let powerupSound = SoundManager.getSoundURL("Powerup",type: "wav")
         if (powerupSound != nil) {

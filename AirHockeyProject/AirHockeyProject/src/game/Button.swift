@@ -26,8 +26,7 @@ public class Button : SKShapeNode, TouchHandlerDelegate {
     
     private var activeTouch : AnyObject? = nil
     
-    // 0 = nothing happening
-    // 1 = finger is pressed down on
+   
     
     private var state : State = State.Normal
     override init() {
@@ -43,7 +42,7 @@ public class Button : SKShapeNode, TouchHandlerDelegate {
     
     public func setText(s : String) {
         label.setFittedText(s)
-        
+        self.size = label.frame.size
     }
     
     init(fontNamed fontName: String!, block : dispatch_block_t, s : CGSize) {
@@ -66,6 +65,8 @@ public class Button : SKShapeNode, TouchHandlerDelegate {
     
     public func setFontSize(s : CGFloat) {
         label.setFittedFontSize(s)
+        self.size = label.frame.size
+        
     }
     public func getFontSize() -> CGFloat {
         return label.fontSize

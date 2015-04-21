@@ -15,10 +15,11 @@ class SystemSettingsViewController : UIViewController {
     @IBOutlet weak var fxController: UISlider!
     
     override func viewWillAppear(animated: Bool) {
-        println(BG_MUSIC_VOLUME)
         bgmController.setValue(BG_MUSIC_VOLUME, animated: false)
         fxController.setValue(FX_VOLUME,animated:false)
-        println(bgmController.value)
+        self.navigationController!.navigationBar.hidden = false
+        self.navigationController!.navigationBar.topItem!.title = "Cancel"
+
     }
     
     @IBAction func soundChanged(sender: AnyObject) {
@@ -28,13 +29,16 @@ class SystemSettingsViewController : UIViewController {
         SoundManager.volumeChanged()
     }
     
-    
+    override func viewWillDisappear(animated: Bool) {
+        AirHockeyConstants.loadVolumeSettings()
+        SoundManager.volumeChanged()
+    }
     
     @IBAction func fxChanged(sender: AnyObject) {
         SoundManager().playButtonPressedSound()
     }
     @IBAction func saveSound(sender: AnyObject) {
-        println(FX_VOLUME)
+        
         AirHockeyConstants.saveVolumeSettings()
         self.navigationController!.popViewControllerAnimated(true)
     }

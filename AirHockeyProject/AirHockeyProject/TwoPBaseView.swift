@@ -20,17 +20,22 @@ class TwoPBaseView: UIView {
     @IBOutlet weak var GuestButton: UIButton!
     
     @IBOutlet weak var baseScreenPlayerText: UILabel!
+    @IBOutlet weak var readyScreenPlayerText: UILabel!
     
+    @IBOutlet weak var gameSettingsButton: UIButton!
     private var currentScreen : UIView?
+    private var eventDelegate : PlayerSelectEventDelegate!
+    @IBOutlet weak var readySwitch: UISwitch!
     
+    var user : User?
+    var settingsProfile : SettingsProfile?
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        //NSBundle.mainBundle().loadNibNamed("TwoPBaseView", owner: self, options: nil)
-        //self.addSubview(self.Display)
     }
     
-    init(frame: CGRect, playerNumber : Int) {
+    init(frame: CGRect, playerNumber : Int, eventDelegate : PlayerSelectEventDelegate) {
+        self.eventDelegate = eventDelegate
         super.init(frame: frame)
         NSBundle.mainBundle().loadNibNamed("TwoPBaseView", owner: self, options: nil)
         NSBundle.mainBundle().loadNibNamed("LoginView", owner:self, options: nil)
@@ -59,9 +64,10 @@ class TwoPBaseView: UIView {
         
         
         baseScreenPlayerText.text = "Player " + String(playerNumber)
-        
+        readyScreenPlayerText.text = "Player " + String(playerNumber)
         if (playerNumber == 2) {
             self.BackButton.hidden = true
+            self.gameSettingsButton.hidden = true
         } else {
             println("here is bounds info")
             println(self.Display.frame.origin)
@@ -75,7 +81,8 @@ class TwoPBaseView: UIView {
         switchScreens(LoginDisplay)
     }
     @IBAction func GuestButtonPressed(sender: AnyObject) {
-        
+        user = AirHockeyConstants.getGuestUser()
+        settingsProfile = AirHockeyConstants.getDefaultSettings()
         switchScreens(ReadyDisplay)
     }
     @IBAction func CancelLoginButton(sender: AnyObject) {
@@ -83,7 +90,10 @@ class TwoPBaseView: UIView {
     }
     
     @IBAction func BackReadyViewButton(sender: AnyObject) {
+        user = nil
+        settingsProfile = nil
         switchScreens(Display)
+        readySwitch.setOn(false, animated: false)
     }
     
     
@@ -95,11 +105,19 @@ class TwoPBaseView: UIView {
         currentScreen = newScreen
     }
     
+    @IBAction func readySwitched(sender: AnyObject) {
+        if readySwitch.on {
+            eventDelegate.readySelected()
+        }
+    }
     @IBAction func BaseViewBackButtonPressed(sender: AnyObject) {
-    
+        eventDelegate.backSelected()
     
     }
     
     
+    @IBAction func gameSettingsSelected(sender: AnyObject) {
+        eventDelegate.settingsSelected(settingsProfile!)
+    }
     
 }

@@ -30,16 +30,13 @@ public class Goal : SKShapeNode {
         
         //next, attach the goal texture
         let sprite = SKSpriteNode(imageNamed: "goalTexture.png")
-        //sprite.size = self.frame.size
-        //sprite.frame = self.frame
+        
         sprite.size = CGSize(width: self.frame.width, height: visibleHeight)
         sprite.position = CGPoint(x: 0, y: self.frame.height - sprite.frame.height)
-        //println(sprite.frame.origin)
         sprite.anchorPoint = CGPoint(x: 0,y: 0)
         sprite.lightingBitMask = lightCategory
         self.addChild(sprite)
-        println(sprite.position)
-        println(self.frame.origin)
+        
         
     }
     

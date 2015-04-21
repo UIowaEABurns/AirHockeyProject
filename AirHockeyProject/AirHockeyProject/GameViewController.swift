@@ -29,6 +29,10 @@ public class GameViewController: UIViewController {
     private var scene : GameScene!
     public var isDemo = false
 
+    public var playerOne : User? = nil
+    public var playerTwo : User? = nil
+    public var settingsProfile : SettingsProfile!
+    
     
     override public func viewDidLoad() {
         self.navigationController!.navigationBar.hidden = true
@@ -40,7 +44,7 @@ public class GameViewController: UIViewController {
             soundManager.isMuted = true
         }
         //TODO : Pass in the correct values here
-        scene = GameScene(size: self.view.frame.size,p1: nil,p2: nil,profile: AirHockeyConstants.getDefaultSettings(), sound: soundManager, nav: self.navigationController)
+        scene = GameScene(size: self.view.frame.size,p1: playerOne,p2: playerTwo,profile: settingsProfile, sound: soundManager, nav: self.navigationController)
         // Configure the view.
         let skView = self.view as! SKView
         skView.showsFPS = true

@@ -14,7 +14,7 @@ public enum AIDifficulty : String {
     case Medium = "Medium"
     case Hard = "Hard"
     
-    static func toColor(s : String) -> AIDifficulty? {
+    static func toDifficulty(s : String) -> AIDifficulty? {
         if (s==Easy.rawValue) {
             return Easy
         } else if (s==Medium.rawValue) {
@@ -24,6 +24,17 @@ public enum AIDifficulty : String {
         }
         return nil
     }
+    
+    static func toNumber(diff : AIDifficulty) -> Int {
+        if diff==AIDifficulty.Easy {
+            return 1
+        } else if diff==AIDifficulty.Medium {
+            return 2
+        } else {
+            return 3
+        }
+    }
+    
     static func fromNumber(i : Int) -> AIDifficulty? {
         if (i==1) {
             return Easy
@@ -47,7 +58,7 @@ private enum AIState {
 
 public class AIPlayer : Player  {
     private let WANDER_MIN_SPEED : CGFloat = 10.0
-    private let WANDER_MAX_SPEED : CGFloat = 100.0
+    private let WANDER_MAX_SPEED : CGFloat = 200.0
     private var difficulty : AIDifficulty
     
     private var state : AIState
@@ -105,6 +116,7 @@ public class AIPlayer : Player  {
     }
     
     private func getStrikeVector() -> CGVector {
+        //var puckPoint = getRandomPointFromPoint(puck.position)
         return self.getPaddleVectorThroughPoint(puck.position)
     }
     private func getPowerupVector() -> CGVector? {
@@ -154,6 +166,7 @@ public class AIPlayer : Player  {
         var newState = self.state
         if (puckOnThisHalf) {
             if (puck.isIntangible()) {
+                self.state = AIState.Defend // no reaction time for this
                 newState = AIState.Defend
             } else {
                 newState = AIState.Strike

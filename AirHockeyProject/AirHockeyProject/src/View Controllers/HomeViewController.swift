@@ -10,53 +10,57 @@ import Foundation
 import UIKit
 import SpriteKit
 class HomeViewController : UIViewController {
-    private var skView : SKView?
+    private var gameView : SKView?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController!.navigationBar.hidden = true
     }
     
     private func setupGame() {
-        let widthFraction : CGFloat = 0.9
-        let heightFraction : CGFloat = 0.4
-        let rect = CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: self.view.frame.height * heightFraction, height: self.view.frame.width * widthFraction))
-        let gameView = SKView(frame: rect)
-        
-        gameView.backgroundColor = UIColor.clearColor()
-        gameView.alpha = 0.5
-        gameView.userInteractionEnabled = false
+        let widthFraction : CGFloat = 1
+        let heightFraction : CGFloat = 1
+        let rect = CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: self.view.frame.width * heightFraction, height: self.view.frame.height * widthFraction))
+        gameView = SKView(frame: rect)
+        println(gameView!.frame.origin)
+        gameView!.backgroundColor = UIColor.clearColor()
+        gameView!.alpha = 0.6
+        gameView!.userInteractionEnabled = false
         let soundManager : SoundManager = SoundManager()
         soundManager.isMuted = true
         let settings = AirHockeyConstants.getDefaultSettings()
         settings.setTimeLimit(0)
         settings.setGoalLimit(0)
-        
-        let scene = GameScene(size: gameView.frame.size,p1: nil,p2: nil,profile: settings, sound: soundManager, nav: nil)
+        settings.setPowerupsEnabled(false)
+        settings.setAIDifficulty(AIDifficulty.toNumber(AIDifficulty.Hard))
+        let scene = GameScene(size: gameView!.frame.size,p1: nil,p2: nil,profile: settings, sound: soundManager, nav: nil)
         scene.alpha = 1
         
         
         
-        gameView.ignoresSiblingOrder = true
+        gameView!.ignoresSiblingOrder = true
         
         scene.scaleMode = .AspectFill
-        gameView.presentScene(scene)
-        gameView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI) * 3 / 2)
+        gameView!.presentScene(scene)
         
-        self.view.addSubview(gameView)
-        gameView.frame.origin = CGPoint(x: ((1-widthFraction)/2) * self.view.frame.width, y: 20)
-        self.navigationController!.interactivePopGestureRecognizer.enabled = false
+        self.view.addSubview(gameView!)
+        
+        
+        self.view.sendSubviewToBack(gameView!)
     }
     
     override func viewWillDisappear(animated: Bool) {
-        if (skView != nil) {
-            skView!.scene!.paused = true
-            skView!.presentScene(nil)
-            skView!.removeFromSuperview()
+        if (gameView != nil) {
+            gameView!.scene!.paused = true
+            gameView!.presentScene(nil)
+            gameView!.removeFromSuperview()
             
         }
+        
     }
     
     override func  viewWillAppear(animated: Bool) {
-        //setupGame()
+        setupGame()
+        self.navigationController!.navigationBar.hidden = true
     }
     
     @IBAction func buttonTouched(sender: AnyObject) {
