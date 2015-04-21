@@ -82,6 +82,11 @@ class TwoPBaseView: UIView {
         switchScreens(Display)
     }
     
+    @IBAction func BackReadyViewButton(sender: AnyObject) {
+        switchScreens(Display)
+    }
+    
+    
     private func switchScreens(newScreen : UIView) {
         newScreen.hidden = false
         if currentScreen != nil {
@@ -89,6 +94,12 @@ class TwoPBaseView: UIView {
         }
         currentScreen = newScreen
     }
+    
+    @IBAction func BaseViewBackButtonPressed(sender: AnyObject) {
+    
+    
+    }
+    
     
     
 }
