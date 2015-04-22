@@ -26,6 +26,10 @@ class MuteWidget : UIView {
         self.addSubview(self.display)
     }
     
+    override func willMoveToWindow(newWindow: UIWindow?) {
+        setImage()
+    }
+    
     private func setImage() {
         if (muted) {
             soundImageView.image = UIImage(contentsOfFile: NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent("soundOffIcon.png"))

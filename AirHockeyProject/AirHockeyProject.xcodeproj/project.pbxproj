@@ -63,8 +63,16 @@
 		714449DF1AE1C4F500535D3D /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 714449D41AE1C4E600535D3D /* SQLite.framework */; };
 		714449E01AE1C4F800535D3D /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 714449D41AE1C4E600535D3D /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7155B2B91ADF917000B71479 /* SystemSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7155B2B81ADF917000B71479 /* SystemSettingsViewController.swift */; };
+		715BB29C1AE85DAA00BD12C0 /* RedArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 715BB2991AE85DAA00BD12C0 /* RedArrowButton.png */; };
+		715BB29D1AE85DAA00BD12C0 /* RedButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 715BB29A1AE85DAA00BD12C0 /* RedButton.png */; };
+		715BB29E1AE85DAA00BD12C0 /* RedRightArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 715BB29B1AE85DAA00BD12C0 /* RedRightArrowButton.png */; };
+		715BB2A41AE85DB300BD12C0 /* hawkeyeBackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 715BB2A31AE85DB300BD12C0 /* hawkeyeBackgroundMusic.mp3 */; };
+		715BB2A61AE85DBD00BD12C0 /* soccerBackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 715BB2A51AE85DBD00BD12C0 /* soccerBackgroundMusic.mp3 */; };
+		715BB2A91AE85DDA00BD12C0 /* FaceOffLogo29.png in Resources */ = {isa = PBXBuildFile; fileRef = 715BB2A71AE85DDA00BD12C0 /* FaceOffLogo29.png */; };
+		715BB2AA1AE85DDA00BD12C0 /* FaceOffLogo60.png in Resources */ = {isa = PBXBuildFile; fileRef = 715BB2A81AE85DDA00BD12C0 /* FaceOffLogo60.png */; };
+		715BB2AC1AE85E1600BD12C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 715BB2AB1AE85E1600BD12C0 /* Images.xcassets */; };
+		715BB2AE1AE8628000BD12C0 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 715BB2AD1AE8628000BD12C0 /* splash.png */; };
 		715F43081AE5653B002D44AD /* FaceOffLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F42FE1AE5653B002D44AD /* FaceOffLogo.png */; };
-		715F43091AE5653B002D44AD /* FaceOffLogo28.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F42FF1AE5653B002D44AD /* FaceOffLogo28.png */; };
 		715F430A1AE5653B002D44AD /* FaceOffLogo30.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43001AE5653B002D44AD /* FaceOffLogo30.png */; };
 		715F430B1AE5653B002D44AD /* FaceOffLogo58.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43011AE5653B002D44AD /* FaceOffLogo58.png */; };
 		715F430C1AE5653B002D44AD /* FaceOffLogo80.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43021AE5653B002D44AD /* FaceOffLogo80.png */; };
@@ -296,8 +304,16 @@
 		714449C81AE1C3E500535D3D /* LightPowerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightPowerup.swift; sourceTree = "<group>"; };
 		714449CA1AE1C4E500535D3D /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		7155B2B81ADF917000B71479 /* SystemSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemSettingsViewController.swift; sourceTree = "<group>"; };
+		715BB2991AE85DAA00BD12C0 /* RedArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedArrowButton.png; sourceTree = "<group>"; };
+		715BB29A1AE85DAA00BD12C0 /* RedButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedButton.png; sourceTree = "<group>"; };
+		715BB29B1AE85DAA00BD12C0 /* RedRightArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedRightArrowButton.png; sourceTree = "<group>"; };
+		715BB2A31AE85DB300BD12C0 /* hawkeyeBackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hawkeyeBackgroundMusic.mp3; sourceTree = "<group>"; };
+		715BB2A51AE85DBD00BD12C0 /* soccerBackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soccerBackgroundMusic.mp3; sourceTree = "<group>"; };
+		715BB2A71AE85DDA00BD12C0 /* FaceOffLogo29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo29.png; sourceTree = "<group>"; };
+		715BB2A81AE85DDA00BD12C0 /* FaceOffLogo60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo60.png; sourceTree = "<group>"; };
+		715BB2AB1AE85E1600BD12C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		715BB2AD1AE8628000BD12C0 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		715F42FE1AE5653B002D44AD /* FaceOffLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo.png; sourceTree = "<group>"; };
-		715F42FF1AE5653B002D44AD /* FaceOffLogo28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo28.png; sourceTree = "<group>"; };
 		715F43001AE5653B002D44AD /* FaceOffLogo30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo30.png; sourceTree = "<group>"; };
 		715F43011AE5653B002D44AD /* FaceOffLogo58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo58.png; sourceTree = "<group>"; };
 		715F43021AE5653B002D44AD /* FaceOffLogo80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo80.png; sourceTree = "<group>"; };
@@ -479,6 +495,7 @@
 				9F627A071ADCABA000DDD0AB /* TwoPBaseView.swift */,
 				7107A2A51AC398B600706EC8 /* Images.xcassets */,
 				7107A2A71AC398B600706EC8 /* LaunchScreen.xib */,
+				715BB2AB1AE85E1600BD12C0 /* Images.xcassets */,
 				7107A2981AC398B600706EC8 /* Supporting Files */,
 			);
 			path = AirHockeyProject;
@@ -577,6 +594,9 @@
 		7112497C1AE5FB910020FB19 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				715BB2991AE85DAA00BD12C0 /* RedArrowButton.png */,
+				715BB29A1AE85DAA00BD12C0 /* RedButton.png */,
+				715BB29B1AE85DAA00BD12C0 /* RedRightArrowButton.png */,
 				7112497D1AE5FB910020FB19 /* DownArrow.png */,
 				7112497E1AE5FB910020FB19 /* GreenButton.png */,
 				7112497F1AE5FB910020FB19 /* Thumbs.db */,
@@ -649,8 +669,9 @@
 		715F42FD1AE5653B002D44AD /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				715BB2A71AE85DDA00BD12C0 /* FaceOffLogo29.png */,
+				715BB2A81AE85DDA00BD12C0 /* FaceOffLogo60.png */,
 				715F42FE1AE5653B002D44AD /* FaceOffLogo.png */,
-				715F42FF1AE5653B002D44AD /* FaceOffLogo28.png */,
 				715F43001AE5653B002D44AD /* FaceOffLogo30.png */,
 				715F43011AE5653B002D44AD /* FaceOffLogo58.png */,
 				715F43021AE5653B002D44AD /* FaceOffLogo80.png */,
@@ -666,6 +687,7 @@
 		7169DE9C1AE487DD006B34C9 /* hawkeye */ = {
 			isa = PBXGroup;
 			children = (
+				715BB2A31AE85DB300BD12C0 /* hawkeyeBackgroundMusic.mp3 */,
 				7169DE9D1AE487DD006B34C9 /* hawkeyeBackground.png */,
 				7169DE9E1AE487DD006B34C9 /* hawkeyePaddle.png */,
 				7169DE9F1AE487DD006B34C9 /* hawkeyePuck.png */,
@@ -817,6 +839,7 @@
 		71A875731AC5D103008EDBA9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				715BB2AD1AE8628000BD12C0 /* splash.png */,
 				7112497C1AE5FB910020FB19 /* Buttons */,
 				715F42FD1AE5653B002D44AD /* icons */,
 				7169DE981AE47BFB006B34C9 /* goalTexture.png */,
@@ -837,6 +860,7 @@
 		71AE54151AD620C90024BC44 /* soccer */ = {
 			isa = PBXGroup;
 			children = (
+				715BB2A51AE85DBD00BD12C0 /* soccerBackgroundMusic.mp3 */,
 				71AE54161AD620C90024BC44 /* soccerBackground.png */,
 				71AE54171AD620C90024BC44 /* soccerPaddle.png */,
 				71AE54181AD620C90024BC44 /* soccerPuck.png */,
@@ -1022,6 +1046,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71F0A13B1AD763A1003AEF5C /* classicGoalSound.mp3 in Resources */,
+				715BB2AC1AE85E1600BD12C0 /* Images.xcassets in Resources */,
 				711249811AE5FB910020FB19 /* DownArrow.png in Resources */,
 				714449C61AE1C39700535D3D /* LightPowerup.png in Resources */,
 				7119B4D31AD24215002CA09B /* classicPuck.png in Resources */,
@@ -1064,16 +1089,18 @@
 				7169DEB31AE487E3006B34C9 /* Thumbs.db in Resources */,
 				717F86081AD0F3E000576E8E /* digital-7 (italic).ttf in Resources */,
 				711249831AE5FB910020FB19 /* Thumbs.db in Resources */,
+				715BB2AE1AE8628000BD12C0 /* splash.png in Resources */,
 				71E1668A1ADDF3FF0042D96A /* soundOffIcon.png in Resources */,
 				7119B4CC1AD234AE002CA09B /* ThemeView.xib in Resources */,
 				71F0A13C1AD763A1003AEF5C /* classicPuckHitPaddle.mp3 in Resources */,
 				711249841AE5FB910020FB19 /* UpArrow.png in Resources */,
 				715F430E1AE5653B002D44AD /* iPadMini.png in Resources */,
-				715F43091AE5653B002D44AD /* FaceOffLogo28.png in Resources */,
+				715BB29E1AE85DAA00BD12C0 /* RedRightArrowButton.png in Resources */,
 				71D803D01ADECCF4000BE4A3 /* menuSelect.mp3 in Resources */,
 				717F860C1AD0F3E000576E8E /* readme.txt in Resources */,
 				71E166741ADDE6A00042D96A /* BeachFont.ttf in Resources */,
 				7169DEBE1AE487EB006B34C9 /* Thumbs.db in Resources */,
+				715BB29D1AE85DAA00BD12C0 /* RedButton.png in Resources */,
 				71AE541E1AD620C90024BC44 /* soccerTable.png in Resources */,
 				71C225AD1AE177B400B87460 /* Square.png in Resources */,
 				71F0A1411AD85471003AEF5C /* classicBackground.png in Resources */,
@@ -1085,6 +1112,7 @@
 				71F0A14C1AD8548A003AEF5C /* underwaterPaddle.png in Resources */,
 				71E166891ADDF3FF0042D96A /* soundOnIcon.png in Resources */,
 				7169DE8F1AE40B21006B34C9 /* Countdown.wav in Resources */,
+				715BB2AA1AE85DDA00BD12C0 /* FaceOffLogo60.png in Resources */,
 				715F43101AE5653B002D44AD /* iPhone6.png in Resources */,
 				7119B4D81AD4B25F002CA09B /* Stars.sks in Resources */,
 				71F0A14E1AD8548A003AEF5C /* underwaterTable.png in Resources */,
@@ -1098,10 +1126,13 @@
 				7169DEAE1AE487E3006B34C9 /* beachBackground.png in Resources */,
 				71E166791ADDE6A00042D96A /* SpaceFont.ttf in Resources */,
 				71E166781ADDE6A00042D96A /* SoccerFont.ttf in Resources */,
+				715BB29C1AE85DAA00BD12C0 /* RedArrowButton.png in Resources */,
 				7169DEBB1AE487EB006B34C9 /* carPaddle.png in Resources */,
 				717F860B1AD0F3E000576E8E /* digital-7.ttf in Resources */,
 				715F430D1AE5653B002D44AD /* iPad2.png in Resources */,
+				715BB2A61AE85DBD00BD12C0 /* soccerBackgroundMusic.mp3 in Resources */,
 				7119B4C21AD228D6002CA09B /* themeconfig.xml in Resources */,
+				715BB2A91AE85DDA00BD12C0 /* FaceOffLogo29.png in Resources */,
 				715F430F1AE5653B002D44AD /* iPhone4.png in Resources */,
 				7107A2A61AC398B600706EC8 /* Images.xcassets in Resources */,
 				7169DEA31AE487DD006B34C9 /* hawkeyePaddle.png in Resources */,
@@ -1121,6 +1152,7 @@
 				715F430A1AE5653B002D44AD /* FaceOffLogo30.png in Resources */,
 				71E166751ADDE6A00042D96A /* CarFont.ttf in Resources */,
 				7169DEB11AE487E3006B34C9 /* beachPuck.png in Resources */,
+				715BB2A41AE85DB300BD12C0 /* hawkeyeBackgroundMusic.mp3 in Resources */,
 				7169DEBC1AE487EB006B34C9 /* carPuck.png in Resources */,
 				71E166641ADB38000042D96A /* Thumbs.db in Resources */,
 				7107A2CD1AC398E300706EC8 /* airhockey.sqlite3 in Resources */,
@@ -1337,6 +1369,7 @@
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "Face Off";
 				PROVISIONING_PROFILE = "e29d9323-2623-4b24-9172-4bcf0a1382db";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1353,6 +1386,7 @@
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "Face Off";
 				PROVISIONING_PROFILE = "e29d9323-2623-4b24-9172-4bcf0a1382db";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

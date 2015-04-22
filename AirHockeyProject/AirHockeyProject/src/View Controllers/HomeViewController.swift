@@ -11,6 +11,7 @@ import UIKit
 import SpriteKit
 class HomeViewController : UIViewController {
     private var gameView : SKView?
+    @IBOutlet weak var logoImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController!.navigationBar.hidden = true
@@ -46,6 +47,9 @@ class HomeViewController : UIViewController {
         
         
         self.view.sendSubviewToBack(gameView!)
+        
+        
+        logoImage.alpha = 0.7
     }
     
     override func viewWillDisappear(animated: Bool) {

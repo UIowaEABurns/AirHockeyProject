@@ -18,37 +18,45 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gI3-zz-kdg">
-                    <rect key="frame" x="281" y="75" width="38" height="30"/>
-                    <state key="normal" title="Login">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="LoginButtonPressed:" destination="-1" eventType="touchUpInside" id="jsm-bC-fnz"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNB-y2-K1o">
-                    <rect key="frame" x="280" y="129" width="41" height="30"/>
-                    <state key="normal" title="Guest">
+                    <rect key="frame" x="234" y="141" width="132" height="52"/>
+                    <state key="normal" title="Guest" backgroundImage="RedButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="GuestButtonPressed:" destination="-1" eventType="touchUpInside" id="erT-wX-0vr"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T83-vO-Zgm">
-                    <rect key="frame" x="269" y="8" width="62" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T83-vO-Zgm">
+                    <rect key="frame" x="234" y="8" width="132" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="132" id="ZwC-hu-uX5"/>
+                        <constraint firstAttribute="height" constant="29" id="geK-7k-7EB"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyi-8Q-Zws">
-                    <rect key="frame" x="8" y="7" width="35" height="30"/>
-                    <state key="normal" title="Back">
+                    <rect key="frame" x="8" y="7" width="63" height="30"/>
+                    <state key="normal" title="Home" backgroundImage="RedButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="BaseViewBackButtonPressed:" destination="-1" eventType="touchUpInside" id="jH9-Gl-Ahc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gI3-zz-kdg">
+                    <rect key="frame" x="234" y="57" width="132" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="d5z-H9-0PI"/>
+                        <constraint firstAttribute="width" constant="132" id="pBc-4T-hxU"/>
+                    </constraints>
+                    <state key="normal" title="Login" backgroundImage="RedButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="LoginButtonPressed:" destination="-1" eventType="touchUpInside" id="jsm-bC-fnz"/>
                     </connections>
                 </button>
             </subviews>
@@ -56,17 +64,35 @@
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="T83-vO-Zgm" secondAttribute="centerX" id="1au-fm-7xb"/>
                 <constraint firstAttribute="centerY" secondItem="gI3-zz-kdg" secondAttribute="centerY" constant="60" id="8fH-v8-Hqj"/>
+                <constraint firstItem="aNB-y2-K1o" firstAttribute="top" secondItem="gI3-zz-kdg" secondAttribute="bottom" constant="32" id="DNp-s7-OXb"/>
                 <constraint firstAttribute="centerY" secondItem="T83-vO-Zgm" secondAttribute="centerY" constant="131.5" id="M7L-nU-jNA"/>
                 <constraint firstAttribute="centerX" secondItem="aNB-y2-K1o" secondAttribute="centerX" id="TqS-rc-EYv"/>
                 <constraint firstAttribute="centerY" secondItem="T83-vO-Zgm" secondAttribute="centerY" constant="131.5" id="UfL-ta-ncK"/>
+                <constraint firstItem="gI3-zz-kdg" firstAttribute="height" secondItem="aNB-y2-K1o" secondAttribute="height" id="ZxC-1S-T9e"/>
                 <constraint firstAttribute="centerY" secondItem="gI3-zz-kdg" secondAttribute="centerY" constant="62" id="aY7-BI-vtp"/>
                 <constraint firstAttribute="centerX" secondItem="gI3-zz-kdg" secondAttribute="centerX" id="cBa-wg-JUQ"/>
+                <constraint firstItem="gI3-zz-kdg" firstAttribute="width" secondItem="aNB-y2-K1o" secondAttribute="width" id="lfx-n0-1wY"/>
+                <constraint firstItem="T83-vO-Zgm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ndN-58-xGT"/>
                 <constraint firstAttribute="centerY" secondItem="aNB-y2-K1o" secondAttribute="centerY" constant="6" id="qaH-vc-c8v"/>
+                <constraint firstItem="gI3-zz-kdg" firstAttribute="top" secondItem="T83-vO-Zgm" secondAttribute="bottom" constant="20" id="urB-Xq-4cd"/>
                 <constraint firstAttribute="centerX" secondItem="aNB-y2-K1o" secondAttribute="centerX" constant="-0.5" id="yzB-PK-6qZ"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="qaH-vc-c8v"/>
+                    <exclude reference="yzB-PK-6qZ"/>
+                    <exclude reference="M7L-nU-jNA"/>
+                    <exclude reference="UfL-ta-ncK"/>
+                    <exclude reference="8fH-v8-Hqj"/>
+                    <exclude reference="aY7-BI-vtp"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="353" y="476"/>
         </view>
     </objects>
+    <resources>
+        <image name="RedButton.png" width="385" height="130"/>
+    </resources>
 </document>

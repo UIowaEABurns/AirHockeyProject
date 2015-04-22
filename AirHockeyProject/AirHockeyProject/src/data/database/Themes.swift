@@ -44,6 +44,10 @@ public class Themes : NSObject, NSXMLParserDelegate {
             }
             
             currentTheme = Theme(name: attributeDict["name"] as! String)
+            
+            if attributeDict["dark"] != nil {
+                currentTheme!.dark = true
+            }
         } else if (elementName == "fontName") {
             currentTheme!.fontName = attributeDict["value"] as? String
         } else if (elementName == "emitter") {

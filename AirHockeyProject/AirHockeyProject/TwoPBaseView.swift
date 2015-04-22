@@ -53,7 +53,7 @@ class TwoPBaseView: UIView {
         self.LoginDisplay.hidden = true
         self.ReadyDisplay.hidden = true
         
-        
+        currentScreen = Display
         
         self.backgroundColor = UIColor.redColor()
         //on button press, remove then add new

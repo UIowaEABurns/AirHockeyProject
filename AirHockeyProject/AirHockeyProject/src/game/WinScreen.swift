@@ -72,13 +72,14 @@ public class WinScreen : SKNode, TouchHandlerDelegate {
         rematchButton.setText("Rematch")
         rematchButton.position = CGPoint(x: parent.frame.midX-rematchButton.frame.width/2, y: parent.frame.midY + 20)
         rematchButton.zPosition = zPositionOverlayButtons
+        rematchButton.label.fontColor = t.getFontColor()
         
         exitButton = Button(fontNamed: t.fontName!, block: {self.handleExit()}, s: buttonSize)
         exitButton.setText("Exit")
         exitButton.setFontSize(rematchButton.getFontSize())
         exitButton.position = CGPoint(x: parent.frame.midX-exitButton.frame.width/2, y: parent.frame.midY-exitButton.frame.height-20)
         exitButton.zPosition = zPositionOverlayButtons
-
+        exitButton.label.fontColor = t.getFontColor()
         self.addChild(rematchButton)
         self.addChild(exitButton)
 

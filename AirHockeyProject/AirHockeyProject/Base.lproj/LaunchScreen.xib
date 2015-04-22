@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -9,10 +10,72 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FaceOffLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="TBD-9R-ygd">
+                    <rect key="frame" x="163" y="8" width="155" height="155"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="TBD-9R-ygd" secondAttribute="height" multiplier="1:1" id="C0L-AG-mCA"/>
+                        <constraint firstAttribute="width" constant="155" id="DIh-i9-3zL"/>
+                        <constraint firstAttribute="height" constant="155" id="kot-Ns-mcZ"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash.png" translatesAutoresizingMaskIntoConstraints="NO" id="OLY-q2-lU6">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="480" id="XIc-Vr-ahX"/>
+                        <constraint firstAttribute="width" constant="480" id="lyP-Bd-g7Z"/>
+                        <constraint firstAttribute="height" constant="480" id="mcw-ZM-wWy"/>
+                        <constraint firstAttribute="width" constant="480" id="tmw-Gi-PLS"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="XIc-Vr-ahX"/>
+                            <exclude reference="lyP-Bd-g7Z"/>
+                            <exclude reference="mcw-ZM-wWy"/>
+                            <exclude reference="tmw-Gi-PLS"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="XIc-Vr-ahX"/>
+                            <include reference="lyP-Bd-g7Z"/>
+                        </mask>
+                    </variation>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" red="0.22441496969999999" green="0.96667725879999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="OLY-q2-lU6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="CVn-zJ-YmB"/>
+                <constraint firstAttribute="centerX" secondItem="OLY-q2-lU6" secondAttribute="centerX" id="EUi-St-mNN"/>
+                <constraint firstItem="TBD-9R-ygd" firstAttribute="width" secondItem="TBD-9R-ygd" secondAttribute="height" multiplier="1:1" id="Jeu-Xc-xUb"/>
+                <constraint firstAttribute="centerY" secondItem="OLY-q2-lU6" secondAttribute="centerY" id="Wkl-VT-k1O"/>
+                <constraint firstAttribute="centerX" secondItem="TBD-9R-ygd" secondAttribute="centerX" constant="-0.5" id="ZjB-Jz-c7d"/>
+                <constraint firstItem="OLY-q2-lU6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="acl-ur-0Wn"/>
+                <constraint firstAttribute="centerX" secondItem="OLY-q2-lU6" secondAttribute="centerX" id="kMC-7x-sQU"/>
+                <constraint firstAttribute="bottom" secondItem="OLY-q2-lU6" secondAttribute="bottom" id="lQS-hi-rax"/>
+                <constraint firstAttribute="trailing" secondItem="OLY-q2-lU6" secondAttribute="trailing" id="mYG-bg-FXA"/>
+                <constraint firstAttribute="centerY" secondItem="OLY-q2-lU6" secondAttribute="centerY" id="qQA-5A-GpM"/>
+                <constraint firstItem="TBD-9R-ygd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="uD9-c4-OLt"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="kMC-7x-sQU"/>
+                    <exclude reference="qQA-5A-GpM"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <include reference="kMC-7x-sQU"/>
+                    <include reference="qQA-5A-GpM"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="FaceOffLogo.png" width="440" height="440"/>
+        <image name="splash.png" width="768" height="1024"/>
+    </resources>
 </document>

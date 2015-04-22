@@ -135,7 +135,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         pauseButton  = Button(fontNamed: theme.fontName, block: {self.pauseGame()}, s : pauseButtonSize)
         pauseButton.label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Bottom
         pauseButton.setText("Pause")
-        //pauseButton.zPosition = zPositionOverlay
+        pauseButton.label.fontColor = theme.getFontColor()
         pauseButton.name = "pause"
     
         pauseButton.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
@@ -149,11 +149,13 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         resumeButton.inactivate()
         resumeButton.setText("Resume")
         resumeButton.name="resume"
+        resumeButton.label.fontColor = theme.getFontColor()
         resumeButton.position = CGPoint(x: overlayNode.frame.midX-(resumeButton.frame.width/2), y: overlayNode.frame.midY+(self.frame.height*0.1))
         resumeButton.zPosition = zPositionOverlay + 1
         exitButton  = Button(fontNamed: theme.fontName, block: {self.exitGame()}, s: resumeButtonSize)
         exitButton.setText("Exit")
         exitButton.name="exitButton"
+        exitButton.label.fontColor = theme.getFontColor()
         exitButton.inactivate()
         exitButton.setFontSize(resumeButton.getFontSize())
         exitButton.position = CGPoint(x: overlayNode.frame.midX-(resumeButton.frame.width/2), y: overlayNode.frame.midY-(self.frame.height*0.1))
@@ -171,13 +173,15 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         goNode.setTextNoResize("Go!")
         goNode.zPosition = zPositionStartTimer
         goNode.setFittedFontName(theme.fontName!)
+        goNode.fontColor = theme.getFontColor()
         
         goNode.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         
     }
     
     public func didBeginContact(contact: SKPhysicsContact) {
-        if (contact.bodyA.node == nil || contact.bodyB.node == nil) {
+        //don't handle anything if the game is over or if somehow the contact has nil bodies
+        if (contact.bodyA.node == nil || contact.bodyB.node == nil || self.isGameConcluded()) {
             return
         }
         if (contact.bodyA.node!.name == PUCK_NAME || contact.bodyB.node!.name == PUCK_NAME) {
@@ -287,7 +291,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
 
             timer = GameTimer(seconds: Int64(settingsProfile.getTimeLimit()!),font : theme.fontName!, size: timerSize, singleSecond: false)
             timer.zRotation = CGFloat((M_PI*3.0)/2.0)
-
+            timer.fontColor = theme.getFontColor()
             
             timer.position = CGPointMake(CGRectGetMaxX(self.frame)-timer.frame.width-5,CGRectGetMidY(self.frame)-(timer.frame.height/2))
             
@@ -350,6 +354,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         startupNode.position = CGPoint(x: self.frame.midX,y: self.frame.midY - startupNode.frame.height/2)
         startupNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
         startupNode.setBlock({self.soundManager.playCountdownSound()})
+        startupNode.fontColor = theme.getFontColor()
         self.addChild(startupNode)
         startupNode.timer.start()
         
@@ -360,6 +365,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     private func getScoreLabelNode() -> SKLabelNode {
         let score = SKLabelNode(fontNamed: theme.fontName)
         score.zPosition = zPositionTimer
+        score.fontColor = theme.getFontColor()
         score.fontSize = timer.getFontSize()
         score.zRotation = CGFloat((M_PI*3.0)/2.0)
         score.text = "0"

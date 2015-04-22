@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <themes>
-<theme name="ice">
+<theme name="ice" dark="true">
     <fontName value="Digital-7"/>
     <emitter name="Snow.sks" align="top"/>
 </theme>
-<theme name="classic">
+<theme name="classic" dark="true">
     <fontName value="Digital-7"/>
 </theme>
 <theme name="space">
@@ -24,7 +24,7 @@
 <theme name="beach">
     <fontName value="Pineapple Demo"/>
 </theme>
-<theme name="hawkeye">
+<theme name="hawkeye" dark="true">
     <fontName value="Richardson Brand Revolution Block"/>
     
 </theme>

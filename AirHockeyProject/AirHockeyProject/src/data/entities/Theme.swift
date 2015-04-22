@@ -11,6 +11,7 @@ import SpriteKit
 public class Theme {
     var fontName : String?
     var boardName : String
+    var dark : Bool = false
     var customEmitters : [CustomEmitter] = []
     init(name : String) {
         boardName = name
@@ -45,5 +46,11 @@ public class Theme {
         return "classicGoalSound"
     }
     
+    func getFontColor() -> SKColor {
+        if dark {
+            return SKColor.blackColor()
+        }
+        return SKColor.whiteColor()
+    }
  
 }
