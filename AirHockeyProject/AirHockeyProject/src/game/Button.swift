@@ -16,7 +16,7 @@ enum State : String {
     
 }
 let BUTTON_ACTIVE_COLOR = SKColor.redColor()
-let BUTTON_INACTIVE_COLOR  = SKColor.whiteColor()
+
 
 public class Button : SKShapeNode, TouchHandlerDelegate {
     private var block : dispatch_block_t
@@ -27,13 +27,15 @@ public class Button : SKShapeNode, TouchHandlerDelegate {
     private var activeTouch : AnyObject? = nil
     
    
-    
+    private var defaultFontColor : SKColor
     private var state : State = State.Normal
-    override init() {
+    init(defaultFontColor : SKColor) {
         block = {}
         active = true
         size = CGSize(width: 0,height: 0)
         label = FittedLabelNode(s: size, str: "")
+        self.defaultFontColor = defaultFontColor
+        label.fontColor = defaultFontColor
         super.init()
         
 
@@ -45,19 +47,20 @@ public class Button : SKShapeNode, TouchHandlerDelegate {
         self.size = label.frame.size
     }
     
-    init(fontNamed fontName: String!, block : dispatch_block_t, s : CGSize) {
+    init(fontNamed fontName: String!, block : dispatch_block_t, s : CGSize, defaultFontColor : SKColor) {
         self.block = {}
         active = true
         size = s
         label = FittedLabelNode(s: size, str: "")
         label.setFittedFontName(fontName)
+        self.defaultFontColor=defaultFontColor
+        label.fontColor = defaultFontColor
         super.init()
         self.block = block
         label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
         label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center
         self.path = CGPathCreateWithRect(CGRect(origin: CGPoint(x: 0, y: 0), size: size), nil)
         
-        //self.strokeColor = SKColor.whiteColor()
         label.position = CGPoint(x: self.frame.midX,y: self.frame.midY)
         self.addChild(label)
         handleTextColor()
@@ -102,7 +105,7 @@ public class Button : SKShapeNode, TouchHandlerDelegate {
     
     private func handleTextColor() {
         if (self.state == State.Normal) {
-            self.label.fontColor = BUTTON_INACTIVE_COLOR
+            self.label.fontColor = defaultFontColor
         } else {
             self.label.fontColor = BUTTON_ACTIVE_COLOR
 

@@ -18,8 +18,10 @@ class SystemSettingsViewController : UIViewController {
         bgmController.setValue(BG_MUSIC_VOLUME, animated: false)
         fxController.setValue(FX_VOLUME,animated:false)
         self.navigationController!.navigationBar.hidden = false
-        self.navigationController!.navigationBar.topItem!.title = "Cancel"
+        self.navigationController!.interactivePopGestureRecognizer.delegate = SwipeDelegate
 
+        self.navigationController!.navigationBar.topItem!.title = "Cancel"
+        Util.applyBackgroundToView(self.view)
     }
     
     @IBAction func soundChanged(sender: AnyObject) {

@@ -132,7 +132,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         let pauseButtonSize = CGSize(width: ((1-TABLE_WIDTH_FRACTION)/2) * self.frame.width, height: 0.03 * self.frame.height)
         
         
-        pauseButton  = Button(fontNamed: theme.fontName, block: {self.pauseGame()}, s : pauseButtonSize)
+        pauseButton  = Button(fontNamed: theme.fontName, block: {self.pauseGame()}, s : pauseButtonSize, defaultFontColor: theme.getFontColor())
         pauseButton.label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Bottom
         pauseButton.setText("Pause")
         pauseButton.label.fontColor = theme.getFontColor()
@@ -145,17 +145,15 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         gameplayNode.addChild(pauseButton)
         
         let resumeButtonSize=CGSize(width: 0.3 * self.frame.width, height: 0.05 * self.frame.height)
-        resumeButton = Button(fontNamed: theme.fontName, block: {self.resumeGame()}, s: resumeButtonSize)
+        resumeButton = Button(fontNamed: theme.fontName, block: {self.resumeGame()}, s: resumeButtonSize, defaultFontColor: theme.getFontColor())
         resumeButton.inactivate()
         resumeButton.setText("Resume")
         resumeButton.name="resume"
-        resumeButton.label.fontColor = theme.getFontColor()
         resumeButton.position = CGPoint(x: overlayNode.frame.midX-(resumeButton.frame.width/2), y: overlayNode.frame.midY+(self.frame.height*0.1))
         resumeButton.zPosition = zPositionOverlay + 1
-        exitButton  = Button(fontNamed: theme.fontName, block: {self.exitGame()}, s: resumeButtonSize)
+        exitButton  = Button(fontNamed: theme.fontName, block: {self.exitGame()}, s: resumeButtonSize, defaultFontColor: theme.getFontColor())
         exitButton.setText("Exit")
         exitButton.name="exitButton"
-        exitButton.label.fontColor = theme.getFontColor()
         exitButton.inactivate()
         exitButton.setFontSize(resumeButton.getFontSize())
         exitButton.position = CGPoint(x: overlayNode.frame.midX-(resumeButton.frame.width/2), y: overlayNode.frame.midY-(self.frame.height*0.1))

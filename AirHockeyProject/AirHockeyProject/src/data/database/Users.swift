@@ -8,6 +8,10 @@
 
 import Foundation
 import SQLite
+
+var userOneUsername : String?
+var userTwoUsername : String?
+
 public class Users {
     
     
@@ -105,5 +109,60 @@ public class Users {
     }
     
     
+    class func saveUserLogins() {
+        defaults.setObject(userOneUsername, forKey: "useronelogin")
+        defaults.setObject(userTwoUsername, forKey: "usertwologin")
+    }
     
+    class func loadUserLogins() {
+        if let temp: AnyObject = defaults.objectForKey("useronelogin") {
+            userOneUsername = defaults.stringForKey("useronelogin")
+            
+        } else {
+            userOneUsername = nil
+        }
+        if let temp : AnyObject = defaults.objectForKey("usertwologin") {
+            userTwoUsername = defaults.stringForKey("usertwologin")
+        } else {
+            userTwoUsername = nil
+        }
+    }
+    
+    //true to log player one in, false to log player 2 in
+    class func login(user : User, playerOne : Bool) -> Bool {
+        
+        var success : Bool = true
+        let lockQueue = dispatch_queue_create("com.test.LockQueue", nil)
+        dispatch_sync(lockQueue) {
+            //user is already logged in
+            if (userOneUsername == user.getUsername() || userTwoUsername == user.getUsername()) {
+                success = false
+            } else if user.getUsername() == nil {
+                success = false
+            } else if (playerOne && userOneUsername != nil) {
+                success = false
+            } else if ( !playerOne && userTwoUsername != nil) {
+                success = false
+            } else {
+                if playerOne {
+                    userOneUsername = user.getUsername()!
+                } else {
+                    userTwoUsername = user.getUsername()!
+                }
+                self.saveUserLogins()
+            }
+        }
+        
+        
+        return success
+    }
+    
+    class func logout(playerOne : Bool) {
+        if playerOne {
+            userOneUsername = nil
+        } else {
+            userTwoUsername = nil
+        }
+        saveUserLogins()
+    }
 }

@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MuteWidget" customModule="AirHockeyProject" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MuteWidget" customModule="Face_Off" customModuleProvider="target">
             <connections>
                 <outlet property="display" destination="iN0-l3-epB" id="kSc-pp-4Rk"/>
                 <outlet property="soundImageView" destination="JzN-VT-Qqs" id="U0t-Rp-1Sf"/>

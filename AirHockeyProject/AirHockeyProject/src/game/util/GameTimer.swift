@@ -25,7 +25,6 @@ public class GameTimer : FittedLabelNode {
         self.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Right
 
         self.fontName=font
-        self.fontColor=SKColor.whiteColor()
         
     }
     

@@ -33,4 +33,14 @@ class Util : NSObject, UIGestureRecognizerDelegate {
     
     
     
+    class func applyBackgroundToView(view : UIView) {
+        let image = UIImage(contentsOfFile: NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent("splash.png"))
+        
+        var imageView = UIImageView(image: image)
+        imageView.frame.size = view.frame.size
+        imageView.alpha = 0.6
+        view.addSubview(imageView)
+        view.sendSubviewToBack(imageView)
+    }
+    
 }

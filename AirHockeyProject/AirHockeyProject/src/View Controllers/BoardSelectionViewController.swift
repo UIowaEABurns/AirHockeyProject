@@ -30,15 +30,15 @@ class BoardSelectionViewController : UIViewController {
         
         let startHeight : CGFloat = 0
         
-        let frameWidth = ( self.view.frame.width / CGFloat(tablesPerRow) ) - ( horizontalSpacing * (CGFloat(tablesPerRow) + 1)  )
-        let frameHeight = (self.view.frame.height / 2 ) - ( verticalSpacing )
+        let frameWidth = (self.view.frame.width - ( horizontalSpacing * (CGFloat(tablesPerRow) + 1))) / CGFloat(tablesPerRow)
+        let frameHeight = ( ( self.view.frame.height -  verticalSpacing ) / 2 )
         
         
         
         super.viewDidLoad()
         themes = Themes().getAllThemes()
        
-        var frame = CGRect(origin: CGPoint(x: 0,y: startHeight - (verticalSpacing + frameHeight)), size: CGSize(width: frameWidth, height: frameHeight))
+        var frame = CGRect(origin: CGPoint(x: 0,y: startHeight - (verticalSpacing * 2 + frameHeight)), size: CGSize(width: frameWidth, height: frameHeight))
         var counter = 0
         var rows = 0
         for theme in themes {

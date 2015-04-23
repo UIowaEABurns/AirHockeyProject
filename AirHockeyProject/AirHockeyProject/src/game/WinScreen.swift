@@ -37,9 +37,10 @@ public class WinScreen : SKNode, TouchHandlerDelegate {
         winLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center
         winLabel.position = CGPoint(x: parent.frame.midX, y: parent.frame.maxY-150)
         winLabel.zPosition = zPositionOverlayButtons
-        
+        winLabel.fontColor = t.getFontColor()
         p1ScoreLabel = SKLabelNode(fontNamed: t.fontName!)
         p1ScoreLabel.fontSize = winLabel.fontSize
+        p1ScoreLabel.fontColor = t.getFontColor()
         p1ScoreLabel.text = String(p1Score)
         let scoreLabelDistanceFromCenter : CGFloat = 120
         let scoreLabelDistanceFromBanner : CGFloat = 80
@@ -48,12 +49,12 @@ public class WinScreen : SKNode, TouchHandlerDelegate {
         p2ScoreLabel = SKLabelNode(fontNamed: t.fontName!)
         p2ScoreLabel.fontSize = winLabel.fontSize
         p2ScoreLabel.text = String(p2Score)
-        
+        p2ScoreLabel.fontColor = t.getFontColor()
         p2ScoreLabel.position = CGPoint(x: parent.frame.midX+scoreLabelDistanceFromCenter, y: winLabel.position.y - winLabel.frame.height-scoreLabelDistanceFromBanner)
         p2ScoreLabel.zPosition = zPositionOverlayButtons
         
         
-        let buttonSize = CGSize(width: parent.frame.width * 0.3, height: parent.frame.height * 0.09)
+        let buttonSize = CGSize(width: parent.frame.width * 0.4, height: parent.frame.height * 0.09)
         
         
         self.parentScene = parent
@@ -68,18 +69,16 @@ public class WinScreen : SKNode, TouchHandlerDelegate {
         overlayNode.fillColor = OVERLAY_COLOR
         self.addChild(overlayNode)
         
-        rematchButton = Button(fontNamed: t.fontName!, block: {self.handleRematch()}, s: buttonSize)
+        rematchButton = Button(fontNamed: t.fontName!, block: {self.handleRematch()}, s: buttonSize, defaultFontColor: t.getFontColor())
         rematchButton.setText("Rematch")
         rematchButton.position = CGPoint(x: parent.frame.midX-rematchButton.frame.width/2, y: parent.frame.midY + 20)
         rematchButton.zPosition = zPositionOverlayButtons
-        rematchButton.label.fontColor = t.getFontColor()
         
-        exitButton = Button(fontNamed: t.fontName!, block: {self.handleExit()}, s: buttonSize)
+        exitButton = Button(fontNamed: t.fontName!, block: {self.handleExit()}, s: buttonSize, defaultFontColor: t.getFontColor())
         exitButton.setText("Exit")
         exitButton.setFontSize(rematchButton.getFontSize())
         exitButton.position = CGPoint(x: parent.frame.midX-exitButton.frame.width/2, y: parent.frame.midY-exitButton.frame.height-20)
         exitButton.zPosition = zPositionOverlayButtons
-        exitButton.label.fontColor = t.getFontColor()
         self.addChild(rematchButton)
         self.addChild(exitButton)
 

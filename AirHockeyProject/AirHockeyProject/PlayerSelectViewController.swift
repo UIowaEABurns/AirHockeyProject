@@ -12,6 +12,7 @@ import UIKit
 class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
     private var playerOneHalf : TwoPBaseView?
     private var playerTwoHalf : TwoPBaseView?
+    @IBOutlet weak var muteWidget: MuteWidget!
     override func viewDidLoad() {
         super.viewDidLoad()
         let rect = CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: self.view.bounds.width, height: self.view.bounds.height/2 - 2))
@@ -29,7 +30,7 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
         self.navigationController!.navigationBar.hidden = true
         self.navigationController!.interactivePopGestureRecognizer.delegate = SwipeDelegate
 
-
+        self.view.bringSubviewToFront(muteWidget)
     }
     
     

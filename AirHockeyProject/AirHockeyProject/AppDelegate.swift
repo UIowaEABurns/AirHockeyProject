@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AirHockeyConstants.loadMuteSetting()
         AirHockeyConstants.loadVolumeSettings()
         SoundManager.setupSystemSounds()
+        Users.login(User(), playerOne: false)
         return true
     }
 
