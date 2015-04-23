@@ -510,8 +510,11 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     //TODO: we actually want a textured node here, but this is just for testing
     func getPuckSprite(density : CGFloat, radius : CGFloat) -> Puck {
         var puck : Puck = Puck(imageNamed: theme.boardName+"Puck.png")
-        
-        puck.size = CGSize(width: radius * 2, height: radius * 2)
+        var rad = radius
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            rad = radius * 1.6
+        }
+        puck.size = CGSize(width: rad * 2, height: rad * 2)
         
         puck.configurePuck(density, settingsProfile: settingsProfile)
         return puck
@@ -521,9 +524,11 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     //returns a paddle TODO get a textured node
     func getPaddleSprite(playerNumber : Int,radius: CGFloat, mass : CGFloat)-> Paddle{
         var paddle = Paddle(imageNamed: theme.boardName+"Paddle.png")
-       
-       
-        paddle.configurePaddle(playerNumber,radius: radius, settingsProfile: settingsProfile, mass : mass)
+        var rad = radius
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            rad = radius * 1.6
+        }
+        paddle.configurePaddle(playerNumber,radius: rad, settingsProfile: settingsProfile, mass : mass)
         return paddle
     }
     

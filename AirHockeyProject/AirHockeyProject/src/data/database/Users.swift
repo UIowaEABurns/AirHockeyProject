@@ -139,12 +139,11 @@ public class Users {
                 success = false
             } else if user.getUsername() == nil {
                 success = false
-            } else if (playerOne && userOneUsername != nil) {
-                success = false
-            } else if ( !playerOne && userTwoUsername != nil) {
-                success = false
             } else {
                 if playerOne {
+                    
+                    
+                    
                     userOneUsername = user.getUsername()!
                 } else {
                     userTwoUsername = user.getUsername()!
