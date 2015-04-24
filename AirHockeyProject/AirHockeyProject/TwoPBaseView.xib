@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -37,7 +37,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyi-8Q-Zws">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyi-8Q-Zws">
                     <rect key="frame" x="8" y="7" width="63" height="30"/>
                     <state key="normal" title="Home" backgroundImage="RedButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,6 +63,7 @@
             <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="T83-vO-Zgm" secondAttribute="centerX" id="1au-fm-7xb"/>
+                <constraint firstAttribute="bottom" secondItem="dyi-8Q-Zws" secondAttribute="bottom" constant="263" id="7C7-wB-2rb"/>
                 <constraint firstAttribute="centerY" secondItem="gI3-zz-kdg" secondAttribute="centerY" constant="60" id="8fH-v8-Hqj"/>
                 <constraint firstItem="aNB-y2-K1o" firstAttribute="top" secondItem="gI3-zz-kdg" secondAttribute="bottom" constant="32" id="DNp-s7-OXb"/>
                 <constraint firstAttribute="centerY" secondItem="T83-vO-Zgm" secondAttribute="centerY" constant="131.5" id="M7L-nU-jNA"/>
@@ -73,6 +74,7 @@
                 <constraint firstAttribute="centerX" secondItem="gI3-zz-kdg" secondAttribute="centerX" id="cBa-wg-JUQ"/>
                 <constraint firstItem="gI3-zz-kdg" firstAttribute="width" secondItem="aNB-y2-K1o" secondAttribute="width" id="lfx-n0-1wY"/>
                 <constraint firstItem="T83-vO-Zgm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ndN-58-xGT"/>
+                <constraint firstAttribute="trailing" secondItem="dyi-8Q-Zws" secondAttribute="trailing" constant="529" id="oCb-5a-mx7"/>
                 <constraint firstAttribute="centerY" secondItem="aNB-y2-K1o" secondAttribute="centerY" constant="6" id="qaH-vc-c8v"/>
                 <constraint firstItem="gI3-zz-kdg" firstAttribute="top" secondItem="T83-vO-Zgm" secondAttribute="bottom" constant="20" id="urB-Xq-4cd"/>
                 <constraint firstAttribute="centerX" secondItem="aNB-y2-K1o" secondAttribute="centerX" constant="-0.5" id="yzB-PK-6qZ"/>
@@ -81,12 +83,12 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="qaH-vc-c8v"/>
-                    <exclude reference="yzB-PK-6qZ"/>
                     <exclude reference="M7L-nU-jNA"/>
                     <exclude reference="UfL-ta-ncK"/>
                     <exclude reference="8fH-v8-Hqj"/>
                     <exclude reference="aY7-BI-vtp"/>
+                    <exclude reference="qaH-vc-c8v"/>
+                    <exclude reference="yzB-PK-6qZ"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="353" y="476"/>

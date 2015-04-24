@@ -176,6 +176,7 @@
 		9F627A061ADCA5AF00DDD0AB /* TwoPBaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F627A051ADCA5AF00DDD0AB /* TwoPBaseView.xib */; };
 		9F627A081ADCABA000DDD0AB /* TwoPBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F627A071ADCABA000DDD0AB /* TwoPBaseView.swift */; };
 		9F627A101ADE0DCE00DDD0AB /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F627A0F1ADE0DCE00DDD0AB /* LoginView.xib */; };
+		9F7DFCF51AE9A9260014BFDD /* CreateNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFCF41AE9A9260014BFDD /* CreateNewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -416,6 +417,7 @@
 		9F627A051ADCA5AF00DDD0AB /* TwoPBaseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoPBaseView.xib; sourceTree = "<group>"; };
 		9F627A071ADCABA000DDD0AB /* TwoPBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoPBaseView.swift; sourceTree = "<group>"; };
 		9F627A0F1ADE0DCE00DDD0AB /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		9F7DFCF41AE9A9260014BFDD /* CreateNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -639,6 +641,7 @@
 				7178D35F1ADE00EC00834CC5 /* HomeViewController.swift */,
 				711249891AE600510020FB19 /* TempOnePlayerController.swift */,
 				7112498B1AE606B80020FB19 /* PlayerSelectEventDelegate.swift */,
+				9F7DFCF41AE9A9260014BFDD /* CreateNewViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -1217,6 +1220,7 @@
 				71008D511ACF8918009B3444 /* FittedLabelNode.swift in Sources */,
 				7115A5711ACB81DD0057A8B8 /* GameTimer.swift in Sources */,
 				7115A5741ACB81F10057A8B8 /* GameUtil.swift in Sources */,
+				9F7DFCF51AE9A9260014BFDD /* CreateNewViewController.swift in Sources */,
 				7112498C1AE606B80020FB19 /* PlayerSelectEventDelegate.swift in Sources */,
 				7169DE951AE41248006B34C9 /* VortexPowerup.swift in Sources */,
 				7115A5761ACB88650057A8B8 /* Goal.swift in Sources */,
