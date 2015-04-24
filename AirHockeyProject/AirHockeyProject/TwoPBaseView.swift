@@ -8,10 +8,11 @@
 
 import Foundation
 import UIKit
-class TwoPBaseView: UIView {
+class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     
     //multiple of these displays
     
+    @IBOutlet weak var LoginLabel: UILabel!
     @IBOutlet weak var BackButton: UIButton!
     @IBOutlet var LoginDisplay: UIView!
     @IBOutlet weak var LoginButton: UIButton!
@@ -31,9 +32,12 @@ class TwoPBaseView: UIView {
     
     @IBOutlet var aiView: UIView!
     
+    @IBOutlet weak var LoginPickerView: UIPickerView!
     
+    let pickerData = Users.getAllUsernames()
     
-    
+    //LoginPickerView.dataSource = self
+    //LoginPickerView.delegate = self
     
     var user : User?
     var settingsProfile : SettingsProfile?
@@ -79,6 +83,8 @@ class TwoPBaseView: UIView {
             self.BackButton.hidden = true
             self.gameSettingsButton.hidden = true
         }
+        LoginPickerView.dataSource = self
+        LoginPickerView.delegate = self
     }
     @IBAction func LoginButtonPressed(sender: AnyObject) {
         
@@ -128,6 +134,20 @@ class TwoPBaseView: UIView {
         self.user = nil
         switchScreens(aiView)
         self.readySwitch.setOn(true,animated: false)
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return pickerData[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        LoginLabel.text = pickerData[row]
     }
     
 }

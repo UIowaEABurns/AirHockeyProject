@@ -94,7 +94,7 @@ public class Users {
         return nil //means there was no person with the given username
     }
     
-    class func getAllUsers(s: String) -> [User] {
+    class func getAllUsers() -> [User] {
         let db = Database(DatabaseManager.getDatabasePath() as String)
         
         let stmt=db.prepare("select username,first_name,last_name,setting_id,stats_id,last_login from users")
@@ -106,6 +106,14 @@ public class Users {
         }
         
         return users
+    }
+    class func getAllUsernames() -> [String] {
+        let Userss = getAllUsers()
+        var output : [String] = []
+        for x in Userss {
+            output.append(x.getUsername()!)
+        }
+        return output
     }
     
     

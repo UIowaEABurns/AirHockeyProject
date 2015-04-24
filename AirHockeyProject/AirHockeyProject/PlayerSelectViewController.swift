@@ -51,7 +51,7 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
             playerOneHalf!.readySwitch.setOn(false, animated: false)
             playerTwoHalf!.readySwitch.setOn(false,animated: false)
             self.performSegueWithIdentifier("TwoPShowGameSegue", sender: self)
-        } else if  
+        } 
     }
     
     func backSelected() {

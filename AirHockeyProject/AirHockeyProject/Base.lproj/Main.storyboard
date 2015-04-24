@@ -622,9 +622,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ESS-Qa-Cvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
+
             <point key="canvasLocation" x="-1467" y="1806"/>
-=======
+
             <point key="canvasLocation" x="-2111" y="1760"/>
         </scene>
         <!--Temp One Player Controller-->
@@ -658,7 +658,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53o-Yt-giJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-410" y="1201"/>
->>>>>>> origin/master
+
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
