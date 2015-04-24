@@ -15,6 +15,9 @@ class CreateNewViewController : UIViewController {
     @IBOutlet weak var LastName: UITextField!
     @IBOutlet weak var Username: UITextField!
     
+    
+    
+    
     @IBAction func HomePressed(sender: UIButton) {
         self.navigationController?.popViewControllerAnimated(true)
     }

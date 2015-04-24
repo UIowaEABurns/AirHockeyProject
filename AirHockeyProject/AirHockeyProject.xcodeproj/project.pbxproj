@@ -63,6 +63,8 @@
 		714449DF1AE1C4F500535D3D /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 714449D41AE1C4E600535D3D /* SQLite.framework */; };
 		714449E01AE1C4F800535D3D /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 714449D41AE1C4E600535D3D /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7155B2B91ADF917000B71479 /* SystemSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7155B2B81ADF917000B71479 /* SystemSettingsViewController.swift */; };
+		715A05CA1AEAB01F00C51C45 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715A05C91AEAB01F00C51C45 /* UserProfileViewController.swift */; };
+		715A05D01AEABB2A00C51C45 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715A05CF1AEABB2A00C51C45 /* HighScoreViewController.swift */; };
 		715BB29C1AE85DAA00BD12C0 /* RedArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 715BB2991AE85DAA00BD12C0 /* RedArrowButton.png */; };
 		715BB29D1AE85DAA00BD12C0 /* RedButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 715BB29A1AE85DAA00BD12C0 /* RedButton.png */; };
 		715BB29E1AE85DAA00BD12C0 /* RedRightArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 715BB29B1AE85DAA00BD12C0 /* RedRightArrowButton.png */; };
@@ -311,6 +313,8 @@
 		714449C81AE1C3E500535D3D /* LightPowerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightPowerup.swift; sourceTree = "<group>"; };
 		714449CA1AE1C4E500535D3D /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		7155B2B81ADF917000B71479 /* SystemSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemSettingsViewController.swift; sourceTree = "<group>"; };
+		715A05C91AEAB01F00C51C45 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		715A05CF1AEABB2A00C51C45 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		715BB2991AE85DAA00BD12C0 /* RedArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedArrowButton.png; sourceTree = "<group>"; };
 		715BB29A1AE85DAA00BD12C0 /* RedButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedButton.png; sourceTree = "<group>"; };
 		715BB29B1AE85DAA00BD12C0 /* RedRightArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedRightArrowButton.png; sourceTree = "<group>"; };
@@ -659,8 +663,9 @@
 				711249891AE600510020FB19 /* TempOnePlayerController.swift */,
 				7112498B1AE606B80020FB19 /* PlayerSelectEventDelegate.swift */,
 				715BB2B91AE9ABAD00BD12C0 /* AIPlayerView.xib */,
-
 				9F7DFCF41AE9A9260014BFDD /* CreateNewViewController.swift */,
+				715A05C91AEAB01F00C51C45 /* UserProfileViewController.swift */,
+				715A05CF1AEABB2A00C51C45 /* HighScoreViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -1224,6 +1229,7 @@
 				7112498A1AE600510020FB19 /* TempOnePlayerController.swift in Sources */,
 				7107A2C81AC398D600706EC8 /* Stats.swift in Sources */,
 				71A875761AC5D115008EDBA9 /* Puck.swift in Sources */,
+				715A05D01AEABB2A00C51C45 /* HighScoreViewController.swift in Sources */,
 				7119B4C01AD222F7002CA09B /* Themes.swift in Sources */,
 				71BB497F1AC4CE1C00898049 /* Settings.swift in Sources */,
 				71E166821ADDEDE90042D96A /* MuteWidget.swift in Sources */,
@@ -1246,6 +1252,7 @@
 				9F7DFCF51AE9A9260014BFDD /* CreateNewViewController.swift in Sources */,
 				7112498C1AE606B80020FB19 /* PlayerSelectEventDelegate.swift in Sources */,
 				7169DE951AE41248006B34C9 /* VortexPowerup.swift in Sources */,
+				715A05CA1AEAB01F00C51C45 /* UserProfileViewController.swift in Sources */,
 				715BB2B41AE989E200BD12C0 /* GameSlider.swift in Sources */,
 				7115A5761ACB88650057A8B8 /* Goal.swift in Sources */,
 				71763AD61AE182DD00155C15 /* PowerupDelegate.swift in Sources */,

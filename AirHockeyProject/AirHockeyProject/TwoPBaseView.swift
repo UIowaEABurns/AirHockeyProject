@@ -34,18 +34,13 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var LoginPickerView: UIPickerView!
     
-<<<<<<< HEAD
     let pickerData = Users.getAllUsernames()
     
     //LoginPickerView.dataSource = self
     //LoginPickerView.delegate = self
     
     var user : User?
-=======
-    var user : User?
     
-    
->>>>>>> origin/master
     var settingsProfile : SettingsProfile?
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
