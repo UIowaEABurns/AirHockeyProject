@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNB-y2-K1o">
-                    <rect key="frame" x="234" y="141" width="132" height="52"/>
+                    <rect key="frame" x="215" y="141" width="170" height="52"/>
                     <state key="normal" title="Guest" backgroundImage="RedButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -37,8 +37,12 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyi-8Q-Zws">
-                    <rect key="frame" x="8" y="7" width="63" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyi-8Q-Zws">
+                    <rect key="frame" x="8" y="7" width="76" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="76" id="IS8-ol-m3f"/>
+                        <constraint firstAttribute="height" constant="40" id="gqH-P9-Kb4"/>
+                    </constraints>
                     <state key="normal" title="Home" backgroundImage="RedButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -47,10 +51,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gI3-zz-kdg">
-                    <rect key="frame" x="234" y="57" width="132" height="52"/>
+                    <rect key="frame" x="215" y="57" width="170" height="52"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="52" id="d5z-H9-0PI"/>
-                        <constraint firstAttribute="width" constant="132" id="pBc-4T-hxU"/>
+                        <constraint firstAttribute="width" constant="170" id="pBc-4T-hxU"/>
                     </constraints>
                     <state key="normal" title="Login" backgroundImage="RedButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,8 +69,10 @@
                 <constraint firstAttribute="centerX" secondItem="T83-vO-Zgm" secondAttribute="centerX" id="1au-fm-7xb"/>
                 <constraint firstAttribute="bottom" secondItem="dyi-8Q-Zws" secondAttribute="bottom" constant="263" id="7C7-wB-2rb"/>
                 <constraint firstAttribute="centerY" secondItem="gI3-zz-kdg" secondAttribute="centerY" constant="60" id="8fH-v8-Hqj"/>
+                <constraint firstItem="dyi-8Q-Zws" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="8mb-4V-3L7"/>
                 <constraint firstItem="aNB-y2-K1o" firstAttribute="top" secondItem="gI3-zz-kdg" secondAttribute="bottom" constant="32" id="DNp-s7-OXb"/>
                 <constraint firstAttribute="centerY" secondItem="T83-vO-Zgm" secondAttribute="centerY" constant="131.5" id="M7L-nU-jNA"/>
+                <constraint firstItem="dyi-8Q-Zws" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Rr3-xG-0sS"/>
                 <constraint firstAttribute="centerX" secondItem="aNB-y2-K1o" secondAttribute="centerX" id="TqS-rc-EYv"/>
                 <constraint firstAttribute="centerY" secondItem="T83-vO-Zgm" secondAttribute="centerY" constant="131.5" id="UfL-ta-ncK"/>
                 <constraint firstItem="gI3-zz-kdg" firstAttribute="height" secondItem="aNB-y2-K1o" secondAttribute="height" id="ZxC-1S-T9e"/>
@@ -83,6 +89,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="7C7-wB-2rb"/>
+                    <exclude reference="oCb-5a-mx7"/>
                     <exclude reference="M7L-nU-jNA"/>
                     <exclude reference="UfL-ta-ncK"/>
                     <exclude reference="8fH-v8-Hqj"/>

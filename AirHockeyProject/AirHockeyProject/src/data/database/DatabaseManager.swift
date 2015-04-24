@@ -37,6 +37,7 @@ public class DatabaseManager {
         
         let fileManager = NSFileManager()
         if (!fileManager.fileExistsAtPath(databasePath as String)) {
+            println("setting up database")
             let basePath=getBaseDatabasePath()
             fileManager.copyItemAtPath(basePath as String, toPath: databasePath as String, error: NSErrorPointer())
         }

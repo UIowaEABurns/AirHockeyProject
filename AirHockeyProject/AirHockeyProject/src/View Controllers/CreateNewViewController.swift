@@ -21,11 +21,12 @@ class CreateNewViewController : UIViewController {
     
     @IBAction func CreateButtonPressed(sender: UIButton) {
         
-        var tempUser : User!
+        var tempUser : User! = User()
         tempUser.setFirstName(FirstName.text)
         tempUser.setLastName(LastName.text)
         tempUser.setUsername(Username.text)
         Users.createUser(tempUser)
+        
     }
     override func viewDidLoad() {
         

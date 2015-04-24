@@ -32,10 +32,9 @@ class TwoPBaseView: UIView {
     @IBOutlet var aiView: UIView!
     
     
-    
-    
-    
     var user : User?
+    
+    
     var settingsProfile : SettingsProfile?
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

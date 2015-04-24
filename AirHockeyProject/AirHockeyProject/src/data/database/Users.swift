@@ -22,8 +22,9 @@ public class Users {
     class func createUser(u : User) {
         let timestamp=Util.getCurrentTimeMillis()
         let db = Database(DatabaseManager.getDatabasePath() as String)
-        let settingId=Settings.addNewSettingsProfile()
         let statsId=Statistics.addNewStats()
+        let settingId=Settings.addNewSettingsProfile()
+        
         println("settings id = ")
         println(settingId)
         println("stats id = ")
@@ -94,7 +95,7 @@ public class Users {
         return nil //means there was no person with the given username
     }
     
-    class func getAllUsers(s: String) -> [User] {
+    class func getAllUsers() -> [User] {
         let db = Database(DatabaseManager.getDatabasePath() as String)
         
         let stmt=db.prepare("select username,first_name,last_name,setting_id,stats_id,last_login from users")

@@ -47,11 +47,12 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
     }
     
     func readySelected() {
-        if (playerOneHalf!.readySwitch.on && playerTwoHalf!.readySwitch.on) {
+        let onePlayer : Bool = isOnePlayer
+        if (playerOneHalf!.readySwitch.on && (playerTwoHalf!.readySwitch.on || onePlayer)) {
             playerOneHalf!.readySwitch.setOn(false, animated: false)
             playerTwoHalf!.readySwitch.setOn(false,animated: false)
             self.performSegueWithIdentifier("TwoPShowGameSegue", sender: self)
-        } else if  
+        }
     }
     
     func backSelected() {
@@ -71,7 +72,7 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
                 game.playerTwo = playerTwoHalf!.user
                 game.settingsProfile = playerOneHalf!.settingsProfile
                 
-                game.settingsProfile.setAIDifficulty(playerOneHalf!.aiDifficultySelector.currentIndex + 1)
+                game.settingsProfile.setAIDifficulty(playerTwoHalf!.aiDifficultySelector.currentIndex + 1)
             } else if ident == "SettingsSegue" {
                 //TODO: This will need to change to avoid going to the theme chooser
                 let themeChooser = segue.destinationViewController as! BoardSelectionViewController

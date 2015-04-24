@@ -18,28 +18,28 @@ CREATE TABLE stats (
 
 DROP TABLE IF EXISTS settings;
 CREATE TABLE settings (
-	id INTEGER PRIMARY KEY,
-	friction REAL, 
-	p1_paddle_radius REAL,
-	p2_paddle_radius REAL,
-    p1_paddle_color INTEGER,
-    p2_paddle_color INTEGER,
-	puck_radius REAL,
-	time INTEGER,
-	goals INTEGER,
-	ai_difficulty INTEGER,
-    theme_name TEXT,
-    powerups_enabled INTEGER
+id INTEGER PRIMARY KEY,
+friction REAL,
+p1_paddle_radius REAL,
+p2_paddle_radius REAL,
+p1_paddle_color INTEGER,
+p2_paddle_color INTEGER,
+puck_radius REAL,
+time INTEGER,
+goals INTEGER,
+ai_difficulty INTEGER,
+theme_name TEXT,
+powerups_enabled INTEGER
 );
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
-	username TEXT PRIMARY KEY,
-	first_name TEXT,
-	last_name TEXT,
-	setting_id INTEGER,
-	stats_id INTEGER,
-	last_login INTEGER,
-	FOREIGN KEY(stats_id) REFERENCES stats(id),
-	FOREIGN KEY(setting_id) REFERENCES settings(id)
+username TEXT PRIMARY KEY,
+first_name TEXT,
+last_name TEXT,
+setting_id INTEGER,
+stats_id INTEGER,
+last_login INTEGER,
+FOREIGN KEY(stats_id) REFERENCES stats(id),
+FOREIGN KEY(setting_id) REFERENCES settings(id)
 );
