@@ -13,13 +13,20 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
     private var playerOneHalf : TwoPBaseView?
     private var playerTwoHalf : TwoPBaseView?
     @IBOutlet weak var muteWidget: MuteWidget!
+    
+    
+    var isOnePlayer : Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let rect = CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: self.view.bounds.width, height: self.view.bounds.height/2 - 2))
         playerTwoHalf = TwoPBaseView(frame: rect, playerNumber: 2, eventDelegate: self)
         
-        
-        playerTwoHalf!.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        if (!isOnePlayer) {
+            playerTwoHalf!.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        } else {
+            playerTwoHalf!.setToAIScreen()
+        }
         self.view.addSubview(playerTwoHalf!)
 
         // Do any additional setup after loading the view, typically from a nib.
@@ -44,7 +51,7 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
             playerOneHalf!.readySwitch.setOn(false, animated: false)
             playerTwoHalf!.readySwitch.setOn(false,animated: false)
             self.performSegueWithIdentifier("TwoPShowGameSegue", sender: self)
-        }
+        } else if  
     }
     
     func backSelected() {
@@ -63,6 +70,8 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
                 game.playerOne = playerOneHalf!.user
                 game.playerTwo = playerTwoHalf!.user
                 game.settingsProfile = playerOneHalf!.settingsProfile
+                
+                game.settingsProfile.setAIDifficulty(playerOneHalf!.aiDifficultySelector.currentIndex + 1)
             } else if ident == "SettingsSegue" {
                 //TODO: This will need to change to avoid going to the theme chooser
                 let themeChooser = segue.destinationViewController as! BoardSelectionViewController

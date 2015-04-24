@@ -176,7 +176,7 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonTouched:" destination="DQb-Ot-GJ7" eventType="touchUpInside" id="s70-cP-fCZ"/>
-                                    <segue destination="PYh-5H-Kh3" kind="show" id="A1V-FE-Lnq"/>
+                                    <segue destination="aiV-Dk-Td3" kind="show" identifier="HomeOnePlayerSegue" id="oEA-e3-Xvp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63H-V8-DUc">
@@ -208,7 +208,7 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonTouched:" destination="DQb-Ot-GJ7" eventType="touchUpInside" id="bEg-wR-9hC"/>
-                                    <segue destination="aiV-Dk-Td3" kind="show" id="wLu-Q5-jgT"/>
+                                    <segue destination="aiV-Dk-Td3" kind="show" identifier="HomeTwoPlayerSegue" id="wLu-Q5-jgT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LF3-Gy-REa">
@@ -290,7 +290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKc-9W-cYe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1485" y="948.75"/>
+            <point key="canvasLocation" x="-1485" y="948"/>
         </scene>
         <!--System Settings View Controller-->
         <scene sceneID="xws-dt-IvT">
@@ -330,9 +330,10 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="iCq-ga-ASH">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="iCq-ga-ASH" customClass="GameSlider" customModule="Face_Off" customModuleProvider="target">
                                 <rect key="frame" x="14" y="206" width="572" height="31"/>
                                 <color key="tintColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.14999999999999999" green="0.14999999999999999" blue="0.14999999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="soundChanged:" destination="ZDm-3w-qSw" eventType="valueChanged" id="hAW-Y5-769"/>
                                 </connections>
@@ -384,9 +385,10 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="EQP-DB-8GY">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="EQP-DB-8GY" customClass="GameSlider" customModule="Face_Off" customModuleProvider="target">
                                 <rect key="frame" x="14" y="324" width="572" height="31"/>
                                 <color key="tintColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.14999999999999999" green="0.14999999999999999" blue="0.14999999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="fxChanged:" destination="ZDm-3w-qSw" eventType="touchUpInside" id="z9c-e2-ezf"/>
                                     <action selector="soundChanged:" destination="ZDm-3w-qSw" eventType="valueChanged" id="MBf-Pz-rTP"/>
@@ -425,7 +427,7 @@
                             <constraint firstAttribute="centerX" secondItem="yWl-bC-HhU" secondAttribute="centerX" id="CwG-kM-5lJ"/>
                             <constraint firstAttribute="centerX" secondItem="zRW-Iq-ulc" secondAttribute="centerX" id="DbV-uI-NJ2"/>
                             <constraint firstItem="Eyg-Np-tPU" firstAttribute="top" secondItem="zRW-Iq-ulc" secondAttribute="bottom" constant="20" id="Dd1-xR-uEk"/>
-                            <constraint firstAttribute="centerX" secondItem="bkk-CR-vD3" secondAttribute="centerX" constant="-0.5" id="Efa-KI-ulC"/>
+                            <constraint firstAttribute="centerX" secondItem="bkk-CR-vD3" secondAttribute="centerX" id="Efa-KI-ulC"/>
                             <constraint firstAttribute="centerX" secondItem="iCq-ga-ASH" secondAttribute="centerX" id="FbG-5n-G2h"/>
                             <constraint firstAttribute="centerX" secondItem="EQP-DB-8GY" secondAttribute="centerX" id="ID0-Oy-nEC"/>
                             <constraint firstItem="bkk-CR-vD3" firstAttribute="top" secondItem="bxn-rL-7bl" secondAttribute="bottom" constant="18" id="IT9-8e-jAa"/>
@@ -448,7 +450,7 @@
                             <constraint firstItem="yWl-bC-HhU" firstAttribute="top" secondItem="iCq-ga-ASH" secondAttribute="bottom" constant="33" id="iUT-dV-e8q"/>
                             <constraint firstItem="EQP-DB-8GY" firstAttribute="width" secondItem="iCq-ga-ASH" secondAttribute="width" id="igL-q0-oOe"/>
                             <constraint firstItem="yWl-bC-HhU" firstAttribute="height" secondItem="bkk-CR-vD3" secondAttribute="height" id="j49-FO-rFt"/>
-                            <constraint firstAttribute="centerX" secondItem="bxn-rL-7bl" secondAttribute="centerX" constant="-0.5" id="k2K-9s-3TU"/>
+                            <constraint firstAttribute="centerX" secondItem="bxn-rL-7bl" secondAttribute="centerX" id="k2K-9s-3TU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iCq-ga-ASH" secondAttribute="trailing" constant="42" id="k87-w5-FbQ"/>
                             <constraint firstItem="EQP-DB-8GY" firstAttribute="top" secondItem="yWl-bC-HhU" secondAttribute="bottom" constant="8" id="mEk-ou-mND"/>
                             <constraint firstItem="yWl-bC-HhU" firstAttribute="height" secondItem="bkk-CR-vD3" secondAttribute="height" id="mnP-id-EcB"/>
@@ -539,39 +541,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ESS-Qa-Cvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1485" y="1824"/>
-        </scene>
-        <!--Temp One Player Controller-->
-        <scene sceneID="u9d-aj-oAQ">
-            <objects>
-                <viewController id="PYh-5H-Kh3" customClass="TempOnePlayerController" customModule="Face_Off" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9pM-As-BT9"/>
-                        <viewControllerLayoutGuide type="bottom" id="zPv-ex-E72"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tMr-ME-fYm">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0PU-p0-GpT">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pX-kf-XWW">
-                                <rect key="frame" x="221" y="267" width="158" height="65"/>
-                                <state key="normal" title="Play" backgroundImage="GreenButton.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BV1-FR-VrT" kind="show" identifier="ShowGameSegue" id="YIn-Fh-zFA"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="53o-Yt-giJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-410" y="1201"/>
+            <point key="canvasLocation" x="-1467" y="1806"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -617,10 +587,9 @@
     </scenes>
     <resources>
         <image name="FaceOffLogo.png" width="440" height="440"/>
-        <image name="GreenButton.png" width="600" height="192"/>
         <image name="RedButton.png" width="385" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vXw-U0-Vr2"/>
+        <segue reference="oEA-e3-Xvp"/>
     </inferredMetricsTieBreakers>
 </document>

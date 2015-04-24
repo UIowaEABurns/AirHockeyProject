@@ -72,6 +72,12 @@
 		715BB2AA1AE85DDA00BD12C0 /* FaceOffLogo60.png in Resources */ = {isa = PBXBuildFile; fileRef = 715BB2A81AE85DDA00BD12C0 /* FaceOffLogo60.png */; };
 		715BB2AC1AE85E1600BD12C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 715BB2AB1AE85E1600BD12C0 /* Images.xcassets */; };
 		715BB2AE1AE8628000BD12C0 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 715BB2AD1AE8628000BD12C0 /* splash.png */; };
+		715BB2B01AE9828500BD12C0 /* ArrowPickerWidget.xib in Resources */ = {isa = PBXBuildFile; fileRef = 715BB2AF1AE9828500BD12C0 /* ArrowPickerWidget.xib */; };
+		715BB2B21AE983CC00BD12C0 /* ArrowPickerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715BB2B11AE983CC00BD12C0 /* ArrowPickerWidget.swift */; };
+		715BB2B41AE989E200BD12C0 /* GameSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715BB2B31AE989E200BD12C0 /* GameSlider.swift */; };
+		715BB2B61AE9A84100BD12C0 /* ReadyButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 715BB2B51AE9A84100BD12C0 /* ReadyButtonView.xib */; };
+		715BB2B81AE9A98800BD12C0 /* ReadyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715BB2B71AE9A98800BD12C0 /* ReadyButtonView.swift */; };
+		715BB2BA1AE9ABAD00BD12C0 /* AIPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 715BB2B91AE9ABAD00BD12C0 /* AIPlayerView.xib */; };
 		715F43081AE5653B002D44AD /* FaceOffLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F42FE1AE5653B002D44AD /* FaceOffLogo.png */; };
 		715F430A1AE5653B002D44AD /* FaceOffLogo30.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43001AE5653B002D44AD /* FaceOffLogo30.png */; };
 		715F430B1AE5653B002D44AD /* FaceOffLogo58.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43011AE5653B002D44AD /* FaceOffLogo58.png */; };
@@ -313,6 +319,12 @@
 		715BB2A81AE85DDA00BD12C0 /* FaceOffLogo60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo60.png; sourceTree = "<group>"; };
 		715BB2AB1AE85E1600BD12C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		715BB2AD1AE8628000BD12C0 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
+		715BB2AF1AE9828500BD12C0 /* ArrowPickerWidget.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrowPickerWidget.xib; sourceTree = "<group>"; };
+		715BB2B11AE983CC00BD12C0 /* ArrowPickerWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrowPickerWidget.swift; sourceTree = "<group>"; };
+		715BB2B31AE989E200BD12C0 /* GameSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSlider.swift; sourceTree = "<group>"; };
+		715BB2B51AE9A84100BD12C0 /* ReadyButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadyButtonView.xib; sourceTree = "<group>"; };
+		715BB2B71AE9A98800BD12C0 /* ReadyButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadyButtonView.swift; sourceTree = "<group>"; };
+		715BB2B91AE9ABAD00BD12C0 /* AIPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIPlayerView.xib; sourceTree = "<group>"; };
 		715F42FE1AE5653B002D44AD /* FaceOffLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo.png; sourceTree = "<group>"; };
 		715F43001AE5653B002D44AD /* FaceOffLogo30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo30.png; sourceTree = "<group>"; };
 		715F43011AE5653B002D44AD /* FaceOffLogo58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo58.png; sourceTree = "<group>"; };
@@ -587,6 +599,11 @@
 				71A8756C1AC5C71F008EDBA9 /* Timer.swift */,
 				71E1667F1ADDECA40042D96A /* MuteWidget.xib */,
 				71E166811ADDEDE90042D96A /* MuteWidget.swift */,
+				715BB2AF1AE9828500BD12C0 /* ArrowPickerWidget.xib */,
+				715BB2B11AE983CC00BD12C0 /* ArrowPickerWidget.swift */,
+				715BB2B31AE989E200BD12C0 /* GameSlider.swift */,
+				715BB2B51AE9A84100BD12C0 /* ReadyButtonView.xib */,
+				715BB2B71AE9A98800BD12C0 /* ReadyButtonView.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -639,6 +656,7 @@
 				7178D35F1ADE00EC00834CC5 /* HomeViewController.swift */,
 				711249891AE600510020FB19 /* TempOnePlayerController.swift */,
 				7112498B1AE606B80020FB19 /* PlayerSelectEventDelegate.swift */,
+				715BB2B91AE9ABAD00BD12C0 /* AIPlayerView.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -1059,6 +1077,7 @@
 				7169DEB21AE487E3006B34C9 /* beachTable.png in Resources */,
 				9F318E971AE45FE6002F3821 /* ReadyView.xib in Resources */,
 				717F860A1AD0F3E000576E8E /* digital-7 (mono).ttf in Resources */,
+				715BB2B61AE9A84100BD12C0 /* ReadyButtonView.xib in Resources */,
 				717F86091AD0F3E000576E8E /* digital-7 (mono italic).ttf in Resources */,
 				71F0A13D1AD763A1003AEF5C /* classicPuckHitWall.mp3 in Resources */,
 				715F43081AE5653B002D44AD /* FaceOffLogo.png in Resources */,
@@ -1066,6 +1085,7 @@
 				7119B4D21AD24215002CA09B /* classicPaddle.png in Resources */,
 				7119B4B91AD1063C002CA09B /* spacePaddle.png in Resources */,
 				714449C51AE1C39700535D3D /* GrowthPowerup.png in Resources */,
+				715BB2B01AE9828500BD12C0 /* ArrowPickerWidget.xib in Resources */,
 				7169DEA61AE487DD006B34C9 /* Thumbs.db in Resources */,
 				71E166601ADB38000042D96A /* iceBackgroundMusic.mp3 in Resources */,
 				7169DEA21AE487DD006B34C9 /* hawkeyeBackground.png in Resources */,
@@ -1098,6 +1118,7 @@
 				715BB29E1AE85DAA00BD12C0 /* RedRightArrowButton.png in Resources */,
 				71D803D01ADECCF4000BE4A3 /* menuSelect.mp3 in Resources */,
 				717F860C1AD0F3E000576E8E /* readme.txt in Resources */,
+				715BB2BA1AE9ABAD00BD12C0 /* AIPlayerView.xib in Resources */,
 				71E166741ADDE6A00042D96A /* BeachFont.ttf in Resources */,
 				7169DEBE1AE487EB006B34C9 /* Thumbs.db in Resources */,
 				715BB29D1AE85DAA00BD12C0 /* RedButton.png in Resources */,
@@ -1194,6 +1215,7 @@
 				7155B2B91ADF917000B71479 /* SystemSettingsViewController.swift in Sources */,
 				717B00E51ACCD96A0049F3EC /* AIPlayer.swift in Sources */,
 				9F627A081ADCABA000DDD0AB /* TwoPBaseView.swift in Sources */,
+				715BB2B81AE9A98800BD12C0 /* ReadyButtonView.swift in Sources */,
 				710435B61AC74BB9003E9458 /* InputManager.swift in Sources */,
 				7112498A1AE600510020FB19 /* TempOnePlayerController.swift in Sources */,
 				7107A2C81AC398D600706EC8 /* Stats.swift in Sources */,
@@ -1219,10 +1241,12 @@
 				7115A5741ACB81F10057A8B8 /* GameUtil.swift in Sources */,
 				7112498C1AE606B80020FB19 /* PlayerSelectEventDelegate.swift in Sources */,
 				7169DE951AE41248006B34C9 /* VortexPowerup.swift in Sources */,
+				715BB2B41AE989E200BD12C0 /* GameSlider.swift in Sources */,
 				7115A5761ACB88650057A8B8 /* Goal.swift in Sources */,
 				71763AD61AE182DD00155C15 /* PowerupDelegate.swift in Sources */,
 				7178D3601ADE00EC00834CC5 /* HomeViewController.swift in Sources */,
 				71AE54141AD591E00024BC44 /* WinScreen.swift in Sources */,
+				715BB2B21AE983CC00BD12C0 /* ArrowPickerWidget.swift in Sources */,
 				7131F5531AD0F33500AABF5A /* Theme.swift in Sources */,
 				717B00DE1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift in Sources */,
 				7107A2C91AC398D600706EC8 /* User.swift in Sources */,

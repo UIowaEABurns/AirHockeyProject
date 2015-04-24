@@ -75,6 +75,8 @@ public class AIPlayer : Player  {
     private var defendingHalf : CGRect!
     init(diff : AIDifficulty, i: Int, input: InputManager, p: GameScene) {
         difficulty = diff
+        println("difficulty is ")
+        println(diff.rawValue)
         state = AIState.Defend
         super.init(i: i, input: input, p: p)
         let table = self.getPlayingTable()

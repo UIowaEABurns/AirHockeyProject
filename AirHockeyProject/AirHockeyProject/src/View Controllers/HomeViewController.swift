@@ -62,6 +62,18 @@ class HomeViewController : UIViewController {
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let ident = segue.identifier {
+            if ident == "HomeOnePlayerSegue" {
+                let dest = segue.destinationViewController as! PlayerSelectViewController
+                dest.isOnePlayer = true
+            } else if ident == "HomeTwoPlayerSegue" {
+                let dest = segue.destinationViewController as! PlayerSelectViewController
+                dest.isOnePlayer = false
+            }
+        }
+    }
+    
     override func  viewWillAppear(animated: Bool) {
         setupGame()
         self.navigationController!.navigationBar.hidden = true

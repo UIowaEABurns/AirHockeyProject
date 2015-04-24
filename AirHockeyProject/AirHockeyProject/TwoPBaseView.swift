@@ -26,6 +26,14 @@ class TwoPBaseView: UIView {
     private var currentScreen : UIView?
     private var eventDelegate : PlayerSelectEventDelegate!
     @IBOutlet weak var readySwitch: UISwitch!
+    @IBOutlet weak var aiDifficultySelector: ArrowPickerWidget!
+    
+    
+    @IBOutlet var aiView: UIView!
+    
+    
+    
+    
     
     var user : User?
     var settingsProfile : SettingsProfile?
@@ -40,6 +48,7 @@ class TwoPBaseView: UIView {
         NSBundle.mainBundle().loadNibNamed("TwoPBaseView", owner: self, options: nil)
         NSBundle.mainBundle().loadNibNamed("LoginView", owner:self, options: nil)
         NSBundle.mainBundle().loadNibNamed("ReadyView", owner:self, options: nil)
+        NSBundle.mainBundle().loadNibNamed("AIPlayerView", owner:self, options: nil)
         self.Display.frame.size = frame.size
         self.Display.bounds = self.bounds
 
@@ -48,11 +57,12 @@ class TwoPBaseView: UIView {
 
         self.ReadyDisplay.frame = Display.frame
         self.ReadyDisplay.bounds = Display.bounds
-
+        self.aiView.frame = Display.frame
+        self.aiView.bounds = Display.bounds
         
         self.LoginDisplay.hidden = true
         self.ReadyDisplay.hidden = true
-        
+        self.aiView.hidden = true
         currentScreen = Display
         
         self.backgroundColor = UIColor.redColor()
@@ -60,20 +70,14 @@ class TwoPBaseView: UIView {
         self.addSubview(self.Display)
         self.addSubview(ReadyDisplay)
         self.addSubview(LoginDisplay)
-        
-        
-        
+        self.addSubview(aiView)
+        aiDifficultySelector.values = ["Easy", "Medium", "Hard"]
+        aiDifficultySelector.setItem(1)
         baseScreenPlayerText.text = "Player " + String(playerNumber)
         readyScreenPlayerText.text = "Player " + String(playerNumber)
         if (playerNumber == 2) {
             self.BackButton.hidden = true
             self.gameSettingsButton.hidden = true
-        } else {
-            println("here is bounds info")
-            println(self.Display.frame.origin)
-            println(self.Display.frame.size)
-            println(self.Display.bounds.size)
-            println(self.Display.bounds.origin)
         }
     }
     @IBAction func LoginButtonPressed(sender: AnyObject) {
@@ -118,6 +122,12 @@ class TwoPBaseView: UIView {
     
     @IBAction func gameSettingsSelected(sender: AnyObject) {
         eventDelegate.settingsSelected(settingsProfile!)
+    }
+    
+    func setToAIScreen() {
+        self.user = nil
+        switchScreens(aiView)
+        self.readySwitch.setOn(true,animated: false)
     }
     
 }

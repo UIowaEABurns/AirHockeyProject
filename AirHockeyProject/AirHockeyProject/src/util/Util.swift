@@ -37,9 +37,15 @@ class Util : NSObject, UIGestureRecognizerDelegate {
         let image = UIImage(contentsOfFile: NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent("splash.png"))
         
         var imageView = UIImageView(image: image)
+        var blackView = UIView(frame: view.frame)
+        blackView.backgroundColor = UIColor.blackColor()
+        blackView.alpha = 0.35
         imageView.frame.size = view.frame.size
-        imageView.alpha = 0.6
+        imageView.alpha = 1
+        view.addSubview(blackView)
         view.addSubview(imageView)
+        view.sendSubviewToBack(blackView)
+
         view.sendSubviewToBack(imageView)
     }
     
