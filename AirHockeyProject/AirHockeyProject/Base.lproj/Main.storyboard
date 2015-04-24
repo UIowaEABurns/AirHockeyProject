@@ -622,10 +622,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ESS-Qa-Cvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-
             <point key="canvasLocation" x="-1467" y="1806"/>
-
-            <point key="canvasLocation" x="-2111" y="1760"/>
         </scene>
         <!--Temp One Player Controller-->
         <scene sceneID="u9d-aj-oAQ">
@@ -658,7 +655,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53o-Yt-giJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-410" y="1201"/>
-
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -704,9 +700,11 @@
     </scenes>
     <resources>
         <image name="FaceOffLogo.png" width="440" height="440"/>
+        <image name="GreenButton.png" width="600" height="192"/>
         <image name="RedButton.png" width="385" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="oEA-e3-Xvp"/>
+        <segue reference="vXw-U0-Vr2"/>
     </inferredMetricsTieBreakers>
 </document>
