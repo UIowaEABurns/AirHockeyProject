@@ -65,7 +65,7 @@ public class Settings {
         if (s.arePowerupsEnabled() != nil && s.arePowerupsEnabled()!) {
             powerups = 1
         }
-        let stmt=db.prepare("insert into settings (friction,p1_paddle_radius,p2_paddle_radius,p1_paddle_color,p2_paddle_color,puck_radius,time,goals,ai_difficulty,theme_name) VALUES (?,?,?,?,?,?,?,?,?,?,?)",[s.getFriction(),s.getPlayerOnePaddleRadius(),s.getPlayerTwoPaddleRadius(),s.getPlayerOnePaddleColorNumber(),s.getPlayerTwoPaddleColorNumber(), s.getPuckRadius(),s.getTimeLimit(),s.getGoalLimit(),s.getAIDifficultyAsNumber(),s.getThemeName(), powerups])
+        let stmt=db.prepare("insert into settings (friction,p1_paddle_radius,p2_paddle_radius,p1_paddle_color,p2_paddle_color,puck_radius,time,goals,ai_difficulty,theme_name,powerups_enabled) VALUES (?,?,?,?,?,?,?,?,?,?,?)",[s.getFriction(),s.getPlayerOnePaddleRadius(),s.getPlayerTwoPaddleRadius(),s.getPlayerOnePaddleColorNumber(),s.getPlayerTwoPaddleColorNumber(), s.getPuckRadius(),s.getTimeLimit(),s.getGoalLimit(),s.getAIDifficultyAsNumber(),s.getThemeName(), powerups])
         
         stmt.run()
         

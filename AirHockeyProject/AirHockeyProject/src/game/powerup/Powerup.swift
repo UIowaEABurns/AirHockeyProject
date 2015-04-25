@@ -46,7 +46,7 @@ public class Powerup : SKSpriteNode {
     
     public func moveToRandomPositionOnBoard(parent : SKNode) {
         let y = (parent.frame.midY)  - self.frame.height/2
-        let x = GameUtil.getRandomFloatInRange(parent.frame.minX, max: parent.frame.maxX  - self.frame.width)
+        let x = GameUtil.getRandomFloatInRange(parent.frame.minX, max: parent.frame.maxX  - ( self.frame.width * 2) )
         
         self.position = CGPoint(x: x, y: y)
     }

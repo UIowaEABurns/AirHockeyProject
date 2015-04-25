@@ -37,7 +37,6 @@ public class GameViewController: UIViewController {
     override public func viewDidLoad() {
         self.navigationController!.navigationBar.hidden = true
         self.navigationController!.interactivePopGestureRecognizer.delegate = SwipeDelegate
-        playerOne = Users.getUserByUsername("ark")
         super.viewDidLoad()
         let soundManager : SoundManager = SoundManager()
         if (isDemo) {
