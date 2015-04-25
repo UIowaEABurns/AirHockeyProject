@@ -36,10 +36,13 @@ class ArrowPickerWidget : UIView {
         if currentIndex<0 {
             currentIndex = values.count - 1
         }
+        SoundManager().playButtonPressedSound()
         setText()
     }
     @IBAction func rightArrowPressed(sender: UIButton) {
         currentIndex = (currentIndex + 1) % values.count
+        SoundManager().playButtonPressedSound()
+
         setText()
     }
     

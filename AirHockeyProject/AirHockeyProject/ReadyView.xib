@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="ReadyDisplay" destination="iN0-l3-epB" id="j32-T2-pUL"/>
                 <outlet property="gameSettingsButton" destination="DXN-2L-PQO" id="54C-t0-ABa"/>
+                <outlet property="homeButtonTwo" destination="5jX-Zu-VlI" id="BCT-aS-fVy"/>
                 <outlet property="readyScreenPlayerText" destination="dAI-Hr-VKY" id="xdr-9O-42j"/>
                 <outlet property="readySwitch" destination="d8G-7t-378" id="ijx-Ex-5Da"/>
             </connections>
@@ -34,21 +35,16 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXN-2L-PQO">
-                    <rect key="frame" x="249" y="262" width="102" height="30"/>
-                    <state key="normal" title="Game Settings">
+                    <rect key="frame" x="206" y="178" width="188" height="51"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="188" id="dGL-ua-0Ld"/>
+                        <constraint firstAttribute="height" constant="51" id="pPA-cX-CvX"/>
+                    </constraints>
+                    <state key="normal" title="Game Settings" backgroundImage="RedButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="gameSettingsSelected:" destination="-1" eventType="touchUpInside" id="E2h-bd-WMc"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XdB-21-bzD">
-                    <rect key="frame" x="8" y="8" width="35" height="30"/>
-                    <state key="normal" title="Back">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="BackReadyViewButton:" destination="-1" eventType="touchUpInside" id="buS-Qs-JeY"/>
                     </connections>
                 </button>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="d8G-7t-378">
@@ -57,23 +53,62 @@
                         <action selector="readySwitched:" destination="-1" eventType="valueChanged" id="CRe-wa-H40"/>
                     </connections>
                 </switch>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lL-H2-hwZ">
+                    <rect key="frame" x="206" y="237" width="188" height="51"/>
+                    <state key="normal" title="Logout" backgroundImage="RedButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="logoutButton:" destination="-1" eventType="touchUpInside" id="sTI-Ad-Mix"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jX-Zu-VlI">
+                    <rect key="frame" x="8" y="8" width="63" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="63" id="HBx-gh-3uE"/>
+                        <constraint firstAttribute="height" constant="30" id="fPZ-nX-fPc"/>
+                    </constraints>
+                    <state key="normal" title="Home" backgroundImage="RedButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="BaseViewBackButtonPressed:" destination="-1" eventType="touchUpInside" id="Djn-sa-REa"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="d8G-7t-378" secondAttribute="centerX" constant="-0.5" id="1Oc-7f-bwB"/>
+                <constraint firstItem="5jX-Zu-VlI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="2M3-1N-5iV"/>
                 <constraint firstAttribute="centerX" secondItem="dAI-Hr-VKY" secondAttribute="centerX" constant="-0.5" id="790-AZ-gLf"/>
+                <constraint firstItem="DXN-2L-PQO" firstAttribute="top" secondItem="d8G-7t-378" secondAttribute="bottom" constant="8" id="DPD-I9-XUn"/>
                 <constraint firstAttribute="centerX" secondItem="0us-JZ-6vc" secondAttribute="centerX" constant="-0.5" id="JHM-ZZ-GQa"/>
                 <constraint firstItem="dAI-Hr-VKY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Rl6-e0-bhB"/>
+                <constraint firstItem="5jX-Zu-VlI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Yxz-cb-ABP"/>
+                <constraint firstItem="DXN-2L-PQO" firstAttribute="trailing" secondItem="1lL-H2-hwZ" secondAttribute="trailing" id="Yzn-Yv-T3s"/>
+                <constraint firstItem="DXN-2L-PQO" firstAttribute="leading" secondItem="1lL-H2-hwZ" secondAttribute="leading" id="ZOE-Fn-pXn"/>
+                <constraint firstAttribute="bottom" secondItem="1lL-H2-hwZ" secondAttribute="bottom" constant="12" id="akE-jZ-doj"/>
+                <constraint firstItem="DXN-2L-PQO" firstAttribute="height" secondItem="1lL-H2-hwZ" secondAttribute="height" id="fkj-li-xsf"/>
                 <constraint firstAttribute="centerY" secondItem="d8G-7t-378" secondAttribute="centerY" constant="-4.5" id="jWJ-iG-Chn"/>
-                <constraint firstItem="XdB-21-bzD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="knN-cg-weB"/>
+                <constraint firstItem="DXN-2L-PQO" firstAttribute="width" secondItem="1lL-H2-hwZ" secondAttribute="width" id="pg9-DI-zGg"/>
+                <constraint firstItem="1lL-H2-hwZ" firstAttribute="top" secondItem="DXN-2L-PQO" secondAttribute="bottom" constant="8" id="prB-f1-1UO"/>
                 <constraint firstAttribute="centerX" secondItem="DXN-2L-PQO" secondAttribute="centerX" id="q7C-TF-Zaz"/>
                 <constraint firstAttribute="bottom" secondItem="DXN-2L-PQO" secondAttribute="bottom" constant="8" id="uDQ-EQ-fz4"/>
-                <constraint firstItem="XdB-21-bzD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="v5W-N2-Ty9"/>
                 <constraint firstItem="d8G-7t-378" firstAttribute="top" secondItem="0us-JZ-6vc" secondAttribute="bottom" constant="8" id="zFb-eN-d04"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="DPD-I9-XUn"/>
+                    <exclude reference="pg9-DI-zGg"/>
+                    <exclude reference="uDQ-EQ-fz4"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="204" y="602"/>
         </view>
     </objects>
+    <resources>
+        <image name="RedButton.png" width="385" height="130"/>
+    </resources>
 </document>

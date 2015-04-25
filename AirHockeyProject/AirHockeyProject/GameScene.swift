@@ -68,7 +68,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var powerup : Powerup?
     
-    
+    var isDemo = false
     var goalFrameCounter = 0
     
     let powerupOdds : CGFloat = 0.002
@@ -143,6 +143,10 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         gameplayNode.addChild(pauseButton)
+        
+        if self.isDemo {
+            pauseButton.alpha = 0
+        }
         
         let resumeButtonSize=CGSize(width: 0.3 * self.frame.width, height: 0.05 * self.frame.height)
         resumeButton = Button(fontNamed: theme.fontName, block: {self.resumeGame()}, s: resumeButtonSize, defaultFontColor: theme.getFontColor())

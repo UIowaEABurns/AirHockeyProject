@@ -136,6 +136,22 @@ public class Users {
         }
     }
     
+    class func getPlayerLogin(playerOne : Bool) -> User? {
+        if playerOne {
+            if userOneUsername == nil {
+                return nil
+            } else {
+                return Users.getUserByUsername(userOneUsername!)
+            }
+        } else {
+            if userTwoUsername == nil {
+                return nil
+            } else {
+                return Users.getUserByUsername(userTwoUsername!)
+            }
+        }
+    }
+    
     //true to log player one in, false to log player 2 in
     class func login(user : User, playerOne : Bool) -> Bool {
         

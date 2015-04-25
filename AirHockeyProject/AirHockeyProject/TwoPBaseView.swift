@@ -13,7 +13,6 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     //multiple of these displays
     
     @IBOutlet weak var LoginLabel: UILabel!
-    @IBOutlet weak var BackButton: UIButton!
     @IBOutlet var LoginDisplay: UIView!
     @IBOutlet weak var LoginButton: UIButton!
     @IBOutlet var Display: UIView!
@@ -29,6 +28,9 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var readySwitch: UISwitch!
     @IBOutlet weak var aiDifficultySelector: ArrowPickerWidget!
     
+    @IBOutlet weak var homeButtonOne: UIButton!
+    @IBOutlet weak var homeButtonTwo: UIButton!
+    
     
     @IBOutlet var aiView: UIView!
     
@@ -36,19 +38,20 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     
     let pickerData = Users.getAllUsernames()
     
-    //LoginPickerView.dataSource = self
-    //LoginPickerView.delegate = self
+    private var playerNumber : Int
     
     var user : User?
     
     var settingsProfile : SettingsProfile?
     required init(coder aDecoder: NSCoder) {
+        self.playerNumber = 0
         super.init(coder: aDecoder)
         
     }
     
     init(frame: CGRect, playerNumber : Int, eventDelegate : PlayerSelectEventDelegate) {
         self.eventDelegate = eventDelegate
+        self.playerNumber = playerNumber
         super.init(frame: frame)
         NSBundle.mainBundle().loadNibNamed("TwoPBaseView", owner: self, options: nil)
         NSBundle.mainBundle().loadNibNamed("LoginView", owner:self, options: nil)
@@ -80,38 +83,65 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         aiDifficultySelector.setItem(1)
         baseScreenPlayerText.text = "Player " + String(playerNumber)
         readyScreenPlayerText.text = "Player " + String(playerNumber)
-        if (playerNumber == 2) {
-            self.BackButton.hidden = true
-            self.gameSettingsButton.hidden = true
-        }
+        
         LoginPickerView.dataSource = self
         LoginPickerView.delegate = self
+        
+        
+        if (playerNumber == 2) {
+            self.homeButtonOne.hidden = true
+            self.homeButtonTwo.hidden = true
+            self.gameSettingsButton.hidden = true
+            user = Users.getPlayerLogin(false)
+        } else {
+            user = Users.getPlayerLogin(true)
+        }
+        if (user != nil) {
+            switchScreens(ReadyDisplay)
+        }
     }
     @IBAction func LoginButtonPressed(sender: AnyObject) {
-        
+        SoundManager().playButtonPressedSound()
+
         switchScreens(LoginDisplay)
     }
     @IBAction func GuestButtonPressed(sender: AnyObject) {
+        SoundManager().playButtonPressedSound()
+
         user = AirHockeyConstants.getGuestUser()
         settingsProfile = AirHockeyConstants.getDefaultSettings()
         switchScreens(ReadyDisplay)
     }
     @IBAction func CancelLoginButton(sender: AnyObject) {
+        SoundManager().playButtonPressedSound()
+
         switchScreens(Display)
     }
     
-    @IBAction func BackReadyViewButton(sender: AnyObject) {
-        user = nil
-        settingsProfile = nil
-        switchScreens(Display)
-        readySwitch.setOn(false, animated: false)
-    }
-    
-    
-    private func switchScreens(newScreen : UIView) {
+
+    private func switchScreensNoAnimation(newScreen : UIView) {
         newScreen.hidden = false
         if currentScreen != nil {
             currentScreen!.hidden = true
+        }
+        currentScreen = newScreen
+    }
+    
+    private func switchScreens(newScreen : UIView) {
+        newScreen.alpha = 0
+        newScreen.hidden = false
+        
+        UIView.animateWithDuration(0.3, animations: { newScreen.alpha = 1 } )
+        //newScreen.hidden = false
+        if currentScreen != nil {
+            //currentScreen!.hidden = true
+            let fadeoutScreen = currentScreen
+            UIView.animateWithDuration(0.3, animations: { fadeoutScreen!.alpha = 0 }, completion: {
+                (finished) in
+                
+                
+                
+                fadeoutScreen!.hidden = true})
         }
         currentScreen = newScreen
     }
@@ -122,19 +152,34 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         }
     }
     @IBAction func BaseViewBackButtonPressed(sender: AnyObject) {
+        SoundManager().playButtonPressedSound()
+
         eventDelegate.backSelected()
     
     }
     
     
     @IBAction func gameSettingsSelected(sender: AnyObject) {
+        SoundManager().playButtonPressedSound()
+
         eventDelegate.settingsSelected(settingsProfile!)
     }
     
+    
+    @IBAction func logoutButton(sender: UIButton) {
+        Users.logout(playerNumber == 1)
+        self.user = nil
+        settingsProfile = nil
+        switchScreens(Display)
+        SoundManager().playButtonPressedSound()
+
+    }
+    
+    
+    
     func setToAIScreen() {
         self.user = nil
-        switchScreens(aiView)
-        self.readySwitch.setOn(true,animated: false)
+        switchScreensNoAnimation(aiView)
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

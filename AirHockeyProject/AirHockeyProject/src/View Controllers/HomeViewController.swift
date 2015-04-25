@@ -22,7 +22,6 @@ class HomeViewController : UIViewController {
         let heightFraction : CGFloat = 1
         let rect = CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: self.view.frame.width * heightFraction, height: self.view.frame.height * widthFraction))
         gameView = SKView(frame: rect)
-        println(gameView!.frame.origin)
         gameView!.backgroundColor = UIColor.clearColor()
         gameView!.alpha = 0.6
         gameView!.userInteractionEnabled = false
@@ -35,7 +34,7 @@ class HomeViewController : UIViewController {
         settings.setAIDifficulty(AIDifficulty.toNumber(AIDifficulty.Hard))
         let scene = GameScene(size: gameView!.frame.size,p1: nil,p2: nil,profile: settings, sound: soundManager, nav: nil)
         scene.alpha = 1
-        
+        scene.isDemo = true
         
         
         gameView!.ignoresSiblingOrder = true

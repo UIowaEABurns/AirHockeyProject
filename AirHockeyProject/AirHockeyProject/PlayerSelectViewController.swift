@@ -83,5 +83,9 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
         
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
 }
 

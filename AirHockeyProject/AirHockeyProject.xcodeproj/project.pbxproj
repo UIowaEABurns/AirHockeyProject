@@ -33,7 +33,6 @@
 		711249821AE5FB910020FB19 /* GreenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7112497E1AE5FB910020FB19 /* GreenButton.png */; };
 		711249831AE5FB910020FB19 /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 7112497F1AE5FB910020FB19 /* Thumbs.db */; };
 		711249841AE5FB910020FB19 /* UpArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 711249801AE5FB910020FB19 /* UpArrow.png */; };
-		7112498A1AE600510020FB19 /* TempOnePlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711249891AE600510020FB19 /* TempOnePlayerController.swift */; };
 		7112498C1AE606B80020FB19 /* PlayerSelectEventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112498B1AE606B80020FB19 /* PlayerSelectEventDelegate.swift */; };
 		7115A5711ACB81DD0057A8B8 /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115A56F1ACB81DD0057A8B8 /* GameTimer.swift */; };
 		7115A5721ACB81DD0057A8B8 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115A5701ACB81DD0057A8B8 /* Geometry.swift */; };
@@ -284,7 +283,6 @@
 		7112497E1AE5FB910020FB19 /* GreenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenButton.png; sourceTree = "<group>"; };
 		7112497F1AE5FB910020FB19 /* Thumbs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thumbs.db; sourceTree = "<group>"; };
 		711249801AE5FB910020FB19 /* UpArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpArrow.png; sourceTree = "<group>"; };
-		711249891AE600510020FB19 /* TempOnePlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempOnePlayerController.swift; sourceTree = "<group>"; };
 		7112498B1AE606B80020FB19 /* PlayerSelectEventDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSelectEventDelegate.swift; sourceTree = "<group>"; };
 		7115A56F1ACB81DD0057A8B8 /* GameTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
 		7115A5701ACB81DD0057A8B8 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
@@ -660,7 +658,6 @@
 				7119B4C91AD234A6002CA09B /* ThemeView.swift */,
 				7119B4BD1AD22257002CA09B /* BoardSelectionViewController.swift */,
 				7178D35F1ADE00EC00834CC5 /* HomeViewController.swift */,
-				711249891AE600510020FB19 /* TempOnePlayerController.swift */,
 				7112498B1AE606B80020FB19 /* PlayerSelectEventDelegate.swift */,
 				715BB2B91AE9ABAD00BD12C0 /* AIPlayerView.xib */,
 				9F7DFCF41AE9A9260014BFDD /* CreateNewViewController.swift */,
@@ -1226,7 +1223,6 @@
 				9F627A081ADCABA000DDD0AB /* TwoPBaseView.swift in Sources */,
 				715BB2B81AE9A98800BD12C0 /* ReadyButtonView.swift in Sources */,
 				710435B61AC74BB9003E9458 /* InputManager.swift in Sources */,
-				7112498A1AE600510020FB19 /* TempOnePlayerController.swift in Sources */,
 				7107A2C81AC398D600706EC8 /* Stats.swift in Sources */,
 				71A875761AC5D115008EDBA9 /* Puck.swift in Sources */,
 				715A05D01AEABB2A00C51C45 /* HighScoreViewController.swift in Sources */,

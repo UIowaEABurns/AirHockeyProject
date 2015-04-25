@@ -89,6 +89,8 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "ShowUserDetailSegue") {
+            SoundManager().playButtonPressedSound()
+
             let row=tableView.indexPathForSelectedRow()!.row
             let vc = segue.destinationViewController as!UserProfileViewController
             
