@@ -62,6 +62,31 @@ public class User {
         self.stats=s
     }
     
+     private var rows = ["Win %","Games Completed", "Games Won", "Games Lost", "Games Tied","Games Aborted", "Total Playtime", "Goals Scored", "Goals Allowed"]
+    
+    public func getSortValueForIndex(index : Int) -> Float? {
+        let s = stats!
+        if index==0 {
+            return s.getWinPercent()
+        } else if index==1 {
+            return Float(s.getGamesComplete()!)
+        } else if index==2 {
+            return Float(s.getGamesWon()!)
+        } else if index==3 {
+            return Float(s.getGamesLost()!)
+        } else if index==4 {
+            return Float(s.getGamesTied()!)
+        } else if index==5 {
+            return Float(s.getGamesExited()!)
+        } else if index==6 {
+            return Float(s.getTimePlayed()!)
+        } else if index==7 {
+            return Float(s.getGoalsScored()!)
+        } else if index==8 {
+            return Float(s.getGoalsAgainst()!)
+        }
+        return s.getWinPercent()
+    }
     
     
 }

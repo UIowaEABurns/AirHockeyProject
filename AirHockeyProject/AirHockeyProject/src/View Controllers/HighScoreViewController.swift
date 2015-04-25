@@ -14,7 +14,7 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var pickerView: UIPickerView!
     
     @IBOutlet weak var tableView: UITableView!
-    private var rows = ["Games Completed", "Games Won", "Games Lost", "Games Tied","Games Aborted", "Total Playtime", "Goals Scored", "Goals Allowed"]
+    private var rows = ["Win %","Games Completed", "Games Won", "Games Lost", "Games Tied","Games Aborted", "Total Playtime", "Goals Scored", "Goals Allowed"]
     
     
     
@@ -36,8 +36,9 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (currentIndex != row) {
             currentIndex = row
+            users.sorted {$0.0.getSortValueForIndex(self.currentIndex)! > $1.getSortValueForIndex(self.currentIndex)!}
             tableView.reloadData()
-            users.sorted {$0.0.getStats()?.getGamesComplete()! > $1.getStats()!.getGamesComplete()!}
+
         }
     }
     
@@ -65,7 +66,17 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
             
             let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("UserRow")! as! UITableViewCell
             cell.textLabel!.text = users[row].getUsername()!
-            cell.detailTextLabel!.text = "0"
+            let x : Float = users[row].getSortValueForIndex(currentIndex)!
+            var string = ""
+            if currentIndex==0 {
+                string = x.description
+            } else if currentIndex == 6 {
+                string = Util.getTimeString(Int(x))
+            } else {
+                string = String(Int(x))
+            }
+            
+            cell.detailTextLabel!.text = string
             
             return cell
     }

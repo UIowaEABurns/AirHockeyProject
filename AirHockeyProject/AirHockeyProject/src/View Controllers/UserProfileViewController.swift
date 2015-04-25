@@ -44,7 +44,7 @@ class UserProfileViewController :  UIViewController, UITableViewDataSource, UITa
         statsList.append(String(stats.getGamesTied()!))
         statsList.append(String(stats.getGamesExited()!))
         
-        statsList.append(String(stats.getTimePlayed()!)) // TODO: Fix this one
+        statsList.append(Util.getTimeString(stats.getTimePlayed()!))
 
         statsList.append(String(stats.getGoalsScored()!))
         statsList.append(String(stats.getGoalsAgainst()!))

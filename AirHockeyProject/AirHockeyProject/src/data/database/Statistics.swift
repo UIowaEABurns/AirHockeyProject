@@ -64,7 +64,7 @@ public class Statistics {
     class func updateStats(s: Stats) {
         let db = Database(DatabaseManager.getDatabasePath() as String)
         
-        let stmt=db.prepare("update stats set games_completed=?,games_exited=?,games_won=?,games_lost=?,games_tied=?,time_played=?,goals_scored=?,goals_against=? where id=?", [s.getGamesComplete(),s.getGamesExited(),s.getGamesWon(),s.getGamesLost(),s.getGamesTied(),s.getTimePlayed(),s.getGoalsScored(),s.getId()])
+        let stmt=db.prepare("update stats set games_completed=?,games_exited=?,games_won=?,games_lost=?,games_tied=?,time_played=?,goals_scored=?,goals_against=? where id=?", [s.getGamesComplete(),s.getGamesExited(),s.getGamesWon(),s.getGamesLost(),s.getGamesTied(),s.getTimePlayed(),s.getGoalsScored(),s.getGoalsAgainst(),s.getId()])
         
         stmt.run()
         

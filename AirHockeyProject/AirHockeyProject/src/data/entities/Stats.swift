@@ -50,7 +50,17 @@ public class Stats {
         return goalsAgainst
     }
     
-    
+    public func getWinPercent() -> Float? {
+        let wins = getGamesWon()
+        let totalGames = getGamesComplete()
+        if (wins == nil || totalGames == nil) {
+            return nil
+        }
+        if totalGames == 0 {
+            return 0
+        }
+        return (Float(wins!) / Float(totalGames!)) * 100
+    }
     
     
     public func setId(i : Int64?) {
@@ -82,6 +92,8 @@ public class Stats {
     public func setGoalsAgainst(i : Int?) {
         self.goalsAgainst=i
     }
+    
+    
     
     //returns a copy of this object
     public func getCopy() -> Stats {

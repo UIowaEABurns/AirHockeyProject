@@ -31,6 +31,34 @@ class Util : NSObject, UIGestureRecognizerDelegate {
         return false
     }
     
+    /*
+        returns a string representing time as hours:minutes:seconds
+    */
+    class func getTimeString(seconds : Int) -> String {
+        if (seconds<=0) {
+            return "0:00:00"
+        }
+        let hours = seconds / ( 60 * 60 )
+        
+        
+        var secondsRemaining = seconds - (hours * 60 * 60)
+        
+        
+        let minutes = secondsRemaining/60
+        
+        secondsRemaining=secondsRemaining-(minutes*60)
+        
+        var secondsString = String(secondsRemaining)
+        var minutesString = String(minutes)
+        if (count(secondsString)==1) {
+            secondsString="0"+secondsString
+        }
+        if (count(minutesString)==1) {
+            minutesString="0"+minutesString
+        }
+        return String(hours)+":"+minutesString+":"+secondsString
+        
+    }
     
     
     class func applyBackgroundToView(view : UIView) {
