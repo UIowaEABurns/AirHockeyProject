@@ -41,7 +41,7 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController!.navigationBar.hidden = true
-
+        AirHockeyConstants.unloadThemeChooser()
     }
     
     

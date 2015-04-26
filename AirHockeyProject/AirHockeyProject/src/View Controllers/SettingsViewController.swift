@@ -39,8 +39,7 @@ class SettingsViewController : UIViewController  {
     
     @IBOutlet weak var chooseThemeButton: UIButton!
     var settingsProfile : SettingsProfile!
-    private var originalTheme : String!
-    
+    private var themeSettingsProfile : SettingsProfile!
     
     
     override func viewWillAppear(animated: Bool) {
@@ -54,7 +53,8 @@ class SettingsViewController : UIViewController  {
         println(chooseThemeButton.frame.origin)
         
         
-        originalTheme = settingsProfile.getThemeName()!
+        themeSettingsProfile = AirHockeyConstants.getDefaultSettings()
+        themeSettingsProfile.setThemeName(settingsProfile.getThemeName()!)
         puckRadiusWidget.titleLabel.text = "Puck Radius"
         puckRadiusWidget.values = sizes
         p1PaddleRadiusWidget.titleLabel.text = "P1 Paddle Radius"
@@ -75,7 +75,8 @@ class SettingsViewController : UIViewController  {
         
         settingsScrollView.contentSize = CGSize(width: settingsScrollView.contentSize.width, height: chooseThemeButton.frame.origin.y + chooseThemeButton.frame.height)
         
-        
+        AirHockeyConstants.loadThemeChooser()
+
     }
    
     
@@ -96,7 +97,7 @@ class SettingsViewController : UIViewController  {
     }
     
     func setProfileFromWidgets() {
-        originalTheme = settingsProfile.getThemeName()!
+        settingsProfile.setThemeName(themeSettingsProfile.getThemeName()!)
         settingsProfile.setPuckRadius(GameObjectSize.intToSize(puckRadiusWidget.currentIndex)!)
         settingsProfile.setPlayerOnePaddleRadius(GameObjectSize.intToSize(p1PaddleRadiusWidget.currentIndex)!)
         settingsProfile.setPlayerTwoPaddleRadius(GameObjectSize.intToSize(p2PaddleRadiusWidget.currentIndex)!)
@@ -116,16 +117,12 @@ class SettingsViewController : UIViewController  {
         self.navigationController!.popViewControllerAnimated(true)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let ident = segue.identifier {
-            if ident == "ThemeSegue" {
-                let dest = segue.destinationViewController as! BoardSelectionViewController
-                dest.settingsProfile = self.settingsProfile
-                return
-            }
-        }
-        //original will have been saved if we were doing that
-        settingsProfile.setThemeName(originalTheme)
-        
+  
+    
+    
+    @IBAction func chooseThemePressed(sender: UIButton) {
+        let destination = themeChooser
+        themeChooser.settingsProfile=themeSettingsProfile
+        self.navigationController!.pushViewController(themeChooser, animated: true)        
     }
 }

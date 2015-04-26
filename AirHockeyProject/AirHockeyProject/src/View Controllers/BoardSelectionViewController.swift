@@ -8,19 +8,19 @@
 
 import Foundation
 import UIKit
-class BoardSelectionViewController : UIViewController {
+public class BoardSelectionViewController : UIViewController {
     private var themes : [Theme] = []
     private var selectedView : ThemeView?
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    private var themeViews : [ThemeView] = []
     
     var settingsProfile : SettingsProfile!
     private var originalTheme : String!
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         if let nav = self.navigationController {
             nav.interactivePopGestureRecognizer.delegate = SwipeDelegate
         }
-        originalTheme = settingsProfile.getThemeName()
+        
 
         
         let horizontalSpacing : CGFloat = 10
@@ -56,17 +56,34 @@ class BoardSelectionViewController : UIViewController {
             nextView.center = CGPoint(x: frame.origin.x + (frame.width/2), y: frame.origin.y + (frame.height/2))
             nextView.configure(theme)
             nextView.layer.borderWidth = 3
+            
             scrollView.addSubview(nextView)
             counter = counter + 1
-            if (theme.boardName == originalTheme) {
-                selectTheme(nextView)
-            }
             
+            themeViews.append(nextView)
         }
         scrollView.contentSize = CGSize(width: scrollView.frame.width, height: CGFloat(rows) * (frameHeight + verticalSpacing))
         
-        self.navigationController!.navigationBar.hidden = false
-        self.navigationController!.navigationBar.topItem!.title = "Save"
+        
+    }
+    
+    override public func viewWillAppear(animated: Bool) {
+        println("will appear")
+        if self.navigationController != nil {
+            self.navigationController!.navigationBar.hidden = false
+            self.navigationController!.navigationBar.topItem!.title = "Save"
+        }
+        for nextView in themeViews {
+            originalTheme = settingsProfile.getThemeName()
+            if (nextView.theme.boardName == originalTheme) {
+                selectTheme(nextView)
+                println("done")
+
+                return
+            }
+        }
+        
+        
     }
     
     
@@ -96,7 +113,7 @@ class BoardSelectionViewController : UIViewController {
         selectedView!.layer.borderColor = UIColor.greenColor().CGColor
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override public func viewWillDisappear(animated: Bool) {
         save()
     }
     

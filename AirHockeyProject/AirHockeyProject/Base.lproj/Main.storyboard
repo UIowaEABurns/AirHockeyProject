@@ -15,11 +15,11 @@
                         <viewControllerLayoutGuide type="bottom" id="qus-qL-4Hc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="N2D-qq-oPb">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="447-f6-p93">
-                                <rect key="frame" x="16" y="52" width="568" height="39"/>
+                                <rect key="frame" x="16" y="52" width="368" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="ST1-z4-wOw"/>
                                 </constraints>
@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQp-hz-TaR">
-                                <rect key="frame" x="211" y="539" width="179" height="53"/>
+                                <rect key="frame" x="111" y="939" width="179" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KQp-hz-TaR" secondAttribute="height" multiplier="179:53" id="9pB-uG-G0L"/>
                                     <constraint firstAttribute="width" constant="179" id="Iau-H6-lc1"/>
@@ -41,10 +41,10 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugq-zV-xRT">
-                                <rect key="frame" x="16" y="99" width="568" height="432"/>
+                                <rect key="frame" x="16" y="99" width="368" height="832"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIt-wW-7Az" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
-                                        <rect key="frame" x="106" y="0.0" width="357" height="88"/>
+                                        <rect key="frame" x="6" y="0.0" width="357" height="88"/>
                                         <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="88" id="5rJ-64-AQt">
@@ -56,7 +56,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5d-2u-Cul" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
-                                        <rect key="frame" x="106" y="96" width="357" height="88"/>
+                                        <rect key="frame" x="6" y="96" width="357" height="88"/>
                                         <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="357" id="bo3-i2-BkN"/>
@@ -64,13 +64,13 @@
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="ifC-cZ-NoZ"/>
                                                 <exclude reference="bo3-i2-BkN"/>
+                                                <exclude reference="ifC-cZ-NoZ"/>
                                             </mask>
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23L-qq-h2w" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
-                                        <rect key="frame" x="106" y="192" width="357" height="88"/>
+                                        <rect key="frame" x="6" y="192" width="357" height="88"/>
                                         <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="88" id="XoR-vz-BSt"/>
@@ -84,7 +84,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y5D-fX-gmk" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
-                                        <rect key="frame" x="106" y="288" width="357" height="88"/>
+                                        <rect key="frame" x="6" y="288" width="357" height="88"/>
                                         <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="357" id="cz0-8Q-1DC"/>
@@ -92,13 +92,13 @@
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="dMj-4L-QM4"/>
                                                 <exclude reference="cz0-8Q-1DC"/>
+                                                <exclude reference="dMj-4L-QM4"/>
                                             </mask>
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vmD-hx-lae" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
-                                        <rect key="frame" x="106" y="384" width="357" height="88"/>
+                                        <rect key="frame" x="6" y="384" width="357" height="88"/>
                                         <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="88" id="6bh-QX-Fua"/>
@@ -112,7 +112,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44I-dY-obl" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
-                                        <rect key="frame" x="106" y="480" width="357" height="88"/>
+                                        <rect key="frame" x="6" y="480" width="357" height="88"/>
                                         <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="357" id="oMS-jt-Jdo"/>
@@ -120,13 +120,13 @@
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="znk-xH-1SZ"/>
                                                 <exclude reference="oMS-jt-Jdo"/>
+                                                <exclude reference="znk-xH-1SZ"/>
                                             </mask>
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxT-Nc-Sa2" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
-                                        <rect key="frame" x="106" y="576" width="357" height="88"/>
+                                        <rect key="frame" x="6" y="576" width="357" height="88"/>
                                         <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="88" id="ZS8-2J-msH"/>
@@ -140,12 +140,12 @@
                                         </variation>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccM-uy-ntW">
-                                        <rect key="frame" x="195" y="672" width="179" height="53"/>
+                                        <rect key="frame" x="95" y="672" width="179" height="53"/>
                                         <state key="normal" title="Choose Theme" backgroundImage="RedButton.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="zeg-1e-Cxb" kind="show" identifier="ThemeSegue" id="hmM-Df-fxV"/>
+                                            <action selector="chooseThemePressed:" destination="cV0-nV-KK6" eventType="touchUpInside" id="VXm-mT-zoP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -186,7 +186,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" ambiguous="YES">
-                                    <rect key="frame" x="16" y="99" width="368" height="432"/>
+                                    <rect key="frame" x="16" y="99" width="368" height="832"/>
                                 </variation>
                             </scrollView>
                         </subviews>
@@ -220,6 +220,8 @@
                         </variation>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="1000"/>
                     <connections>
                         <outlet property="chooseThemeButton" destination="ccM-uy-ntW" id="YHs-tZ-haa"/>
                         <outlet property="frictionWidget" destination="y5D-fX-gmk" id="B5o-xy-YUo"/>
@@ -239,7 +241,7 @@
         <!--Board Selection View Controller-->
         <scene sceneID="PhX-Wk-qun">
             <objects>
-                <viewController id="zeg-1e-Cxb" customClass="BoardSelectionViewController" customModule="Face_Off" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BoardSelectionViewController" id="zeg-1e-Cxb" customClass="BoardSelectionViewController" customModule="Face_Off" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xHP-Xx-jB1"/>
                         <viewControllerLayoutGuide type="bottom" id="6yc-5t-DQh"/>
@@ -248,7 +250,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHZ-4M-pCh">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHZ-4M-pCh">
                                 <rect key="frame" x="0.0" y="113" width="600" height="487"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -260,7 +262,7 @@
                                     </mask>
                                 </variation>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Theme Selection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pod-yC-dFK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme Selection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pod-yC-dFK">
                                 <rect key="frame" x="16" y="64" width="568" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="1bI-Ey-ikT"/>

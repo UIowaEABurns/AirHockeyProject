@@ -50,11 +50,22 @@ public var BG_MUSIC_VOLUME : Float = 1.0
 public var FX_VOLUME : Float  = 1.0
 public var muted : Bool = false
 
-
+public var themeChooser : BoardSelectionViewController!
 
 public class AirHockeyConstants {
     
-   
+    public class func loadThemeChooser() {
+        dispatch_async(dispatch_get_main_queue()) {
+            let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            themeChooser = storyboard.instantiateViewControllerWithIdentifier("BoardSelectionViewController") as! BoardSelectionViewController
+            println(themeChooser.view.frame.size)
+            
+        }
+    }
+    
+    public class func unloadThemeChooser() {
+        themeChooser = nil
+    }
     
     
     //TODO: Localizing all default settings for the game in this function! Do needed tweaking in here!

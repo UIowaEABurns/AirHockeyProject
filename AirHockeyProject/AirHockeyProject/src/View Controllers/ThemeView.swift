@@ -49,7 +49,7 @@ class ThemeView : UIView {
         NSBundle.mainBundle().loadNibNamed("ThemeView", owner: self, options: nil)
         self.contentView.bounds.size = frame.size
         self.contentView.frame = frame
-
+        
         self.addSubview(self.contentView)
         boardNameField.adjustsFontSizeToFitWidth = true
 
