@@ -34,14 +34,14 @@
                         <constraint firstAttribute="height" constant="29" id="geK-7k-7EB"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyi-8Q-Zws">
-                    <rect key="frame" x="8" y="7" width="63" height="30"/>
+                    <rect key="frame" x="8" y="7" width="91" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="63" id="8ZY-4o-M0i"/>
-                        <constraint firstAttribute="height" constant="30" id="QTN-Wj-gCL"/>
+                        <constraint firstAttribute="width" constant="91" id="8ZY-4o-M0i"/>
+                        <constraint firstAttribute="height" constant="40" id="QTN-Wj-gCL"/>
                     </constraints>
                     <state key="normal" title="Home" backgroundImage="RedButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

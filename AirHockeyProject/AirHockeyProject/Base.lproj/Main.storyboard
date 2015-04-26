@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="qus-qL-4Hc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="N2D-qq-oPb">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="2000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="447-f6-p93">
@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQp-hz-TaR">
-                                <rect key="frame" x="211" y="1939" width="179" height="53"/>
+                                <rect key="frame" x="211" y="539" width="179" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KQp-hz-TaR" secondAttribute="height" multiplier="179:53" id="9pB-uG-G0L"/>
                                     <constraint firstAttribute="width" constant="179" id="Iau-H6-lc1"/>
@@ -41,14 +41,18 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugq-zV-xRT">
-                                <rect key="frame" x="16" y="99" width="568" height="1832"/>
+                                <rect key="frame" x="16" y="99" width="568" height="432"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIt-wW-7Az" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
                                         <rect key="frame" x="106" y="0.0" width="357" height="88"/>
                                         <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="88" id="5rJ-64-AQt"/>
-                                            <constraint firstAttribute="width" constant="357" id="WFA-Hl-UmY"/>
+                                            <constraint firstAttribute="height" constant="88" id="5rJ-64-AQt">
+                                                <variation key="widthClass=compact" constant="65"/>
+                                            </constraint>
+                                            <constraint firstAttribute="width" constant="357" id="WFA-Hl-UmY">
+                                                <variation key="widthClass=compact" constant="250"/>
+                                            </constraint>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5d-2u-Cul" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
@@ -181,6 +185,9 @@
                                         <exclude reference="GcX-mM-COs"/>
                                     </mask>
                                 </variation>
+                                <variation key="widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="16" y="99" width="368" height="432"/>
+                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -198,18 +205,21 @@
                             <constraint firstItem="Ugq-zV-xRT" firstAttribute="top" secondItem="447-f6-p93" secondAttribute="bottom" constant="8" id="gnd-ok-QGb"/>
                             <constraint firstAttribute="centerX" secondItem="KQp-hz-TaR" secondAttribute="centerX" constant="-0.5" id="i3e-zx-P7G"/>
                             <constraint firstItem="KQp-hz-TaR" firstAttribute="top" secondItem="Ugq-zV-xRT" secondAttribute="bottom" constant="8" id="jFa-70-PSg"/>
+                            <constraint firstItem="Ugq-zV-xRT" firstAttribute="leading" secondItem="N2D-qq-oPb" secondAttribute="leadingMargin" id="pDj-Aw-msv"/>
                             <constraint firstItem="qus-qL-4Hc" firstAttribute="top" secondItem="KQp-hz-TaR" secondAttribute="bottom" constant="8" id="rXu-8x-G76"/>
+                            <constraint firstItem="Ugq-zV-xRT" firstAttribute="trailing" secondItem="N2D-qq-oPb" secondAttribute="trailingMargin" id="sqG-WQ-Yn6"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="FzK-PE-QF7"/>
+                                <exclude reference="LYk-Gy-lpr"/>
+                                <exclude reference="ZTB-rd-dLM"/>
                                 <exclude reference="Ucw-A8-Li4"/>
                                 <exclude reference="VPc-n7-iUK"/>
                             </mask>
                         </variation>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="2000"/>
                     <connections>
                         <outlet property="chooseThemeButton" destination="ccM-uy-ntW" id="YHs-tZ-haa"/>
                         <outlet property="frictionWidget" destination="y5D-fX-gmk" id="B5o-xy-YUo"/>
@@ -235,7 +245,7 @@
                         <viewControllerLayoutGuide type="bottom" id="6yc-5t-DQh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WGQ-tg-Q9O">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="2000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHZ-4M-pCh">

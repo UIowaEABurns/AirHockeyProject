@@ -29,25 +29,30 @@ class ThemeView : UIView {
         
         
         boardImage.center = backgroundImage.center
+        
     }
     
    
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
+
         NSBundle.mainBundle().loadNibNamed("ThemeView", owner: self, options: nil)
         self.addSubview(self.contentView)
+        boardNameField.adjustsFontSizeToFitWidth = true
+
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+
         NSBundle.mainBundle().loadNibNamed("ThemeView", owner: self, options: nil)
         self.contentView.bounds.size = frame.size
         self.contentView.frame = frame
-        
+
         self.addSubview(self.contentView)
-        
+        boardNameField.adjustsFontSizeToFitWidth = true
+
         
     }
     

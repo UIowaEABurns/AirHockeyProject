@@ -114,6 +114,7 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         switchScreens(ReadyDisplay)
     }
     @IBAction func CancelLoginButton(sender: AnyObject) {
+        println("canceling")
         SoundManager().playButtonPressedSound()
 
         switchScreens(Display)
@@ -158,6 +159,12 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     @IBAction func loginToAccount(sender: AnyObject) {
+        let row = loginPickerView.selectedRowInComponent(0)
+        if row == -1 {
+            return
+        } else if row >= pickerData.count {
+            return
+        }
         let username = pickerData[loginPickerView.selectedRowInComponent(0)]
         
         var loginAccount : User = Users.getUserByUsername(username)!

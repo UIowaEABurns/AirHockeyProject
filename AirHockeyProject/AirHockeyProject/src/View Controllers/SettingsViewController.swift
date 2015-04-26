@@ -73,7 +73,7 @@ class SettingsViewController : UIViewController  {
 
         
         
-        settingsScrollView.contentSize = CGSize(width: settingsScrollView.frame.width, height: chooseThemeButton.frame.origin.y + chooseThemeButton.frame.height)
+        settingsScrollView.contentSize = CGSize(width: settingsScrollView.contentSize.width, height: chooseThemeButton.frame.origin.y + chooseThemeButton.frame.height)
         
         
     }

@@ -15,19 +15,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcQ-cX-VUU">
-                    <rect key="frame" x="8" y="8" width="62" height="26"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="26" id="Ae1-Mv-WAW"/>
-                        <constraint firstAttribute="width" constant="62" id="eXn-WV-tA3"/>
-                    </constraints>
-                    <state key="normal" title="Cancel" backgroundImage="RedButton.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="CancelLoginButton:" destination="-1" eventType="touchUpInside" id="tFc-xS-jPT"/>
-                    </connections>
-                </button>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Jc-qI-7hI">
                     <rect key="frame" x="140" y="59" width="320" height="162"/>
                     <connections>
@@ -35,6 +22,16 @@
                         <outlet property="delegate" destination="-1" id="Cyo-yq-dAu"/>
                     </connections>
                 </pickerView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfu-Cy-Dvj">
+                    <rect key="frame" x="179" y="8" width="242" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="242" id="NfC-5F-S85"/>
+                        <constraint firstAttribute="height" constant="43" id="Pl2-U1-7CC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryp-xf-ftt">
                     <rect key="frame" x="207" y="229" width="186" height="63"/>
                     <constraints>
@@ -56,16 +53,19 @@
                         <action selector="loginToAccount:" destination="-1" eventType="touchUpInside" id="1gw-qe-2sH"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfu-Cy-Dvj">
-                    <rect key="frame" x="179" y="8" width="242" height="43"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcQ-cX-VUU">
+                    <rect key="frame" x="8" y="8" width="91" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="242" id="NfC-5F-S85"/>
-                        <constraint firstAttribute="height" constant="43" id="Pl2-U1-7CC"/>
+                        <constraint firstAttribute="height" constant="40" id="Ae1-Mv-WAW"/>
+                        <constraint firstAttribute="width" constant="91" id="eXn-WV-tA3"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <state key="normal" title="Cancel" backgroundImage="RedButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CancelLoginButton:" destination="-1" eventType="touchUpInside" id="tFc-xS-jPT"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>

@@ -44,9 +44,11 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLG-95-TQe">
                     <rect key="frame" x="0.0" y="0.0" width="394" height="32"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="32" id="fHO-CB-bq2"/>
+                        <constraint firstAttribute="height" constant="32" id="fHO-CB-bq2">
+                            <variation key="widthClass=compact" constant="20"/>
+                        </constraint>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -73,6 +75,7 @@
                     </connections>
                 </button>
             </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="OU0-xB-1pD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0Ue-hA-L9G"/>
                 <constraint firstItem="aLG-95-TQe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0sv-i1-k3o"/>
