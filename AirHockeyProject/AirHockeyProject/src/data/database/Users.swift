@@ -24,14 +24,11 @@ public class Users {
         let db = Database(DatabaseManager.getDatabasePath() as String)
         let settingId=Settings.addNewSettingsProfile()
         let statsId=Statistics.addNewStats()
-        println("settings id = ")
-        println(settingId)
-        println("stats id = ")
-        println(statsId)
+        
         let stmt=db.prepare("insert into users (username,first_name,last_name,setting_id,stats_id,last_login) VALUES (?,?,?,?,?,?)",[u.getUsername()!,u.getFirstName()!,u.getLastName()!,settingId!,statsId!,timestamp])
         stmt.run()
         
-        println(stmt.failed)
+        
         
     }
    
@@ -43,8 +40,7 @@ public class Users {
         u.setLastName(row[2]! as? String)
         
         let settingId=row[3] as? Int64
-        println("found this settingId")
-        println(settingId)
+       
         if (settingId==nil) {
             u.setSettingsProfile(nil)
         } else {
@@ -58,8 +54,7 @@ public class Users {
             
         } else {
             u.setStats(Statistics.getStatsById(statsId!))
-            println("got stats")
-            println(u.getStats()!.getGamesLost())
+            
         }
         
         
@@ -87,7 +82,6 @@ public class Users {
            
             
         
-            println(u.getFirstName())
             return u
         }
         
@@ -97,7 +91,7 @@ public class Users {
     class func getAllUsers() -> [User] {
         let db = Database(DatabaseManager.getDatabasePath() as String)
         
-        let stmt=db.prepare("select username,first_name,last_name,setting_id,stats_id,last_login from users")
+        let stmt=db.prepare("select username,first_name,last_name,setting_id,stats_id,last_login from users order by last_login desc")
         var users : [User] = []
         for row in stmt.run() {
             var u : User = getUserByRow(row)
@@ -107,11 +101,15 @@ public class Users {
         
         return users
     }
-    class func getAllUsernames() -> [String] {
+    class func getAllUsernamesExceptLogins() -> [String] {
         let Userss = getAllUsers()
         var output : [String] = []
         for x in Userss {
-            output.append(x.getUsername()!)
+            let username = x.getUsername()!
+            if username == userOneUsername || username == userTwoUsername {
+                continue
+            }
+            output.append(username)
         }
         return output
     }

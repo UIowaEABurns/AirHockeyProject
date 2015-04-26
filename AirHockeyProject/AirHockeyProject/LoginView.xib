@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -7,8 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TwoPBaseView" customModule="Face_Off" customModuleProvider="target">
             <connections>
                 <outlet property="LoginDisplay" destination="OhU-F5-qa3" id="fd4-Mv-9ZC"/>
-                <outlet property="LoginLabel" destination="fVT-PN-2Tb" id="mRr-pm-qrm"/>
-                <outlet property="LoginPickerView" destination="vXt-6R-Ipt" id="9bg-4Y-zFK"/>
+                <outlet property="loginPickerView" destination="7Jc-qI-7hI" id="hpf-zE-nrM"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -16,113 +15,75 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUC-iw-Md2">
-                    <rect key="frame" x="8" y="8" width="35" height="30"/>
-                    <state key="normal" title="Cancel">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcQ-cX-VUU">
+                    <rect key="frame" x="8" y="8" width="62" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="Ae1-Mv-WAW"/>
+                        <constraint firstAttribute="width" constant="62" id="eXn-WV-tA3"/>
+                    </constraints>
+                    <state key="normal" title="Cancel" backgroundImage="RedButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="CancelLoginButton:" destination="-1" eventType="touchUpInside" id="OEn-kI-CBd"/>
+                        <action selector="CancelLoginButton:" destination="-1" eventType="touchUpInside" id="tFc-xS-jPT"/>
                     </connections>
                 </button>
-                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXt-6R-Ipt">
-                    <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Jc-qI-7hI">
+                    <rect key="frame" x="140" y="59" width="320" height="162"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="gDM-lL-veE"/>
+                        <outlet property="delegate" destination="-1" id="Cyo-yq-dAu"/>
+                    </connections>
                 </pickerView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVT-PN-2Tb">
-                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryp-xf-ftt">
+                    <rect key="frame" x="207" y="229" width="186" height="63"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="132" id="3IX-NZ-fuH"/>
+                        <constraint firstAttribute="height" constant="63" id="ETE-KX-u1C"/>
+                        <constraint firstAttribute="width" constant="186" id="JJY-PF-nFb"/>
+                        <constraint firstAttribute="height" constant="52" id="fIn-fn-RqN"/>
+                    </constraints>
+                    <state key="normal" title="Login" backgroundImage="RedButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="3IX-NZ-fuH"/>
+                            <exclude reference="fIn-fn-RqN"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="loginToAccount:" destination="-1" eventType="touchUpInside" id="1gw-qe-2sH"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfu-Cy-Dvj">
+                    <rect key="frame" x="179" y="8" width="242" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="242" id="NfC-5F-S85"/>
+                        <constraint firstAttribute="height" constant="43" id="Pl2-U1-7CC"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lw-Nl-D9R">
-                    <rect key="frame" x="234" y="57" width="132" height="52"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="132" id="NBg-E2-jDB"/>
-                        <constraint firstAttribute="height" constant="52" id="QMY-UY-HVc"/>
-                    </constraints>
-                    <state key="normal" title="Login" backgroundImage="RedButton.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                        <rect key="frame" x="235" y="240" width="132" height="52"/>
-                    </variation>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRz-kt-b32">
-                    <rect key="frame" x="234" y="57" width="132" height="52"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="52" id="FBh-Xx-jdX"/>
-                        <constraint firstAttribute="width" constant="132" id="NzA-7U-tHU"/>
-                    </constraints>
-                    <state key="normal" title="Login" backgroundImage="RedButton.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="loginToAccount:" destination="-1" eventType="touchUpInside" id="1lB-aI-7PW"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="FUC-iw-Md2" firstAttribute="leading" secondItem="OhU-F5-qa3" secondAttribute="leading" constant="8" id="5Vz-aM-1GR"/>
-                <constraint firstItem="SRz-kt-b32" firstAttribute="top" secondItem="vXt-6R-Ipt" secondAttribute="bottom" constant="8" id="6vH-D1-SzR"/>
-                <constraint firstItem="FUC-iw-Md2" firstAttribute="leading" secondItem="OhU-F5-qa3" secondAttribute="leading" constant="8" id="CBR-L9-PR3"/>
-                <constraint firstAttribute="centerX" secondItem="vXt-6R-Ipt" secondAttribute="centerX" constant="-0.5" id="GKe-8b-TBZ"/>
-                <constraint firstAttribute="centerX" secondItem="SRz-kt-b32" secondAttribute="centerX" id="GqP-Xz-6DQ"/>
-                <constraint firstAttribute="centerX" secondItem="fVT-PN-2Tb" secondAttribute="centerX" id="Lx7-zL-Njg"/>
-                <constraint firstItem="fVT-PN-2Tb" firstAttribute="top" secondItem="OhU-F5-qa3" secondAttribute="top" constant="40" id="NBr-Pk-9nL"/>
-                <constraint firstItem="vXt-6R-Ipt" firstAttribute="top" secondItem="fVT-PN-2Tb" secondAttribute="bottom" constant="8" id="PJl-kl-WIv"/>
-                <constraint firstAttribute="centerX" secondItem="vXt-6R-Ipt" secondAttribute="centerX" id="RBn-Ds-Yzn"/>
-                <constraint firstAttribute="centerY" secondItem="vXt-6R-Ipt" secondAttribute="centerY" id="Rh9-1O-JLx"/>
-                <constraint firstItem="FUC-iw-Md2" firstAttribute="top" secondItem="OhU-F5-qa3" secondAttribute="top" constant="8" id="Rhb-79-Ltt"/>
-                <constraint firstAttribute="trailing" secondItem="fVT-PN-2Tb" secondAttribute="trailing" constant="279" id="Zyx-YZ-x47"/>
-                <constraint firstAttribute="bottom" secondItem="FUC-iw-Md2" secondAttribute="bottom" constant="262" id="hP7-EH-KEd"/>
+                <constraint firstItem="fcQ-cX-VUU" firstAttribute="leading" secondItem="OhU-F5-qa3" secondAttribute="leading" constant="8" id="1Ng-vq-tro"/>
+                <constraint firstItem="fcQ-cX-VUU" firstAttribute="top" secondItem="OhU-F5-qa3" secondAttribute="top" constant="8" id="Dd3-sA-d4j"/>
+                <constraint firstAttribute="bottom" secondItem="Ryp-xf-ftt" secondAttribute="bottom" constant="8" id="GcW-1s-IBy"/>
+                <constraint firstAttribute="centerX" secondItem="Ryp-xf-ftt" secondAttribute="centerX" id="Jte-UK-Teb"/>
+                <constraint firstAttribute="centerX" secondItem="7Jc-qI-7hI" secondAttribute="centerX" id="dtF-sx-whT"/>
+                <constraint firstItem="Ryp-xf-ftt" firstAttribute="top" secondItem="7Jc-qI-7hI" secondAttribute="bottom" constant="8" id="ixH-0D-RQ8"/>
+                <constraint firstItem="sfu-Cy-Dvj" firstAttribute="top" secondItem="OhU-F5-qa3" secondAttribute="top" constant="8" id="mAs-b8-6er"/>
+                <constraint firstItem="7Jc-qI-7hI" firstAttribute="top" secondItem="sfu-Cy-Dvj" secondAttribute="bottom" constant="8" id="u49-g3-B8u"/>
+                <constraint firstAttribute="centerX" secondItem="sfu-Cy-Dvj" secondAttribute="centerX" id="z8K-qU-yfI"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="vXt-6R-Ipt"/>
-                    <exclude reference="fVT-PN-2Tb"/>
-                    <exclude reference="1lw-Nl-D9R"/>
-                    <exclude reference="SRz-kt-b32"/>
-                </mask>
                 <mask key="constraints">
-                    <exclude reference="5Vz-aM-1GR"/>
-                    <exclude reference="CBR-L9-PR3"/>
-                    <exclude reference="Rhb-79-Ltt"/>
-                    <exclude reference="hP7-EH-KEd"/>
-                    <exclude reference="GKe-8b-TBZ"/>
-                    <exclude reference="PJl-kl-WIv"/>
-                    <exclude reference="RBn-Ds-Yzn"/>
-                    <exclude reference="Rh9-1O-JLx"/>
-                    <exclude reference="Lx7-zL-Njg"/>
-                    <exclude reference="NBr-Pk-9nL"/>
-                    <exclude reference="Zyx-YZ-x47"/>
-                    <exclude reference="6vH-D1-SzR"/>
-                    <exclude reference="GqP-Xz-6DQ"/>
-                </mask>
-            </variation>
-            <variation key="heightClass=regular-widthClass=regular">
-                <mask key="subviews">
-                    <include reference="vXt-6R-Ipt"/>
-                    <include reference="fVT-PN-2Tb"/>
-                    <include reference="1lw-Nl-D9R"/>
-                    <include reference="SRz-kt-b32"/>
-                </mask>
-                <mask key="constraints">
-                    <include reference="5Vz-aM-1GR"/>
-                    <exclude reference="CBR-L9-PR3"/>
-                    <include reference="Rhb-79-Ltt"/>
-                    <exclude reference="hP7-EH-KEd"/>
-                    <include reference="GKe-8b-TBZ"/>
-                    <include reference="PJl-kl-WIv"/>
-                    <exclude reference="RBn-Ds-Yzn"/>
-                    <include reference="Rh9-1O-JLx"/>
-                    <include reference="Lx7-zL-Njg"/>
-                    <exclude reference="NBr-Pk-9nL"/>
-                    <exclude reference="Zyx-YZ-x47"/>
-                    <include reference="6vH-D1-SzR"/>
-                    <include reference="GqP-Xz-6DQ"/>
+                    <exclude reference="u49-g3-B8u"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="353" y="476"/>

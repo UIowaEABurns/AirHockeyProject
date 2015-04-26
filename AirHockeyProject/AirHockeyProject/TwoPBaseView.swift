@@ -34,9 +34,9 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet var aiView: UIView!
     
-    @IBOutlet weak var LoginPickerView: UIPickerView!
+    @IBOutlet weak var loginPickerView: UIPickerView!
     
-    let pickerData = Users.getAllUsernames()
+    var pickerData : [String] = Users.getAllUsernamesExceptLogins()
     
     private var playerNumber : Int
     
@@ -84,8 +84,7 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         baseScreenPlayerText.text = "Player " + String(playerNumber)
         readyScreenPlayerText.text = "Player " + String(playerNumber)
         
-        LoginPickerView.dataSource = self
-        LoginPickerView.delegate = self
+        
         
         
         if (playerNumber == 2) {
@@ -97,9 +96,9 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
             user = Users.getPlayerLogin(true)
         }
         if (user != nil) {
-            switchScreens(ReadyDisplay)
+            settingsProfile = user!.getSettingsProfile()!
+            switchScreensNoAnimation(ReadyDisplay)
         }
-        LoginLabel.text = pickerData[0]
     }
     @IBAction func LoginButtonPressed(sender: AnyObject) {
         SoundManager().playButtonPressedSound()
@@ -133,9 +132,7 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         newScreen.hidden = false
         
         UIView.animateWithDuration(0.3, animations: { newScreen.alpha = 1 } )
-        //newScreen.hidden = false
         if currentScreen != nil {
-            //currentScreen!.hidden = true
             let fadeoutScreen = currentScreen
             UIView.animateWithDuration(0.3, animations: { fadeoutScreen!.alpha = 0 }, completion: {
                 (finished) in
@@ -160,13 +157,22 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     @IBAction func loginToAccount(sender: AnyObject) {
-        var loginAccount : User = Users.getUserByUsername(LoginLabel.text!)!
+        let username = pickerData[loginPickerView.selectedRowInComponent(0)]
+        
+        var loginAccount : User = Users.getUserByUsername(username)!
         func isUserOne () -> Bool {
             if playerNumber == 1 {return true}
             else {return false}
         }
-        Users.login(loginAccount, playerOne: isUserOne())
-        switchScreens(ReadyDisplay)
+        let x = Users.login(loginAccount, playerOne: isUserOne())
+        if x {
+            self.user = loginAccount
+            self.settingsProfile = loginAccount.getSettingsProfile()!
+            switchScreens(ReadyDisplay)
+            self.eventDelegate.handleLoginChange()
+        } else {
+            //TODO: Handle a failed login
+        }
     }
     
     @IBAction func gameSettingsSelected(sender: AnyObject) {
@@ -182,7 +188,7 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         settingsProfile = nil
         switchScreens(Display)
         SoundManager().playButtonPressedSound()
-
+        self.eventDelegate.handleLoginChange()
     }
     
     
@@ -202,8 +208,12 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         return pickerData[row]
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        LoginLabel.text = pickerData[row]
+    
+    func loadPickerData() {
+        pickerData = Users.getAllUsernamesExceptLogins()
+        loginPickerView.reloadAllComponents()
+
     }
+    
     
 }

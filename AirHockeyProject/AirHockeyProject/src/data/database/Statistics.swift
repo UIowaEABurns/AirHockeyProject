@@ -14,7 +14,6 @@ public class Statistics {
     
     
     private class func getStatsByRow(row: [Binding?]) -> Stats {
-        println("getting stats by row")
         var s: Stats = Stats()
         
         s.setId(row[0]! as? Int64)

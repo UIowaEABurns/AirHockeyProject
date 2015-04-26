@@ -29,14 +29,18 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
         self.navigationController!.interactivePopGestureRecognizer.delegate = SwipeDelegate
         
         pickerView.backgroundColor = UIColor.whiteColor()
+        
+        currentIndex = 0
+        users.sort {$0.0.getSortValueForIndex(self.currentIndex)! > $1.getSortValueForIndex(self.currentIndex)!}
+
     }
     
     
-    //TODO: Do the sorting correctly
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (currentIndex != row) {
             currentIndex = row
-            users.sorted {$0.0.getSortValueForIndex(self.currentIndex)! > $1.getSortValueForIndex(self.currentIndex)!}
+            
+            users.sort {$0.0.getSortValueForIndex(self.currentIndex)! > $1.getSortValueForIndex(self.currentIndex)!}
             tableView.reloadData()
 
         }

@@ -14,6 +14,7 @@ class ArrowPickerWidget : UIView {
     @IBOutlet var arrowPickerView: UIView!
     @IBOutlet weak var textLabel: UILabel!
     
+    @IBOutlet weak var titleLabel: UILabel!
     var values : [String] = ["test","two","three"]
     var currentIndex = 0
     required init(coder aDecoder: NSCoder) {

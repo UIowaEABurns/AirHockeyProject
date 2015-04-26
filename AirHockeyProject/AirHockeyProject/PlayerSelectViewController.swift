@@ -34,10 +34,14 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
         
         playerOneHalf = TwoPBaseView(frame: rect2, playerNumber: 1, eventDelegate: self)
         self.view.addSubview(playerOneHalf!)
-        self.navigationController!.navigationBar.hidden = true
         self.navigationController!.interactivePopGestureRecognizer.delegate = SwipeDelegate
 
         self.view.bringSubviewToFront(muteWidget)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController!.navigationBar.hidden = true
+
     }
     
     
@@ -76,8 +80,8 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
                 game.settingsProfile.setAIDifficulty(playerTwoHalf!.aiDifficultySelector.currentIndex + 1)
             } else if ident == "SettingsSegue" {
                 //TODO: This will need to change to avoid going to the theme chooser
-                let themeChooser = segue.destinationViewController as! BoardSelectionViewController
-                themeChooser.settingsProfile = playerOneHalf!.settingsProfile
+                let settingsVC = segue.destinationViewController as! SettingsViewController
+                settingsVC.settingsProfile = playerOneHalf!.settingsProfile
             }
         }
         
@@ -85,6 +89,11 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
     
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    func handleLoginChange() {
+        playerOneHalf!.loadPickerData()
+        playerTwoHalf!.loadPickerData()
     }
     
 }

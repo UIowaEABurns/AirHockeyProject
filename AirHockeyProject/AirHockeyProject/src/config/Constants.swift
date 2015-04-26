@@ -17,6 +17,9 @@ public var TABLE_HEIGHT_FRACTION : CGFloat = 0.96
 public var GOAL_WIDTH_RATIO : CGFloat = 0.40
 public var SCORE_DISPLAY_PADDING : CGFloat = 100 // how many points away from the timer should we place the scores?
 
+public var DEFAULT_PUCK_RADIUS : Double = 0.03
+public var DEFAULT_PADDLE_RADIUS : Double = 0.06
+
 //display constants for the game
 public var OVERLAY_COLOR : SKColor = SKColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.6)
 
@@ -61,9 +64,9 @@ public class AirHockeyConstants {
         
         
         //These are ratios of board width to paddle radius
-        s.setPlayerOnePaddleRadius(0.06)
-        s.setPlayerTwoPaddleRadius(0.06)
-        s.setPuckRadius(0.03)
+        s.setPlayerOnePaddleRadius(GameObjectSize.Normal)
+        s.setPlayerTwoPaddleRadius(GameObjectSize.Normal)
+        s.setPuckRadius(GameObjectSize.Normal)
         s.setAIDifficulty(2)
         s.setTimeLimit(420) // seven minutes
         s.setGoalLimit(7)

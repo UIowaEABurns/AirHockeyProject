@@ -13,7 +13,9 @@ public enum PaddleColor : Int {
     case Red = 0
     case Blue = 1
     case Green = 2
-    
+    case Yellow = 3
+    case Black = 4
+    case White = 5
     static func allValues() -> [PaddleColor] {
         return [Red,Blue,Green]
     }
@@ -34,11 +36,79 @@ public enum PaddleColor : Int {
             return SKColor.blueColor()
         } else if (self==Green) {
             return SKColor.greenColor()
+        } else if (self == Yellow) {
+            return SKColor.yellowColor()
+        } else if (self == Black) {
+            return SKColor.blackColor()
+        }else if (self==White) {
+            return SKColor.whiteColor()
         }
         return nil
     }
     
 }
+
+public enum GameObjectSize : Int {
+    case VerySmall = 0
+    case Small = 1
+    case Normal = 2
+    case Large = 3
+    case VeryLarge = 4
+    static func allValues() -> [GameObjectSize] {
+        return [VerySmall,Small,Normal,Large,VeryLarge]
+    }
+    
+    static func intToSize(i : Int) -> GameObjectSize? {
+        for color in allValues() {
+            if color.rawValue==i {
+                return color
+            }
+        }
+        return nil
+    }
+    
+    func getPuckSize() -> Double {
+        if self==VerySmall {
+            return DEFAULT_PUCK_RADIUS / 2
+
+        } else if self==Small {
+            return DEFAULT_PUCK_RADIUS / 1.5
+        } else if self==Normal {
+            return DEFAULT_PUCK_RADIUS
+        } else if self==Large {
+            return DEFAULT_PUCK_RADIUS * 1.5
+
+        } else if self==VeryLarge {
+            return DEFAULT_PUCK_RADIUS * 2
+
+        }
+        return DEFAULT_PUCK_RADIUS
+    }
+    
+    func getPaddleSize() -> Double {
+        if self==VerySmall {
+            return DEFAULT_PADDLE_RADIUS / 2
+
+        } else if self==Small {
+            return DEFAULT_PADDLE_RADIUS / 1.5
+
+        } else if self==Normal {
+            return DEFAULT_PADDLE_RADIUS
+        } else if self==Large {
+            return DEFAULT_PADDLE_RADIUS * 1.5
+
+        } else if self==VeryLarge {
+            return DEFAULT_PADDLE_RADIUS * 2
+
+        }
+        return DEFAULT_PADDLE_RADIUS
+    }
+    
+}
+
+
+
+
 public class SettingsProfile {
     
     
@@ -46,9 +116,9 @@ public class SettingsProfile {
     
     private var id : Int64?
     private var friction : Double?
-    private var playerOnePaddleRadius : Double?
-    private var playerTwoPaddleRadius : Double?
-    private var puckRadius : Double?
+    private var playerOnePaddleRadius : GameObjectSize?
+    private var playerTwoPaddleRadius : GameObjectSize?
+    private var puckRadius : GameObjectSize?
     private var timeLimit : Int?
     private var goalLimit : Int? // null if they are infinite
     private var aiDifficulty : Int?
@@ -72,22 +142,52 @@ public class SettingsProfile {
     public func setFriction(fric : Double?) {
         self.friction=fric
     }
-    public func getPlayerOnePaddleRadius() -> Double? {
-        return playerOnePaddleRadius
+    
+    public func getPlayerOnePaddleRadiusValue() -> Int? {
+        if (playerOnePaddleRadius == nil) {
+            return nil
+        }
+        return playerOnePaddleRadius!.rawValue
     }
-    public func setPlayerOnePaddleRadius(r: Double?) {
+    public func getPlayerTwoPaddleRadiusValue() -> Int? {
+        if (playerTwoPaddleRadius == nil) {
+            return nil
+        }
+        return playerTwoPaddleRadius!.rawValue
+    }
+    public func getPuckRadiusValue() -> Int? {
+        if puckRadius == nil {
+            return nil
+        }
+        return puckRadius!.rawValue
+    }
+    
+    public func getPlayerOnePaddleRadius() -> Double? {
+        if (playerOnePaddleRadius == nil) {
+            return nil
+        }
+        return playerOnePaddleRadius!.getPaddleSize()
+    }
+    public func setPlayerOnePaddleRadius(r: GameObjectSize) {
         playerOnePaddleRadius=r
     }
     public func getPlayerTwoPaddleRadius() -> Double? {
-        return playerTwoPaddleRadius
+        if (playerTwoPaddleRadius == nil) {
+            return nil
+        }
+        return playerTwoPaddleRadius!.getPaddleSize()
     }
-    public func setPlayerTwoPaddleRadius(r: Double?) {
+    public func setPlayerTwoPaddleRadius(r: GameObjectSize) {
+        
         playerTwoPaddleRadius=r
     }
     public func getPuckRadius() -> Double? {
-        return puckRadius
+        if puckRadius == nil {
+            return nil
+        }
+        return puckRadius!.getPuckSize()
     }
-    public func setPuckRadius(r: Double?) {
+    public func setPuckRadius(r: GameObjectSize) {
         puckRadius=r
     }
     public func getTimeLimit() -> Int? {
