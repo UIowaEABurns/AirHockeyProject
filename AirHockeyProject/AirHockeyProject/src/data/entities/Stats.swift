@@ -49,7 +49,7 @@ public class Stats {
     public func getGoalsAgainst() -> Int? {
         return goalsAgainst
     }
-    
+    //rounded to 1 decimal place
     public func getWinPercent() -> Float? {
         let wins = getGamesWon()
         let totalGames = getGamesComplete()
@@ -59,7 +59,7 @@ public class Stats {
         if totalGames == 0 {
             return 0
         }
-        return (Float(wins!) / Float(totalGames!)) * 100
+        return round((Float(wins!) / Float(totalGames!)) * 1000) / 10
     }
     
     

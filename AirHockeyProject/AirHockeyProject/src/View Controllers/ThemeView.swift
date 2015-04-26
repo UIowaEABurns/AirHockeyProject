@@ -24,8 +24,8 @@ class ThemeView : UIView {
         boardNameField.text = t.boardName
         boardNameField.font = UIFont(name: theme.fontName!, size: boardNameField.font.pointSize)
         
-        boardImage.image = UIImage(contentsOfFile: theme.getTableImageFile())
-        backgroundImage.image = UIImage(contentsOfFile: theme.getBackgroundImageFile())
+        boardImage.image = UIImage(contentsOfFile: theme.getTableImageThumbFile())
+        backgroundImage.image = UIImage(contentsOfFile: theme.getBackgroundImageThumbFile())
         
         
         boardImage.center = backgroundImage.center

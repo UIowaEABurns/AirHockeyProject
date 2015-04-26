@@ -15,6 +15,7 @@ class CreateNewViewController : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var LastName: UITextField!
     @IBOutlet weak var Username: UITextField!
     
+    @IBOutlet weak var errorLabel: UILabel!
     private var errorBorderWidth : CGFloat = 3
     private func validateUserCreation() -> Bool {
         let fn = FirstName.text
@@ -24,45 +25,68 @@ class CreateNewViewController : UIViewController, UITextFieldDelegate {
         LastName.layer.borderWidth = 0
         Username.layer.borderWidth = 0
         var success = true
+        
+        
+        
+        var errorMessage = ""
+        var empty = false
         if fn.isEmpty {
             FirstName.layer.borderWidth = errorBorderWidth
-
+            empty = true
             success = false
+            errorMessage = errorMessage+"-- Please complete every field\n"
         }
         
         if ln.isEmpty {
             LastName.layer.borderWidth = errorBorderWidth
+            
+            if !empty {
+                errorMessage = errorMessage+"-- Please complete every field\n"
 
+            }
+            
+            empty = true
             success = false
-
+            
         }
         
         if u.isEmpty {
             Username.layer.borderWidth = errorBorderWidth
-
+            if !empty {
+                errorMessage = errorMessage+"-- Please complete every field\n"
+                
+            }
+            empty = true
             success = false
 
         } else if Users.getUserByUsername(u) != nil {
             Username.layer.borderWidth = errorBorderWidth
 
-
+            errorMessage = errorMessage + "-- The username " + u + " is already taken"
             success = false
 
+        } else if count(u) > 16 {
+            Username.layer.borderWidth = errorBorderWidth
+            errorMessage = errorMessage + "-- Usernames must be 16 characters or less"
+
+            success = false
         }
-        
+        errorLabel.text = errorMessage
         return success
     }
     
     
     @IBAction func CreateButtonPressed(sender: UIButton) {
+        SoundManager().playButtonPressedSound()
+
         
-        var tempUser: User = User()
-        tempUser.setFirstName(FirstName.text)
-        tempUser.setLastName(LastName.text)
-        tempUser.setUsername(Username.text)
         
         
         if (validateUserCreation()) {
+            var tempUser: User = User()
+            tempUser.setFirstName(FirstName.text)
+            tempUser.setLastName(LastName.text)
+            tempUser.setUsername(Username.text)
             Users.createUser(tempUser)
             
             if userOneUsername == nil {
@@ -84,7 +108,8 @@ class CreateNewViewController : UIViewController, UITextFieldDelegate {
         FirstName.delegate = self
         LastName.delegate = self
         Username.delegate = self
-        
+        errorLabel.text = ""
+        Util.applyBackgroundToView(self.view)
     }
     @IBAction func handleScreenTapped(sender: UITapGestureRecognizer) {
         

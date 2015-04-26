@@ -55,11 +55,11 @@ class SettingsViewController : UIViewController  {
         
         themeSettingsProfile = AirHockeyConstants.getDefaultSettings()
         themeSettingsProfile.setThemeName(settingsProfile.getThemeName()!)
-        puckRadiusWidget.titleLabel.text = "Puck Radius"
+        puckRadiusWidget.titleLabel.text = "Puck Size"
         puckRadiusWidget.values = sizes
-        p1PaddleRadiusWidget.titleLabel.text = "P1 Paddle Radius"
+        p1PaddleRadiusWidget.titleLabel.text = "P1 Paddle Size"
         p1PaddleRadiusWidget.values = sizes
-        p2PaddleRadiusWidget.titleLabel.text = "P2 Paddle Raidus"
+        p2PaddleRadiusWidget.titleLabel.text = "P2 Paddle Size"
         p2PaddleRadiusWidget.values = sizes
         frictionWidget.titleLabel.text = "Friction"
         frictionWidget.values = frictions
@@ -113,15 +113,25 @@ class SettingsViewController : UIViewController  {
     
     @IBAction func saveSettings(sender: UIButton) {
         setProfileFromWidgets()
+        SoundManager().playButtonPressedSound()
+
         Settings.updateSettingsProfile(settingsProfile)
         self.navigationController!.popViewControllerAnimated(true)
     }
     
   
+    @IBAction func restoreDefaults(sender: AnyObject) {
+        SoundManager().playButtonPressedSound()
+
+        setWidgetsFromSettings(AirHockeyConstants.getDefaultSettings())
+        themeSettingsProfile.setThemeName(AirHockeyConstants.getDefaultSettings().getThemeName()!)
+    }
     
     
     @IBAction func chooseThemePressed(sender: UIButton) {
         let destination = themeChooser
+        SoundManager().playButtonPressedSound()
+
         themeChooser.settingsProfile=themeSettingsProfile
         self.navigationController!.pushViewController(themeChooser, animated: true)        
     }

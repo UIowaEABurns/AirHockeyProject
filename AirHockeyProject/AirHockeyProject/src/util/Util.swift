@@ -62,7 +62,7 @@ class Util : NSObject, UIGestureRecognizerDelegate {
     
     
     class func applyBackgroundToView(view : UIView) {
-        let image = UIImage(contentsOfFile: NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent("splash.png"))
+        let image = UIImage(contentsOfFile: NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent("menuBackground.png"))
         
         var imageView = UIImageView(image: image)
         var blackView = UIView(frame: view.frame)

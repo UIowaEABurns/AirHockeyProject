@@ -19,9 +19,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAI-Hr-VKY">
-                    <rect key="frame" x="243" y="8" width="115" height="43"/>
+                    <rect key="frame" x="131" y="8" width="338" height="43"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="115" id="SeE-Bz-Qzg"/>
+                        <constraint firstAttribute="width" constant="338" id="SeE-Bz-Qzg"/>
                         <constraint firstAttribute="height" constant="43" id="cdO-v4-Vci"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="28"/>

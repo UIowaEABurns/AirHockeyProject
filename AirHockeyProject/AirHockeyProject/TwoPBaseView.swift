@@ -98,6 +98,7 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         }
         if (user != nil) {
             settingsProfile = user!.getSettingsProfile()!
+            readyScreenPlayerText.text = user!.getUsername()!
             switchScreensNoAnimation(ReadyDisplay)
         }
     }
@@ -111,6 +112,7 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
 
         user = AirHockeyConstants.getGuestUser()
         settingsProfile = AirHockeyConstants.getDefaultSettings()
+        readyScreenPlayerText.text = "Guest"
         switchScreens(ReadyDisplay)
     }
     @IBAction func CancelLoginButton(sender: AnyObject) {
@@ -160,6 +162,7 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBAction func loginToAccount(sender: AnyObject) {
         let row = loginPickerView.selectedRowInComponent(0)
+        SoundManager().playButtonPressedSound()
         if row == -1 {
             return
         } else if row >= pickerData.count {
@@ -176,6 +179,7 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         if x {
             self.user = loginAccount
             self.settingsProfile = loginAccount.getSettingsProfile()!
+            readyScreenPlayerText.text = user!.getUsername()!
             switchScreens(ReadyDisplay)
             self.eventDelegate.handleLoginChange()
         } else {

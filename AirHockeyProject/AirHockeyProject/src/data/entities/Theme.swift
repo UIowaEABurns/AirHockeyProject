@@ -30,6 +30,15 @@ public class Theme {
         return NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent(boardName + "Background.png")
     }
     
+    func getTableImageThumbFile() -> String {
+        return NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent(boardName + "TableThumb.png")
+    }
+    
+    func getBackgroundImageThumbFile() -> String {
+        return NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent(boardName + "BackgroundThumb.png")
+    }
+    
+    
     func getBackgroundMusicName() -> String {
         return boardName + "BackgroundMusic"
     }

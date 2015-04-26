@@ -81,6 +81,7 @@ public class HumanPlayer : Player {
             newStats.setGamesWon(stats!.getGamesWon()!+1)
         }
         Statistics.updateStats(newStats)
+        
     }
     
     // called when the user quits the game OR goes out to the home screen

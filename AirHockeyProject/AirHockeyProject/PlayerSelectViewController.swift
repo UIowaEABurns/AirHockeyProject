@@ -26,6 +26,7 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
             playerTwoHalf!.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
         } else {
             playerTwoHalf!.setToAIScreen()
+            Users.logout(false) // log player 2 out so that player one can be that person if they choose
         }
         self.view.addSubview(playerTwoHalf!)
 
