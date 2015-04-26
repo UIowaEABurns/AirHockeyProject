@@ -45,6 +45,7 @@ class SettingsViewController : UIViewController  {
     override func viewWillAppear(animated: Bool) {
         
         self.navigationController!.navigationBar.hidden = false
+        self.navigationController!.navigationBar.topItem!.title = "Cancel"
         
     }
     
@@ -81,18 +82,19 @@ class SettingsViewController : UIViewController  {
    
     
     
-    func setWidgetsFromSettings(setttings : SettingsProfile) {
-        puckRadiusWidget.setItem(settingsProfile.getPuckRadiusValue()!)
-        p1PaddleRadiusWidget.setItem(settingsProfile.getPlayerOnePaddleRadiusValue()!)
-        p2PaddleRadiusWidget.setItem(settingsProfile.getPlayerTwoPaddleRadiusValue()!)
-        frictionWidget.setItem(settingsProfile.getFrictionValue()!)
-        if (settingsProfile.arePowerupsEnabled()!) {
+    func setWidgetsFromSettings(settings : SettingsProfile) {
+        puckRadiusWidget.setItem(settings.getPuckRadiusValue()!)
+        p1PaddleRadiusWidget.setItem(settings.getPlayerOnePaddleRadiusValue()!)
+        p2PaddleRadiusWidget.setItem(settings.getPlayerTwoPaddleRadiusValue()!)
+        frictionWidget.setItem(settings.getFrictionValue()!)
+        if (settings.arePowerupsEnabled()!) {
             powerupsEnabledWidget.setItem(0)
         } else {
             powerupsEnabledWidget.setItem(1)
         }
-        goalsWidget.setItem(settingsProfile.getGoalLimit()!)
-        timeWidget.setItem(settingsProfile.getTimeLimit()!/60)
+        goalsWidget.setItem(settings.getGoalLimit()!)
+       
+        timeWidget.setItem(settings.getTimeLimit()!/60)
 
     }
     

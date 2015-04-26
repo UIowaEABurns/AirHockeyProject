@@ -181,7 +181,6 @@
                                             <rect key="frame" x="95" y="572" width="179" height="53"/>
                                         </variation>
                                         <connections>
-                                            <action selector="chooseThemePressed:" destination="cV0-nV-KK6" eventType="touchUpInside" id="In9-Y4-tfR"/>
                                             <action selector="restoreDefaults:" destination="cV0-nV-KK6" eventType="touchUpInside" id="Baq-VL-DpZ"/>
                                         </connections>
                                     </button>
