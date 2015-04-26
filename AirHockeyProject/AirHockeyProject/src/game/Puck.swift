@@ -16,10 +16,10 @@ public class Puck: SKSpriteNode {
         self.physicsBody?.restitution=0.95
         self.physicsBody?.allowsRotation=true
         self.physicsBody!.density=CGFloat(density)
-        //self.physicsBody!.usesPreciseCollisionDetection=true
         self.physicsBody!.friction=CGFloat(settingsProfile.getFriction()!)
         self.physicsBody!.linearDamping=CGFloat(settingsProfile.getFriction()!)
         self.physicsBody!.angularDamping=CGFloat(settingsProfile.getFriction()!)
+       
         self.physicsBody!.categoryBitMask = puckCategory
         self.physicsBody!.collisionBitMask = self.physicsBody!.collisionBitMask ^ ( barrierCategory | powerupCategory )
         self.zPosition = zPositionPuck

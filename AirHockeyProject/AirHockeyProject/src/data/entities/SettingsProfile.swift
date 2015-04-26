@@ -66,7 +66,6 @@ public enum GameObjectSize : Int {
         }
         return nil
     }
-    
     func getPuckSize() -> Double {
         if self==VerySmall {
             return DEFAULT_PUCK_RADIUS / 2
@@ -104,6 +103,25 @@ public enum GameObjectSize : Int {
         return DEFAULT_PADDLE_RADIUS
     }
     
+    func getFriction() -> Double {
+        if self==VerySmall {
+            return 0
+            
+        } else if self==Small {
+            return DEFAULT_FRICTION
+            
+        } else if self==Normal {
+            return DEFAULT_FRICTION * 3
+        } else if self==Large {
+            return DEFAULT_FRICTION * 5
+            
+        } else if self==VeryLarge {
+            return DEFAULT_FRICTION * 10
+            
+        }
+        return DEFAULT_FRICTION
+    }
+    
 }
 
 
@@ -115,7 +133,7 @@ public class SettingsProfile {
     
     
     private var id : Int64?
-    private var friction : Double?
+    private var friction : GameObjectSize?
     private var playerOnePaddleRadius : GameObjectSize?
     private var playerTwoPaddleRadius : GameObjectSize?
     private var puckRadius : GameObjectSize?
@@ -137,9 +155,24 @@ public class SettingsProfile {
         self.id=id
     }
     public func getFriction() -> Double? {
-        return friction
+        if friction == nil {
+            return nil
+        
+        }
+        return friction!.getFriction()
     }
-    public func setFriction(fric : Double?) {
+    
+    public func getFrictionValue() -> Int? {
+        if friction == nil {
+            return nil
+            
+        }
+        return friction!.rawValue
+    }
+    
+    
+    
+    public func setFriction(fric : GameObjectSize) {
         self.friction=fric
     }
     

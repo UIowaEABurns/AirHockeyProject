@@ -25,6 +25,7 @@ class ArrowPickerWidget : UIView {
         self.arrowPickerView.frame.origin = CGPoint(x: 0, y: 0)
         self.backgroundColor = UIColor.clearColor()
         self.addSubview(self.arrowPickerView)
+        self.layer.borderWidth = 2
     }
     
     

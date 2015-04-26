@@ -79,6 +79,7 @@
 		715BB2B81AE9A98800BD12C0 /* ReadyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715BB2B71AE9A98800BD12C0 /* ReadyButtonView.swift */; };
 		715BB2BA1AE9ABAD00BD12C0 /* AIPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 715BB2B91AE9ABAD00BD12C0 /* AIPlayerView.xib */; };
 		715C9B1A1AEC82D3001A8598 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715C9B191AEC82D3001A8598 /* SettingsViewController.swift */; };
+		715C9B201AEC98AA001A8598 /* airhockey.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 715C9B1F1AEC98AA001A8598 /* airhockey.sqlite3 */; };
 		715F43081AE5653B002D44AD /* FaceOffLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F42FE1AE5653B002D44AD /* FaceOffLogo.png */; };
 		715F430A1AE5653B002D44AD /* FaceOffLogo30.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43001AE5653B002D44AD /* FaceOffLogo30.png */; };
 		715F430B1AE5653B002D44AD /* FaceOffLogo58.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43011AE5653B002D44AD /* FaceOffLogo58.png */; };
@@ -328,6 +329,7 @@
 		715BB2B71AE9A98800BD12C0 /* ReadyButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadyButtonView.swift; sourceTree = "<group>"; };
 		715BB2B91AE9ABAD00BD12C0 /* AIPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIPlayerView.xib; sourceTree = "<group>"; };
 		715C9B191AEC82D3001A8598 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		715C9B1F1AEC98AA001A8598 /* airhockey.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = airhockey.sqlite3; sourceTree = "<group>"; };
 		715F42FE1AE5653B002D44AD /* FaceOffLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo.png; sourceTree = "<group>"; };
 		715F43001AE5653B002D44AD /* FaceOffLogo30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo30.png; sourceTree = "<group>"; };
 		715F43011AE5653B002D44AD /* FaceOffLogo58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FaceOffLogo58.png; sourceTree = "<group>"; };
@@ -590,6 +592,7 @@
 		7107A2CA1AC398E300706EC8 /* sql */ = {
 			isa = PBXGroup;
 			children = (
+				715C9B1F1AEC98AA001A8598 /* airhockey.sqlite3 */,
 				7107A2CC1AC398E300706EC8 /* airhockeySchema.sql */,
 			);
 			path = sql;
@@ -1137,6 +1140,7 @@
 				71E166761ADDE6A00042D96A /* DesertFont.TTF in Resources */,
 				7119B4BB1AD1063C002CA09B /* spaceTable.png in Resources */,
 				71F0A14C1AD8548A003AEF5C /* underwaterPaddle.png in Resources */,
+				715C9B201AEC98AA001A8598 /* airhockey.sqlite3 in Resources */,
 				71E166891ADDF3FF0042D96A /* soundOnIcon.png in Resources */,
 				7169DE8F1AE40B21006B34C9 /* Countdown.wav in Resources */,
 				715BB2AA1AE85DDA00BD12C0 /* FaceOffLogo60.png in Resources */,

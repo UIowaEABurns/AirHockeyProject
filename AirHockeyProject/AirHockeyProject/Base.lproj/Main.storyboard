@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="qus-qL-4Hc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="N2D-qq-oPb">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="2000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="447-f6-p93">
@@ -23,12 +23,12 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="ST1-z4-wOw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQp-hz-TaR">
-                                <rect key="frame" x="211" y="539" width="179" height="53"/>
+                                <rect key="frame" x="211" y="1939" width="179" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KQp-hz-TaR" secondAttribute="height" multiplier="179:53" id="9pB-uG-G0L"/>
                                     <constraint firstAttribute="width" constant="179" id="Iau-H6-lc1"/>
@@ -40,8 +40,8 @@
                                     <action selector="saveSettings:" destination="cV0-nV-KK6" eventType="touchUpInside" id="Z2s-LL-WCq"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugq-zV-xRT">
-                                <rect key="frame" x="16" y="99" width="568" height="432"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugq-zV-xRT">
+                                <rect key="frame" x="16" y="99" width="568" height="1832"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIt-wW-7Az" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
                                         <rect key="frame" x="106" y="0.0" width="357" height="88"/>
@@ -51,8 +51,92 @@
                                             <constraint firstAttribute="width" constant="357" id="WFA-Hl-UmY"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5d-2u-Cul" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
+                                        <rect key="frame" x="106" y="96" width="357" height="88"/>
+                                        <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="357" id="bo3-i2-BkN"/>
+                                            <constraint firstAttribute="height" constant="88" id="ifC-cZ-NoZ"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="ifC-cZ-NoZ"/>
+                                                <exclude reference="bo3-i2-BkN"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23L-qq-h2w" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
+                                        <rect key="frame" x="106" y="192" width="357" height="88"/>
+                                        <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="88" id="XoR-vz-BSt"/>
+                                            <constraint firstAttribute="width" constant="357" id="Yzt-Ev-kxa"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="XoR-vz-BSt"/>
+                                                <exclude reference="Yzt-Ev-kxa"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y5D-fX-gmk" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
+                                        <rect key="frame" x="106" y="288" width="357" height="88"/>
+                                        <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="357" id="cz0-8Q-1DC"/>
+                                            <constraint firstAttribute="height" constant="88" id="dMj-4L-QM4"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="dMj-4L-QM4"/>
+                                                <exclude reference="cz0-8Q-1DC"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vmD-hx-lae" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
+                                        <rect key="frame" x="106" y="384" width="357" height="88"/>
+                                        <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="88" id="6bh-QX-Fua"/>
+                                            <constraint firstAttribute="width" constant="357" id="FJ8-Is-5WB"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="6bh-QX-Fua"/>
+                                                <exclude reference="FJ8-Is-5WB"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44I-dY-obl" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
+                                        <rect key="frame" x="106" y="480" width="357" height="88"/>
+                                        <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="357" id="oMS-jt-Jdo"/>
+                                            <constraint firstAttribute="height" constant="88" id="znk-xH-1SZ"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="znk-xH-1SZ"/>
+                                                <exclude reference="oMS-jt-Jdo"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxT-Nc-Sa2" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
+                                        <rect key="frame" x="106" y="576" width="357" height="88"/>
+                                        <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="88" id="ZS8-2J-msH"/>
+                                            <constraint firstAttribute="width" constant="357" id="vHO-8E-5PF"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="ZS8-2J-msH"/>
+                                                <exclude reference="vHO-8E-5PF"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccM-uy-ntW">
-                                        <rect key="frame" x="195" y="371" width="179" height="53"/>
+                                        <rect key="frame" x="195" y="672" width="179" height="53"/>
                                         <state key="normal" title="Choose Theme" backgroundImage="RedButton.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -62,10 +146,35 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="vmD-hx-lae" firstAttribute="leading" secondItem="44I-dY-obl" secondAttribute="leading" id="0aB-wf-Tn4"/>
+                                    <constraint firstItem="vmD-hx-lae" firstAttribute="top" secondItem="y5D-fX-gmk" secondAttribute="bottom" constant="8" id="1KI-zO-F6d"/>
+                                    <constraint firstItem="vmD-hx-lae" firstAttribute="leading" secondItem="y5D-fX-gmk" secondAttribute="leading" id="2fX-Et-UfT"/>
+                                    <constraint firstItem="44I-dY-obl" firstAttribute="leading" secondItem="FxT-Nc-Sa2" secondAttribute="leading" id="86s-Np-dEl"/>
+                                    <constraint firstItem="23L-qq-h2w" firstAttribute="top" secondItem="C5d-2u-Cul" secondAttribute="bottom" constant="8" id="CsO-Zm-g1M"/>
+                                    <constraint firstItem="44I-dY-obl" firstAttribute="trailing" secondItem="FxT-Nc-Sa2" secondAttribute="trailing" id="Czw-er-H5E"/>
+                                    <constraint firstItem="23L-qq-h2w" firstAttribute="trailing" secondItem="y5D-fX-gmk" secondAttribute="trailing" id="Fr1-zf-GwK"/>
+                                    <constraint firstItem="C5d-2u-Cul" firstAttribute="trailing" secondItem="WIt-wW-7Az" secondAttribute="trailing" id="GB9-sC-fdB"/>
                                     <constraint firstAttribute="bottom" secondItem="ccM-uy-ntW" secondAttribute="bottom" constant="8" id="GcX-mM-COs"/>
+                                    <constraint firstItem="C5d-2u-Cul" firstAttribute="height" secondItem="WIt-wW-7Az" secondAttribute="height" id="Hz5-AN-Ug5"/>
+                                    <constraint firstItem="23L-qq-h2w" firstAttribute="leading" secondItem="y5D-fX-gmk" secondAttribute="leading" id="LzZ-lG-WLN"/>
                                     <constraint firstItem="WIt-wW-7Az" firstAttribute="centerX" secondItem="ccM-uy-ntW" secondAttribute="centerX" id="M1t-cc-lYA"/>
+                                    <constraint firstItem="C5d-2u-Cul" firstAttribute="top" secondItem="WIt-wW-7Az" secondAttribute="bottom" constant="8" id="OJx-fN-elx"/>
                                     <constraint firstAttribute="centerX" secondItem="WIt-wW-7Az" secondAttribute="centerX" id="PYw-lu-qkZ"/>
                                     <constraint firstItem="WIt-wW-7Az" firstAttribute="top" secondItem="Ugq-zV-xRT" secondAttribute="top" id="T7q-JK-ZKh"/>
+                                    <constraint firstItem="C5d-2u-Cul" firstAttribute="leading" secondItem="WIt-wW-7Az" secondAttribute="leading" id="Ucn-vO-GYg"/>
+                                    <constraint firstItem="44I-dY-obl" firstAttribute="height" secondItem="FxT-Nc-Sa2" secondAttribute="height" id="Vz8-Jx-b0j"/>
+                                    <constraint firstItem="ccM-uy-ntW" firstAttribute="top" secondItem="FxT-Nc-Sa2" secondAttribute="bottom" constant="8" id="YGZ-s1-GMe"/>
+                                    <constraint firstItem="44I-dY-obl" firstAttribute="top" secondItem="vmD-hx-lae" secondAttribute="bottom" constant="8" id="aLA-jc-UL7"/>
+                                    <constraint firstItem="vmD-hx-lae" firstAttribute="trailing" secondItem="44I-dY-obl" secondAttribute="trailing" id="c9U-PV-e7B"/>
+                                    <constraint firstItem="23L-qq-h2w" firstAttribute="height" secondItem="C5d-2u-Cul" secondAttribute="height" id="kwl-ma-W2J"/>
+                                    <constraint firstItem="23L-qq-h2w" firstAttribute="leading" secondItem="C5d-2u-Cul" secondAttribute="leading" id="lSq-Uf-Gi5"/>
+                                    <constraint firstItem="FxT-Nc-Sa2" firstAttribute="top" secondItem="44I-dY-obl" secondAttribute="bottom" constant="8" id="m9s-MH-zPW"/>
+                                    <constraint firstItem="23L-qq-h2w" firstAttribute="trailing" secondItem="C5d-2u-Cul" secondAttribute="trailing" id="mqc-h0-fc0"/>
+                                    <constraint firstItem="23L-qq-h2w" firstAttribute="height" secondItem="y5D-fX-gmk" secondAttribute="height" id="o6t-iv-BRE"/>
+                                    <constraint firstItem="vmD-hx-lae" firstAttribute="trailing" secondItem="y5D-fX-gmk" secondAttribute="trailing" id="q6D-Pe-KDv"/>
+                                    <constraint firstItem="y5D-fX-gmk" firstAttribute="top" secondItem="23L-qq-h2w" secondAttribute="bottom" constant="8" id="uSE-dT-EpJ"/>
+                                    <constraint firstItem="vmD-hx-lae" firstAttribute="height" secondItem="y5D-fX-gmk" secondAttribute="height" id="wsu-D4-Gdd"/>
+                                    <constraint firstItem="vmD-hx-lae" firstAttribute="height" secondItem="44I-dY-obl" secondAttribute="height" id="xcG-8d-mY3"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -93,19 +202,29 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Ucw-A8-Li4"/>
                                 <exclude reference="VPc-n7-iUK"/>
                             </mask>
                         </variation>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="2000"/>
                     <connections>
+                        <outlet property="chooseThemeButton" destination="ccM-uy-ntW" id="YHs-tZ-haa"/>
+                        <outlet property="frictionWidget" destination="y5D-fX-gmk" id="B5o-xy-YUo"/>
+                        <outlet property="goalsWidget" destination="44I-dY-obl" id="pAa-8h-1dH"/>
+                        <outlet property="p1PaddleRadiusWidget" destination="C5d-2u-Cul" id="NFx-2M-3A8"/>
+                        <outlet property="p2PaddleRadiusWidget" destination="23L-qq-h2w" id="gf7-7X-9aA"/>
+                        <outlet property="powerupsEnabledWidget" destination="vmD-hx-lae" id="1qQ-oV-A4b"/>
                         <outlet property="puckRadiusWidget" destination="WIt-wW-7Az" id="RHO-pn-Bew"/>
                         <outlet property="settingsScrollView" destination="Ugq-zV-xRT" id="Izc-wZ-Z38"/>
+                        <outlet property="timeWidget" destination="FxT-Nc-Sa2" id="69h-7c-ZcH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pzu-n1-9ww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5" y="250"/>
+            <point key="canvasLocation" x="6" y="193"/>
         </scene>
         <!--Board Selection View Controller-->
         <scene sceneID="PhX-Wk-qun">
@@ -116,7 +235,7 @@
                         <viewControllerLayoutGuide type="bottom" id="6yc-5t-DQh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WGQ-tg-Q9O">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="2000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHZ-4M-pCh">

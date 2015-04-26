@@ -17,7 +17,10 @@ public class Settings {
         var s: SettingsProfile = SettingsProfile()
         
         s.setId(row[0]! as? Int64)
-        s.setFriction(row[1]! as? Double)
+        
+        let friction  = Int(row[1]! as! Int64)
+        
+        s.setFriction(GameObjectSize.intToSize(friction)!)
         let p1PaddleSize = Int(row[2]! as! Int64)
         let p2PaddleSize = Int(row[3]! as! Int64)
         
@@ -70,7 +73,7 @@ public class Settings {
         if (s.arePowerupsEnabled() != nil && s.arePowerupsEnabled()!) {
             powerups = 1
         }
-        let stmt=db.prepare("insert into settings (friction,p1_paddle_radius,p2_paddle_radius,p1_paddle_color,p2_paddle_color,puck_radius,time,goals,ai_difficulty,theme_name,powerups_enabled) VALUES (?,?,?,?,?,?,?,?,?,?,?)",[s.getFriction(),s.getPlayerOnePaddleRadiusValue(),s.getPlayerTwoPaddleRadiusValue(),s.getPlayerOnePaddleColorNumber(),s.getPlayerTwoPaddleColorNumber(), s.getPuckRadiusValue(),s.getTimeLimit(),s.getGoalLimit(),s.getAIDifficultyAsNumber(),s.getThemeName(), powerups])
+        let stmt=db.prepare("insert into settings (friction,p1_paddle_radius,p2_paddle_radius,p1_paddle_color,p2_paddle_color,puck_radius,time,goals,ai_difficulty,theme_name,powerups_enabled) VALUES (?,?,?,?,?,?,?,?,?,?,?)",[s.getFrictionValue(),s.getPlayerOnePaddleRadiusValue(),s.getPlayerTwoPaddleRadiusValue(),s.getPlayerOnePaddleColorNumber(),s.getPlayerTwoPaddleColorNumber(), s.getPuckRadiusValue(),s.getTimeLimit(),s.getGoalLimit(),s.getAIDifficultyAsNumber(),s.getThemeName(), powerups])
         
         stmt.run()
         
@@ -84,7 +87,7 @@ public class Settings {
         if (s.arePowerupsEnabled() != nil && s.arePowerupsEnabled()!) {
             powerups = 1
         }
-        let stmt=db.prepare("update settings set friction=?,p1_paddle_radius=?,p2_paddle_radius=?,p1_paddle_color=?,p2_paddle_color=?,puck_radius=?,time=?,goals=?,ai_difficulty=?, theme_name=?, powerups_enabled=? where id=?",[s.getFriction(),s.getPlayerOnePaddleRadius(),s.getPlayerTwoPaddleRadius(),s.getPlayerOnePaddleColorNumber(),s.getPlayerTwoPaddleColorNumber(), s.getPuckRadius(),s.getTimeLimit(),s.getGoalLimit(),s.getAIDifficultyAsNumber(),s.getThemeName(),powerups,s.getId()])
+        let stmt=db.prepare("update settings set friction=?,p1_paddle_radius=?,p2_paddle_radius=?,p1_paddle_color=?,p2_paddle_color=?,puck_radius=?,time=?,goals=?,ai_difficulty=?, theme_name=?, powerups_enabled=? where id=?",[s.getFrictionValue(),s.getPlayerOnePaddleRadiusValue(),s.getPlayerTwoPaddleRadiusValue(),s.getPlayerOnePaddleColorNumber(),s.getPlayerTwoPaddleColorNumber(), s.getPuckRadiusValue(),s.getTimeLimit(),s.getGoalLimit(),s.getAIDifficultyAsNumber(),s.getThemeName(),powerups,s.getId()])
         
         stmt.run()
 

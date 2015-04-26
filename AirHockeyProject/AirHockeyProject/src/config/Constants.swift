@@ -19,7 +19,7 @@ public var SCORE_DISPLAY_PADDING : CGFloat = 100 // how many points away from th
 
 public var DEFAULT_PUCK_RADIUS : Double = 0.03
 public var DEFAULT_PADDLE_RADIUS : Double = 0.06
-
+public var DEFAULT_FRICTION = 0.05
 //display constants for the game
 public var OVERLAY_COLOR : SKColor = SKColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.6)
 
@@ -60,7 +60,7 @@ public class AirHockeyConstants {
     //TODO: Localizing all default settings for the game in this function! Do needed tweaking in here!
     public class func getDefaultSettings() -> SettingsProfile {
        var s: SettingsProfile = SettingsProfile()
-        s.setFriction(0.05)
+        s.setFriction(GameObjectSize.Small)
         
         
         //These are ratios of board width to paddle radius

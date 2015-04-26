@@ -81,6 +81,7 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         self.addSubview(aiView)
         aiDifficultySelector.values = ["Easy", "Medium", "Hard"]
         aiDifficultySelector.setItem(1)
+        aiDifficultySelector.titleLabel.text = "Difficulty"
         baseScreenPlayerText.text = "Player " + String(playerNumber)
         readyScreenPlayerText.text = "Player " + String(playerNumber)
         
