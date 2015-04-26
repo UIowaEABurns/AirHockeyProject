@@ -13,4 +13,5 @@ public protocol PlayerSelectEventDelegate {
     func readySelected()
     func backSelected()
     func settingsSelected(settings : SettingsProfile)
+    func handleLoginChange()
 }

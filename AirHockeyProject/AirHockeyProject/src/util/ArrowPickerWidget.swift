@@ -14,6 +14,7 @@ class ArrowPickerWidget : UIView {
     @IBOutlet var arrowPickerView: UIView!
     @IBOutlet weak var textLabel: UILabel!
     
+    @IBOutlet weak var titleLabel: UILabel!
     var values : [String] = ["test","two","three"]
     var currentIndex = 0
     required init(coder aDecoder: NSCoder) {
@@ -24,6 +25,7 @@ class ArrowPickerWidget : UIView {
         self.arrowPickerView.frame.origin = CGPoint(x: 0, y: 0)
         self.backgroundColor = UIColor.clearColor()
         self.addSubview(self.arrowPickerView)
+        self.layer.borderWidth = 2
     }
     
     

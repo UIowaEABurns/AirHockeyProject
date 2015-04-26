@@ -19,12 +19,12 @@ CREATE TABLE stats (
 DROP TABLE IF EXISTS settings;
 CREATE TABLE settings (
 	id INTEGER PRIMARY KEY,
-	friction REAL, 
-	p1_paddle_radius REAL,
-	p2_paddle_radius REAL,
+	friction INTEGER,
+	p1_paddle_radius INTEGER,
+	p2_paddle_radius INTEGER,
     p1_paddle_color INTEGER,
     p2_paddle_color INTEGER,
-	puck_radius REAL,
+	puck_radius INTEGER,
 	time INTEGER,
 	goals INTEGER,
 	ai_difficulty INTEGER,
