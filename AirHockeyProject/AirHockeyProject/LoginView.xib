@@ -33,19 +33,48 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
-                    <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                        <rect key="frame" x="279" y="40" width="42" height="21"/>
-                    </variation>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lw-Nl-D9R">
+                    <rect key="frame" x="234" y="57" width="132" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="132" id="NBg-E2-jDB"/>
+                        <constraint firstAttribute="height" constant="52" id="QMY-UY-HVc"/>
+                    </constraints>
+                    <state key="normal" title="Login" backgroundImage="RedButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="235" y="240" width="132" height="52"/>
+                    </variation>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRz-kt-b32">
+                    <rect key="frame" x="234" y="57" width="132" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="FBh-Xx-jdX"/>
+                        <constraint firstAttribute="width" constant="132" id="NzA-7U-tHU"/>
+                    </constraints>
+                    <state key="normal" title="Login" backgroundImage="RedButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="loginToAccount:" destination="-1" eventType="touchUpInside" id="1lB-aI-7PW"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="FUC-iw-Md2" firstAttribute="leading" secondItem="OhU-F5-qa3" secondAttribute="leading" constant="8" id="5Vz-aM-1GR"/>
+                <constraint firstItem="SRz-kt-b32" firstAttribute="top" secondItem="vXt-6R-Ipt" secondAttribute="bottom" constant="8" id="6vH-D1-SzR"/>
                 <constraint firstItem="FUC-iw-Md2" firstAttribute="leading" secondItem="OhU-F5-qa3" secondAttribute="leading" constant="8" id="CBR-L9-PR3"/>
                 <constraint firstAttribute="centerX" secondItem="vXt-6R-Ipt" secondAttribute="centerX" constant="-0.5" id="GKe-8b-TBZ"/>
+                <constraint firstAttribute="centerX" secondItem="SRz-kt-b32" secondAttribute="centerX" id="GqP-Xz-6DQ"/>
+                <constraint firstAttribute="centerX" secondItem="fVT-PN-2Tb" secondAttribute="centerX" id="Lx7-zL-Njg"/>
+                <constraint firstItem="fVT-PN-2Tb" firstAttribute="top" secondItem="OhU-F5-qa3" secondAttribute="top" constant="40" id="NBr-Pk-9nL"/>
+                <constraint firstItem="vXt-6R-Ipt" firstAttribute="top" secondItem="fVT-PN-2Tb" secondAttribute="bottom" constant="8" id="PJl-kl-WIv"/>
                 <constraint firstAttribute="centerX" secondItem="vXt-6R-Ipt" secondAttribute="centerX" id="RBn-Ds-Yzn"/>
                 <constraint firstAttribute="centerY" secondItem="vXt-6R-Ipt" secondAttribute="centerY" id="Rh9-1O-JLx"/>
                 <constraint firstItem="FUC-iw-Md2" firstAttribute="top" secondItem="OhU-F5-qa3" secondAttribute="top" constant="8" id="Rhb-79-Ltt"/>
+                <constraint firstAttribute="trailing" secondItem="fVT-PN-2Tb" secondAttribute="trailing" constant="279" id="Zyx-YZ-x47"/>
                 <constraint firstAttribute="bottom" secondItem="FUC-iw-Md2" secondAttribute="bottom" constant="262" id="hP7-EH-KEd"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -54,33 +83,52 @@
                 <mask key="subviews">
                     <exclude reference="vXt-6R-Ipt"/>
                     <exclude reference="fVT-PN-2Tb"/>
+                    <exclude reference="1lw-Nl-D9R"/>
+                    <exclude reference="SRz-kt-b32"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="GKe-8b-TBZ"/>
-                    <exclude reference="RBn-Ds-Yzn"/>
-                    <exclude reference="Rh9-1O-JLx"/>
                     <exclude reference="5Vz-aM-1GR"/>
                     <exclude reference="CBR-L9-PR3"/>
                     <exclude reference="Rhb-79-Ltt"/>
                     <exclude reference="hP7-EH-KEd"/>
+                    <exclude reference="GKe-8b-TBZ"/>
+                    <exclude reference="PJl-kl-WIv"/>
+                    <exclude reference="RBn-Ds-Yzn"/>
+                    <exclude reference="Rh9-1O-JLx"/>
+                    <exclude reference="Lx7-zL-Njg"/>
+                    <exclude reference="NBr-Pk-9nL"/>
+                    <exclude reference="Zyx-YZ-x47"/>
+                    <exclude reference="6vH-D1-SzR"/>
+                    <exclude reference="GqP-Xz-6DQ"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=regular">
                 <mask key="subviews">
                     <include reference="vXt-6R-Ipt"/>
                     <include reference="fVT-PN-2Tb"/>
+                    <include reference="1lw-Nl-D9R"/>
+                    <include reference="SRz-kt-b32"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="GKe-8b-TBZ"/>
-                    <exclude reference="RBn-Ds-Yzn"/>
-                    <include reference="Rh9-1O-JLx"/>
                     <include reference="5Vz-aM-1GR"/>
                     <exclude reference="CBR-L9-PR3"/>
                     <include reference="Rhb-79-Ltt"/>
                     <exclude reference="hP7-EH-KEd"/>
+                    <include reference="GKe-8b-TBZ"/>
+                    <include reference="PJl-kl-WIv"/>
+                    <exclude reference="RBn-Ds-Yzn"/>
+                    <include reference="Rh9-1O-JLx"/>
+                    <include reference="Lx7-zL-Njg"/>
+                    <exclude reference="NBr-Pk-9nL"/>
+                    <exclude reference="Zyx-YZ-x47"/>
+                    <include reference="6vH-D1-SzR"/>
+                    <include reference="GqP-Xz-6DQ"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="353" y="476"/>
         </view>
     </objects>
+    <resources>
+        <image name="RedButton.png" width="385" height="130"/>
+    </resources>
 </document>

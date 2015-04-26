@@ -99,6 +99,7 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         if (user != nil) {
             switchScreens(ReadyDisplay)
         }
+        LoginLabel.text = pickerData[0]
     }
     @IBAction func LoginButtonPressed(sender: AnyObject) {
         SoundManager().playButtonPressedSound()
@@ -158,6 +159,15 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     
     }
     
+    @IBAction func loginToAccount(sender: AnyObject) {
+        var loginAccount : User = Users.getUserByUsername(LoginLabel.text!)!
+        func isUserOne () -> Bool {
+            if playerNumber == 1 {return true}
+            else {return false}
+        }
+        Users.login(loginAccount, playerOne: isUserOne())
+        switchScreens(ReadyDisplay)
+    }
     
     @IBAction func gameSettingsSelected(sender: AnyObject) {
         SoundManager().playButtonPressedSound()
