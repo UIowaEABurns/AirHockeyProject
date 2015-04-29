@@ -30,7 +30,7 @@
                         <constraint firstAttribute="height" constant="24" id="IVH-Qb-Obe"/>
                         <constraint firstAttribute="width" constant="284" id="wCj-FV-Zhj"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="32"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">

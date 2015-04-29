@@ -24,13 +24,13 @@
                         <constraint firstAttribute="width" constant="338" id="SeE-Bz-Qzg"/>
                         <constraint firstAttribute="height" constant="43" id="cdO-v4-Vci"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="28"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ready?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0us-JZ-6vc">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ready?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0us-JZ-6vc">
                     <rect key="frame" x="271" y="110" width="59" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -40,7 +40,9 @@
                         <constraint firstAttribute="width" constant="188" id="dGL-ua-0Ld"/>
                         <constraint firstAttribute="height" constant="51" id="pPA-cX-CvX"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
                     <state key="normal" title="Game Settings" backgroundImage="RedButton.png">
+                        <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -55,7 +57,9 @@
                 </switch>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lL-H2-hwZ">
                     <rect key="frame" x="206" y="237" width="188" height="51"/>
+                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
                     <state key="normal" title="Logout" backgroundImage="RedButton.png">
+                        <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -68,7 +72,9 @@
                         <constraint firstAttribute="width" constant="91" id="HBx-gh-3uE"/>
                         <constraint firstAttribute="height" constant="40" id="fPZ-nX-fPc"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
                     <state key="normal" title="Home" backgroundImage="RedButton.png">
+                        <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>

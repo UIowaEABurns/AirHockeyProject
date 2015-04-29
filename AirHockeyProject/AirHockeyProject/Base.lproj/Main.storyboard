@@ -23,7 +23,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="ST1-z4-wOw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -33,7 +33,9 @@
                                     <constraint firstAttribute="width" secondItem="KQp-hz-TaR" secondAttribute="height" multiplier="179:53" id="9pB-uG-G0L"/>
                                     <constraint firstAttribute="width" constant="179" id="Iau-H6-lc1"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
                                 <state key="normal" title="Save" backgroundImage="RedButton.png">
+                                    <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -162,7 +164,9 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccM-uy-ntW">
                                         <rect key="frame" x="95" y="672" width="179" height="53"/>
+                                        <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
                                         <state key="normal" title="Choose Theme" backgroundImage="RedButton.png">
+                                            <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <variation key="widthClass=compact" misplaced="YES">
@@ -174,7 +178,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNQ-yK-hZn">
                                         <rect key="frame" x="95" y="733" width="179" height="53"/>
+                                        <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
                                         <state key="normal" title="Restore Defaults" backgroundImage="RedButton.png">
+                                            <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <variation key="widthClass=compact" misplaced="YES">
@@ -329,7 +335,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="1bI-Ey-ikT"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="31"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -430,13 +436,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Scores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dd3-fE-DT1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="High Scores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dd3-fE-DT1">
                                 <rect key="frame" x="16" y="52" width="568" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-pF-Zzq">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-pF-Zzq">
                                 <rect key="frame" x="140" y="81" width="320" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="zbP-Y6-pbq"/>
@@ -451,7 +457,7 @@
                                     <outlet property="delegate" destination="c65-my-3S4" id="ANe-1V-FkH"/>
                                 </connections>
                             </pickerView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BLl-Pm-Z9g">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BLl-Pm-Z9g">
                                 <rect key="frame" x="16" y="251" width="568" height="312"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -593,7 +599,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="t9a-UL-nsD"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="39"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -699,7 +705,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYE-JR-0Cq">
                                 <rect key="frame" x="175" y="180" width="250" height="60"/>
-                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="26"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
                                 <state key="normal" title="1 Player" backgroundImage="RedButton.png">
                                     <color key="titleColor" red="0.15636487987855241" green="0.90861356510080349" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -710,7 +716,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63H-V8-DUc">
                                 <rect key="frame" x="175" y="435" width="250" height="60"/>
-                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="26"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
                                 <state key="normal" title="System Settings" backgroundImage="RedButton.png">
                                     <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -722,7 +728,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ba-NA-5xc">
                                 <rect key="frame" x="175" y="350" width="250" height="60"/>
-                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="26"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
                                 <state key="normal" title="High Scores" backgroundImage="RedButton.png">
                                     <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -734,7 +740,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlZ-8t-6RN">
                                 <rect key="frame" x="175" y="265" width="250" height="60"/>
-                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="26"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
                                 <state key="normal" title="2 Player" backgroundImage="RedButton.png">
                                     <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -839,7 +845,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0oT-w6-Nmh">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0oT-w6-Nmh">
                                 <rect key="frame" x="167" y="148" width="267" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="267" id="5cE-LF-nNh"/>
@@ -847,31 +853,31 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61w-aT-OTW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61w-aT-OTW">
                                 <rect key="frame" x="258" y="119" width="84" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nHt-yC-lG7">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nHt-yC-lG7">
                                 <rect key="frame" x="167" y="243" width="267" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eq0-US-ocT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eq0-US-ocT">
                                 <rect key="frame" x="258" y="214" width="84" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e4T-AI-LxM">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e4T-AI-LxM">
                                 <rect key="frame" x="167" y="338" width="267" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzQ-cQ-T7s">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzQ-cQ-T7s">
                                 <rect key="frame" x="258" y="309" width="84" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -881,21 +887,15 @@
                                     <constraint firstAttribute="width" constant="217" id="dVO-JC-oPc"/>
                                     <constraint firstAttribute="height" constant="65" id="fKN-gK-7RZ"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
                                 <state key="normal" title="Create" backgroundImage="RedButton.png">
+                                    <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="CreateButtonPressed:" destination="Uyx-kZ-Clq" eventType="touchUpInside" id="Y4o-pn-9WB"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMP-76-StX">
-                                <rect key="frame" x="16" y="47" width="568" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="N3q-FA-9Fc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Qi-my-wa7" customClass="MuteWidget" customModule="Face_Off" customModuleProvider="target">
                                 <rect key="frame" x="563" y="563" width="37" height="37"/>
                                 <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -914,13 +914,21 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1e4-dJ-oyB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1e4-dJ-oyB">
                                 <rect key="frame" x="16" y="382" width="568" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="wgf-y7-Thn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMP-76-StX">
+                                <rect key="frame" x="16" y="47" width="568" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="N3q-FA-9Fc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="25"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1018,7 +1026,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="289" id="Kmx-jD-DDk"/>
                                     <constraint firstAttribute="width" constant="289" id="Yf8-60-9hc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -1052,7 +1060,9 @@
                                     <constraint firstAttribute="height" constant="70" id="Cyc-eX-w5Q"/>
                                     <constraint firstAttribute="width" constant="193" id="fQQ-eb-9zc"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
                                 <state key="normal" title="Save" backgroundImage="RedButton.png">
+                                    <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -1071,13 +1081,13 @@
                                     <action selector="saveSound:" destination="ZDm-3w-qSw" eventType="touchUpInside" id="2lt-aR-vO9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BGM Volume" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkk-CR-vD3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="BGM Volume" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkk-CR-vD3">
                                 <rect key="frame" x="250" y="151" width="101" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="MTe-xF-cd5"/>
                                     <constraint firstAttribute="height" constant="35" id="eyp-Ug-QhI"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -1100,9 +1110,9 @@
                                     <action selector="soundChanged:" destination="ZDm-3w-qSw" eventType="valueChanged" id="MBf-Pz-rTP"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FX Volume" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWl-bC-HhU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FX Volume" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWl-bC-HhU">
                                 <rect key="frame" x="250" y="269" width="101" height="31"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
