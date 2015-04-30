@@ -101,6 +101,14 @@ public class Users {
         
         return users
     }
+    
+    class func deleteAllUsers() {
+        let db = Database(DatabaseManager.getDatabasePath() as String)
+        
+        let stmt=db.prepare("delete from users")
+        stmt.run()
+    }
+    
     class func getAllUsernamesExceptLogins() -> [String] {
         let Userss = getAllUsers()
         var output : [String] = []

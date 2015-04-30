@@ -24,6 +24,23 @@ class SystemSettingsViewController : UIViewController {
         Util.applyBackgroundToView(self.view)
     }
     
+    @IBAction func deleteAllData(sender: AnyObject) {
+        
+        let alert = UIAlertController(title: "This will permanently delete all accounts and statistics", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        let confirmAction = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Destructive, handler: {
+            (action) in
+            Users.deleteAllUsers()
+        
+        
+        
+        
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(alert) in })
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        self.presentViewController(alert, animated: true, completion: {})
+        
+    }
     @IBAction func soundChanged(sender: AnyObject) {
         
         FX_VOLUME = fxController.value

@@ -91,9 +91,15 @@ public class WinScreen : SKNode, TouchHandlerDelegate {
         var userTwo : User? = parentScene.userTwo
         if userOne != nil {
             userOne = Users.getUserByUsername(userOne!.getUsername()!)
+            if userOne == nil {
+                userOne = AirHockeyConstants.getGuestUser()
+            }
         }
         if userTwo != nil {
             userTwo = Users.getUserByUsername(userTwo!.getUsername()!)
+            if userTwo == nil {
+                userTwo = AirHockeyConstants.getGuestUser()
+            }
         }
         
         self.scene!.view!.presentScene(GameScene(size: self.scene!.size, p1: userOne, p2: userTwo, profile: parentScene.settingsProfile,sound: parentScene.soundManager, nav: parentScene.navigationController), transition: SKTransition.fadeWithColor(UIColor.blackColor(), duration: 1.5))

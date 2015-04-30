@@ -111,6 +111,8 @@
 		71763AD61AE182DD00155C15 /* PowerupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71763AD51AE182DD00155C15 /* PowerupDelegate.swift */; };
 		71763AD81AE186D800155C15 /* SizeIncreasePowerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71763AD71AE186D800155C15 /* SizeIncreasePowerup.swift */; };
 		7178D3601ADE00EC00834CC5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178D35F1ADE00EC00834CC5 /* HomeViewController.swift */; };
+		7179173F1AF1D579009DF946 /* carBackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7179173E1AF1D579009DF946 /* carBackgroundMusic.mp3 */; };
+		717917411AF1D58F009DF946 /* PowerupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717917401AF1D58F009DF946 /* PowerupsViewController.swift */; };
 		717B00D91ACC486B0049F3EC /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B00D81ACC486B0049F3EC /* Button.swift */; };
 		717B00DE1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B00DD1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift */; };
 		717B00E21ACCD95A0049F3EC /* HumanPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B00E01ACCD95A0049F3EC /* HumanPlayer.swift */; };
@@ -270,8 +272,6 @@
 		7107A2A31AC398B600706EC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7107A2A51AC398B600706EC8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7107A2A81AC398B600706EC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		7107A2B31AC398B600706EC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7107A2B41AC398B600706EC8 /* AirHockeyProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirHockeyProjectTests.swift; sourceTree = "<group>"; };
 		7107A2C11AC398D600706EC8 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		7107A2C31AC398D600706EC8 /* SettingsProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsProfile.swift; sourceTree = "<group>"; };
 		7107A2C41AC398D600706EC8 /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
@@ -368,6 +368,8 @@
 		71763AD51AE182DD00155C15 /* PowerupDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerupDelegate.swift; sourceTree = "<group>"; };
 		71763AD71AE186D800155C15 /* SizeIncreasePowerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeIncreasePowerup.swift; sourceTree = "<group>"; };
 		7178D35F1ADE00EC00834CC5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7179173E1AF1D579009DF946 /* carBackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = carBackgroundMusic.mp3; sourceTree = "<group>"; };
+		717917401AF1D58F009DF946 /* PowerupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerupsViewController.swift; sourceTree = "<group>"; };
 		717B00D81ACC486B0049F3EC /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		717B00DD1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchHandlerDelegate.swift; sourceTree = "<group>"; };
 		717B00E01ACCD95A0049F3EC /* HumanPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HumanPlayer.swift; sourceTree = "<group>"; };
@@ -492,7 +494,6 @@
 				714449CA1AE1C4E500535D3D /* SQLite.xcodeproj */,
 				7107A2CF1AC3990E00706EC8 /* SpriteKit.framework */,
 				7107A2971AC398B600706EC8 /* AirHockeyProject */,
-				7107A2B11AC398B600706EC8 /* AirHockeyProjectTests */,
 				7107A2961AC398B600706EC8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -533,23 +534,6 @@
 			isa = PBXGroup;
 			children = (
 				7107A2991AC398B600706EC8 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		7107A2B11AC398B600706EC8 /* AirHockeyProjectTests */ = {
-			isa = PBXGroup;
-			children = (
-				7107A2B41AC398B600706EC8 /* AirHockeyProjectTests.swift */,
-				7107A2B21AC398B600706EC8 /* Supporting Files */,
-			);
-			path = AirHockeyProjectTests;
-			sourceTree = "<group>";
-		};
-		7107A2B21AC398B600706EC8 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				7107A2B31AC398B600706EC8 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -678,6 +662,7 @@
 				715A05C91AEAB01F00C51C45 /* UserProfileViewController.swift */,
 				715A05CF1AEABB2A00C51C45 /* HighScoreViewController.swift */,
 				715C9B191AEC82D3001A8598 /* SettingsViewController.swift */,
+				717917401AF1D58F009DF946 /* PowerupsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -756,6 +741,7 @@
 		7169DEB41AE487EB006B34C9 /* car */ = {
 			isa = PBXGroup;
 			children = (
+				7179173E1AF1D579009DF946 /* carBackgroundMusic.mp3 */,
 				71BBD2F81AED668F00277346 /* carBackgroundThumb.png */,
 				71BBD2F91AED668F00277346 /* carTableThumb.png */,
 				7169DEB51AE487EB006B34C9 /* carBackground.png */,
@@ -1163,6 +1149,7 @@
 				71008D5D1AD04F56009B3444 /* bokeh.png in Resources */,
 				7169DE931AE40E4A006B34C9 /* UnderwaterFont.otf in Resources */,
 				71E166621ADB38000042D96A /* icePuck.png in Resources */,
+				7179173F1AF1D579009DF946 /* carBackgroundMusic.mp3 in Resources */,
 				7169DE9B1AE47C02006B34C9 /* VortexPowerup.png in Resources */,
 				7169DEAE1AE487E3006B34C9 /* beachBackground.png in Resources */,
 				71E166791ADDE6A00042D96A /* SpaceFont.ttf in Resources */,
@@ -1266,6 +1253,7 @@
 				7178D3601ADE00EC00834CC5 /* HomeViewController.swift in Sources */,
 				71AE54141AD591E00024BC44 /* WinScreen.swift in Sources */,
 				715BB2B21AE983CC00BD12C0 /* ArrowPickerWidget.swift in Sources */,
+				717917411AF1D58F009DF946 /* PowerupsViewController.swift in Sources */,
 				7131F5531AD0F33500AABF5A /* Theme.swift in Sources */,
 				717B00DE1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift in Sources */,
 				7107A2C91AC398D600706EC8 /* User.swift in Sources */,
