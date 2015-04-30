@@ -20,7 +20,6 @@
 		7107A2A41AC398B600706EC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7107A2A21AC398B600706EC8 /* Main.storyboard */; };
 		7107A2A61AC398B600706EC8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7107A2A51AC398B600706EC8 /* Images.xcassets */; };
 		7107A2A91AC398B600706EC8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7107A2A71AC398B600706EC8 /* LaunchScreen.xib */; };
-		7107A2B51AC398B600706EC8 /* AirHockeyProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A2B41AC398B600706EC8 /* AirHockeyProjectTests.swift */; };
 		7107A2C61AC398D600706EC8 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A2C11AC398D600706EC8 /* DatabaseManager.swift */; };
 		7107A2C71AC398D600706EC8 /* SettingsProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A2C31AC398D600706EC8 /* SettingsProfile.swift */; };
 		7107A2C81AC398D600706EC8 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A2C41AC398D600706EC8 /* Stats.swift */; };
@@ -30,7 +29,6 @@
 		7107A2ED1AC3A12A00706EC8 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107A2EC1AC3A12A00706EC8 /* Util.swift */; };
 		711249811AE5FB910020FB19 /* DownArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7112497D1AE5FB910020FB19 /* DownArrow.png */; };
 		711249821AE5FB910020FB19 /* GreenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7112497E1AE5FB910020FB19 /* GreenButton.png */; };
-		711249831AE5FB910020FB19 /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 7112497F1AE5FB910020FB19 /* Thumbs.db */; };
 		711249841AE5FB910020FB19 /* UpArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 711249801AE5FB910020FB19 /* UpArrow.png */; };
 		7112498C1AE606B80020FB19 /* PlayerSelectEventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112498B1AE606B80020FB19 /* PlayerSelectEventDelegate.swift */; };
 		7115A5711ACB81DD0057A8B8 /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115A56F1ACB81DD0057A8B8 /* GameTimer.swift */; };
@@ -88,7 +86,6 @@
 		715F430E1AE5653B002D44AD /* iPadMini.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43041AE5653B002D44AD /* iPadMini.png */; };
 		715F430F1AE5653B002D44AD /* iPhone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43051AE5653B002D44AD /* iPhone4.png */; };
 		715F43101AE5653B002D44AD /* iPhone6.png in Resources */ = {isa = PBXBuildFile; fileRef = 715F43061AE5653B002D44AD /* iPhone6.png */; };
-		715F43111AE5653B002D44AD /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 715F43071AE5653B002D44AD /* Thumbs.db */; };
 		716373B01ACB9E1200B1FF7D /* zPositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716373AF1ACB9E1200B1FF7D /* zPositions.swift */; };
 		7169DE891AE40B1C006B34C9 /* GoSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE881AE40B1C006B34C9 /* GoSound.wav */; };
 		7169DE8F1AE40B21006B34C9 /* Countdown.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE8E1AE40B21006B34C9 /* Countdown.wav */; };
@@ -101,18 +98,15 @@
 		7169DEA31AE487DD006B34C9 /* hawkeyePaddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE9E1AE487DD006B34C9 /* hawkeyePaddle.png */; };
 		7169DEA41AE487DD006B34C9 /* hawkeyePuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DE9F1AE487DD006B34C9 /* hawkeyePuck.png */; };
 		7169DEA51AE487DD006B34C9 /* hawkeyeTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEA01AE487DD006B34C9 /* hawkeyeTable.png */; };
-		7169DEA61AE487DD006B34C9 /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEA11AE487DD006B34C9 /* Thumbs.db */; };
 		7169DEAE1AE487E3006B34C9 /* beachBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEA81AE487E3006B34C9 /* beachBackground.png */; };
 		7169DEAF1AE487E3006B34C9 /* beachBackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEA91AE487E3006B34C9 /* beachBackgroundMusic.mp3 */; };
 		7169DEB01AE487E3006B34C9 /* beachPaddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEAA1AE487E3006B34C9 /* beachPaddle.png */; };
 		7169DEB11AE487E3006B34C9 /* beachPuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEAB1AE487E3006B34C9 /* beachPuck.png */; };
 		7169DEB21AE487E3006B34C9 /* beachTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEAC1AE487E3006B34C9 /* beachTable.png */; };
-		7169DEB31AE487E3006B34C9 /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEAD1AE487E3006B34C9 /* Thumbs.db */; };
 		7169DEBA1AE487EB006B34C9 /* carBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEB51AE487EB006B34C9 /* carBackground.png */; };
 		7169DEBB1AE487EB006B34C9 /* carPaddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEB61AE487EB006B34C9 /* carPaddle.png */; };
 		7169DEBC1AE487EB006B34C9 /* carPuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEB71AE487EB006B34C9 /* carPuck.png */; };
 		7169DEBD1AE487EB006B34C9 /* carTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEB81AE487EB006B34C9 /* carTable.png */; };
-		7169DEBE1AE487EB006B34C9 /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 7169DEB91AE487EB006B34C9 /* Thumbs.db */; };
 		71763AD41AE179BD00155C15 /* Powerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71763AD31AE179BD00155C15 /* Powerup.swift */; };
 		71763AD61AE182DD00155C15 /* PowerupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71763AD51AE182DD00155C15 /* PowerupDelegate.swift */; };
 		71763AD81AE186D800155C15 /* SizeIncreasePowerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71763AD71AE186D800155C15 /* SizeIncreasePowerup.swift */; };
@@ -137,7 +131,6 @@
 		71AE541C1AD620C90024BC44 /* soccerPaddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 71AE54171AD620C90024BC44 /* soccerPaddle.png */; };
 		71AE541D1AD620C90024BC44 /* soccerPuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 71AE54181AD620C90024BC44 /* soccerPuck.png */; };
 		71AE541E1AD620C90024BC44 /* soccerTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 71AE54191AD620C90024BC44 /* soccerTable.png */; };
-		71AE541F1AD620C90024BC44 /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 71AE541A1AD620C90024BC44 /* Thumbs.db */; };
 		71BB497F1AC4CE1C00898049 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB497E1AC4CE1C00898049 /* Settings.swift */; };
 		71BB49821AC4D24F00898049 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB49811AC4D24F00898049 /* Constants.swift */; };
 		71BB49841AC4D70200898049 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB49831AC4D70200898049 /* Statistics.swift */; };
@@ -168,7 +161,6 @@
 		71E166611ADB38000042D96A /* icePaddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E1665B1ADB38000042D96A /* icePaddle.png */; };
 		71E166621ADB38000042D96A /* icePuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E1665C1ADB38000042D96A /* icePuck.png */; };
 		71E166631ADB38000042D96A /* iceTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E1665D1ADB38000042D96A /* iceTable.png */; };
-		71E166641ADB38000042D96A /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 71E1665E1ADB38000042D96A /* Thumbs.db */; };
 		71E166691ADB3FEE0042D96A /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 71E166681ADB3FEE0042D96A /* Snow.sks */; };
 		71E166741ADDE6A00042D96A /* BeachFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71E1666C1ADDE6A00042D96A /* BeachFont.ttf */; };
 		71E166751ADDE6A00042D96A /* CarFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71E1666D1ADDE6A00042D96A /* CarFont.ttf */; };
@@ -205,13 +197,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7107A2AF1AC398B600706EC8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7107A28D1AC398B600706EC8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7107A2941AC398B600706EC8;
-			remoteInfo = AirHockeyProject;
-		};
 		714449D31AE1C4E600535D3D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 714449CA1AE1C4E500535D3D /* SQLite.xcodeproj */;
@@ -285,7 +270,6 @@
 		7107A2A31AC398B600706EC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7107A2A51AC398B600706EC8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7107A2A81AC398B600706EC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		7107A2AE1AC398B600706EC8 /* AirHockeyProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirHockeyProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7107A2B31AC398B600706EC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7107A2B41AC398B600706EC8 /* AirHockeyProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirHockeyProjectTests.swift; sourceTree = "<group>"; };
 		7107A2C11AC398D600706EC8 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -480,13 +464,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7107A2AB1AC398B600706EC8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -524,7 +501,6 @@
 			isa = PBXGroup;
 			children = (
 				7107A2951AC398B600706EC8 /* Face Off.app */,
-				7107A2AE1AC398B600706EC8 /* AirHockeyProjectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1018,24 +994,6 @@
 			productReference = 7107A2951AC398B600706EC8 /* Face Off.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7107A2AD1AC398B600706EC8 /* AirHockeyProjectTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7107A2BB1AC398B600706EC8 /* Build configuration list for PBXNativeTarget "AirHockeyProjectTests" */;
-			buildPhases = (
-				7107A2AA1AC398B600706EC8 /* Sources */,
-				7107A2AB1AC398B600706EC8 /* Frameworks */,
-				7107A2AC1AC398B600706EC8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7107A2B01AC398B600706EC8 /* PBXTargetDependency */,
-			);
-			name = AirHockeyProjectTests;
-			productName = AirHockeyProjectTests;
-			productReference = 7107A2AE1AC398B600706EC8 /* AirHockeyProjectTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1048,10 +1006,6 @@
 					7107A2941AC398B600706EC8 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 625732G463;
-					};
-					7107A2AD1AC398B600706EC8 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 7107A2941AC398B600706EC8;
 					};
 				};
 			};
@@ -1075,7 +1029,6 @@
 			projectRoot = "";
 			targets = (
 				7107A2941AC398B600706EC8 /* AirHockeyProject */,
-				7107A2AD1AC398B600706EC8 /* AirHockeyProjectTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1151,7 +1104,6 @@
 				7119B4B91AD1063C002CA09B /* spacePaddle.png in Resources */,
 				714449C51AE1C39700535D3D /* GrowthPowerup.png in Resources */,
 				715BB2B01AE9828500BD12C0 /* ArrowPickerWidget.xib in Resources */,
-				7169DEA61AE487DD006B34C9 /* Thumbs.db in Resources */,
 				71E166601ADB38000042D96A /* iceBackgroundMusic.mp3 in Resources */,
 				7169DEA21AE487DD006B34C9 /* hawkeyeBackground.png in Resources */,
 				71BBD3071AED66A400277346 /* iceTableThumb.png in Resources */,
@@ -1168,16 +1120,13 @@
 				7169DE891AE40B1C006B34C9 /* GoSound.wav in Resources */,
 				71BBD3131AED66BA00277346 /* spaceTableThumb.png in Resources */,
 				71BBD3161AED66C200277346 /* classicBackgroundThumb.png in Resources */,
-				715F43111AE5653B002D44AD /* Thumbs.db in Resources */,
 				7169DEB01AE487E3006B34C9 /* beachPaddle.png in Resources */,
 				7107A2A91AC398B600706EC8 /* LaunchScreen.xib in Resources */,
 				71D803CE1ADECCF4000BE4A3 /* confirmSound.mp3 in Resources */,
 				711249821AE5FB910020FB19 /* GreenButton.png in Resources */,
 				9F627A101ADE0DCE00DDD0AB /* LoginView.xib in Resources */,
 				71E1665F1ADB38000042D96A /* iceBackground.png in Resources */,
-				7169DEB31AE487E3006B34C9 /* Thumbs.db in Resources */,
 				717F86081AD0F3E000576E8E /* digital-7 (italic).ttf in Resources */,
-				711249831AE5FB910020FB19 /* Thumbs.db in Resources */,
 				71BBD3021AED669D00277346 /* hawkeyeBackgroundThumb.png in Resources */,
 				715BB2AE1AE8628000BD12C0 /* splash.png in Resources */,
 				71E1668A1ADDF3FF0042D96A /* soundOffIcon.png in Resources */,
@@ -1190,14 +1139,12 @@
 				717F860C1AD0F3E000576E8E /* readme.txt in Resources */,
 				715BB2BA1AE9ABAD00BD12C0 /* AIPlayerView.xib in Resources */,
 				71E166741ADDE6A00042D96A /* BeachFont.ttf in Resources */,
-				7169DEBE1AE487EB006B34C9 /* Thumbs.db in Resources */,
 				715BB29D1AE85DAA00BD12C0 /* RedButton.png in Resources */,
 				71AE541E1AD620C90024BC44 /* soccerTable.png in Resources */,
 				71C225AD1AE177B400B87460 /* Square.png in Resources */,
 				71F0A1411AD85471003AEF5C /* classicBackground.png in Resources */,
 				7119B4D61AD4B23B002CA09B /* star.png in Resources */,
 				71F0A14D1AD8548A003AEF5C /* underwaterPuck.png in Resources */,
-				71AE541F1AD620C90024BC44 /* Thumbs.db in Resources */,
 				71E166761ADDE6A00042D96A /* DesertFont.TTF in Resources */,
 				7119B4BB1AD1063C002CA09B /* spaceTable.png in Resources */,
 				71F0A14C1AD8548A003AEF5C /* underwaterPaddle.png in Resources */,
@@ -1252,20 +1199,12 @@
 				7169DEB11AE487E3006B34C9 /* beachPuck.png in Resources */,
 				715BB2A41AE85DB300BD12C0 /* hawkeyeBackgroundMusic.mp3 in Resources */,
 				7169DEBC1AE487EB006B34C9 /* carPuck.png in Resources */,
-				71E166641ADB38000042D96A /* Thumbs.db in Resources */,
 				71BBD30A1AED66AC00277346 /* underwaterBackgroundThumb.png in Resources */,
 				71E166691ADB3FEE0042D96A /* Snow.sks in Resources */,
 				7169DE911AE40B2B006B34C9 /* Powerup.wav in Resources */,
 				71008D581ACF97F1009B3444 /* GoalEmitter.sks in Resources */,
 				7119B4BA1AD1063C002CA09B /* spacePuck.png in Resources */,
 				714449C71AE1C39700535D3D /* MagnetPowerup.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7107A2AC1AC398B600706EC8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1334,22 +1273,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7107A2AA1AC398B600706EC8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7107A2B51AC398B600706EC8 /* AirHockeyProjectTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7107A2B01AC398B600706EC8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7107A2941AC398B600706EC8 /* AirHockeyProject */;
-			targetProxy = 7107A2AF1AC398B600706EC8 /* PBXContainerItemProxy */;
-		};
 		714449DE1AE1C4F100535D3D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SQLite;
@@ -1415,6 +1341,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "Face Off";
 				PROVISIONING_PROFILE = "e29d9323-2623-4b24-9172-4bcf0a1382db";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1453,6 +1380,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "Face Off";
 				PROVISIONING_PROFILE = "e29d9323-2623-4b24-9172-4bcf0a1382db";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -1494,40 +1422,6 @@
 			};
 			name = Release;
 		};
-		7107A2BC1AC398B600706EC8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = AirHockeyProjectTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirHockeyProject.app/AirHockeyProject";
-			};
-			name = Debug;
-		};
-		7107A2BD1AC398B600706EC8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = AirHockeyProjectTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirHockeyProject.app/AirHockeyProject";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1545,15 +1439,6 @@
 			buildConfigurations = (
 				7107A2B91AC398B600706EC8 /* Debug */,
 				7107A2BA1AC398B600706EC8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7107A2BB1AC398B600706EC8 /* Build configuration list for PBXNativeTarget "AirHockeyProjectTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7107A2BC1AC398B600706EC8 /* Debug */,
-				7107A2BD1AC398B600706EC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

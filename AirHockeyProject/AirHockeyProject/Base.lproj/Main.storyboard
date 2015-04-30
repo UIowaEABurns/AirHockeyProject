@@ -202,6 +202,7 @@
                                     <constraint firstItem="23L-qq-h2w" firstAttribute="trailing" secondItem="y5D-fX-gmk" secondAttribute="trailing" id="Fr1-zf-GwK"/>
                                     <constraint firstItem="C5d-2u-Cul" firstAttribute="trailing" secondItem="WIt-wW-7Az" secondAttribute="trailing" id="GB9-sC-fdB"/>
                                     <constraint firstAttribute="bottom" secondItem="ccM-uy-ntW" secondAttribute="bottom" constant="8" id="GcX-mM-COs"/>
+                                    <constraint firstAttribute="height" constant="832" id="HcY-DR-eOS"/>
                                     <constraint firstItem="C5d-2u-Cul" firstAttribute="height" secondItem="WIt-wW-7Az" secondAttribute="height" id="Hz5-AN-Ug5"/>
                                     <constraint firstItem="23L-qq-h2w" firstAttribute="leading" secondItem="y5D-fX-gmk" secondAttribute="leading" id="LzZ-lG-WLN"/>
                                     <constraint firstItem="WIt-wW-7Az" firstAttribute="centerX" secondItem="ccM-uy-ntW" secondAttribute="centerX" id="M1t-cc-lYA"/>
@@ -228,6 +229,7 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="HcY-DR-eOS"/>
                                         <exclude reference="GcX-mM-COs"/>
                                     </mask>
                                 </variation>

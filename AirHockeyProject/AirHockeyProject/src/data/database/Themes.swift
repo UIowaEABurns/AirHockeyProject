@@ -71,12 +71,12 @@ public class Themes : NSObject, NSXMLParserDelegate {
     }
    
     
-    public func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
+    public func parser(parser: NSXMLParser??!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
     }
     
-    public func parser(parser: NSXMLParser!, foundCharacters string: String!) {
+    public func parser(parser: NSXMLParser, foundCharacters string: String?) {
     }
-    public  func parser(parser: NSXMLParser!, parseErrorOccurred parseError: NSError!) {
+    public  func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
     }
     
     public class func getThemeByName(name : String) -> Theme? {
