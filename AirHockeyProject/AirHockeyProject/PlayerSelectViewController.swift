@@ -19,7 +19,7 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rect = CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: self.view.bounds.width, height: self.view.bounds.height/2 - 2))
+        let rect = CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: self.view.bounds.width, height: self.view.bounds.height/2 - 3))
         playerTwoHalf = TwoPBaseView(frame: rect, playerNumber: 2, eventDelegate: self)
         
         if (!isOnePlayer) {
@@ -31,13 +31,20 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
         self.view.addSubview(playerTwoHalf!)
 
         // Do any additional setup after loading the view, typically from a nib.
-        let rect2 = CGRect(origin: CGPoint(x: 0,y: (self.view.bounds.height/2 + 2)), size: CGSize(width: self.view.bounds.width, height: self.view.bounds.height/2 - 2))
+        let rect2 = CGRect(origin: CGPoint(x: 0,y: (self.view.bounds.height/2 + 3)), size: CGSize(width: self.view.bounds.width, height: self.view.bounds.height/2 - 2))
         
         playerOneHalf = TwoPBaseView(frame: rect2, playerNumber: 1, eventDelegate: self)
         self.view.addSubview(playerOneHalf!)
         self.navigationController!.interactivePopGestureRecognizer.delegate = SwipeDelegate
 
         self.view.bringSubviewToFront(muteWidget)
+        
+        
+        let blackLineView = UIView(frame: CGRect(origin: CGPoint(x: 0, y: self.view.bounds.height/2 - 3), size: CGSize(width: self.view.frame.width, height: 6)))
+        blackLineView.backgroundColor = UIColor.blackColor()
+        self.view.addSubview(blackLineView)
+        
+        Util.applyBackgroundToView(self.view)
     }
     
     override func viewWillAppear(animated: Bool) {

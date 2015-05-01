@@ -73,7 +73,6 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         self.aiView.hidden = true
         currentScreen = Display
         
-        self.backgroundColor = UIColor.redColor()
         //on button press, remove then add new
         self.addSubview(self.Display)
         self.addSubview(ReadyDisplay)

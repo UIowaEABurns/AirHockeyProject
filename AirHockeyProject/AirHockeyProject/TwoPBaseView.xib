@@ -45,7 +45,9 @@
                         <constraint firstAttribute="width" constant="91" id="8ZY-4o-M0i"/>
                         <constraint firstAttribute="height" constant="40" id="QTN-Wj-gCL"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="15"/>
                     <state key="normal" title="Home" backgroundImage="RedButton.png">
+                        <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -68,7 +70,6 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="T83-vO-Zgm" secondAttribute="centerX" id="1au-fm-7xb"/>
                 <constraint firstAttribute="bottom" secondItem="dyi-8Q-Zws" secondAttribute="bottom" constant="263" id="7C7-wB-2rb"/>

@@ -14,10 +14,12 @@ public enum PaddleColor : Int {
     case Blue = 1
     case Green = 2
     case Yellow = 3
-    case Black = 4
-    case White = 5
+    case Purple = 4
+    case Orange = 5
+    case Black = 6
+    case White = 7
     static func allValues() -> [PaddleColor] {
-        return [Red,Blue,Green]
+        return [Red,Blue,Green,Yellow,Purple,Orange,Black,White]
     }
     
     static func intToPaddleColor(i : Int) -> PaddleColor? {
@@ -42,6 +44,10 @@ public enum PaddleColor : Int {
             return SKColor.blackColor()
         }else if (self==White) {
             return SKColor.whiteColor()
+        } else if (self==Purple) {
+            return SKColor.purpleColor()
+        } else if (self == Orange) {
+            return SKColor.orangeColor()
         }
         return nil
     }
@@ -255,10 +261,12 @@ public class SettingsProfile {
     
     public func setPlayerOnePaddleColor(colorNumber : Int) {
         playerOnePaddleColor = PaddleColor.intToPaddleColor(colorNumber)
+        println(colorNumber)
     }
     
     public func setPlayerTwoPaddleColor(colorNumber : Int) {
         playerTwoPaddleColor = PaddleColor.intToPaddleColor(colorNumber)
+        println(colorNumber)
     }
     
     public func getPlayerOnePaddleColorNumber() -> Int? {
@@ -284,7 +292,7 @@ public class SettingsProfile {
     }
     
     public func getPlayerTwoPaddleColor() -> SKColor? {
-        if playerOnePaddleColor==nil {
+        if playerTwoPaddleColor==nil {
             return nil
         }
         return playerTwoPaddleColor!.getAsColor()

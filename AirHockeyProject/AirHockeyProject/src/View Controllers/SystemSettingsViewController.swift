@@ -15,6 +15,7 @@ class SystemSettingsViewController : UIViewController {
     @IBOutlet weak var fxController: UISlider!
     
     override func viewWillAppear(animated: Bool) {
+        bgmController.maximumValue = MAX_BG_MUSIC_VOLUME
         bgmController.setValue(BG_MUSIC_VOLUME, animated: false)
         fxController.setValue(FX_VOLUME,animated:false)
         self.navigationController!.navigationBar.hidden = false

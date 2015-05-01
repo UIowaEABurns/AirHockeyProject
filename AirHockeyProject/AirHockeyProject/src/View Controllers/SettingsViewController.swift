@@ -19,10 +19,15 @@ class SettingsViewController : UIViewController  {
     //TODO: Make options more robust?
     let goals = ["∞","1","2","3","4","5","6","7","8","9","10"]
     let times = ["∞","1:00","2:00","3:00","4:00","5:00","6:00","7:00","8:00","9:00","10:00"]
+    
+    let colors = ["Red","Blue","Green","Yellow","Purple","Orange","Black","White"]
+    
     private let defaultSettings = AirHockeyConstants.getDefaultSettings()
     
     
+    @IBOutlet weak var p1PaddleColorWidget: ArrowPickerWidget!
     
+    @IBOutlet weak var p2PaddleColorWidget: ArrowPickerWidget!
     
     @IBOutlet weak var puckRadiusWidget: ArrowPickerWidget!
     @IBOutlet weak var p1PaddleRadiusWidget: ArrowPickerWidget!
@@ -34,6 +39,8 @@ class SettingsViewController : UIViewController  {
     @IBOutlet weak var powerupsEnabledWidget: ArrowPickerWidget!
     @IBOutlet weak var goalsWidget: ArrowPickerWidget!
     
+    
+  
     @IBOutlet weak var timeWidget: ArrowPickerWidget!
     @IBOutlet weak var settingsScrollView: UIScrollView!
     
@@ -70,6 +77,10 @@ class SettingsViewController : UIViewController  {
         goalsWidget.values = goals
         timeWidget.titleLabel.text = "Time Limit"
         timeWidget.values = times
+        p1PaddleColorWidget.titleLabel.text = "P1 Paddle Color"
+        p1PaddleColorWidget.values = colors
+        p2PaddleColorWidget.titleLabel.text = "P2 Paddle Color"
+        p2PaddleColorWidget.values = colors
         setWidgetsFromSettings(settingsProfile)
 
         
@@ -77,7 +88,24 @@ class SettingsViewController : UIViewController  {
         settingsScrollView.contentSize = CGSize(width: settingsScrollView.contentSize.width, height: chooseThemeButton.frame.origin.y + chooseThemeButton.frame.height)
         
         AirHockeyConstants.loadThemeChooser()
-
+        Util.applyBackgroundToView(self.view)
+        settingsScrollView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
+        
+        
+        let questionMarkSize = powerupsEnabledWidget.titleLabel.frame.height
+        
+        
+        
+        
+        let questionButton = UIButton(frame: CGRect(origin: CGPoint(x: powerupsEnabledWidget.frame.width - questionMarkSize, y: 0), size: CGSize(width: questionMarkSize, height: questionMarkSize)))
+        let image = NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent("GreenButton.png")
+        questionButton.setBackgroundImage(UIImage(contentsOfFile: image), forState: UIControlState.Normal)
+        questionButton.addTarget(self,action: "powerupQuestionPressed:",forControlEvents: .TouchUpInside)
+        powerupsEnabledWidget.addSubview(questionButton)
+    }
+    
+    func powerupQuestionPressed(button : UIButton!) {
+        self.performSegueWithIdentifier("PowerupTutorialSegue", sender: self)
     }
    
     
@@ -95,6 +123,9 @@ class SettingsViewController : UIViewController  {
         goalsWidget.setItem(settings.getGoalLimit()!)
        
         timeWidget.setItem(settings.getTimeLimit()!/60)
+        
+        p1PaddleColorWidget.setItem(settings.getPlayerOnePaddleColorNumber()!)
+        p2PaddleColorWidget.setItem(settings.getPlayerTwoPaddleColorNumber()!)
 
     }
     
@@ -111,6 +142,9 @@ class SettingsViewController : UIViewController  {
         }
         settingsProfile.setGoalLimit(goalsWidget.currentIndex)
         settingsProfile.setTimeLimit(timeWidget.currentIndex * 60)
+        settingsProfile.setPlayerOnePaddleColor(p1PaddleColorWidget.currentIndex)
+        settingsProfile.setPlayerTwoPaddleColor(p2PaddleColorWidget.currentIndex)
+        
     }
     
     @IBAction func saveSettings(sender: UIButton) {

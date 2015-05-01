@@ -46,7 +46,8 @@ public var TABLE_EFFECT_OVERLAY_NAME = "effectoverlay"
 
 
 //these are global system settings
-public var BG_MUSIC_VOLUME : Float = 1.0
+public var MAX_BG_MUSIC_VOLUME : Float = 0.8
+public var BG_MUSIC_VOLUME : Float = MAX_BG_MUSIC_VOLUME
 public var FX_VOLUME : Float  = 1.0
 public var muted : Bool = false
 

@@ -71,7 +71,6 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="fcQ-cX-VUU" firstAttribute="leading" secondItem="OhU-F5-qa3" secondAttribute="leading" constant="8" id="1Ng-vq-tro"/>
                 <constraint firstItem="fcQ-cX-VUU" firstAttribute="top" secondItem="OhU-F5-qa3" secondAttribute="top" constant="8" id="Dd3-sA-d4j"/>
