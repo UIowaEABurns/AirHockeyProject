@@ -103,6 +103,11 @@ public class Button : SKShapeNode, TouchHandlerDelegate {
         handleTextColor()
     }
     
+    public func setFontColor(color : SKColor) {
+        self.defaultFontColor = color
+        handleTextColor()
+    }
+    
     private func handleTextColor() {
         if (self.state == State.Normal) {
             self.label.fontColor = defaultFontColor

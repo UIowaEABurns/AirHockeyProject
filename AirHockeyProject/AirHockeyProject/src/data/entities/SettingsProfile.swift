@@ -261,12 +261,10 @@ public class SettingsProfile {
     
     public func setPlayerOnePaddleColor(colorNumber : Int) {
         playerOnePaddleColor = PaddleColor.intToPaddleColor(colorNumber)
-        println(colorNumber)
     }
     
     public func setPlayerTwoPaddleColor(colorNumber : Int) {
         playerTwoPaddleColor = PaddleColor.intToPaddleColor(colorNumber)
-        println(colorNumber)
     }
     
     public func getPlayerOnePaddleColorNumber() -> Int? {

@@ -13,6 +13,7 @@ public class Powerup : SKSpriteNode {
     
     
     private class func getRandomDelegate(scene : GameScene) -> PowerupDelegate {
+        //TODO 4
         var x = arc4random_uniform(4)
         
         if (x==0) {
@@ -25,7 +26,7 @@ public class Powerup : SKSpriteNode {
             return VortextPowerup(s: scene)
         }
         else {
-            return SizeIncreasePowerup(s: scene)
+            return LightPowerup(s: scene)
         }
     }
     

@@ -41,7 +41,6 @@ public class ReadyButtonView : UIView {
         styleButton()
     }
     
-    
     @IBAction func buttonClicked(sender: AnyObject) {
         setReady(!ready)
     }
@@ -56,7 +55,7 @@ public class ReadyButtonView : UIView {
         styleButton()
     }
     
-    private func styleButton() {
+    func styleButton() {
         if ready {
             readyButton.backgroundColor = UIColor.greenColor()
             readyButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)

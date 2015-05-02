@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 println("font is " + (str as! String))
             }
         }*/
+        AirHockeyConstants.loadSpeedSettings()
         AirHockeyConstants.loadMuteSetting()
         AirHockeyConstants.loadVolumeSettings()
         Users.loadUserLogins()

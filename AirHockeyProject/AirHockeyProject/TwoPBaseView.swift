@@ -98,6 +98,7 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         if (user != nil) {
             settingsProfile = user!.getSettingsProfile()!
             readyScreenPlayerText.text = user!.getUsername()!
+            readyButtonView.styleButton()
             switchScreensNoAnimation(ReadyDisplay)
         }
         readyButtonView.readyButton.addTarget(self, action: "readySwitched:", forControlEvents: .TouchUpInside)
@@ -113,10 +114,11 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         user = AirHockeyConstants.getGuestUser()
         settingsProfile = AirHockeyConstants.getDefaultSettings()
         readyScreenPlayerText.text = "Guest"
+        readyButtonView.styleButton()
+
         switchScreens(ReadyDisplay)
     }
     @IBAction func CancelLoginButton(sender: AnyObject) {
-        println("canceling")
         SoundManager().playButtonPressedSound()
 
         switchScreens(Display)
@@ -149,7 +151,6 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func readySwitched(sender: AnyObject) {
-        println("two")
         if readyButtonView.isReady() {
             eventDelegate.readySelected()
         }
@@ -181,6 +182,8 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
             self.user = loginAccount
             self.settingsProfile = loginAccount.getSettingsProfile()!
             readyScreenPlayerText.text = user!.getUsername()!
+            readyButtonView.styleButton()
+
             switchScreens(ReadyDisplay)
             self.eventDelegate.handleLoginChange()
         } else {

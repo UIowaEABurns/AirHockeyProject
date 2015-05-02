@@ -292,7 +292,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             playerTwo.setPaddle(paddle)
         
             
-            let timerSize = CGSize(width: (1-TABLE_WIDTH_FRACTION)/2 * self.frame.width * 1.4, height: self.frame.height * 0.1)
+            let timerSize = CGSize(width: (1-TABLE_WIDTH_FRACTION)/2 * self.frame.width * 2.1, height: self.frame.height * 0.15)
 
             timer = GameTimer(seconds: Int64(settingsProfile.getTimeLimit()!),font : theme.fontName!, size: timerSize, singleSecond: false)
             timer.zRotation = CGFloat((M_PI*3.0)/2.0)
@@ -378,7 +378,15 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     public func handleGameConcluded() {
-        
+        if powerup != nil {
+            println("concluded")
+            powerup!.timer!.setTimeLimit(0)
+            println(powerup!.update())
+            powerup = nil
+        }
+        if timer != nil {
+            timer!.timer.pause()
+        }
         pauseButton.inactivate()
         pauseButton.hidden=true
         
@@ -711,5 +719,24 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         playerTwo.getPaddle()!.lightingBitMask = lightCategory
         playingTable.lightingBitMask = lightCategory
         playingTable.getPuck().lightingBitMask = lightCategory
+    }
+    
+    public func setLightLabels() {
+        pauseButton.setFontColor(SKColor.whiteColor())
+        resumeButton.setFontColor(SKColor.whiteColor())
+        exitButton.setFontColor(SKColor.whiteColor())
+        playerOneScore.fontColor = SKColor.whiteColor()
+        playerTwoScore.fontColor = SKColor.whiteColor()
+        timer.fontColor = SKColor.whiteColor()
+        
+    }
+    
+    public func setLabelColors() {
+        pauseButton.setFontColor(theme.getFontColor())
+        playerOneScore.fontColor = theme.getFontColor()
+        playerTwoScore.fontColor = theme.getFontColor()
+        timer.fontColor = theme.getFontColor()
+        resumeButton.setFontColor(theme.getFontColor())
+        exitButton.setFontColor(theme.getFontColor())
     }
 }

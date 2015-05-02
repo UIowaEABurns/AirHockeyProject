@@ -15,11 +15,12 @@ public class LightPowerup  : PowerupDelegate {
     
     override public func startEffect(p: Player) {
         super.startEffect(p)
+        self.scene.setLightLabels()
         p.getPaddle()!.addLight()
     }
     
     override public func endEffect() {
         self.owningPlayer!.getPaddle()!.removeLight()
-        
+        self.scene.setLabelColors()
     }
 }

@@ -36,6 +36,8 @@ public var MAX_HARD_AI_PADDLE_ACCEL : CGFloat = 1300.0
 
 public var MAX_PUCK_SPEED : CGFloat = 2000.0
 
+
+
 public var paddlePuckMassRatio : CGFloat = 6 // how much more should the paddles weigh as compared to the puck
 public var TABLE_BARRIER_RESTITUTION : CGFloat = 0.01 // affects how "bouncy" the invisible barrier in the middle of the table is
 
@@ -61,6 +63,12 @@ public class AirHockeyConstants {
             themeChooser = storyboard.instantiateViewControllerWithIdentifier("BoardSelectionViewController") as! BoardSelectionViewController
             println(themeChooser.view.frame.size)
             
+        }
+    }
+    
+    public class func loadSpeedSettings() {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            MAX_PUCK_SPEED = MAX_PUCK_SPEED / 2
         }
     }
     

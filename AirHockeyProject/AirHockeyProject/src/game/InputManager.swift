@@ -20,6 +20,8 @@ public class InputManager {
     private var playingTable : Table
 
     
+    private var p1Touch : AnyObject?
+    private var p2Touch : AnyObject?
     
     init(t : Table) {
         playingTable = t
@@ -34,12 +36,19 @@ public class InputManager {
     }
     
     
-    
+    private func printTouch(touch : AnyObject) {
+        if touch.phase! == UITouchPhase.Began {
+            println("began")
+        } else if touch.phase!==UITouchPhase.Moved {
+            println("moved")
+        } else if touch.phase!==UITouchPhase.Stationary {
+            println("stationary")
+        } 
+    }
     public func updateTouches(touches: NSSet){
-        let prevP1 = p1TouchLocation
-        let prevP2=p2TouchLocation
-        p1TouchLocation = nil
-        p2TouchLocation = nil
+        
+        //p1TouchLocation = nil
+        //p2TouchLocation = nil
         finalP1TouchLocation = nil
         finalP2TouchLocation = nil
         let p1Half=playingTable.getPlayerOneHalf()
@@ -47,17 +56,31 @@ public class InputManager {
         for touch: AnyObject in touches {
             
             if (touch.phase!==UITouchPhase.Ended ||  touch.phase==UITouchPhase.Cancelled) {
+                if touch===p1Touch {
+                    p1TouchLocation = nil
+                    p1Touch=nil
+                }
+                if touch===p2Touch {
+                    p2Touch = nil
+                    p2TouchLocation = nil
+                }
+            }
+        }
+        for touch : AnyObject in touches {
+            if (touch.phase!==UITouchPhase.Ended ||  touch.phase==UITouchPhase.Cancelled) {
                 continue //ignore this touch, it is ending or cancelled
             }
+        
+            //printTouch(touch)
             let location = touch.locationInNode(playingTable)
           
             if (touch.phase!==UITouchPhase.Moved) {
                 let prevLocation = touch.previousLocationInNode(playingTable)
-
-                if (sameTouch(prevP1,b: prevLocation)) {
+                
+                if (touch===p1Touch) {
                     p1TouchLocation = location
                     continue
-                } else if (sameTouch(prevP2, b: prevLocation)) {
+                } else if (touch===p2Touch) {
                     p2TouchLocation = location
                     continue
                 }
@@ -71,24 +94,13 @@ public class InputManager {
             if (p1Half.contains(location)) {
                 if (p1TouchLocation==nil) {
                     p1TouchLocation=location
-                } else {
-                    if !(prevP1==nil) {
-                        //if (Geometry.distance(location,b: prevP1!)<Geometry.distance(p1TouchLocation!,b: prevP1!)) {
-                        //    p1TouchLocation=location
-                        //}
-                    }
+                    p1Touch = touch
                 }
 
             } else if (p2Half.contains(location)) {
                 if (p2TouchLocation==nil) {
                     p2TouchLocation=location
-
-                } else {
-                    if !(prevP2==nil) {
-                        //if (Geometry.distance(location,b: prevP2!)<Geometry.distance(p1TouchLocation!,b: prevP2!)) {
-                        //    p2TouchLocation=location
-                        //}
-                    }
+                    p2Touch = touch
                 }
             }
 

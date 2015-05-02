@@ -68,7 +68,6 @@ public class BoardSelectionViewController : UIViewController {
     }
     
     override public func viewWillAppear(animated: Bool) {
-        println("will appear")
         if self.navigationController != nil {
             self.navigationController!.navigationBar.hidden = false
             self.navigationController!.navigationBar.topItem!.title = "Save"
@@ -77,7 +76,6 @@ public class BoardSelectionViewController : UIViewController {
             originalTheme = settingsProfile.getThemeName()
             if (nextView.theme.boardName == originalTheme) {
                 selectTheme(nextView)
-                println("done")
 
                 return
             }

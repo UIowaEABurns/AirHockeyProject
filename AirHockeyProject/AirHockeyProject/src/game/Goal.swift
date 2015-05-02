@@ -90,8 +90,8 @@ public class Goal : SKShapeNode {
             removeGravity()
         }
         gravField = SKFieldNode.radialGravityField()
-        gravField!.strength = 10
-        gravField!.falloff = 0.5
+        gravField!.strength = 7
+        gravField!.falloff = 0.6
         gravField!.categoryBitMask = gravCategory
         
         
