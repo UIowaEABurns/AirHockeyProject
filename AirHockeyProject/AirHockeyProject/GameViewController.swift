@@ -46,8 +46,8 @@ public class GameViewController: UIViewController {
         scene = GameScene(size: self.view.frame.size,p1: playerOne,p2: playerTwo,profile: settingsProfile, sound: soundManager, nav: self.navigationController)
         // Configure the view.
         let skView = self.view as! SKView
-        skView.showsFPS = true
-        skView.showsNodeCount = true
+        //skView.showsFPS = true
+        //skView.showsNodeCount = true
         //skView.frameInterval = 2
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true

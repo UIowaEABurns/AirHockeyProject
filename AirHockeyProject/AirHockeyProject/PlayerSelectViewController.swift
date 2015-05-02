@@ -60,9 +60,11 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
     
     func readySelected() {
         let onePlayer : Bool = isOnePlayer
-        if (playerOneHalf!.readySwitch.on && (playerTwoHalf!.readySwitch.on || onePlayer)) {
-            playerOneHalf!.readySwitch.setOn(false, animated: false)
-            playerTwoHalf!.readySwitch.setOn(false,animated: false)
+        
+        if (playerOneHalf!.readyButtonView.isReady() && (playerTwoHalf!.readyButtonView.isReady() || onePlayer)) {
+            
+            playerOneHalf!.readyButtonView.setReady(false)
+            playerTwoHalf!.readyButtonView.setReady(false)
             self.performSegueWithIdentifier("TwoPShowGameSegue", sender: self)
         }
         

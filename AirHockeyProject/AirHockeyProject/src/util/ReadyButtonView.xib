@@ -12,15 +12,18 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="181" height="151"/>
+            <rect key="frame" x="0.0" y="0.0" width="201" height="180"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nS-PR-43H">
-                    <rect key="frame" x="0.0" y="0.0" width="181" height="151"/>
-                    <color key="backgroundColor" red="0.049701900409999999" green="0.75108506939999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Button">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="0.0" width="201" height="180"/>
+                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="58"/>
+                    <state key="normal" title="Ready">
+                        <color key="titleColor" red="0.049701900409999999" green="0.75108506939999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="eH1-LG-XL6"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
@@ -32,7 +35,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="66.5" y="116.5"/>
+            <point key="canvasLocation" x="72.5" y="127"/>
         </view>
     </objects>
 </document>

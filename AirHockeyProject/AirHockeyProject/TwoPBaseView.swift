@@ -19,13 +19,13 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet var ReadyDisplay: UIView!
     @IBOutlet weak var GuestButton: UIButton!
     
+    @IBOutlet weak var readyButtonView: ReadyButtonView!
     @IBOutlet weak var baseScreenPlayerText: UILabel!
     @IBOutlet weak var readyScreenPlayerText: UILabel!
     
     @IBOutlet weak var gameSettingsButton: UIButton!
     private var currentScreen : UIView?
     private var eventDelegate : PlayerSelectEventDelegate!
-    @IBOutlet weak var readySwitch: UISwitch!
     @IBOutlet weak var aiDifficultySelector: ArrowPickerWidget!
     
     @IBOutlet weak var homeButtonOne: UIButton!
@@ -100,6 +100,7 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
             readyScreenPlayerText.text = user!.getUsername()!
             switchScreensNoAnimation(ReadyDisplay)
         }
+        readyButtonView.readyButton.addTarget(self, action: "readySwitched:", forControlEvents: .TouchUpInside)
     }
     @IBAction func LoginButtonPressed(sender: AnyObject) {
         SoundManager().playButtonPressedSound()
@@ -147,8 +148,9 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         currentScreen = newScreen
     }
     
-    @IBAction func readySwitched(sender: AnyObject) {
-        if readySwitch.on {
+    func readySwitched(sender: AnyObject) {
+        println("two")
+        if readyButtonView.isReady() {
             eventDelegate.readySelected()
         }
     }

@@ -84,6 +84,9 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // TODO : should save data here
     public func appEnteringBackground() {
+        if isDemo {
+            return
+        }
         if (!self.isGamePaused() && !self.isGameConcluded()) {
             shouldRestoreToUnpaused = true
             self.pauseGame()
@@ -92,7 +95,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             shouldRestoreToUnpaused = false
 
         }
-        if (!self.isGameConcluded()) {
+        if (!self.isGameConcluded() ) {
             if (playerOne is HumanPlayer) {
                 let temp : HumanPlayer = (playerOne as! HumanPlayer)
                 temp.handleGameExited(playerTwo.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))

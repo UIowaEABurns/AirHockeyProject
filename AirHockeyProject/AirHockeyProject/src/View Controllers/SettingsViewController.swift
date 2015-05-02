@@ -48,15 +48,18 @@ class SettingsViewController : UIViewController  {
     var settingsProfile : SettingsProfile!
     private var themeSettingsProfile : SettingsProfile!
     
-    
+    private var isQuestionSet = false
+    private var questionButton : UIButton!
     override func viewWillAppear(animated: Bool) {
-        
+        super.viewWillAppear(animated)
+       
         self.navigationController!.navigationBar.hidden = false
         self.navigationController!.navigationBar.topItem!.title = "Cancel"
         
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         let defaultPuckSize = defaultSettings.getPuckRadius()!
         println(chooseThemeButton.frame.origin)
         
@@ -92,17 +95,35 @@ class SettingsViewController : UIViewController  {
         settingsScrollView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
         
         
-        let questionMarkSize = powerupsEnabledWidget.titleLabel.frame.height
         
-        
-        
-        
-        let questionButton = UIButton(frame: CGRect(origin: CGPoint(x: powerupsEnabledWidget.frame.width - questionMarkSize, y: 0), size: CGSize(width: questionMarkSize, height: questionMarkSize)))
-        let image = NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent("GreenButton.png")
-        questionButton.setBackgroundImage(UIImage(contentsOfFile: image), forState: UIControlState.Normal)
-        questionButton.addTarget(self,action: "powerupQuestionPressed:",forControlEvents: .TouchUpInside)
-        powerupsEnabledWidget.addSubview(questionButton)
     }
+    override func viewDidLayoutSubviews() {
+        
+        if !isQuestionSet {
+            isQuestionSet = true
+            
+            let questionMarkSize = powerupsEnabledWidget.titleLabel.frame.height
+            
+            
+            
+            questionButton = UIButton(frame: CGRect(origin: CGPoint(x: powerupsEnabledWidget.frame.width - (questionMarkSize), y: 5), size: CGSize(width: questionMarkSize, height: questionMarkSize)))
+            
+            let image = NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent("questionMarkIcon.png")
+            questionButton.setBackgroundImage(UIImage(contentsOfFile: image), forState: UIControlState.Normal)
+            questionButton.addTarget(self,action: "powerupQuestionPressed:",forControlEvents: .TouchUpInside)
+            powerupsEnabledWidget.arrowPickerView.addSubview(questionButton)
+        } else {
+            
+            let questionMarkSize = powerupsEnabledWidget.titleLabel.frame.height
+
+            
+            questionButton.frame = CGRect(origin: CGPoint(x: powerupsEnabledWidget.frame.width - (questionMarkSize), y: 5), size: CGSize(width: questionMarkSize, height: questionMarkSize))
+            
+           
+            //questionButton.addTarget(self,action: "powerupQuestionPressed:",forControlEvents: .TouchUpInside)
+        }
+    }
+    
     
     func powerupQuestionPressed(button : UIButton!) {
         self.performSegueWithIdentifier("PowerupTutorialSegue", sender: self)
@@ -148,6 +169,7 @@ class SettingsViewController : UIViewController  {
     }
     
     @IBAction func saveSettings(sender: UIButton) {
+        
         setProfileFromWidgets()
         SoundManager().playButtonPressedSound()
 

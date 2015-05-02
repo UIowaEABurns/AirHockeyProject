@@ -113,6 +113,7 @@
 		7178D3601ADE00EC00834CC5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178D35F1ADE00EC00834CC5 /* HomeViewController.swift */; };
 		7179173F1AF1D579009DF946 /* carBackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7179173E1AF1D579009DF946 /* carBackgroundMusic.mp3 */; };
 		717917411AF1D58F009DF946 /* PowerupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717917401AF1D58F009DF946 /* PowerupsViewController.swift */; };
+		717917451AF450C3009DF946 /* questionMarkIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 717917441AF450C3009DF946 /* questionMarkIcon.png */; };
 		717B00D91ACC486B0049F3EC /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B00D81ACC486B0049F3EC /* Button.swift */; };
 		717B00DE1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B00DD1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift */; };
 		717B00E21ACCD95A0049F3EC /* HumanPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B00E01ACCD95A0049F3EC /* HumanPlayer.swift */; };
@@ -370,6 +371,7 @@
 		7178D35F1ADE00EC00834CC5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7179173E1AF1D579009DF946 /* carBackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = carBackgroundMusic.mp3; sourceTree = "<group>"; };
 		717917401AF1D58F009DF946 /* PowerupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerupsViewController.swift; sourceTree = "<group>"; };
+		717917441AF450C3009DF946 /* questionMarkIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questionMarkIcon.png; sourceTree = "<group>"; };
 		717B00D81ACC486B0049F3EC /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		717B00DD1ACC5B4C0049F3EC /* TouchHandlerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchHandlerDelegate.swift; sourceTree = "<group>"; };
 		717B00E01ACCD95A0049F3EC /* HumanPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HumanPlayer.swift; sourceTree = "<group>"; };
@@ -872,6 +874,7 @@
 		71A875731AC5D103008EDBA9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				717917441AF450C3009DF946 /* questionMarkIcon.png */,
 				71BBD2F21AED667F00277346 /* menuBackground.png */,
 				715BB2AD1AE8628000BD12C0 /* splash.png */,
 				7112497C1AE5FB910020FB19 /* Buttons */,
@@ -1147,6 +1150,7 @@
 				71F0A1501AD85604003AEF5C /* Bubbles.sks in Resources */,
 				7107A2CE1AC398E300706EC8 /* airhockeySchema.sql in Resources */,
 				71008D5D1AD04F56009B3444 /* bokeh.png in Resources */,
+				717917451AF450C3009DF946 /* questionMarkIcon.png in Resources */,
 				7169DE931AE40E4A006B34C9 /* UnderwaterFont.otf in Resources */,
 				71E166621ADB38000042D96A /* icePuck.png in Resources */,
 				7179173F1AF1D579009DF946 /* carBackgroundMusic.mp3 in Resources */,
