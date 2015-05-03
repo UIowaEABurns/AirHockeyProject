@@ -301,7 +301,7 @@
                                         <exclude reference="YGZ-s1-GMe"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" ambiguous="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="16" y="99" width="368" height="832"/>
                                 </variation>
                             </scrollView>
@@ -1089,7 +1089,9 @@
                             <constraint firstItem="63H-V8-DUc" firstAttribute="top" secondItem="6Ba-NA-5xc" secondAttribute="bottom" constant="25" id="j3E-vd-vLy"/>
                             <constraint firstItem="LF3-Gy-REa" firstAttribute="trailing" secondItem="FlZ-8t-6RN" secondAttribute="trailing" id="jLf-mA-m5w"/>
                             <constraint firstItem="6Ba-NA-5xc" firstAttribute="trailing" secondItem="LF3-Gy-REa" secondAttribute="trailing" id="oFD-9b-7Ny"/>
-                            <constraint firstAttribute="centerX" secondItem="Tus-nM-7Zv" secondAttribute="centerX" constant="-0.5" id="pQQ-y9-mKy"/>
+                            <constraint firstAttribute="centerX" secondItem="Tus-nM-7Zv" secondAttribute="centerX" id="pQQ-y9-mKy">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstAttribute="centerX" secondItem="aYE-JR-0Cq" secondAttribute="centerX" id="rq2-eZ-4e9"/>
                             <constraint firstItem="aYE-JR-0Cq" firstAttribute="trailing" secondItem="LF3-Gy-REa" secondAttribute="trailing" id="u19-eN-NzG"/>
                             <constraint firstItem="aYE-JR-0Cq" firstAttribute="height" secondItem="LF3-Gy-REa" secondAttribute="height" id="vVi-Ze-3fC"/>
@@ -1197,7 +1199,9 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1e4-dJ-oyB">
                                 <rect key="frame" x="16" y="379" width="568" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="wgf-y7-Thn"/>
+                                    <constraint firstAttribute="height" constant="60" id="wgf-y7-Thn">
+                                        <variation key="widthClass=compact" constant="40"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1212,7 +1216,9 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMP-76-StX">
                                 <rect key="frame" x="16" y="52" width="568" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="N3q-FA-9Fc"/>
+                                    <constraint firstAttribute="height" constant="50" id="N3q-FA-9Fc">
+                                        <variation key="widthClass=compact" constant="35"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="32"/>
                                 <nil key="highlightedColor"/>
@@ -1227,7 +1233,9 @@
                             <constraint firstItem="nHt-yC-lG7" firstAttribute="height" secondItem="0oT-w6-Nmh" secondAttribute="height" id="7pH-aq-wcN"/>
                             <constraint firstItem="nMP-76-StX" firstAttribute="leading" secondItem="FY4-lA-PNK" secondAttribute="leadingMargin" id="9UU-qv-wfN"/>
                             <constraint firstItem="nMP-76-StX" firstAttribute="trailing" secondItem="FY4-lA-PNK" secondAttribute="trailingMargin" id="A3O-u8-UCD"/>
-                            <constraint firstItem="eq0-US-ocT" firstAttribute="top" secondItem="0oT-w6-Nmh" secondAttribute="bottom" constant="36" id="Bto-Fh-50R"/>
+                            <constraint firstItem="eq0-US-ocT" firstAttribute="top" secondItem="0oT-w6-Nmh" secondAttribute="bottom" constant="36" id="Bto-Fh-50R">
+                                <variation key="widthClass=compact" constant="8"/>
+                            </constraint>
                             <constraint firstItem="7Qi-my-wa7" firstAttribute="width" secondItem="7Qi-my-wa7" secondAttribute="height" multiplier="1:1" id="CHW-Oj-nME"/>
                             <constraint firstItem="nHt-yC-lG7" firstAttribute="width" secondItem="0oT-w6-Nmh" secondAttribute="width" id="D4S-pD-WTA"/>
                             <constraint firstItem="nHt-yC-lG7" firstAttribute="leading" secondItem="0oT-w6-Nmh" secondAttribute="leading" id="FVf-jB-Ajm"/>
@@ -1253,9 +1261,13 @@
                             <constraint firstItem="e4T-AI-LxM" firstAttribute="leading" secondItem="1e4-dJ-oyB" secondAttribute="leading" id="c4k-ii-qcI"/>
                             <constraint firstItem="61w-aT-OTW" firstAttribute="trailing" secondItem="QzQ-cQ-T7s" secondAttribute="trailing" id="eTE-sK-ixy"/>
                             <constraint firstItem="e4T-AI-LxM" firstAttribute="top" secondItem="QzQ-cQ-T7s" secondAttribute="bottom" constant="8" id="mim-XO-Hmx"/>
-                            <constraint firstItem="QzQ-cQ-T7s" firstAttribute="top" secondItem="nHt-yC-lG7" secondAttribute="bottom" constant="36" id="rQh-TU-Heu"/>
+                            <constraint firstItem="QzQ-cQ-T7s" firstAttribute="top" secondItem="nHt-yC-lG7" secondAttribute="bottom" constant="36" id="rQh-TU-Heu">
+                                <variation key="widthClass=compact" constant="8"/>
+                            </constraint>
                             <constraint firstItem="nHt-yC-lG7" firstAttribute="height" secondItem="0oT-w6-Nmh" secondAttribute="height" id="rfe-Oe-Btd"/>
-                            <constraint firstItem="61w-aT-OTW" firstAttribute="top" secondItem="nMP-76-StX" secondAttribute="bottom" constant="8" id="t2a-zv-eEA"/>
+                            <constraint firstItem="61w-aT-OTW" firstAttribute="top" secondItem="nMP-76-StX" secondAttribute="bottom" constant="8" id="t2a-zv-eEA">
+                                <variation key="widthClass=compact" constant="5"/>
+                            </constraint>
                             <constraint firstItem="61w-aT-OTW" firstAttribute="leading" secondItem="FY4-lA-PNK" secondAttribute="leadingMargin" id="tj9-2T-Lqk"/>
                             <constraint firstItem="eq0-US-ocT" firstAttribute="leading" secondItem="61w-aT-OTW" secondAttribute="leading" id="uJT-e8-PoO"/>
                             <constraint firstItem="e4T-AI-LxM" firstAttribute="leading" secondItem="0oT-w6-Nmh" secondAttribute="leading" id="ujy-8w-du9"/>
