@@ -97,6 +97,11 @@ class PlayerSelectViewController: UIViewController, PlayerSelectEventDelegate {
         
     }
     
+    override func viewDidLayoutSubviews() {
+        playerOneHalf!.handleLayoutChange()
+        playerTwoHalf!.handleLayoutChange()
+    }
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }

@@ -19,38 +19,15 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAI-Hr-VKY">
-                    <rect key="frame" x="215" y="8" width="338" height="43"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="338" id="SeE-Bz-Qzg"/>
-                        <constraint firstAttribute="height" constant="43" id="cdO-v4-Vci"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="28"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jX-Zu-VlI">
-                    <rect key="frame" x="8" y="8" width="91" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="91" id="HBx-gh-3uE"/>
-                        <constraint firstAttribute="height" constant="40" id="fPZ-nX-fPc"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
-                    <state key="normal" title="Home" backgroundImage="RedButton.png">
-                        <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="BaseViewBackButtonPressed:" destination="-1" eventType="touchUpInside" id="Djn-sa-REa"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXN-2L-PQO">
-                    <rect key="frame" x="290" y="390" width="188" height="51"/>
+                    <rect key="frame" x="66" y="446" width="188" height="51"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="188" id="dGL-ua-0Ld"/>
+                        <constraint firstAttribute="width" constant="188" id="dGL-ua-0Ld">
+                            <variation key="widthClass=compact" constant="150"/>
+                        </constraint>
                         <constraint firstAttribute="height" constant="51" id="pPA-cX-CvX"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
+                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="18"/>
                     <state key="normal" title="Game Settings" backgroundImage="RedButton.png">
                         <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,7 +37,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lL-H2-hwZ">
-                    <rect key="frame" x="290" y="449" width="188" height="51"/>
+                    <rect key="frame" x="66" y="505" width="188" height="51"/>
                     <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
                     <state key="normal" title="Logout" backgroundImage="RedButton.png">
                         <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -71,7 +48,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkg-xN-fwM" customClass="ReadyButtonView" customModule="Face_Off" customModuleProvider="target">
-                    <rect key="frame" x="336" y="59" width="97" height="97"/>
+                    <rect key="frame" x="112" y="59" width="97" height="97"/>
                     <color key="backgroundColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="97" id="8cM-hH-hL6">
@@ -85,9 +62,46 @@
                         </mask>
                     </variation>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jX-Zu-VlI">
+                    <rect key="frame" x="8" y="8" width="91" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="91" id="HBx-gh-3uE">
+                            <variation key="widthClass=compact" constant="75"/>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="40" id="fPZ-nX-fPc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="20"/>
+                    <state key="normal" title="Home" backgroundImage="RedButton.png">
+                        <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="BaseViewBackButtonPressed:" destination="-1" eventType="touchUpInside" id="Djn-sa-REa"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAI-Hr-VKY">
+                    <rect key="frame" x="-9" y="8" width="338" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="338" id="SeE-Bz-Qzg"/>
+                        <constraint firstAttribute="height" constant="43" id="cdO-v4-Vci">
+                            <variation key="widthClass=compact" constant="50"/>
+                        </constraint>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="32"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <exclude reference="SeE-Bz-Qzg"/>
+                        </mask>
+                    </variation>
+                </label>
             </subviews>
             <constraints>
-                <constraint firstItem="5jX-Zu-VlI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="2M3-1N-5iV"/>
+                <constraint firstItem="5jX-Zu-VlI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="2M3-1N-5iV">
+                    <variation key="widthClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstItem="dAI-Hr-VKY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="73c-Bb-N0p"/>
                 <constraint firstAttribute="centerX" secondItem="dAI-Hr-VKY" secondAttribute="centerX" id="790-AZ-gLf">
                     <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
                 </constraint>
@@ -95,7 +109,9 @@
                 <constraint firstItem="dAI-Hr-VKY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Rl6-e0-bhB"/>
                 <constraint firstItem="DXN-2L-PQO" firstAttribute="width" secondItem="pkg-xN-fwM" secondAttribute="width" id="VHc-Tu-hzZ"/>
                 <constraint firstItem="pkg-xN-fwM" firstAttribute="top" secondItem="dAI-Hr-VKY" secondAttribute="bottom" constant="8" id="W2i-Jq-BYL"/>
-                <constraint firstItem="5jX-Zu-VlI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Yxz-cb-ABP"/>
+                <constraint firstItem="5jX-Zu-VlI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Yxz-cb-ABP">
+                    <variation key="widthClass=compact" constant="528"/>
+                </constraint>
                 <constraint firstItem="DXN-2L-PQO" firstAttribute="trailing" secondItem="1lL-H2-hwZ" secondAttribute="trailing" id="Yzn-Yv-T3s"/>
                 <constraint firstItem="DXN-2L-PQO" firstAttribute="leading" secondItem="1lL-H2-hwZ" secondAttribute="leading" id="ZOE-Fn-pXn"/>
                 <constraint firstAttribute="bottom" secondItem="1lL-H2-hwZ" secondAttribute="bottom" constant="12" id="akE-jZ-doj"/>
@@ -104,21 +120,37 @@
                 <constraint firstAttribute="centerX" secondItem="pkg-xN-fwM" secondAttribute="centerX" id="k65-U6-9Pk">
                     <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
                 </constraint>
+                <constraint firstAttribute="trailing" secondItem="dAI-Hr-VKY" secondAttribute="trailing" constant="-18" id="mRw-Dc-Ybf">
+                    <variation key="widthClass=compact" constant="0.0"/>
+                </constraint>
                 <constraint firstItem="DXN-2L-PQO" firstAttribute="width" secondItem="1lL-H2-hwZ" secondAttribute="width" id="pg9-DI-zGg"/>
                 <constraint firstItem="1lL-H2-hwZ" firstAttribute="top" secondItem="DXN-2L-PQO" secondAttribute="bottom" constant="8" id="prB-f1-1UO"/>
                 <constraint firstAttribute="centerX" secondItem="DXN-2L-PQO" secondAttribute="centerX" id="q7C-TF-Zaz"/>
                 <constraint firstAttribute="bottom" secondItem="DXN-2L-PQO" secondAttribute="bottom" constant="8" id="uDQ-EQ-fz4"/>
+                <constraint firstAttribute="bottom" secondItem="5jX-Zu-VlI" secondAttribute="bottom" id="v8L-rG-rHA"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="73c-Bb-N0p"/>
+                    <exclude reference="mRw-Dc-Ybf"/>
                     <exclude reference="ONN-th-Tb4"/>
                     <exclude reference="gbK-Nd-lrV"/>
                     <exclude reference="VHc-Tu-hzZ"/>
                     <exclude reference="pg9-DI-zGg"/>
                     <exclude reference="uDQ-EQ-fz4"/>
+                    <exclude reference="v8L-rG-rHA"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="constraints">
+                    <include reference="73c-Bb-N0p"/>
+                    <exclude reference="790-AZ-gLf"/>
+                    <include reference="mRw-Dc-Ybf"/>
+                    <exclude reference="Yxz-cb-ABP"/>
+                    <include reference="v8L-rG-rHA"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=regular">

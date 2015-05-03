@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="447-f6-p93">
-                                <rect key="frame" x="16" y="52" width="368" height="39"/>
+                                <rect key="frame" x="16" y="52" width="368" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="ST1-z4-wOw"/>
+                                    <constraint firstAttribute="height" constant="50" id="ST1-z4-wOw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="26"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -61,7 +61,7 @@
                                 </variation>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugq-zV-xRT">
-                                <rect key="frame" x="16" y="99" width="368" height="1123"/>
+                                <rect key="frame" x="16" y="110" width="368" height="1112"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIt-wW-7Az" customClass="ArrowPickerWidget" customModule="Face_Off" customModuleProvider="target">
                                         <rect key="frame" x="6" y="0.0" width="357" height="88"/>
@@ -374,7 +374,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHZ-4M-pCh">
-                                <rect key="frame" x="0.0" y="113" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="122" width="600" height="478"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="523" id="TLD-pA-frs"/>
@@ -386,11 +386,11 @@
                                 </variation>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme Selection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pod-yC-dFK">
-                                <rect key="frame" x="16" y="64" width="568" height="49"/>
+                                <rect key="frame" x="16" y="72" width="568" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="1bI-Ey-ikT"/>
+                                    <constraint firstAttribute="height" constant="50" id="1bI-Ey-ikT"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="31"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -401,7 +401,7 @@
                             <constraint firstAttribute="centerX" secondItem="LHZ-4M-pCh" secondAttribute="centerX" id="0eY-uE-G1h"/>
                             <constraint firstItem="6yc-5t-DQh" firstAttribute="top" secondItem="LHZ-4M-pCh" secondAttribute="bottom" id="GQI-5K-1Dc"/>
                             <constraint firstItem="LHZ-4M-pCh" firstAttribute="width" secondItem="WGQ-tg-Q9O" secondAttribute="width" id="IkR-u8-3dk"/>
-                            <constraint firstItem="Pod-yC-dFK" firstAttribute="top" secondItem="xHP-Xx-jB1" secondAttribute="bottom" id="NiR-Bo-azL"/>
+                            <constraint firstItem="Pod-yC-dFK" firstAttribute="top" secondItem="xHP-Xx-jB1" secondAttribute="bottom" constant="8" id="NiR-Bo-azL"/>
                             <constraint firstAttribute="centerX" secondItem="Pod-yC-dFK" secondAttribute="centerX" id="bwn-gX-CzR"/>
                             <constraint firstItem="Pod-yC-dFK" firstAttribute="trailing" secondItem="WGQ-tg-Q9O" secondAttribute="trailingMargin" id="hR6-Qq-6ir"/>
                             <constraint firstItem="Pod-yC-dFK" firstAttribute="leading" secondItem="WGQ-tg-Q9O" secondAttribute="leadingMargin" id="hzP-zh-eKd"/>
@@ -423,7 +423,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="702" y="242"/>
+            <point key="canvasLocation" x="552" y="246"/>
         </scene>
         <!--Player Select View Controller-->
         <scene sceneID="gGu-M0-nOu">
@@ -492,13 +492,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Scores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dd3-fE-DT1">
-                                <rect key="frame" x="16" y="52" width="568" height="23"/>
-                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="17"/>
+                                <rect key="frame" x="16" y="52" width="568" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Jde-2m-sOA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-pF-Zzq">
-                                <rect key="frame" x="140" y="81" width="320" height="162"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-pF-Zzq">
+                                <rect key="frame" x="140" y="110" width="320" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="zbP-Y6-pbq"/>
                                 </constraints>
@@ -512,8 +515,8 @@
                                     <outlet property="delegate" destination="c65-my-3S4" id="ANe-1V-FkH"/>
                                 </connections>
                             </pickerView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BLl-Pm-Z9g">
-                                <rect key="frame" x="16" y="251" width="568" height="312"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BLl-Pm-Z9g">
+                                <rect key="frame" x="16" y="280" width="568" height="283"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserRow" textLabel="CuR-Wj-1eY" detailTextLabel="fwQ-LL-TG4" style="IBUITableViewCellStyleValue1" id="dWJ-45-Nq2">
@@ -615,7 +618,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lDr-2j-mcd">
-                                <rect key="frame" x="16" y="109" width="568" height="454"/>
+                                <rect key="frame" x="16" y="110" width="568" height="453"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.14999999999999999" green="0.14999999999999999" blue="0.14999999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -650,11 +653,11 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3E-nI-5qm">
-                                <rect key="frame" x="16" y="52" width="568" height="49"/>
+                                <rect key="frame" x="16" y="52" width="568" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="t9a-UL-nsD"/>
+                                    <constraint firstAttribute="height" constant="50" id="t9a-UL-nsD"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="39"/>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -718,6 +721,7 @@
         <scene sceneID="rCf-Ux-E3T">
             <objects>
                 <navigationController id="kHb-dg-ZAl" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cvq-WA-4DY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -743,7 +747,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GrowthPowerup.png" translatesAutoresizingMaskIntoConstraints="NO" id="KUn-XN-DN5">
-                                <rect key="frame" x="16" y="96" width="91" height="91"/>
+                                <rect key="frame" x="16" y="110" width="91" height="91"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="91" id="S7m-12-hhz"/>
                                     <constraint firstAttribute="height" constant="91" id="ghw-EC-c8R"/>
@@ -751,25 +755,25 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VortexPowerup.png" translatesAutoresizingMaskIntoConstraints="NO" id="5vS-je-zcW">
-                                <rect key="frame" x="16" y="202" width="91" height="91"/>
+                                <rect key="frame" x="16" y="216" width="91" height="91"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5vS-je-zcW" secondAttribute="height" multiplier="1:1" id="lqS-yz-RgY"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LightPowerup.png" translatesAutoresizingMaskIntoConstraints="NO" id="ReD-q6-6Og">
-                                <rect key="frame" x="16" y="308" width="91" height="91"/>
+                                <rect key="frame" x="16" y="322" width="91" height="91"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ReD-q6-6Og" secondAttribute="height" multiplier="1:1" id="hDP-Gz-2e3"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MagnetPowerup.png" translatesAutoresizingMaskIntoConstraints="NO" id="GOF-8e-Uq0">
-                                <rect key="frame" x="16" y="414" width="91" height="91"/>
+                                <rect key="frame" x="16" y="428" width="91" height="91"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GOF-8e-Uq0" secondAttribute="height" multiplier="1:1" id="ngv-vc-kQc"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JyZ-rG-gfE">
-                                <rect key="frame" x="115" y="96" width="269" height="91"/>
+                                <rect key="frame" x="115" y="110" width="269" height="91"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Growth:">
                                         <attributes>
@@ -790,7 +794,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Tb-Pz-1fR">
-                                <rect key="frame" x="115" y="195" width="269" height="91"/>
+                                <rect key="frame" x="115" y="209" width="269" height="91"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Vortex">
                                         <attributes>
@@ -818,7 +822,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSF-rM-IZA">
-                                <rect key="frame" x="115" y="308" width="269" height="91"/>
+                                <rect key="frame" x="115" y="322" width="269" height="91"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Light">
                                         <attributes>
@@ -846,7 +850,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaW-xI-dDe">
-                                <rect key="frame" x="115" y="414" width="269" height="91"/>
+                                <rect key="frame" x="115" y="428" width="269" height="91"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Magnetism">
                                         <attributes>
@@ -874,9 +878,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powerups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzc-ke-utM">
-                                <rect key="frame" x="16" y="52" width="368" height="36"/>
+                                <rect key="frame" x="16" y="52" width="368" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="79Q-cF-7O5"/>
+                                    <constraint firstAttribute="height" constant="50" id="79Q-cF-7O5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1128,7 +1132,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0oT-w6-Nmh">
-                                <rect key="frame" x="167" y="150" width="267" height="30"/>
+                                <rect key="frame" x="167" y="141" width="267" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="267" id="5cE-LF-nNh"/>
                                 </constraints>
@@ -1136,23 +1140,23 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nHt-yC-lG7">
-                                <rect key="frame" x="167" y="247" width="267" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="167" y="238" width="267" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eq0-US-ocT">
-                                <rect key="frame" x="16" y="216" width="568" height="23"/>
+                                <rect key="frame" x="16" y="207" width="568" height="23"/>
                                 <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e4T-AI-LxM">
-                                <rect key="frame" x="167" y="344" width="267" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="167" y="335" width="267" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzQ-cQ-T7s">
-                                <rect key="frame" x="16" y="313" width="568" height="23"/>
+                                <rect key="frame" x="16" y="304" width="568" height="23"/>
                                 <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1191,7 +1195,7 @@
                                 </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1e4-dJ-oyB">
-                                <rect key="frame" x="16" y="388" width="568" height="60"/>
+                                <rect key="frame" x="16" y="379" width="568" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="wgf-y7-Thn"/>
                                 </constraints>
@@ -1199,18 +1203,18 @@
                                 <color key="textColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMP-76-StX">
-                                <rect key="frame" x="16" y="47" width="568" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="N3q-FA-9Fc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="25"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61w-aT-OTW">
-                                <rect key="frame" x="16" y="119" width="568" height="23"/>
+                                <rect key="frame" x="16" y="110" width="568" height="23"/>
                                 <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMP-76-StX">
+                                <rect key="frame" x="16" y="52" width="568" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="N3q-FA-9Fc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="32"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1229,7 +1233,7 @@
                             <constraint firstItem="nHt-yC-lG7" firstAttribute="leading" secondItem="0oT-w6-Nmh" secondAttribute="leading" id="FVf-jB-Ajm"/>
                             <constraint firstItem="nHt-yC-lG7" firstAttribute="trailing" secondItem="0oT-w6-Nmh" secondAttribute="trailing" id="Fci-dX-fDG"/>
                             <constraint firstAttribute="centerX" secondItem="61w-aT-OTW" secondAttribute="centerX" id="G1f-EO-HsF"/>
-                            <constraint firstItem="nMP-76-StX" firstAttribute="top" secondItem="sgG-cB-YwJ" secondAttribute="bottom" constant="3" id="Jvx-Xu-MGk"/>
+                            <constraint firstItem="nMP-76-StX" firstAttribute="top" secondItem="sgG-cB-YwJ" secondAttribute="bottom" constant="8" id="Jvx-Xu-MGk"/>
                             <constraint firstItem="e4T-AI-LxM" firstAttribute="width" secondItem="0oT-w6-Nmh" secondAttribute="width" id="K2d-N8-POb"/>
                             <constraint firstAttribute="centerX" secondItem="uOv-JO-3Hr" secondAttribute="centerX" id="MvR-IE-5S0"/>
                             <constraint firstItem="e4T-AI-LxM" firstAttribute="trailing" secondItem="1e4-dJ-oyB" secondAttribute="trailing" id="NlG-py-LNs"/>
@@ -1303,10 +1307,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="System Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxn-rL-7bl">
-                                <rect key="frame" x="16" y="52" width="568" height="66"/>
+                                <rect key="frame" x="16" y="52" width="568" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="Bfj-JQ-s6T"/>
-                                    <constraint firstAttribute="height" constant="66" id="IuI-D7-5Gk"/>
+                                    <constraint firstAttribute="height" constant="50" id="IuI-D7-5Gk"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="289" id="Kmx-jD-DDk"/>
                                     <constraint firstAttribute="width" constant="289" id="Yf8-60-9hc"/>
                                 </constraints>
@@ -1330,7 +1334,7 @@
                                 </variation>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="iCq-ga-ASH" customClass="GameSlider" customModule="Face_Off" customModuleProvider="target">
-                                <rect key="frame" x="14" y="206" width="572" height="31"/>
+                                <rect key="frame" x="14" y="190" width="572" height="31"/>
                                 <color key="tintColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" red="0.14999999999999999" green="0.14999999999999999" blue="0.14999999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -1367,7 +1371,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Volume" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkk-CR-vD3">
-                                <rect key="frame" x="16" y="151" width="568" height="31"/>
+                                <rect key="frame" x="16" y="135" width="568" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="MTe-xF-cd5"/>
                                     <constraint firstAttribute="height" constant="35" id="eyp-Ug-QhI"/>
@@ -1388,7 +1392,7 @@
                                 </variation>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="EQP-DB-8GY" customClass="GameSlider" customModule="Face_Off" customModuleProvider="target">
-                                <rect key="frame" x="14" y="324" width="572" height="31"/>
+                                <rect key="frame" x="14" y="308" width="572" height="31"/>
                                 <color key="tintColor" red="1" green="0.14629125400000001" blue="0.13518708609999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" red="0.14999999999999999" green="0.14999999999999999" blue="0.14999999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -1397,7 +1401,7 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FX Volume" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWl-bC-HhU">
-                                <rect key="frame" x="16" y="269" width="568" height="31"/>
+                                <rect key="frame" x="16" y="253" width="568" height="31"/>
                                 <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

@@ -98,11 +98,23 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         if (!self.isGameConcluded() ) {
             if (playerOne is HumanPlayer) {
                 let temp : HumanPlayer = (playerOne as! HumanPlayer)
-                temp.handleGameExited(playerTwo.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
+                if self.isGameStarted() {
+                    temp.handleGameExited(playerTwo.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
+
+                } else {
+                    temp.handleGameExited(0, timePlayed: 0)
+
+                }
             }
             if (playerTwo is HumanPlayer) {
                 let temp : HumanPlayer = (playerTwo as! HumanPlayer)
-                temp.handleGameExited(playerOne.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
+                if self.isGameStarted() {
+                    temp.handleGameExited(playerOne.score, timePlayed: Int(timer.timer.getElapsedTimeSeconds()!))
+
+                } else {
+                    temp.handleGameExited(0, timePlayed: 0)
+
+                }
             }
         }
         
@@ -132,16 +144,25 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func addPauseButtons() {
-        let pauseButtonSize = CGSize(width: ((1-TABLE_WIDTH_FRACTION)/2) * self.frame.width, height: 0.03 * self.frame.height)
+        
+        
+       
+       
+        
+        
+        
+        
+        let pauseButtonSize = CGSize(width: (1-TABLE_WIDTH_FRACTION)/2 * self.frame.width * 2.1, height: self.frame.height * 0.15)
         
         
         pauseButton  = Button(fontNamed: theme.fontName, block: {self.pauseGame()}, s : pauseButtonSize, defaultFontColor: theme.getFontColor())
+        pauseButton.zRotation = CGFloat(M_PI/2.0)
         pauseButton.label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Bottom
         pauseButton.setText("Pause")
         pauseButton.label.fontColor = theme.getFontColor()
         pauseButton.name = "pause"
     
-        pauseButton.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
+        pauseButton.position = CGPointMake(CGRectGetMinX(self.frame)+pauseButton.frame.height,CGRectGetMidY(self.frame)-(pauseButton.frame.height/2))
         touchHandlers.append(pauseButton)
         
         
@@ -151,19 +172,19 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             pauseButton.alpha = 0
         }
         
-        let resumeButtonSize=CGSize(width: 0.3 * self.frame.width, height: 0.05 * self.frame.height)
+        let resumeButtonSize=CGSize(width: 0.5 * self.frame.width, height: 0.1 * self.frame.height)
         resumeButton = Button(fontNamed: theme.fontName, block: {self.resumeGame()}, s: resumeButtonSize, defaultFontColor: theme.getFontColor())
         resumeButton.inactivate()
         resumeButton.setText("Resume")
         resumeButton.name="resume"
-        resumeButton.position = CGPoint(x: overlayNode.frame.midX-(resumeButton.frame.width/2), y: overlayNode.frame.midY+(self.frame.height*0.1))
+        resumeButton.position = CGPoint(x: overlayNode.frame.midX-(resumeButton.frame.width/2), y: overlayNode.frame.midY+(resumeButton.frame.height/2))
         resumeButton.zPosition = zPositionOverlay + 1
         exitButton  = Button(fontNamed: theme.fontName, block: {self.exitGame()}, s: resumeButtonSize, defaultFontColor: theme.getFontColor())
         exitButton.setText("Exit")
         exitButton.name="exitButton"
         exitButton.inactivate()
         exitButton.setFontSize(resumeButton.getFontSize())
-        exitButton.position = CGPoint(x: overlayNode.frame.midX-(resumeButton.frame.width/2), y: overlayNode.frame.midY-(self.frame.height*0.1))
+        exitButton.position = CGPoint(x: overlayNode.frame.midX-(resumeButton.frame.width/2), y: overlayNode.frame.midY-(exitButton.frame.height*3 / 2))
         exitButton.zPosition = zPositionOverlay + 1
 
         touchHandlers.append(resumeButton)
@@ -298,7 +319,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             timer.zRotation = CGFloat((M_PI*3.0)/2.0)
             timer.fontColor = theme.getFontColor()
             
-            timer.position = CGPointMake(CGRectGetMaxX(self.frame)-timer.frame.width-5,CGRectGetMidY(self.frame)-(timer.frame.height/2))
+            timer.position = CGPointMake(CGRectGetMaxX(self.frame)-timer.frame.width,CGRectGetMidY(self.frame)-(timer.frame.height/2))
             
             timer.zPosition = zPositionTimer
             gameplayNode.addChild(timer)

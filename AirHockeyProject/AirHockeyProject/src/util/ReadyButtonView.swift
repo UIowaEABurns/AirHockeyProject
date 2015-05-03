@@ -56,6 +56,7 @@ public class ReadyButtonView : UIView {
     }
     
     func styleButton() {
+        
         if ready {
             readyButton.backgroundColor = UIColor.greenColor()
             readyButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -81,7 +82,7 @@ public class ReadyButtonView : UIView {
         if (s.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).isEmpty){
             return 1
         }
-        var testSize : CGFloat = 1
+        var testSize : CGFloat = 20
         let temp : NSString = s
         while (testSize<150) {
             let dict = [NSFontAttributeName:UIFont(name: fontName, size: testSize)!]
@@ -93,8 +94,8 @@ public class ReadyButtonView : UIView {
             }
             
             
-            testSize = testSize + 2
+            testSize = testSize + 4
         }
-        return testSize - 2
+        return testSize - 4
     }
 }

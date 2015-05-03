@@ -83,7 +83,8 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         aiDifficultySelector.titleLabel.text = "Difficulty"
         baseScreenPlayerText.text = "Player " + String(playerNumber)
         readyScreenPlayerText.text = user?.getUsername()
-        
+        readyButtonView.readyButton.addTarget(self, action: "readySwitched:", forControlEvents: .TouchUpInside)
+
         
         
         
@@ -98,11 +99,15 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         if (user != nil) {
             settingsProfile = user!.getSettingsProfile()!
             readyScreenPlayerText.text = user!.getUsername()!
-            readyButtonView.styleButton()
             switchScreensNoAnimation(ReadyDisplay)
+            //readyButtonView.styleButton()
+
         }
-        readyButtonView.readyButton.addTarget(self, action: "readySwitched:", forControlEvents: .TouchUpInside)
     }
+    func handleLayoutChange() {
+        readyButtonView.styleButton()
+    }
+    
     @IBAction func LoginButtonPressed(sender: AnyObject) {
         SoundManager().playButtonPressedSound()
 
@@ -182,9 +187,10 @@ class TwoPBaseView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
             self.user = loginAccount
             self.settingsProfile = loginAccount.getSettingsProfile()!
             readyScreenPlayerText.text = user!.getUsername()!
-            readyButtonView.styleButton()
+            
 
             switchScreens(ReadyDisplay)
+            readyButtonView.styleButton()
             self.eventDelegate.handleLoginChange()
         } else {
             //TODO: Handle a failed login

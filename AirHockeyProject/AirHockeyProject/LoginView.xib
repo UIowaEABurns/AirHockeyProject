@@ -28,7 +28,7 @@
                         <constraint firstAttribute="width" constant="242" id="NfC-5F-S85"/>
                         <constraint firstAttribute="height" constant="43" id="Pl2-U1-7CC"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="24"/>
+                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="32"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -59,9 +59,11 @@
                     <rect key="frame" x="8" y="8" width="91" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Ae1-Mv-WAW"/>
-                        <constraint firstAttribute="width" constant="91" id="eXn-WV-tA3"/>
+                        <constraint firstAttribute="width" constant="91" id="eXn-WV-tA3">
+                            <variation key="widthClass=compact" constant="80"/>
+                        </constraint>
                     </constraints>
-                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
+                    <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="18"/>
                     <state key="normal" title="Cancel" backgroundImage="RedButton.png">
                         <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,12 +74,17 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="fcQ-cX-VUU" firstAttribute="leading" secondItem="OhU-F5-qa3" secondAttribute="leading" constant="8" id="1Ng-vq-tro"/>
-                <constraint firstItem="fcQ-cX-VUU" firstAttribute="top" secondItem="OhU-F5-qa3" secondAttribute="top" constant="8" id="Dd3-sA-d4j"/>
+                <constraint firstItem="fcQ-cX-VUU" firstAttribute="leading" secondItem="OhU-F5-qa3" secondAttribute="leading" constant="8" id="1Ng-vq-tro">
+                    <variation key="widthClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstItem="fcQ-cX-VUU" firstAttribute="top" secondItem="OhU-F5-qa3" secondAttribute="top" constant="8" id="Dd3-sA-d4j">
+                    <variation key="widthClass=compact" constant="260"/>
+                </constraint>
                 <constraint firstAttribute="bottom" secondItem="Ryp-xf-ftt" secondAttribute="bottom" constant="8" id="GcW-1s-IBy"/>
                 <constraint firstAttribute="centerX" secondItem="Ryp-xf-ftt" secondAttribute="centerX" id="Jte-UK-Teb"/>
                 <constraint firstAttribute="centerX" secondItem="7Jc-qI-7hI" secondAttribute="centerX" id="dtF-sx-whT"/>
                 <constraint firstItem="Ryp-xf-ftt" firstAttribute="top" secondItem="7Jc-qI-7hI" secondAttribute="bottom" constant="8" id="ixH-0D-RQ8"/>
+                <constraint firstAttribute="bottom" secondItem="fcQ-cX-VUU" secondAttribute="bottom" id="lVA-9r-gxb"/>
                 <constraint firstItem="sfu-Cy-Dvj" firstAttribute="top" secondItem="OhU-F5-qa3" secondAttribute="top" constant="8" id="mAs-b8-6er"/>
                 <constraint firstItem="7Jc-qI-7hI" firstAttribute="top" secondItem="sfu-Cy-Dvj" secondAttribute="bottom" constant="8" id="u49-g3-B8u"/>
                 <constraint firstAttribute="centerX" secondItem="sfu-Cy-Dvj" secondAttribute="centerX" id="z8K-qU-yfI"/>
@@ -87,6 +94,13 @@
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="u49-g3-B8u"/>
+                    <exclude reference="lVA-9r-gxb"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="constraints">
+                    <exclude reference="Dd3-sA-d4j"/>
+                    <include reference="lVA-9r-gxb"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="353" y="476"/>
