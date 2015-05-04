@@ -80,7 +80,7 @@ public class AirHockeyConstants {
     //TODO: Localizing all default settings for the game in this function! Do needed tweaking in here!
     public class func getDefaultSettings() -> SettingsProfile {
        var s: SettingsProfile = SettingsProfile()
-        s.setFriction(GameObjectSize.Small)
+        s.setFriction(GameObjectSize.Normal)
         
         
         //These are ratios of board width to paddle radius

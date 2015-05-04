@@ -53,6 +53,7 @@ private enum AIState {
     case Agress // actively block the front of the court
     case Align // try to set up for a strike
     case Powerup // try to obtain a powerup
+    case Center // move to goal
 }
 
 
@@ -70,7 +71,9 @@ public class AIPlayer : Player  {
     private var minReactionFrames = 15
     private var maxReactionFrames = 60
     
-    
+    private var touchCounter : Int = 0
+    private var unlockCounter : Int = 0
+    private var locked: Bool = false
     private var puck : Puck!
     private var defendingHalf : CGRect!
     init(diff : AIDifficulty, i: Int, input: InputManager, p: GameScene) {
@@ -145,18 +148,33 @@ public class AIPlayer : Player  {
     
     //this is the entry point to the AI logic
     override func getMovementVector() -> CGVector? {
+        if locked {
+            println("locked!")
+            unlockCounter = unlockCounter + 1
+            if unlockCounter > 120 {
+                unlockCounter = 0
+                locked = false
+                touchCounter = 0
+            }
+        }
         setState()
         if (self.state == AIState.Strike) {
             return Geometry.getAverageVector([trackPuckHorizontally(),getStrikeVector()])
         } else if (self.state == AIState.Defend) {
             return Geometry.getAverageVector([trackPuckHorizontally(),getDefendVector()])
-        } else if (self.state == AIState.Powerup) {
+        } else if (self.state == AIState.Center) {
+            return getDefendVector()
+        }
+        else if (self.state == AIState.Powerup) {
             let powerVector = getPowerupVector()
             if (powerVector != nil) {
                 return Geometry.getAverageVector([powerVector!])
 
             }
         }
+        
+        
+        
         
         return nil
     }
@@ -165,6 +183,10 @@ public class AIPlayer : Player  {
     private func setState() {
         let puckOnThisHalf = defendingHalf.contains(puck.position)
         var newState = self.state
+        if locked {
+            self.state = AIState.Center
+            return
+        }
         if (puckOnThisHalf) {
             if (puck.isIntangible()) {
                 self.state = AIState.Defend // no reaction time for this
@@ -173,6 +195,7 @@ public class AIPlayer : Player  {
                 newState = AIState.Strike
             }
         } else {
+            touchCounter = 0
             let powerup = self.scene.getPowerup()
         
             if (powerup != nil && powerup!.parent != nil) {
@@ -246,6 +269,13 @@ public class AIPlayer : Player  {
         return MAX_MEDIUM_AI_PADDLE_ACCEL
     }
     
-   
+    override public func handlePuckTouched() {
+        touchCounter = touchCounter + 1
+        if touchCounter > 20 {
+            locked = true
+        }
+        
+        
+    }
     
 }

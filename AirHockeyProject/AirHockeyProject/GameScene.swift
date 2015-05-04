@@ -144,29 +144,25 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func addPauseButtons() {
+ 
         
-        
-       
-       
-        
-        
-        
-        
-        let pauseButtonSize = CGSize(width: (1-TABLE_WIDTH_FRACTION)/2 * self.frame.width * 2.1, height: self.frame.height * 0.15)
+        let pauseButtonSize = CGSize(width: self.frame.height * 0.15 , height: (1-TABLE_WIDTH_FRACTION)/2 * self.frame.width)
         
         
         pauseButton  = Button(fontNamed: theme.fontName, block: {self.pauseGame()}, s : pauseButtonSize, defaultFontColor: theme.getFontColor())
+        println(pauseButton.frame.size)
+        
         pauseButton.zRotation = CGFloat(M_PI/2.0)
-        pauseButton.label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Bottom
+        println(pauseButton.frame.size)
+        pauseButton.label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center
         pauseButton.setText("Pause")
         pauseButton.label.fontColor = theme.getFontColor()
-        pauseButton.name = "pause"
     
-        pauseButton.position = CGPointMake(CGRectGetMinX(self.frame)+pauseButton.frame.height,CGRectGetMidY(self.frame)-(pauseButton.frame.height/2))
+        pauseButton.position = CGPointMake(CGRectGetMinX(self.frame)+pauseButton.frame.width,CGRectGetMidY(self.frame)-(pauseButton.frame.height/2))
         touchHandlers.append(pauseButton)
         
         
-        gameplayNode.addChild(pauseButton)
+        self.addChild(pauseButton)
         
         if self.isDemo {
             pauseButton.alpha = 0
@@ -216,6 +212,19 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             //puck colliding with paddle
             if (contact.bodyA.categoryBitMask == paddleCategory || contact.bodyB.categoryBitMask == paddleCategory) {
                 soundManager.playPaddleClick(Geometry.distance(CGPoint(x: contact.bodyA.velocity.dx, y: contact.bodyA.velocity.dy), b: CGPoint(x: contact.bodyB.velocity.dx, y: contact.bodyB.velocity.dy)))
+                
+                var paddle : Paddle? = nil
+                if contact.bodyA.categoryBitMask == paddleCategory {
+                    paddle = contact.bodyA.node as? Paddle
+                } else {
+                    paddle = contact.bodyB.node as? Paddle
+                }
+                if paddle != nil {
+                    if let num = paddle!.getPlayerNumber() {
+                        self.getPlayerFromPlayerNumber(num).handlePuckTouched()
+
+                    }
+                }
             } else if (contact.bodyA.categoryBitMask == edgeCategory || contact.bodyB.categoryBitMask == edgeCategory) {
                 soundManager.playWallClick(Geometry.distance(CGPoint(x: contact.bodyA.velocity.dx, y: contact.bodyA.velocity.dy), b: CGPoint(x: contact.bodyB.velocity.dx, y: contact.bodyB.velocity.dy)))
             }
@@ -313,9 +322,11 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             playerTwo.setPaddle(paddle)
         
             
-            let timerSize = CGSize(width: (1-TABLE_WIDTH_FRACTION)/2 * self.frame.width * 2.1, height: self.frame.height * 0.15)
-
+            let timerSize = CGSize(width: self.frame.height * 0.2, height: (1-TABLE_WIDTH_FRACTION)/2 * self.frame.width)
+            
             timer = GameTimer(seconds: Int64(settingsProfile.getTimeLimit()!),font : theme.fontName!, size: timerSize, singleSecond: false)
+            timer.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center
+            
             timer.zRotation = CGFloat((M_PI*3.0)/2.0)
             timer.fontColor = theme.getFontColor()
             
@@ -391,6 +402,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     private func getScoreLabelNode() -> SKLabelNode {
         let score = SKLabelNode(fontNamed: theme.fontName)
         score.zPosition = zPositionTimer
+        score.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center
         score.fontColor = theme.getFontColor()
         score.fontSize = timer.getFontSize()
         score.zRotation = CGFloat((M_PI*3.0)/2.0)
@@ -646,7 +658,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                 } else if goal.containsPoint(self.playingTable.getPuck().position) {
                     self.goalFrameCounter = self.goalFrameCounter + 1
-                    if (self.goalFrameCounter > 80) {
+                    if (self.goalFrameCounter > 40) {
                         self.goalFrameCounter = 0
                         goal.handleGoalScored()
                         self.handleGoalScored(goal.getPlayerNumber())

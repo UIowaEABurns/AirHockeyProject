@@ -164,4 +164,8 @@ public class Player {
         return paddlePositionBeforeUpdate
     }
     
+    public func handlePuckTouched() {
+        
+    }
+    
 }

@@ -14,8 +14,8 @@ public class WinScreen : SKNode, TouchHandlerDelegate {
     private var active = true
     var parentScene : GameScene
     var winLabel : FittedLabelNode
-    var p1ScoreLabel : SKLabelNode
-    var p2ScoreLabel : SKLabelNode
+    var p1ScoreLabel : FittedLabelNode
+    var p2ScoreLabel : FittedLabelNode
     var rematchButton : Button!
     var exitButton : Button!
     init(p1Score : Int, p2Score : Int, p1Name : String, p2Name : String, t : Theme, parent : GameScene) {
@@ -29,7 +29,7 @@ public class WinScreen : SKNode, TouchHandlerDelegate {
             finalMessage = p2Name + " wins!"
         }
         
-        
+        let scoreLabelSize = CGSize(width: parent.frame.width * 0.1, height: parent.frame.height * 0.15)
         
         winLabel = FittedLabelNode(s: topLabelSize, str: finalMessage)
         winLabel.setFittedFontName(t.fontName!)
@@ -38,16 +38,18 @@ public class WinScreen : SKNode, TouchHandlerDelegate {
         winLabel.position = CGPoint(x: parent.frame.midX, y: parent.frame.maxY-150)
         winLabel.zPosition = zPositionOverlayButtons
         winLabel.fontColor = t.getFontColor()
-        p1ScoreLabel = SKLabelNode(fontNamed: t.fontName!)
-        p1ScoreLabel.fontSize = winLabel.fontSize
+        p1ScoreLabel = FittedLabelNode(s: scoreLabelSize, str: String(p1Score))
+        p1ScoreLabel.setFittedFontName(t.fontName!)
+        //p1ScoreLabel.fontSize = winLabel.fontSize
         p1ScoreLabel.fontColor = t.getFontColor()
-        p1ScoreLabel.text = String(p1Score)
+        //p1ScoreLabel.text = String(p1Score)
         let scoreLabelDistanceFromCenter : CGFloat = 120
-        let scoreLabelDistanceFromBanner : CGFloat = 80
+        let scoreLabelDistanceFromBanner : CGFloat = 120
         p1ScoreLabel.position = CGPoint(x: parent.frame.midX-scoreLabelDistanceFromCenter, y: winLabel.position.y - winLabel.frame.height-scoreLabelDistanceFromBanner)
         p1ScoreLabel.zPosition = zPositionOverlayButtons
-        p2ScoreLabel = SKLabelNode(fontNamed: t.fontName!)
-        p2ScoreLabel.fontSize = winLabel.fontSize
+        p2ScoreLabel = FittedLabelNode(s: scoreLabelSize, str: String(p2Score))
+        p2ScoreLabel.setFittedFontName(t.fontName!)
+        //p2ScoreLabel.fontSize = winLabel.fontSize
         p2ScoreLabel.text = String(p2Score)
         p2ScoreLabel.fontColor = t.getFontColor()
         p2ScoreLabel.position = CGPoint(x: parent.frame.midX+scoreLabelDistanceFromCenter, y: winLabel.position.y - winLabel.frame.height-scoreLabelDistanceFromBanner)
