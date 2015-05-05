@@ -93,8 +93,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="u49-g3-B8u"/>
                     <exclude reference="lVA-9r-gxb"/>
+                    <exclude reference="u49-g3-B8u"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">

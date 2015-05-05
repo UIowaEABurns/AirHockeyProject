@@ -16,6 +16,7 @@ public class GameTimer : FittedLabelNode {
     private var block : dispatch_block_t?
     public init(seconds : Int64, font : String, size : CGSize, singleSecond : Bool) {
         timer=Timer()
+        
         timer.setTimeLimit(seconds)
         self.singleSecond = singleSecond
         super.init(s: size, str: "")

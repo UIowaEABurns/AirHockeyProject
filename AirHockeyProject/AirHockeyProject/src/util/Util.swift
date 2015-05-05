@@ -61,6 +61,14 @@ class Util : NSObject, UIGestureRecognizerDelegate {
     }
     
     
+    class func styleNavBar(controller : UINavigationController?) {
+        if let c = controller {
+            c.navigationBar.translucent = true
+            c.navigationBar.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.4)
+            c.navigationBar.barTintColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.4)
+        }
+    }
+    
     class func applyBackgroundToView(view : UIView) {
         let image = UIImage(contentsOfFile: NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent("menuBackground.png"))
         

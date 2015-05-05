@@ -92,5 +92,15 @@ public class Settings {
         stmt.run()
 
     }
+    
+    // given a SettingsProfile with all fields set, updates what is saved in the database
+    class func updateSettingsProfileTheme(s : SettingsProfile) {
+        let db = Database(DatabaseManager.getDatabasePath() as String)
+        
+        let stmt=db.prepare("update settings set theme_name=? where id=?",[s.getThemeName(),s.getId()])
+        
+        stmt.run()
+        
+    }
 
 }

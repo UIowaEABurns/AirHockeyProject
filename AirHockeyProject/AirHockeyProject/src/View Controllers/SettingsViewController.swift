@@ -45,8 +45,9 @@ class SettingsViewController : UIViewController  {
     @IBOutlet weak var settingsScrollView: UIScrollView!
     
     @IBOutlet weak var chooseThemeButton: UIButton!
+    @IBOutlet weak var restoreDefaultsButton: UIButton!
+    
     var settingsProfile : SettingsProfile!
-    private var themeSettingsProfile : SettingsProfile!
     
     private var isQuestionSet = false
     private var questionButton : UIButton!
@@ -64,8 +65,7 @@ class SettingsViewController : UIViewController  {
         println(chooseThemeButton.frame.origin)
         
         
-        themeSettingsProfile = AirHockeyConstants.getDefaultSettings()
-        themeSettingsProfile.setThemeName(settingsProfile.getThemeName()!)
+        
         puckRadiusWidget.titleLabel.text = "Puck Size"
         puckRadiusWidget.values = sizes
         p1PaddleRadiusWidget.titleLabel.text = "P1 Paddle Size"
@@ -88,7 +88,7 @@ class SettingsViewController : UIViewController  {
 
         
         
-        settingsScrollView.contentSize = CGSize(width: settingsScrollView.contentSize.width, height: chooseThemeButton.frame.origin.y + chooseThemeButton.frame.height)
+        settingsScrollView.contentSize = CGSize(width: settingsScrollView.contentSize.width, height: restoreDefaultsButton.frame.origin.y + restoreDefaultsButton.frame.height)
         
         AirHockeyConstants.loadThemeChooser()
         Util.applyBackgroundToView(self.view)
@@ -120,8 +120,8 @@ class SettingsViewController : UIViewController  {
             questionButton.frame = CGRect(origin: CGPoint(x: powerupsEnabledWidget.frame.width - (questionMarkSize), y: 5), size: CGSize(width: questionMarkSize, height: questionMarkSize))
             
            
-            //questionButton.addTarget(self,action: "powerupQuestionPressed:",forControlEvents: .TouchUpInside)
         }
+        settingsScrollView.contentSize = CGSize(width: settingsScrollView.contentSize.width, height: restoreDefaultsButton.frame.origin.y + restoreDefaultsButton.frame.height)
     }
     
     
@@ -151,7 +151,6 @@ class SettingsViewController : UIViewController  {
     }
     
     func setProfileFromWidgets() {
-        settingsProfile.setThemeName(themeSettingsProfile.getThemeName()!)
         settingsProfile.setPuckRadius(GameObjectSize.intToSize(puckRadiusWidget.currentIndex)!)
         settingsProfile.setPlayerOnePaddleRadius(GameObjectSize.intToSize(p1PaddleRadiusWidget.currentIndex)!)
         settingsProfile.setPlayerTwoPaddleRadius(GameObjectSize.intToSize(p2PaddleRadiusWidget.currentIndex)!)
@@ -182,7 +181,7 @@ class SettingsViewController : UIViewController  {
         SoundManager().playButtonPressedSound()
 
         setWidgetsFromSettings(AirHockeyConstants.getDefaultSettings())
-        themeSettingsProfile.setThemeName(AirHockeyConstants.getDefaultSettings().getThemeName()!)
+        
     }
     
     
@@ -190,7 +189,7 @@ class SettingsViewController : UIViewController  {
         let destination = themeChooser
         SoundManager().playButtonPressedSound()
 
-        themeChooser.settingsProfile=themeSettingsProfile
+        themeChooser.settingsProfile=settingsProfile
         self.navigationController!.pushViewController(themeChooser, animated: true)        
     }
 }

@@ -150,10 +150,8 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         pauseButton  = Button(fontNamed: theme.fontName, block: {self.pauseGame()}, s : pauseButtonSize, defaultFontColor: theme.getFontColor())
-        println(pauseButton.frame.size)
         
         pauseButton.zRotation = CGFloat(M_PI/2.0)
-        println(pauseButton.frame.size)
         pauseButton.label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center
         pauseButton.setText("Pause")
         pauseButton.label.fontColor = theme.getFontColor()
@@ -207,6 +205,20 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         if (contact.bodyA.node!.name == PUCK_NAME || contact.bodyB.node!.name == PUCK_NAME) {
+            
+            var puck : Puck? = nil
+            if contact.bodyA.node!.name == PUCK_NAME {
+                puck = contact.bodyA.node! as? Puck
+            } else {
+                puck = contact.bodyB.node! as? Puck
+            }
+            if puck != nil {
+                if let body = puck!.physicsBody {
+                    
+                    body.velocity.dx = body.velocity.dx + GameUtil.getRandomFloatInRange(-5, max: 5)
+                }
+            }
+            
             
             EffectManager.runSparkEffect(contact.contactPoint, parent: self)
             //puck colliding with paddle
@@ -323,17 +335,32 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
         
             
             let timerSize = CGSize(width: self.frame.height * 0.2, height: (1-TABLE_WIDTH_FRACTION)/2 * self.frame.width)
-            
+            println(timerSize)
             timer = GameTimer(seconds: Int64(settingsProfile.getTimeLimit()!),font : theme.fontName!, size: timerSize, singleSecond: false)
+            println(timer.frame.size)
+
             timer.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center
-            
+            let tempRect = SKShapeNode(rectOfSize: timerSize)
+            /*tempRect.zPosition = 100
+            tempRect.zRotation = CGFloat((M_PI*3.0)/2.0)
+            tempRect.fillColor = SKColor.blackColor()
+            //println(tempRect.frame.size)
+            tempRect.position = CGPointMake(CGRectGetMaxX(self.frame)-(tempRect.frame.width/2),CGRectGetMidY(self.frame))
+            //gameplayNode.addChild(tempRect)
+            let tempRect2 = SKShapeNode(rectOfSize: CGSize(width: 5,height: 5))
+            tempRect2.zPosition = 101
+            tempRect2.fillColor = SKColor.greenColor()
+            tempRect2.position = CGPointMake(0,0)
+            timer.addChild(tempRect2)*/
             timer.zRotation = CGFloat((M_PI*3.0)/2.0)
             timer.fontColor = theme.getFontColor()
             
-            timer.position = CGPointMake(CGRectGetMaxX(self.frame)-timer.frame.width,CGRectGetMidY(self.frame)-(timer.frame.height/2))
+            timer.position = CGPointMake(CGRectGetMaxX(self.frame) - (timerSize.height/2),CGRectGetMidY(self.frame) - (timer.frame.height/2))
             
             timer.zPosition = zPositionTimer
+        
             gameplayNode.addChild(timer)
+            println(timer.frame.size)
             if (settingsProfile.getTimeLimit()!==0) {
                 timer.hidden = true // we won't be timing anything if the limit is 0
             }
@@ -412,9 +439,7 @@ public class GameScene: SKScene, SKPhysicsContactDelegate {
     
     public func handleGameConcluded() {
         if powerup != nil {
-            println("concluded")
             powerup!.timer!.setTimeLimit(0)
-            println(powerup!.update())
             powerup = nil
         }
         if timer != nil {

@@ -352,6 +352,7 @@
                         <outlet property="p2PaddleRadiusWidget" destination="23L-qq-h2w" id="gf7-7X-9aA"/>
                         <outlet property="powerupsEnabledWidget" destination="vmD-hx-lae" id="1qQ-oV-A4b"/>
                         <outlet property="puckRadiusWidget" destination="WIt-wW-7Az" id="RHO-pn-Bew"/>
+                        <outlet property="restoreDefaultsButton" destination="oNQ-yK-hZn" id="RgP-Nk-N9x"/>
                         <outlet property="settingsScrollView" destination="Ugq-zV-xRT" id="Izc-wZ-Z38"/>
                         <outlet property="timeWidget" destination="FxT-Nc-Sa2" id="69h-7c-ZcH"/>
                         <segue destination="j0I-34-MIU" kind="show" identifier="PowerupTutorialSegue" id="lac-Nt-eT5"/>
@@ -373,8 +374,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme Selection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pod-yC-dFK">
+                                <rect key="frame" x="16" y="72" width="568" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1bI-Ey-ikT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="32"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcx-LM-0Pu">
+                                <rect key="frame" x="195" y="530" width="210" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="210" id="3M7-av-gMT"/>
+                                    <constraint firstAttribute="height" constant="62" id="WA3-LW-t2V"/>
+                                    <constraint firstAttribute="width" secondItem="Zcx-LM-0Pu" secondAttribute="height" multiplier="105:31" id="dyg-T9-0O5"/>
+                                    <constraint firstAttribute="width" constant="210" id="glw-Cf-Xbx"/>
+                                    <constraint firstAttribute="width" secondItem="Zcx-LM-0Pu" secondAttribute="height" multiplier="179:53" id="p7q-tk-ijo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="22"/>
+                                <state key="normal" title="Save" backgroundImage="RedButton.png">
+                                    <color key="titleColor" red="0.1563648799" green="0.90861356510000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="dyg-T9-0O5"/>
+                                        <exclude reference="glw-Cf-Xbx"/>
+                                        <exclude reference="p7q-tk-ijo"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="savePressed:" destination="zeg-1e-Cxb" eventType="touchUpInside" id="OGQ-wE-hlm"/>
+                                </connections>
+                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHZ-4M-pCh">
-                                <rect key="frame" x="0.0" y="122" width="600" height="478"/>
+                                <rect key="frame" x="0.0" y="122" width="600" height="400"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="523" id="TLD-pA-frs"/>
@@ -385,28 +420,27 @@
                                     </mask>
                                 </variation>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme Selection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pod-yC-dFK">
-                                <rect key="frame" x="16" y="72" width="568" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="1bI-Ey-ikT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="BanglaSangamMN" family="Bangla Sangam MN" pointSize="32"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="LHZ-4M-pCh" secondAttribute="centerX" id="0eY-uE-G1h"/>
+                            <constraint firstItem="Zcx-LM-0Pu" firstAttribute="top" secondItem="LHZ-4M-pCh" secondAttribute="bottom" constant="8" id="6Fe-6G-ECI"/>
                             <constraint firstItem="6yc-5t-DQh" firstAttribute="top" secondItem="LHZ-4M-pCh" secondAttribute="bottom" id="GQI-5K-1Dc"/>
                             <constraint firstItem="LHZ-4M-pCh" firstAttribute="width" secondItem="WGQ-tg-Q9O" secondAttribute="width" id="IkR-u8-3dk"/>
                             <constraint firstItem="Pod-yC-dFK" firstAttribute="top" secondItem="xHP-Xx-jB1" secondAttribute="bottom" constant="8" id="NiR-Bo-azL"/>
+                            <constraint firstItem="6yc-5t-DQh" firstAttribute="top" secondItem="Zcx-LM-0Pu" secondAttribute="bottom" constant="8" id="Q1W-6Y-mPH"/>
+                            <constraint firstAttribute="centerX" secondItem="Zcx-LM-0Pu" secondAttribute="centerX" id="b3C-0B-5yH"/>
                             <constraint firstAttribute="centerX" secondItem="Pod-yC-dFK" secondAttribute="centerX" id="bwn-gX-CzR"/>
                             <constraint firstItem="Pod-yC-dFK" firstAttribute="trailing" secondItem="WGQ-tg-Q9O" secondAttribute="trailingMargin" id="hR6-Qq-6ir"/>
                             <constraint firstItem="Pod-yC-dFK" firstAttribute="leading" secondItem="WGQ-tg-Q9O" secondAttribute="leadingMargin" id="hzP-zh-eKd"/>
                             <constraint firstItem="LHZ-4M-pCh" firstAttribute="top" secondItem="Pod-yC-dFK" secondAttribute="bottom" id="oAa-yF-cZm"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="GQI-5K-1Dc"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="d16-G0-eZ2" appends="YES" id="3BS-lc-9X6"/>
                         </connections>

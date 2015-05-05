@@ -149,9 +149,8 @@ public class AIPlayer : Player  {
     //this is the entry point to the AI logic
     override func getMovementVector() -> CGVector? {
         if locked {
-            println("locked!")
             unlockCounter = unlockCounter + 1
-            if unlockCounter > 120 {
+            if unlockCounter > 30 {
                 unlockCounter = 0
                 locked = false
                 touchCounter = 0
@@ -182,6 +181,11 @@ public class AIPlayer : Player  {
     //try to figure out what state to be in during this frame
     private func setState() {
         let puckOnThisHalf = defendingHalf.contains(puck.position)
+        if (!puckOnThisHalf) {
+            locked = false
+            touchCounter = 0
+            unlockCounter = 0
+        }
         var newState = self.state
         if locked {
             self.state = AIState.Center
@@ -271,7 +275,7 @@ public class AIPlayer : Player  {
     
     override public func handlePuckTouched() {
         touchCounter = touchCounter + 1
-        if touchCounter > 20 {
+        if touchCounter > 1 {
             locked = true
         }
         

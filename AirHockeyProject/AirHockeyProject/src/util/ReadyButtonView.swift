@@ -42,6 +42,7 @@ public class ReadyButtonView : UIView {
     }
     
     @IBAction func buttonClicked(sender: AnyObject) {
+        SoundManager().playButtonPressedSound()
         setReady(!ready)
     }
     

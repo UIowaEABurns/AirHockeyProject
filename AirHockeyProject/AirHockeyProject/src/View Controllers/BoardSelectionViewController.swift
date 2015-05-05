@@ -70,7 +70,7 @@ public class BoardSelectionViewController : UIViewController {
     override public func viewWillAppear(animated: Bool) {
         if self.navigationController != nil {
             self.navigationController!.navigationBar.hidden = false
-            self.navigationController!.navigationBar.topItem!.title = "Save"
+            self.navigationController!.navigationBar.topItem!.title = "Cancel"
         }
         for nextView in themeViews {
             originalTheme = settingsProfile.getThemeName()
@@ -111,12 +111,14 @@ public class BoardSelectionViewController : UIViewController {
         selectedView!.layer.borderColor = UIColor.greenColor().CGColor
     }
     
-    override public func viewWillDisappear(animated: Bool) {
+    @IBAction func savePressed(sender: UIButton) {
+        SoundManager().playButtonPressedSound()
         save()
+        self.navigationController!.popViewControllerAnimated(true)
     }
-    
     private func save() {
         settingsProfile.setThemeName(selectedView!.theme.boardName)
+        Settings.updateSettingsProfileTheme(settingsProfile)
     }
     
 }

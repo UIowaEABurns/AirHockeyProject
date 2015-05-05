@@ -18,7 +18,7 @@ public class FittedLabelNode : SKLabelNode {
     init(s : CGSize, str : String) {
         size = s
         super.init()
-        
+
         self.text = str
         
     }
