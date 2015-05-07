@@ -20,9 +20,7 @@ class SystemSettingsViewController : UIViewController {
         fxController.setValue(FX_VOLUME,animated:false)
         self.navigationController!.navigationBar.hidden = false
         self.navigationController!.interactivePopGestureRecognizer.delegate = SwipeDelegate
-        Util.styleNavBar(self.navigationController)
         self.navigationController!.navigationBar.topItem!.title = "Cancel"
-        self.title = "System Settings"
         Util.applyBackgroundToView(self.view)
     }
     

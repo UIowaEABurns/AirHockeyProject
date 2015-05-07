@@ -27,7 +27,8 @@ public class BoardSelectionViewController : UIViewController {
         let verticalSpacing : CGFloat = 10
         let tablesPerRow = 2
         scrollView.frame.size.width = self.view.frame.size.width
-        
+        //scrollView.layer.borderWidth = 2
+        //scrollView.layer.borderColor = UIColor.blackColor().CGColor
         let startHeight : CGFloat = 0
         
         let frameWidth = (self.view.frame.width - ( horizontalSpacing * (CGFloat(tablesPerRow) + 1))) / CGFloat(tablesPerRow)
@@ -38,7 +39,7 @@ public class BoardSelectionViewController : UIViewController {
         super.viewDidLoad()
         themes = Themes().getAllThemes()
        
-        var frame = CGRect(origin: CGPoint(x: 0,y: startHeight - (verticalSpacing * 2 + frameHeight)), size: CGSize(width: frameWidth, height: frameHeight))
+        var frame = CGRect(origin: CGPoint(x: 0,y: startHeight - (verticalSpacing + frameHeight)), size: CGSize(width: frameWidth, height: frameHeight))
         var counter = 0
         var rows = 0
         for theme in themes {

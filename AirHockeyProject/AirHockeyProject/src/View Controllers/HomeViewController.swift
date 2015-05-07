@@ -15,6 +15,8 @@ class HomeViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController!.navigationBar.hidden = true
+        Util.styleNavBar(self.navigationController)
+
     }
     
     private func setupGame() {

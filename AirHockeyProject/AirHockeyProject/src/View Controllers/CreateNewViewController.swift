@@ -59,7 +59,7 @@ class CreateNewViewController : UIViewController, UITextFieldDelegate {
             empty = true
             success = false
 
-        } else if Users.getUserByUsername(u) != nil {
+        } else if Users.getUserByUsername(u) != nil || u == "Guest" {
             Username.layer.borderWidth = errorBorderWidth
 
             errorMessage = errorMessage + "-- The username " + u + " is already taken"

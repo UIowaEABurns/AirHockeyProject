@@ -42,6 +42,20 @@ public class GameViewController: UIViewController {
         if (isDemo) {
             soundManager.isMuted = true
         }
+        if playerOne != nil {
+            playerOne = Users.getUserByUsername(playerOne!.getUsername()!)
+            if playerOne == nil {
+                playerOne = AirHockeyConstants.getGuestUser()
+            }
+        }
+        
+        if playerTwo != nil {
+            playerTwo = Users.getUserByUsername(playerTwo!.getUsername()!)
+            if playerTwo == nil {
+                playerTwo = AirHockeyConstants.getGuestUser()
+            }
+        }
+        
         //TODO : Pass in the correct values here
         scene = GameScene(size: self.view.frame.size,p1: playerOne,p2: playerTwo,profile: settingsProfile, sound: soundManager, nav: self.navigationController)
         // Configure the view.
